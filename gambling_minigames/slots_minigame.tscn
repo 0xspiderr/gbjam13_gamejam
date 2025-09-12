@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxgfacmnppn7h"]
+
+[ext_resource type="Script" uid="uid://5h8qseebioe2" path="res://gambling_minigames/slots_minigame.gd" id="1_gubm0"]
+[ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_jm7xa"]
+[ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="3_ulbyp"]
+
+[node name="SlotsMinigame" type="Node2D"]
+script = ExtResource("1_gubm0")
+
+[node name="Header" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="Header"]
+offset_right = 160.0
+offset_bottom = 23.0
+text = "Slots"
+horizontal_alignment = 1
+
+[node name="Prev" type="Button" parent="Header"]
+offset_right = 24.0
+offset_bottom = 23.0
+icon = ExtResource("2_jm7xa")
+flat = true
+
+[node name="Next" type="Button" parent="Header"]
+offset_left = 160.0
+offset_top = 23.0
+offset_right = 184.0
+offset_bottom = 46.0
+rotation = 3.14159
+icon = ExtResource("2_jm7xa")
+flat = true
+
+[node name="PLACEHOLDER" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ulbyp")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Header/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Header/Next" to="." method="_on_next_pressed"]
