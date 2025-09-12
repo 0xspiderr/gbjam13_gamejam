@@ -1,6 +1,7 @@
 extends Node
 
 
+var luck: float = 0.0
 var is_in_combat: bool = false
 
 

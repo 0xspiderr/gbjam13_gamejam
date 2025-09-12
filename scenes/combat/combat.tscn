@@ -12,47 +12,57 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5vqsm")
 
-[node name="MarginContainer" type="AspectRatioContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -67.0
-offset_top = -22.0
-offset_right = 67.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_6aonj")
 
-[node name="AttackBtn" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Container" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="DrawCardBtn" type="Button" parent="MarginContainer/HBoxContainer/Container"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 10
-text = "attack"
+text = "draw card"
 
-[node name="DefendBtn" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="RollDiceBtn" type="Button" parent="MarginContainer/HBoxContainer/Container"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 10
-text = "defend"
+text = "roll dice"
 
-[node name="TestBtn" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="TestBtn" type="Button" parent="."]
 layout_mode = 2
+offset_left = 115.0
+offset_top = 1.0
+offset_right = 160.0
+offset_bottom = 23.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 10
 text = "go back"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/TestBtn" to="." method="_on_test_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Container/DrawCardBtn" to="." method="_on_draw_card_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Container/RollDiceBtn" to="." method="_on_roll_dice_btn_pressed"]
+[connection signal="pressed" from="TestBtn" to="." method="_on_test_btn_pressed"]
