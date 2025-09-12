@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://wikpds4xmuvt"]
+[gd_scene load_steps=11 format=3 uid="uid://wikpds4xmuvt"]
 
 [ext_resource type="Script" uid="uid://dwfh6rw1vmhy4" path="res://gambling_minigames/blackjack_minigame.gd" id="1_7vd6g"]
 [ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_joqlj"]
-[ext_resource type="PackedScene" uid="uid://c7dr6chxe2hwd" path="res://card.tscn" id="2_pdxap"]
 [ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="3_pdxap"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7vd6g"]
@@ -29,9 +28,6 @@ font_size = 8
 [node name="BlackJackMinigame" type="Node2D"]
 script = ExtResource("1_7vd6g")
 
-[node name="Card" parent="." instance=ExtResource("2_pdxap")]
-position = Vector2(15, 80)
-
 [node name="Header" type="Node2D" parent="."]
 
 [node name="Title" type="Label" parent="Header"]
@@ -56,7 +52,6 @@ icon = ExtResource("2_joqlj")
 flat = true
 
 [node name="PreGame" type="Node2D" parent="."]
-visible = false
 
 [node name="Play" type="Button" parent="PreGame"]
 offset_left = 5.0
@@ -135,6 +130,7 @@ label_settings = SubResource("LabelSettings_ttp6a")
 horizontal_alignment = 1
 
 [node name="MidGame" type="Node2D" parent="."]
+visible = false
 
 [node name="TryAgain" type="Button" parent="MidGame"]
 offset_left = 5.0
@@ -197,8 +193,7 @@ stream = ExtResource("3_pdxap")
 autoplay = true
 parameters/looping = true
 
-[node name="Card2" parent="." instance=ExtResource("2_pdxap")]
-position = Vector2(15, 50)
+[node name="CooldownTimer" type="Timer" parent="."]
 
 [connection signal="pressed" from="Header/Prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="Header/Next" to="." method="_on_next_pressed"]
@@ -206,3 +201,6 @@ position = Vector2(15, 50)
 [connection signal="pressed" from="PreGame/BetAdjust/Raise" to="." method="_on_raise_pressed"]
 [connection signal="pressed" from="PreGame/BetAdjust/Lower" to="." method="_on_lower_pressed"]
 [connection signal="pressed" from="MidGame/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="MidGame/PlayButtons/Hit" to="." method="_on_hit_pressed"]
+[connection signal="pressed" from="MidGame/PlayButtons/Stand" to="." method="_on_stand_pressed"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

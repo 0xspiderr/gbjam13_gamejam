@@ -4,11 +4,14 @@ var strValue
 @export var numValue:int
 @onready var valueText: Label = $Value
 
-func Update(value, x, y):
+func Spawn(x,y):
 	position.x = x
 	position.y = y
+
+func Update(value):
+	strValue = value
 	
-	valueText.text = value
+	valueText.text = strValue
 	match value:
 		"J","K","Q": # face - 10
 			numValue = 10
@@ -16,5 +19,7 @@ func Update(value, x, y):
 			numValue = 1
 		"hA": # high ace - 11
 			numValue = 11
+		"": # null
+			numValue = 0
 		_: # everything else
 			numValue = int(strValue)

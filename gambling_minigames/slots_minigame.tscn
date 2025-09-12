@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxgfacmnppn7h"]
+[gd_scene load_steps=9 format=3 uid="uid://cxgfacmnppn7h"]
 
 [ext_resource type="Script" uid="uid://5h8qseebioe2" path="res://gambling_minigames/slots_minigame.gd" id="1_gubm0"]
 [ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_jm7xa"]
+[ext_resource type="PackedScene" uid="uid://c7dr6chxe2hwd" path="res://card.tscn" id="3_nf43e"]
 [ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="3_ulbyp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_do5dl"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_0jwqi"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_egpui"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_mrrow"]
+font_size = 8
 
 [node name="SlotsMinigame" type="Node2D"]
 script = ExtResource("1_gubm0")
@@ -30,10 +43,113 @@ rotation = 3.14159
 icon = ExtResource("2_jm7xa")
 flat = true
 
+[node name="Slots" type="Node2D" parent="."]
+position = Vector2(50, 60)
+scale = Vector2(1.5, 1.5)
+
+[node name="Card" parent="Slots" instance=ExtResource("3_nf43e")]
+
+[node name="Card2" parent="Slots" instance=ExtResource("3_nf43e")]
+position = Vector2(20, 0)
+
+[node name="Card3" parent="Slots" instance=ExtResource("3_nf43e")]
+position = Vector2(40, 0)
+
+[node name="GameStatus" type="Label" parent="."]
+offset_top = 80.0
+offset_right = 160.0
+offset_bottom = 103.0
+horizontal_alignment = 1
+
+[node name="Footer" type="Node2D" parent="."]
+
+[node name="Play" type="Button" parent="Footer"]
+offset_left = 5.0
+offset_top = 110.0
+offset_right = 45.0
+offset_bottom = 136.0
+
+[node name="Text" type="Label" parent="Footer/Play"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 40.0
+offset_bottom = 22.0
+text = "PLAY"
+label_settings = SubResource("LabelSettings_do5dl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BetPanel" type="Node2D" parent="Footer"]
+position = Vector2(54, 110)
+
+[node name="Bet" type="Node2D" parent="Footer/BetPanel"]
+
+[node name="Text" type="Label" parent="Footer/BetPanel/Bet"]
+offset_right = 20.0
+offset_bottom = 12.0
+text = "Bet: "
+label_settings = SubResource("LabelSettings_0jwqi")
+
+[node name="Value" type="Label" parent="Footer/BetPanel/Bet"]
+offset_left = 24.0
+offset_right = 44.0
+offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_0jwqi")
+
+[node name="Total" type="Node2D" parent="Footer/BetPanel"]
+position = Vector2(0, 14)
+
+[node name="Text" type="Label" parent="Footer/BetPanel/Total"]
+offset_right = 20.0
+offset_bottom = 12.0
+text = "Total:"
+label_settings = SubResource("LabelSettings_0jwqi")
+
+[node name="Value" type="Label" parent="Footer/BetPanel/Total"]
+offset_left = 24.0
+offset_right = 44.0
+offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_0jwqi")
+
+[node name="BetAdjust" type="Node2D" parent="Footer"]
+position = Vector2(110, 110)
+
+[node name="Raise" type="Button" parent="Footer/BetAdjust"]
+offset_right = 40.0
+offset_bottom = 12.0
+
+[node name="Text" type="Label" parent="Footer/BetAdjust/Raise"]
+offset_right = 40.0
+offset_bottom = 12.0
+text = "RAISE"
+label_settings = SubResource("LabelSettings_egpui")
+horizontal_alignment = 1
+
+[node name="Lower" type="Button" parent="Footer/BetAdjust"]
+offset_top = 14.0
+offset_right = 40.0
+offset_bottom = 26.0
+
+[node name="Text" type="Label" parent="Footer/BetAdjust/Lower"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 12.0
+text = "LOWER"
+label_settings = SubResource("LabelSettings_mrrow")
+horizontal_alignment = 1
+
 [node name="PLACEHOLDER" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ulbyp")
 autoplay = true
 parameters/looping = true
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="pressed" from="Header/Prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="Header/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Footer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Footer/BetAdjust/Raise" to="." method="_on_raise_pressed"]
+[connection signal="pressed" from="Footer/BetAdjust/Lower" to="." method="_on_lower_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
