@@ -37,15 +37,14 @@ func _move_player(delta: float) -> void:
 	else:
 		velocity_weight = delta * friction
 	
-	velocity = player_dir * speed
-	#velocity.x = lerpf(velocity.x, player_dir.x * speed, velocity_weight)
-	#velocity.y = lerpf(velocity.y, player_dir.y * speed, velocity_weight)
+	velocity.x = lerpf(velocity.x, player_dir.x * speed, velocity_weight)
+	velocity.y = lerpf(velocity.y, player_dir.y * speed, velocity_weight)
 
 
 func _play_animation() -> void:
 	var player_dir_len: float = player_dir.length()
 	
-	if player_dir.length() == 0:
+	if player_dir_len == 0:
 		player_sprites.play(&"idle")
 	elif player_dir.y > 0:
 		player_sprites.play(&"walk_down")

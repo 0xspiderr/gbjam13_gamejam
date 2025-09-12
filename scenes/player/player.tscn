@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://byvrh5g6p20lk"]
+[gd_scene load_steps=49 format=3 uid="uid://byvrh5g6p20lk"]
 
 [ext_resource type="Script" uid="uid://cjafidlcvvgv3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://be4jwl6lx01gw" path="res://assets/sprites/player/idle-dice.png" id="2_75vfm"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c6u5iasul2b2x" path="res://assets/sprites/player/walk-left.png" id="4_qek5x"]
 [ext_resource type="Texture2D" uid="uid://b6s62b76vxdtt" path="res://assets/sprites/player/walk-right.png" id="5_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://3eojywu1by3h" path="res://assets/sprites/player/walk-up-dice.png" id="6_h17s1"]
-[ext_resource type="Script" uid="uid://b4t1o2k5hnxbk" path="res://scenes/player/player_camera.gd" id="7_0owmy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
 atlas = ExtResource("2_75vfm")
@@ -329,6 +328,5 @@ animation = &"walk_down"
 shape = SubResource("RectangleShape2D_8afob")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position_smoothing_enabled = true
+process_callback = 0
 position_smoothing_speed = 10.0
-script = ExtResource("7_0owmy")
