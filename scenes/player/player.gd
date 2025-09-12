@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func _move_player(delta: float) -> void:
 	player_dir = Input.get_vector("left", "right", "up", "down")
-	print(position)
+	print(player_dir)
 	# velocity weight determines wether the player will accelerate or slow down based on input
 	var velocity_weight := 0.0
 	# normalize direction so that the player speed will be the same diagonally too.
@@ -50,6 +50,10 @@ func _play_animation() -> void:
 		player_sprites.play(&"idle")
 	elif player_dir.y > 0:
 		player_sprites.play(&"walk_down")
+	elif player_dir.x > 0:
+		player_sprites.play(&"walk_right")
+	elif player_dir.x < 0:
+		player_sprites.play(&"walk_left")
 	else:
 		player_sprites.play(&"idle")
 		player_sprites.stop()
