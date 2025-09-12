@@ -5,7 +5,8 @@ extends CharacterBody2D
 @export var speed: float = 50.0
 @export var friction: float = 4.5
 @export var acceleration: float = 12.5
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var player_sprites: AnimatedSprite2D = $PlayerSprites
+
 
 
 var player_dir: Vector2 = Vector2.ZERO
@@ -39,6 +40,6 @@ func _move_player(delta: float) -> void:
 
 func _play_animation() -> void:
 	if player_dir.length() == 0:
-		animation_player.play(&"idle")
+		player_sprites.play(&"idle")
 	else:
-		animation_player.stop()
+		player_sprites.stop()
