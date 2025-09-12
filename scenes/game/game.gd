@@ -24,36 +24,27 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _get_current_level() -> void:
 	if current_scene.get_child_count():
-		current_level = current_scene.get_child(0).duplicate()
+		current_level = current_scene.get_child(0)
 
 
 #region COMBAT SIGNALS
 func _on_start_combat() -> void:
-	var scene: Node = null
-	## get the current loaded level scene and free it
-	if current_scene.get_child_count():
-		scene = current_scene.get_child(0)
-	
-	if is_instance_valid(current_level):
-		scene.queue_free()
+	# hide the current level
+	current_level.visible = false
 	
 	# get the combat scene and add it to the canvas layer because the
 	# combat scene is a ui scene
 	var combat_scene = COMBAT_TSCN.instantiate()
 	canvas_layer.add_child(combat_scene, true)
-	print(current_level)
 
 
 func _on_end_combat() -> void:
-	# after the combat has ended add the previous scene the player was in.
-	if is_instance_valid(current_level):
-		current_scene.add_child(current_level)
+	# after the combat has ended make the current level visible again
+	current_level.visible = true
 	
-	# also remove the combat scene
+	# remove the combat scene
 	var combat_scene = canvas_layer.get_child(0)
 	if is_instance_valid(combat_scene):
 		combat_scene.queue_free()
-	
-	# update the current level 
-	_get_current_level()
+
 #endregion

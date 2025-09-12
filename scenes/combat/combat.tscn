@@ -11,36 +11,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5vqsm")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+[node name="MarginContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -98.0
-offset_top = -40.0
-offset_right = 98.0
+offset_left = -67.0
+offset_top = -22.0
+offset_right = 67.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
+[node name="AttackBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-
-[node name="AttackBtn" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
 text = "attack"
 
-[node name="DefendBtn" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer"]
+[node name="DefendBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
 text = "defend"
 
-[node name="TestBtn" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer"]
+[node name="TestBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
 text = "go back"
 
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/TestBtn" to="." method="_on_test_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/TestBtn" to="." method="_on_test_btn_pressed"]

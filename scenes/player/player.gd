@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 
-@export var speed: float = 50.0
+@export var speed: float = 100.0
 @export var friction: float = 4.5
 @export var acceleration: float = 12.5
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
@@ -10,6 +10,10 @@ extends CharacterBody2D
 
 
 var player_dir: Vector2 = Vector2.ZERO
+
+
+func _ready() -> void:
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -24,7 +28,7 @@ func _move_player(delta: float) -> void:
 	var velocity_weight := 0.0
 	# normalize direction so that the player speed will be the same diagonally too.
 	player_dir = player_dir.normalized()
-	print(player_dir)
+	
 	if player_dir:
 		velocity_weight = delta * acceleration
 	else:

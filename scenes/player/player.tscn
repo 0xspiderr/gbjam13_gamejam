@@ -137,7 +137,7 @@ script = ExtResource("1_dovo2")
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8afob")
 animation = &"walk_down"
-frame_progress = 0.314005
+frame_progress = 0.378579
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8afob")
