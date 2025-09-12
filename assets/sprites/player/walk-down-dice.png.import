@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6wddf3aubqja"
-path="res://.godot/imported/dice-sprite.png-87f2b88ba50c9f6c693cc7066d1225b8.ctex"
+uid="uid://bl8ffm7mb3rs7"
+path="res://.godot/imported/walk-down-dice.png-227ccf98dca758bcd710c3c24e70966d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/dice-sprite.png"
-dest_files=["res://.godot/imported/dice-sprite.png-87f2b88ba50c9f6c693cc7066d1225b8.ctex"]
+source_file="res://assets/sprites/player/walk-down-dice.png"
+dest_files=["res://.godot/imported/walk-down-dice.png-227ccf98dca758bcd710c3c24e70966d.ctex"]
 
 [params]
 

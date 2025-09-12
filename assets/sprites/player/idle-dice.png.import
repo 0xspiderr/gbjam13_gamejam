@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl8ffm7mb3rs7"
-path="res://.godot/imported/walk-down-dice.png-7d4057bce3167c272fbf265ed73577d7.ctex"
+uid="uid://be4jwl6lx01gw"
+path="res://.godot/imported/idle-dice.png-58ac05b96c127ded332b2c37c6f9c596.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/walk-down-dice.png"
-dest_files=["res://.godot/imported/walk-down-dice.png-7d4057bce3167c272fbf265ed73577d7.ctex"]
+source_file="res://assets/sprites/player/idle-dice.png"
+dest_files=["res://.godot/imported/idle-dice.png-58ac05b96c127ded332b2c37c6f9c596.ctex"]
 
 [params]
 

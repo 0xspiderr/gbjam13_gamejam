@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be4jwl6lx01gw"
-path="res://.godot/imported/idle-dice.png-190410f651b8d98ffd48f9cb510f02dc.ctex"
+uid="uid://b6s62b76vxdtt"
+path="res://.godot/imported/walk-right.png-317f839a9ce71008c81a3db018d32b28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/idle-dice.png"
-dest_files=["res://.godot/imported/idle-dice.png-190410f651b8d98ffd48f9cb510f02dc.ctex"]
+source_file="res://assets/sprites/player/walk-right.png"
+dest_files=["res://.godot/imported/walk-right.png-317f839a9ce71008c81a3db018d32b28.ctex"]
 
 [params]
 

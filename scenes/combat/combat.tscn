@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnseaei7cyk0j"]
 
 [ext_resource type="Script" uid="uid://ckmfpkw5erjvw" path="res://scenes/combat/combat.gd" id="1_5vqsm"]
-[ext_resource type="Texture2D" uid="uid://c6wddf3aubqja" path="res://assets/sprites/dice-sprite.png" id="2_6aonj"]
+[ext_resource type="Texture2D" uid="uid://c6wddf3aubqja" path="res://assets/sprites/player/dice-sprite.png" id="2_6aonj"]
 
 [node name="Combat" type="Control"]
 layout_mode = 3

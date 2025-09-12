@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6u5iasul2b2x"
-path="res://.godot/imported/walk-left.png-00f61f7d3df0fd9e1ae8bc9e382294a7.ctex"
+uid="uid://c6wddf3aubqja"
+path="res://.godot/imported/dice-sprite.png-9916fbea0cd1dbf67a3f08251a5265fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/walk-left.png"
-dest_files=["res://.godot/imported/walk-left.png-00f61f7d3df0fd9e1ae8bc9e382294a7.ctex"]
+source_file="res://assets/sprites/player/dice-sprite.png"
+dest_files=["res://.godot/imported/dice-sprite.png-9916fbea0cd1dbf67a3f08251a5265fd.ctex"]
 
 [params]
 

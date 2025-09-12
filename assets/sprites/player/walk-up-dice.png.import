@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3eojywu1by3h"
-path="res://.godot/imported/walk-up-dice.png-478615092e8f4e9f36edc983c62dbaeb.ctex"
+path="res://.godot/imported/walk-up-dice.png-a78a8348caac4144ce0e0d190a98dc38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/walk-up-dice.png"
-dest_files=["res://.godot/imported/walk-up-dice.png-478615092e8f4e9f36edc983c62dbaeb.ctex"]
+source_file="res://assets/sprites/player/walk-up-dice.png"
+dest_files=["res://.godot/imported/walk-up-dice.png-a78a8348caac4144ce0e0d190a98dc38.ctex"]
 
 [params]
 
