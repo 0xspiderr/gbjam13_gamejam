@@ -50,6 +50,8 @@ func _play_animation() -> void:
 		player_sprites.play(&"idle")
 	elif player_dir.y > 0:
 		player_sprites.play(&"walk_down")
+	elif player_dir.y < 0:
+		player_sprites.play(&"walk_up")
 	elif player_dir.x > 0:
 		player_sprites.play(&"walk_right")
 	elif player_dir.x < 0:
