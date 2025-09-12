@@ -39,6 +39,8 @@ func _move_player(delta: float) -> void:
 
 
 func _play_animation() -> void:
+	var player_dir_len: float = player_dir.length()
+	
 	if player_dir.length() == 0:
 		player_sprites.play(&"idle")
 	else:
