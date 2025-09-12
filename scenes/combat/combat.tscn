@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnseaei7cyk0j"]
+[gd_scene load_steps=3 format=3 uid="uid://cnseaei7cyk0j"]
 
 [ext_resource type="Script" uid="uid://ckmfpkw5erjvw" path="res://scenes/combat/combat.gd" id="1_5vqsm"]
+[ext_resource type="Texture2D" uid="uid://c6wddf3aubqja" path="res://assets/sprites/dice-sprite.png" id="2_6aonj"]
 
 [node name="Combat" type="Control"]
 layout_mode = 3
@@ -28,6 +29,10 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_6aonj")
 
 [node name="AttackBtn" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

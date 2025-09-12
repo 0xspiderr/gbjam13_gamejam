@@ -17,6 +17,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	# dont process player character input if in combat.
+	if PlayerData.is_in_combat:
+		return
+	
 	_move_player(delta)
 	_play_animation()
 	move_and_slide()
@@ -24,6 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func _move_player(delta: float) -> void:
 	player_dir = Input.get_vector("left", "right", "up", "down")
+	print(position)
 	# velocity weight determines wether the player will accelerate or slow down based on input
 	var velocity_weight := 0.0
 	# normalize direction so that the player speed will be the same diagonally too.

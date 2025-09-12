@@ -29,6 +29,7 @@ func _get_current_level() -> void:
 
 #region COMBAT SIGNALS
 func _on_start_combat() -> void:
+	PlayerData.toggle_is_in_combat()
 	# hide the current level
 	current_level.visible = false
 	
@@ -39,6 +40,7 @@ func _on_start_combat() -> void:
 
 
 func _on_end_combat() -> void:
+	PlayerData.toggle_is_in_combat()
 	# after the combat has ended make the current level visible again
 	current_level.visible = true
 	
