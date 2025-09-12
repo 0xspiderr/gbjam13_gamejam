@@ -37,8 +37,9 @@ func _move_player(delta: float) -> void:
 	else:
 		velocity_weight = delta * friction
 	
-	velocity.x = lerpf(velocity.x, player_dir.x * speed, velocity_weight)
-	velocity.y = lerpf(velocity.y, player_dir.y * speed, velocity_weight)
+	velocity = player_dir * speed
+	#velocity.x = lerpf(velocity.x, player_dir.x * speed, velocity_weight)
+	#velocity.y = lerpf(velocity.y, player_dir.y * speed, velocity_weight)
 
 
 func _play_animation() -> void:

@@ -6,6 +6,7 @@ extends Node
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 var current_level: Node2D = null
+var current_enemy: Enemy = null
 const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
 
 
@@ -28,10 +29,11 @@ func _get_current_level() -> void:
 
 
 #region COMBAT SIGNALS
-func _on_start_combat() -> void:
+func _on_start_combat(enemy: Enemy) -> void:
 	PlayerData.toggle_is_in_combat()
 	# hide the current level
 	current_level.visible = false
+	current_enemy = enemy
 	
 	# get the combat scene and add it to the canvas layer because the
 	# combat scene is a ui scene
@@ -43,6 +45,8 @@ func _on_end_combat() -> void:
 	PlayerData.toggle_is_in_combat()
 	# after the combat has ended make the current level visible again
 	current_level.visible = true
+	# free the enemy when ending combat
+	current_enemy.queue_free()
 	
 	# remove the combat scene
 	var combat_scene = canvas_layer.get_child(0)
