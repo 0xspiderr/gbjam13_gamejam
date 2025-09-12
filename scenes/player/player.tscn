@@ -7,9 +7,6 @@
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dovo2")
-_speed = 125.0
-_friction = 5.0
-_acceleration = 2.0
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

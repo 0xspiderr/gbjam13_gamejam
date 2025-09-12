@@ -2,13 +2,19 @@ class_name Player
 extends CharacterBody2D
 
 
-@export var _speed: float = 50.0
-@export var _friction: float = 4.5
-@export var _acceleration: float = 12.5
+@export var speed: float = 50.0
+@export var friction: float = 4.5
+@export var acceleration: float = 12.5
+
 
 func _physics_process(delta: float) -> void:
 	_move_player(delta)
 	move_and_slide()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("exit"):
+		get_tree().quit()
 
 
 func _move_player(delta: float) -> void:
@@ -18,9 +24,9 @@ func _move_player(delta: float) -> void:
 	direction = direction.normalized()
 	
 	if direction:
-		velocity_weight = delta * _acceleration
+		velocity_weight = delta * acceleration
 	else:
-		velocity_weight = delta * _friction
+		velocity_weight = delta * friction
 
-	velocity.x = lerpf(velocity.x, direction.x * _speed, velocity_weight)
-	velocity.y = lerpf(velocity.y, direction.y * _speed, velocity_weight)
+	velocity.x = lerpf(velocity.x, direction.x * speed, velocity_weight)
+	velocity.y = lerpf(velocity.y, direction.y * speed, velocity_weight)
