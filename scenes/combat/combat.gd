@@ -6,17 +6,17 @@ extends Control
 @onready var button_container: PanelContainer = %ButtonContainer
 @onready var combat_indicator_label: Label = %CombatIndicatorLabel
 @onready var cooldown_timer: Timer = $CooldownTimer
+@onready var card: ColorRect = %Card
+@onready var card_value_label: Label = %CardValueLabel
 
 @export var tween_scale_up: Vector2 = Vector2(1.0, 1.0)
 @export var tween_scale_down: Vector2 = Vector2(0.9, 0.9)
-@onready var card_value_label: Label = %CardValueLabel
-
-@export var _timer_cooldown: float = 2.0
 var _can_interact: bool = true
 
 
 func _ready() -> void:
-	cooldown_timer.timeout.connect(_on_cooldown_timer_timeout)
+	SoundManager.change_music_stream(SoundManager.COMBAT)
+	
 	draw_card_btn.disabled = false
 	draw_card_btn.visible = true
 	roll_dice_btn.disabled = true
@@ -44,7 +44,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 #region BUTTON LOGIC
+# JUST FOR TESTING 
 func _on_test_btn_pressed() -> void:
+	SoundManager.change_music_stream(SoundManager.MAIN_MENU_OGG)
 	EventBus.end_combat.emit()
 
 
@@ -74,7 +76,7 @@ func _draw_card() -> void:
 	combat_indicator_label.text = ""
 	card_value_label.text = ""
 	
-	var card_value: int = randi_range(1, 21)
+	var card_value: int = randi_range(1, 11)
 	card_value_label.text = str(card_value)
 	_draw_text("You drew %s" % card_value, combat_indicator_label)
 
@@ -92,7 +94,6 @@ func _draw_text(text: String, label: Label) -> void:
 	for char in text:
 		await get_tree().create_timer(0.1).timeout
 		label.text += char
-
-
-func _on_cooldown_timer_timeout() -> void:
+	# wait for one second so the player can read the text
+	await get_tree().create_timer(1.0).timeout
 	_can_interact = true
