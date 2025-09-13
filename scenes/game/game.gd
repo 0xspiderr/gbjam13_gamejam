@@ -69,10 +69,9 @@ func _on_end_combat() -> void:
 	current_enemy.queue_free()
 	
 	# remove the combat scene
-	var combat_scene = canvas_layer.get_child(0)
-	if is_instance_valid(combat_scene):
-		combat_scene.queue_free()
-
+	for child in canvas_layer.get_children():
+		if child.name == &"Combat":
+			child.queue_free()
 #endregion
 
 

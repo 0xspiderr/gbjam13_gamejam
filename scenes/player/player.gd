@@ -18,6 +18,7 @@ func _physics_process(_delta: float) -> void:
 	# dont process player character move input if in combat or if talking
 	# to an npc.
 	if PlayerData.is_in_combat or PlayerData.is_talking:
+		player_sprites.play(&"idle")
 		return
 	
 	_play_animation()
