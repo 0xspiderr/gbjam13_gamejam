@@ -9,20 +9,24 @@ var player_dir: Vector2 = Vector2.ZERO
 var last_position: Vector2
 
 
+#region BUILT IN GODOT METHODS
 func _ready() -> void:
 	pass
 
 
 func _physics_process(_delta: float) -> void:
-	# dont process player character move input if in combat.
-	if PlayerData.is_in_combat:
+	# dont process player character move input if in combat or if talking
+	# to an npc.
+	if PlayerData.is_in_combat or PlayerData.is_talking:
 		return
 	
 	_play_animation()
 	_move_player()
 	move_and_slide()
+#endregion
 
 
+#region MOVEMENT AND ANIMATION LOGIC
 func _move_player() -> void:
 	player_dir = Input.get_vector("left", "right", "up", "down")
 	
@@ -57,3 +61,4 @@ func _play_animation() -> void:
 		player_sprites.play(&"walk_right")
 	elif player_dir.x == -1:
 		player_sprites.play(&"walk_left")
+#endregion

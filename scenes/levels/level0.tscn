@@ -313,4 +313,4 @@ position = Vector2(80, 72)
 position = Vector2(135, 29)
 
 [node name="Npc" parent="." instance=ExtResource("6_d0grl")]
-position = Vector2(68, 102)
+position = Vector2(-51, 160)

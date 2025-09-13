@@ -7,7 +7,10 @@ extends Node
 
 var current_level: Node2D = null
 var current_enemy: Enemy = null
+var current_npc: NPC = null
+
 const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
+@onready var dialogue_ui: DialogueUI = %DialogueUI
 
 
 #region BUILTIN METHODS
@@ -15,12 +18,28 @@ func _ready() -> void:
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
 	EventBus.start_combat.connect(_on_start_combat)
 	EventBus.end_combat.connect(_on_end_combat)
+	EventBus.entered_dialogue_area.connect(_on_entered_dialogue_area)
+	EventBus.exited_dialogue_area.connect(_on_exited_dialogue_area)
+	
 	_get_current_level()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
+
+
+func _input(event: InputEvent) -> void:
+	# dont process player input if in combat or if talking
+	# to an npc.
+	if PlayerData.is_in_combat or PlayerData.is_talking:
+		return
+	
+	if event.is_action_pressed("interact"):
+		if PlayerData.can_talk and is_instance_valid(current_npc):
+			PlayerData.is_talking = true
+			dialogue_ui.dialogue_list = current_npc.npc_stats.dialogues
+			dialogue_ui.visible = true
 #endregion
 
 
@@ -54,4 +73,16 @@ func _on_end_combat() -> void:
 	if is_instance_valid(combat_scene):
 		combat_scene.queue_free()
 
+#endregion
+
+
+#region DIALOGUE LOGIC
+func _on_entered_dialogue_area(npc: NPC) -> void:
+	PlayerData.can_talk = true
+	current_npc = npc
+
+
+func _on_exited_dialogue_area() -> void:
+	PlayerData.can_talk = false
+	current_npc = null
 #endregion
