@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="GBJAM13_gamejam"
-run/main_scene="uid://wikpds4xmuvt"
+run/main_scene="uid://dscp41dctwy3h"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://wikpds4xmuvt"
+
+[autoload]
+
+EventBus="*res://singletons/event_bus.gd"
+PlayerData="*res://singletons/player_data.gd"
 
 [display]
 

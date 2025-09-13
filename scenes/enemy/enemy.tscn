@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp6enqfwfeyu7"]
+
+[ext_resource type="Texture2D" uid="uid://c7fwrd83wwthf" path="res://icon.svg" id="1_4a83h"]
+[ext_resource type="Script" uid="uid://d1nyum16d6ixl" path="res://scenes/enemy/enemy.gd" id="1_40wdo"]
+[ext_resource type="PackedScene" uid="uid://v3kgvdsj8d8i" path="res://components/area_detection_component/area_detection_component.tscn" id="2_a3pup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4a83h"]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_40wdo")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_4a83h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4a83h")
+
+[node name="AreaDetectionComponent" parent="." instance=ExtResource("2_a3pup")]
+
+[editable path="AreaDetectionComponent"]
