@@ -12,6 +12,7 @@ const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
 
 #region BUILTIN METHODS
 func _ready() -> void:
+	SoundManager.change_music_stream(SoundManager.OVERWORLD)
 	EventBus.start_combat.connect(_on_start_combat)
 	EventBus.end_combat.connect(_on_end_combat)
 	_get_current_level()
