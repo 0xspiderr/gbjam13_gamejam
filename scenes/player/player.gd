@@ -13,7 +13,7 @@ func _ready() -> void:
 	pass
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# dont process player character move input if in combat.
 	if PlayerData.is_in_combat:
 		return
