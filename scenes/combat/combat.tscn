@@ -24,45 +24,99 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_6aonj")
-
-[node name="Container" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="DrawCardBtn" type="Button" parent="MarginContainer/HBoxContainer/Container"]
+[node name="TestBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+text = "go back"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(160, 80)
+layout_mode = 2
+
+[node name="Card" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0214347, 0.0214346, 0.0214346, 1)
+
+[node name="CardValueLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/Background/Card"]
 unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -11.5
+offset_right = 6.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 10
-text = "draw card"
 
-[node name="RollDiceBtn" type="Button" parent="MarginContainer/HBoxContainer/Container"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_6aonj")
+
+[node name="ButtonContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="DrawCardBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 8
+text = "draw card"
+autowrap_mode = 2
+
+[node name="RollDiceBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 10
+mouse_filter = 2
+theme_override_font_sizes/font_size = 8
 text = "roll dice"
 
-[node name="TestBtn" type="Button" parent="."]
+[node name="CombatIndicatorLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-offset_left = 115.0
-offset_top = 1.0
-offset_right = 160.0
-offset_bottom = 23.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 10
-text = "go back"
+theme_override_font_sizes/font_size = 8
+text = "asdasdd"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Container/DrawCardBtn" to="." method="_on_draw_card_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Container/RollDiceBtn" to="." method="_on_roll_dice_btn_pressed"]
-[connection signal="pressed" from="TestBtn" to="." method="_on_test_btn_pressed"]
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TestBtn" to="." method="_on_test_btn_pressed"]
