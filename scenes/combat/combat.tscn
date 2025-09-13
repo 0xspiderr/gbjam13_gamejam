@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnseaei7cyk0j"]
+[gd_scene load_steps=7 format=3 uid="uid://cnseaei7cyk0j"]
 
 [ext_resource type="Script" uid="uid://ckmfpkw5erjvw" path="res://scenes/combat/combat.gd" id="1_5vqsm"]
 [ext_resource type="Texture2D" uid="uid://c6wddf3aubqja" path="res://assets/sprites/player/dice-sprite.png" id="2_6aonj"]
+[ext_resource type="AudioStream" uid="uid://cr0xvseab1ygj" path="res://sounds/sfx/FlipCard.ogg" id="3_pqpfu"]
 
 [sub_resource type="Animation" id="Animation_6aonj"]
 resource_name = "character"
@@ -197,5 +198,9 @@ visible_ratio = 0.0
 libraries = {
 &"": SubResource("AnimationLibrary_ltalu")
 }
+
+[node name="DrawCardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pqpfu")
+volume_db = 10.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TestBtn" to="." method="_on_test_btn_pressed"]

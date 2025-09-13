@@ -6,6 +6,8 @@ enum
 	DRAW_CARD = 0,
 	ROLL_DICE = 1
 }
+
+#region CONTROLS
 @onready var draw_card_btn: Button = %DrawCardBtn
 @onready var roll_dice_btn: Button = %RollDiceBtn
 @onready var button_container: PanelContainer = %ButtonContainer
@@ -13,6 +15,9 @@ enum
 @onready var card: ColorRect = %Card
 @onready var card_value_label: Label = %CardValueLabel
 @onready var text_animation_player: AnimationPlayer = $MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3/TextAnimationPlayer
+#endregion
+
+@onready var draw_card_sound: AudioStreamPlayer = $DrawCardSound
 
 @export var tween_scale_up: Vector2 = Vector2(1.0, 1.0)
 @export var tween_scale_down: Vector2 = Vector2(0.9, 0.9)
@@ -76,7 +81,7 @@ func _button_action() -> void:
 
 
 func _draw_card() -> void:
-	SoundManager.play_sfx(SoundManager.FLIP_CARD, false)
+	draw_card_sound.play()
 	combat_indicator_label.text = ""
 	card_value_label.text = ""
 	
@@ -102,8 +107,8 @@ func _roll_dice() -> void:
 
 func _draw_text(text: String, label: Label) -> void:
 	# draw text letter by letter
-	#SoundManager.play_sfx(SoundManager.DIALOGUE_1, true)
+	SoundManager.play_sfx(SoundManager.DIALOGUE_1, true)
 	label.text = text
 	text_animation_player.play(&"character")
 	await text_animation_player.animation_finished
-	#SoundManager.stop_sfx()
+	SoundManager.stop_sfx()
