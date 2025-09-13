@@ -37,8 +37,14 @@ func _move_player(delta: float) -> void:
 	else:
 		velocity_weight = delta * friction
 	
-	velocity.x = lerpf(velocity.x, player_dir.x * speed, velocity_weight)
-	velocity.y = lerpf(velocity.y, player_dir.y * speed, velocity_weight)
+	if player_dir == Vector2(1, 0) or player_dir == Vector2(-1, 0):
+		velocity.x = player_dir.x * speed
+		velocity.y = 0
+	if player_dir == Vector2(0, 1) or player_dir == Vector2(0, -1):
+		velocity.y = player_dir.y * speed
+		velocity.x = 0
+	if player_dir not in [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0),Vector2(-1, 0)]:
+		velocity = Vector2.ZERO
 
 
 func _play_animation() -> void:
@@ -46,13 +52,13 @@ func _play_animation() -> void:
 	
 	if player_dir_len == 0:
 		player_sprites.play(&"idle")
-	elif player_dir.y > 0:
+	elif player_dir.y == 1:
 		player_sprites.play(&"walk_down")
-	elif player_dir.y < 0:
+	elif player_dir.y == -1:
 		player_sprites.play(&"walk_up")
-	elif player_dir.x > 0:
+	elif player_dir.x == 1:
 		player_sprites.play(&"walk_right")
-	elif player_dir.x < 0:
+	elif player_dir.x == -1:
 		player_sprites.play(&"walk_left")
 	else:
 		player_sprites.play(&"idle")
