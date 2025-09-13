@@ -19,11 +19,11 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	_play_animation()
-	_move_player(delta)
+	_move_player()
 	move_and_slide()
 
 
-func _move_player(delta: float) -> void:
+func _move_player() -> void:
 	player_dir = Input.get_vector("left", "right", "up", "down")
 	
 	if player_dir == Vector2(1, 0) or player_dir == Vector2(-1, 0):
