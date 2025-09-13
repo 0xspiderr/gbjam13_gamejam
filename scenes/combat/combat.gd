@@ -79,6 +79,7 @@ func _draw_card() -> void:
 	var card_value: int = randi_range(1, 11)
 	card_value_label.text = str(card_value)
 	_draw_text("You drew %s" % card_value, combat_indicator_label)
+	SoundManager.play_sfx(SoundManager.FLIP_CARD)
 
 
 func _roll_dice() -> void:

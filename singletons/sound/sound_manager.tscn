@@ -6,3 +6,6 @@
 script = ExtResource("1_dx566")
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="SfxStreamPlayer" type="AudioStreamPlayer" parent="."]

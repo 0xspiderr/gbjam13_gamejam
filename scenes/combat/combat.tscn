@@ -73,24 +73,27 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_6aonj")
 
-[node name="ButtonContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ButtonContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="DrawCardBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
+[node name="DrawCardBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/ButtonContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
@@ -101,9 +104,10 @@ theme_override_font_sizes/font_size = 8
 text = "draw card"
 autowrap_mode = 2
 
-[node name="RollDiceBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/ButtonContainer"]
+[node name="RollDiceBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/ButtonContainer"]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -111,11 +115,13 @@ mouse_filter = 2
 theme_override_font_sizes/font_size = 8
 text = "roll dice"
 
-[node name="CombatIndicatorLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="CombatIndicatorLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "asdasdd"
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 2.0

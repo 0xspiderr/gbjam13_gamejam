@@ -4,10 +4,8 @@ extends CharacterBody2D
 
 @export var speed: float = 100.0
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
-var is_colliding: bool = false
 
 var player_dir: Vector2 = Vector2.ZERO
-var last_player_dir: Vector2 = Vector2.ZERO
 var last_position: Vector2
 
 
@@ -59,12 +57,3 @@ func _play_animation() -> void:
 		player_sprites.play(&"walk_right")
 	elif player_dir.x == -1:
 		player_sprites.play(&"walk_left")
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	is_colliding = true
-	last_player_dir = player_dir
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	is_colliding = false
