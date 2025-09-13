@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="GBJAM13_gamejam"
-run/main_scene="uid://dscp41dctwy3h"
+run/main_scene="uid://bgasbu3xvl0ur"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
+SoundManager="*res://singletons/sound/sound_manager.tscn"
 EventBus="*res://singletons/event_bus.gd"
 PlayerData="*res://singletons/player_data.gd"
-SoundManager="*res://singletons/sound/sound_manager.tscn"
 
 [display]
 
