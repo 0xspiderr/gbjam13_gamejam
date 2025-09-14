@@ -3,4 +3,4 @@ extends Resource
 
 
 @export var max_health: int
-@export var sprite: Texture2D
+@export var sprite_frames: SpriteFrames

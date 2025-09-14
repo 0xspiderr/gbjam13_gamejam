@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=26 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="14_m6lg1"]
 [ext_resource type="Resource" uid="uid://c277plawxcyl3" path="res://resources/interactable/blackjack_table.tres" id="15_3asx1"]
 [ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_m6lg1"]
+[ext_resource type="Resource" uid="uid://bih3etdk8k7o" path="res://resources/enemies/broken_mirror.tres" id="16_ng1gw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
@@ -372,6 +373,7 @@ interactable_stats = ExtResource("15_3asx1")
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("2_hghvf")]
 position = Vector2(135, 29)
+enemy_stats = ExtResource("16_ng1gw")
 
 [node name="Player" parent="." instance=ExtResource("1_cperm")]
 position = Vector2(80, 72)
