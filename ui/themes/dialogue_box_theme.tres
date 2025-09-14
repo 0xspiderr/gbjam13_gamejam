@@ -1,3 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://b0bn4xyu3a25a"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b0bn4xyu3a25a"]
+
+[ext_resource type="StyleBox" uid="uid://dmhggo0741156" path="res://ui/themes/stylebox_textures/dialogue_box_panel.tres" id="1_fw3d5"]
 
 [resource]
+Panel/styles/panel = ExtResource("1_fw3d5")
