@@ -27,26 +27,30 @@ size_flags_vertical = 4
 
 [node name="PlayBtn" type="Button" parent="MarginContainer/VBoxButtons"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "PLAY"
 
 [node name="SettingsBtn" type="Button" parent="MarginContainer/VBoxButtons"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "SETTINGS"
 
 [node name="QuitBtn" type="Button" parent="MarginContainer/VBoxButtons"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "QUIT"

@@ -51,9 +51,8 @@ script = ExtResource("1_jrjoh")
 
 [node name="DialogueLabel" type="Label" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "asdasd"
 visible_characters = 0
 visible_ratio = 0.0

@@ -26,7 +26,7 @@ func _ready() -> void:
 	buttons.append(settings_btn)
 	buttons.append(quit_btn)
 	
-	_tween_btn_scale_up(buttons[current_button])
+	buttons[current_button].grab_focus.call_deferred()
 	
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -41,8 +41,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _increment_button_index(num: int) -> void:
-	_tween_btn_scale_down(buttons[current_button])
-	
 	if num < 0:
 		if current_button == 0:
 			current_button = 2
@@ -51,7 +49,7 @@ func _increment_button_index(num: int) -> void:
 	else:
 		current_button = (current_button + 1) % 3
 	
-	_tween_btn_scale_up(buttons[current_button])
+	buttons[current_button].grab_focus.call_deferred()
 
 
 func _tween_btn_scale_up(button: Button) -> void:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://3h1q6twd686v"]
+[gd_scene load_steps=4 format=3 uid="uid://3h1q6twd686v"]
 
 [ext_resource type="Script" uid="uid://crrh862e5ry8s" path="res://ui/dialogue/dialogue_ui.gd" id="1_2081n"]
+[ext_resource type="Theme" uid="uid://b0bn4xyu3a25a" path="res://ui/themes/dialogue_box_theme.tres" id="2_4cdch"]
 [ext_resource type="PackedScene" uid="uid://b5ho1oy8lu7r5" path="res://ui/dialogue_box/dialogue_box.tscn" id="2_vl8is"]
 
 [node name="DialogueUI" type="Control"]
@@ -19,13 +20,23 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -29.0
-offset_right = 80.0
+offset_left = -78.0
+offset_top = -55.0
+offset_right = 77.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_4cdch")
 
 [node name="DialogueBox" parent="Panel" instance=ExtResource("2_vl8is")]
 unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 137.0
+offset_bottom = 30.0
+grow_horizontal = 1
+grow_vertical = 1

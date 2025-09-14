@@ -64,5 +64,6 @@ animations = [{
 script = ExtResource("1_t1qjg")
 name = "Cat Vendor"
 sprite_frames = SubResource("SpriteFrames_d87uy")
-dialogues = Array[String](["Hi, welcome to the casino!", "Hello world!", "Goodbye, cruel world!"])
+dialogues = Array[String](["Hi, welcome to the casino!", "Hello world!", "Goodbye, cruel world!", "AAAAAasdasdasdasd
+asdasdasddasd"])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
