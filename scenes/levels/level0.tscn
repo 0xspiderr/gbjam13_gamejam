@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=24 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
@@ -13,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://cbno3bkxmwinw" path="res://resources/npcs/npc_4.tres" id="10_a76di"]
 [ext_resource type="Resource" uid="uid://b5mg6bqktofai" path="res://resources/npcs/npc_5.tres" id="11_d3ub6"]
 [ext_resource type="Resource" uid="uid://eufpje6pfnc7" path="res://resources/npcs/npc_6.tres" id="12_7s2gi"]
+[ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="14_m6lg1"]
+[ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_m6lg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
@@ -310,7 +312,7 @@ tile_map_data = PackedByteArray("AAD9/w0AAAABAAgAAAD9/xMAAAABAAoAAAD8/xMAAAABAAo
 tile_set = SubResource("TileSet_oem7y")
 
 [node name="DecorationsTilemapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD9/xAAAgAKAAAAAAAAABQAAgAAAAAAAAAAABMAAgAFAAAAAAD5/xMAAgAFAAAAAAD6/xQAAgAAAAAAAAD8/xEAAgALAAIAAAD+/xEAAgALAAIAAAD+/w8AAgAMAAIAAAD8/w8AAgAKAAIAAAD7/xAAAgALAAIAAAD//xAAAgAKAAIAAAALABQAAgAAAAAAAAARABQAAgAAAAAAAAAKABMAAgAFAAAAAAARABMAAgAFAAAAAAAQABIAAgAKAAIAAAAQABEAAgADAAgAAAAQABAAAgAMAAIAAAAMABIAAgALAAIAAAAMABEAAgADAAgAAAAMABAAAgAKAAIAAAAMAA4AAgADAAgAAAAQAA4AAgADAAgAAAAMAA8AAgAMAAIAAAAQAA0AAgAMAAIAAAAQAA8AAgALAAIAAAAMAA0AAgAKAAIAAAARABEAAgAFAAAAAAARAA4AAgAFAAAAAAAKABEAAgAFAAAAAAAKAA4AAgAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAABQAAgAAAAAAAAAAABMAAgAFAAAAAAD5/xMAAgAFAAAAAAD6/xQAAgAAAAAAAAD8/xEAAgALAAIAAAD+/xEAAgALAAIAAAD+/w8AAgAMAAIAAAD8/w8AAgAKAAIAAAD7/xAAAgALAAIAAAD//xAAAgAKAAIAAAALABQAAgAAAAAAAAARABQAAgAAAAAAAAAKABMAAgAFAAAAAAARABMAAgAFAAAAAAAQABIAAgAKAAIAAAAQABEAAgADAAgAAAAQABAAAgAMAAIAAAAMABIAAgALAAIAAAAMABEAAgADAAgAAAAMABAAAgAKAAIAAAAMAA4AAgADAAgAAAAQAA4AAgADAAgAAAAMAA8AAgAMAAIAAAAQAA0AAgAMAAIAAAAQAA8AAgALAAIAAAAMAA0AAgAKAAIAAAARABEAAgAFAAAAAAARAA4AAgAFAAAAAAAKABEAAgAFAAAAAAAKAA4AAgAFAAAAAAA=")
 tile_set = SubResource("TileSet_d0grl")
 
 [node name="NPCs" type="Node2D" parent="."]
@@ -350,3 +352,10 @@ position = Vector2(135, 29)
 
 [node name="Player" parent="." instance=ExtResource("1_cperm")]
 position = Vector2(80, 72)
+
+[node name="Interactable" type="Node2D" parent="."]
+
+[node name="RouletteTable" parent="Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(-30, 199)
+scale = Vector2(3.84, 2.76)
+interactable_stats = ExtResource("15_m6lg1")
