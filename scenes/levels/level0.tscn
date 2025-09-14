@@ -324,7 +324,7 @@ position = Vector2(-64, 152)
 npc_stats = ExtResource("7_fj52k")
 
 [node name="Npc1" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(200, 137)
+position = Vector2(155, 132)
 npc_stats = ExtResource("7_1nvli")
 
 [node name="Npc2" parent="NPCs" instance=ExtResource("6_d0grl")]
@@ -332,11 +332,11 @@ position = Vector2(-42, 122)
 npc_stats = ExtResource("8_vals0")
 
 [node name="Npc3" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(125, 89)
+position = Vector2(52, 102)
 npc_stats = ExtResource("9_oem7y")
 
 [node name="Npc4" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(161, 117)
+position = Vector2(109, 101)
 npc_stats = ExtResource("10_a76di")
 
 [node name="Npc5" parent="NPCs" instance=ExtResource("6_d0grl")]
@@ -372,7 +372,7 @@ interactable_stats = ExtResource("15_3asx1")
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("2_hghvf")]
-position = Vector2(135, 29)
+position = Vector2(174, 186)
 enemy_stats = ExtResource("16_ng1gw")
 
 [node name="Player" parent="." instance=ExtResource("1_cperm")]

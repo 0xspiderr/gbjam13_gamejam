@@ -177,6 +177,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_yms8e")
+speed = 25
 max_health = 10
 sprite_frames = SubResource("SpriteFrames_fkwh2")
 metadata/_custom_type_script = "uid://d1vw4kshx1q10"

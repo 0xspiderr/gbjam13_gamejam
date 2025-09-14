@@ -14,6 +14,12 @@ script = ExtResource("1_40wdo")
 shape = SubResource("RectangleShape2D_4a83h")
 
 [node name="AreaDetectionComponent" parent="." instance=ExtResource("2_a3pup")]
-scale = Vector2(1.56, 1.529)
+scale = Vector2(1.5, 1.47)
+
+[node name="PatrolTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 
 [editable path="AreaDetectionComponent"]
