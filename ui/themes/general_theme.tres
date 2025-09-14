@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://detj406ixpum0"]
 
-[ext_resource type="StyleBox" uid="uid://dljn5jttwm1us" path="res://ui/themes/button_normal.tres" id="1_wk3e0"]
+[ext_resource type="StyleBox" uid="uid://dljn5jttwm1us" path="res://ui/themes/stylebox_textures/button_normal.tres" id="1_wk3e0"]
 [ext_resource type="FontFile" uid="uid://bg1hl8lucd23x" path="res://assets/font/Khonjin.ttf" id="2_e3qii"]
 
 [resource]
