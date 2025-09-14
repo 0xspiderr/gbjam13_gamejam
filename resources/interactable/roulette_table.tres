@@ -22,4 +22,6 @@ animations = [{
 script = ExtResource("1_flo8k")
 name = "RouletteTable"
 sprite_frames = SubResource("SpriteFrames_1rhar")
+area_size = Vector2(40, 40)
+collision_size = Vector2(24, 24)
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"

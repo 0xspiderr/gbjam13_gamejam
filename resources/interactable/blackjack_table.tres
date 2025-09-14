@@ -22,4 +22,6 @@ animations = [{
 script = ExtResource("1_0wyxm")
 name = "BlackjackTable"
 sprite_frames = SubResource("SpriteFrames_uqg3f")
+area_size = Vector2(30, 30)
+collision_size = Vector2(25, 25)
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"

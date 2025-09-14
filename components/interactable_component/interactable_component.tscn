@@ -1,16 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://boe3gvqcntc5i"]
+[gd_scene load_steps=2 format=3 uid="uid://boe3gvqcntc5i"]
 
 [ext_resource type="Script" uid="uid://cuejh3qliusqq" path="res://components/interactable_component/interactable_component.gd" id="1_5pheu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dai5t"]
-
-[node name="InteractableComponent" type="Area2D"]
+[node name="InteractableComponent" type="StaticBody2D"]
 script = ExtResource("1_5pheu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_dai5t")
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+[node name="InteractableComponentArea" type="Area2D" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="AreaShape" type="CollisionShape2D" parent="InteractableComponentArea"]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="InteractableComponentArea"]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="InteractableComponentArea" to="." method="_on_interactable_component_area_body_entered"]

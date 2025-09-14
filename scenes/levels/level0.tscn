@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=25 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://b5mg6bqktofai" path="res://resources/npcs/npc_5.tres" id="11_d3ub6"]
 [ext_resource type="Resource" uid="uid://eufpje6pfnc7" path="res://resources/npcs/npc_6.tres" id="12_7s2gi"]
 [ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="14_m6lg1"]
+[ext_resource type="Resource" uid="uid://c277plawxcyl3" path="res://resources/interactable/blackjack_table.tres" id="15_3asx1"]
 [ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_m6lg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
@@ -312,13 +313,13 @@ tile_map_data = PackedByteArray("AAD9/w0AAAABAAgAAAD9/xMAAAABAAoAAAD8/xMAAAABAAo
 tile_set = SubResource("TileSet_oem7y")
 
 [node name="DecorationsTilemapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAABQAAgAAAAAAAAAAABMAAgAFAAAAAAD5/xMAAgAFAAAAAAD6/xQAAgAAAAAAAAD8/xEAAgALAAIAAAD+/xEAAgALAAIAAAD+/w8AAgAMAAIAAAD8/w8AAgAKAAIAAAD7/xAAAgALAAIAAAD//xAAAgAKAAIAAAALABQAAgAAAAAAAAARABQAAgAAAAAAAAAKABMAAgAFAAAAAAARABMAAgAFAAAAAAAQABIAAgAKAAIAAAAQABEAAgADAAgAAAAQABAAAgAMAAIAAAAMABIAAgALAAIAAAAMABEAAgADAAgAAAAMABAAAgAKAAIAAAAMAA4AAgADAAgAAAAQAA4AAgADAAgAAAAMAA8AAgAMAAIAAAAQAA0AAgAMAAIAAAAQAA8AAgALAAIAAAAMAA0AAgAKAAIAAAARABEAAgAFAAAAAAARAA4AAgAFAAAAAAAKABEAAgAFAAAAAAAKAA4AAgAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAABQAAgAAAAAAAAAAABMAAgAFAAAAAAD5/xMAAgAFAAAAAAD6/xQAAgAAAAAAAAD8/xEAAgALAAIAAAD+/xEAAgALAAIAAAD+/w8AAgAMAAIAAAD8/w8AAgAKAAIAAAD7/xAAAgALAAIAAAD//xAAAgAKAAIAAAALABQAAgAAAAAAAAARABQAAgAAAAAAAAAKABMAAgAFAAAAAAARABMAAgAFAAAAAAAQABIAAgAKAAIAAAAQABAAAgAMAAIAAAAMABIAAgALAAIAAAAMABAAAgAKAAIAAAAMAA8AAgAMAAIAAAAQAA0AAgAMAAIAAAAQAA8AAgALAAIAAAAMAA0AAgAKAAIAAAARABEAAgAFAAAAAAARAA4AAgAFAAAAAAAKABEAAgAFAAAAAAAKAA4AAgAFAAAAAAA=")
 tile_set = SubResource("TileSet_d0grl")
 
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="CatVendorNPC" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(-51, 160)
+position = Vector2(-64, 152)
 npc_stats = ExtResource("7_fj52k")
 
 [node name="Npc1" parent="NPCs" instance=ExtResource("6_d0grl")]
@@ -345,6 +346,28 @@ npc_stats = ExtResource("11_d3ub6")
 position = Vector2(-28, 84)
 npc_stats = ExtResource("12_7s2gi")
 
+[node name="Interactable" type="Node2D" parent="."]
+
+[node name="RouletteTable" parent="Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(-30, 199)
+interactable_stats = ExtResource("15_m6lg1")
+
+[node name="BlackjackTable" parent="Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(150, 212)
+interactable_stats = ExtResource("15_3asx1")
+
+[node name="BlackjackTable2" parent="Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(198, 212)
+interactable_stats = ExtResource("15_3asx1")
+
+[node name="BlackjackTable3" parent="Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(198, 177)
+interactable_stats = ExtResource("15_3asx1")
+
+[node name="BlackjackTable4" parent="Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(150, 177)
+interactable_stats = ExtResource("15_3asx1")
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("2_hghvf")]
@@ -352,10 +375,3 @@ position = Vector2(135, 29)
 
 [node name="Player" parent="." instance=ExtResource("1_cperm")]
 position = Vector2(80, 72)
-
-[node name="Interactable" type="Node2D" parent="."]
-
-[node name="RouletteTable" parent="Interactable" instance=ExtResource("14_m6lg1")]
-position = Vector2(-30, 199)
-scale = Vector2(3.84, 2.76)
-interactable_stats = ExtResource("15_m6lg1")
