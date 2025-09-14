@@ -1,3 +1,11 @@
-[gd_resource type="StyleBoxTexture" format=3 uid="uid://blf1sgckrsxi5"]
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://blf1sgckrsxi5"]
+
+[ext_resource type="Texture2D" uid="uid://c6oltrxd82hjg" path="res://assets/ui_textures/hscroll_bar_base.png" id="1_pc46o"]
 
 [resource]
+texture = ExtResource("1_pc46o")
+texture_margin_left = 2.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 3.0
+axis_stretch_horizontal = 1

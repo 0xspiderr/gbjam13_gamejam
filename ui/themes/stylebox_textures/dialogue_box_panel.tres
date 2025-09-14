@@ -1,3 +1,12 @@
-[gd_resource type="StyleBoxTexture" format=3 uid="uid://dmhggo0741156"]
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dmhggo0741156"]
+
+[ext_resource type="Texture2D" uid="uid://b53if5ipl80p" path="res://assets/ui_textures/dialogue_box.png" id="1_ncays"]
 
 [resource]
+texture = ExtResource("1_ncays")
+texture_margin_left = 50.0
+texture_margin_top = 10.0
+texture_margin_right = 62.0
+texture_margin_bottom = 21.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(0, 0, 146, 57)
