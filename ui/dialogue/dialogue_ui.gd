@@ -2,7 +2,7 @@ class_name DialogueUI
 extends Control
 
 
-@onready var dialogue_text: Label = %DialogueText
+@onready var dialogue_box: DialogueBox = %DialogueBox
 var dialogue_list: Array[String] = []
 var diag_index: int = 0
 
@@ -26,5 +26,5 @@ func continue_dialogue() -> void:
 		PlayerData.is_talking = false
 		return
 	
-	dialogue_text.text = dialogue_list[diag_index]
+	dialogue_box.draw_text(dialogue_list[diag_index])
 	diag_index += 1

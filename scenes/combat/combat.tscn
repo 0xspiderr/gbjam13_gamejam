@@ -1,70 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnseaei7cyk0j"]
+[gd_scene load_steps=5 format=3 uid="uid://cnseaei7cyk0j"]
 
 [ext_resource type="Script" uid="uid://ckmfpkw5erjvw" path="res://scenes/combat/combat.gd" id="1_5vqsm"]
 [ext_resource type="Texture2D" uid="uid://c6wddf3aubqja" path="res://assets/sprites/player/dice-sprite.png" id="2_6aonj"]
+[ext_resource type="PackedScene" uid="uid://b5ho1oy8lu7r5" path="res://ui/dialogue_box/dialogue_box.tscn" id="3_ltalu"]
 [ext_resource type="AudioStream" uid="uid://cr0xvseab1ygj" path="res://sounds/sfx/FlipCard.ogg" id="3_pqpfu"]
-
-[sub_resource type="Animation" id="Animation_pqpfu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%CombatIndicatorLabel:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../../..:_can_interact")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_6aonj"]
-resource_name = "character"
-length = 2.0
-step = 0.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%CombatIndicatorLabel:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../../..:_can_interact")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ltalu"]
-_data = {
-&"RESET": SubResource("Animation_pqpfu"),
-&"character": SubResource("Animation_6aonj")
-}
 
 [node name="Combat" type="Control"]
 layout_mode = 3
@@ -183,21 +122,9 @@ mouse_filter = 2
 theme_override_font_sizes/font_size = 8
 text = "roll dice"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-
-[node name="CombatIndicatorLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
+[node name="DialogueBox" parent="MarginContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_ltalu")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="TextAnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
-libraries = {
-&"": SubResource("AnimationLibrary_ltalu")
-}
 
 [node name="DrawCardSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_pqpfu")
