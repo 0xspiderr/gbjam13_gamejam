@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="NpcStats" load_steps=8 format=3 uid="uid://j18y6xpluomp"]
+
+[ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_ooidi"]
+[ext_resource type="Texture2D" uid="uid://djjpoqnfrfepd" path="res://assets/sprites/npcs/npc3-idle.png" id="2_pycyn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fokrg"]
+atlas = ExtResource("2_pycyn")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1bve"]
+atlas = ExtResource("2_pycyn")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvpnq"]
+atlas = ExtResource("2_pycyn")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83c7i"]
+atlas = ExtResource("2_pycyn")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2e6br"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fokrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1bve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvpnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83c7i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[resource]
+script = ExtResource("1_ooidi")
+name = "Npc 3"
+sprite_frames = SubResource("SpriteFrames_2e6br")
+dialogues = Array[String]([])
+metadata/_custom_type_script = "uid://c6dabu5biw7gj"

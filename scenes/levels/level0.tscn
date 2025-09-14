@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=22 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://d15rlcvvxg4yi" path="res://assets/tilesets/casino_tileset/tileset.png" id="3_hghvf"]
 [ext_resource type="Texture2D" uid="uid://b5ynhu5a7jae6" path="res://assets/tilesets/animated_obj/cash-booth.png" id="3_ry65h"]
 [ext_resource type="PackedScene" uid="uid://mlu3i7nhaelg" path="res://scenes/npcs/npc.tscn" id="6_d0grl"]
+[ext_resource type="Resource" uid="uid://dgowfxk0qivoe" path="res://resources/npcs/npc_1.tres" id="7_1nvli"]
+[ext_resource type="Resource" uid="uid://cd4wgr2wxoeh3" path="res://resources/npcs/cat_vendor_npc.tres" id="7_fj52k"]
+[ext_resource type="Resource" uid="uid://bcp4wrkntvx7" path="res://resources/npcs/npc_2.tres" id="8_vals0"]
+[ext_resource type="Resource" uid="uid://j18y6xpluomp" path="res://resources/npcs/npc_3.tres" id="9_oem7y"]
+[ext_resource type="Resource" uid="uid://cbno3bkxmwinw" path="res://resources/npcs/npc_4.tres" id="10_a76di"]
+[ext_resource type="Resource" uid="uid://b5mg6bqktofai" path="res://resources/npcs/npc_5.tres" id="11_d3ub6"]
+[ext_resource type="Resource" uid="uid://eufpje6pfnc7" path="res://resources/npcs/npc_6.tres" id="12_7s2gi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
@@ -306,11 +313,40 @@ tile_set = SubResource("TileSet_oem7y")
 tile_map_data = PackedByteArray("AAD9/xAAAgAKAAAAAAAAABQAAgAAAAAAAAAAABMAAgAFAAAAAAD5/xMAAgAFAAAAAAD6/xQAAgAAAAAAAAD8/xEAAgALAAIAAAD+/xEAAgALAAIAAAD+/w8AAgAMAAIAAAD8/w8AAgAKAAIAAAD7/xAAAgALAAIAAAD//xAAAgAKAAIAAAALABQAAgAAAAAAAAARABQAAgAAAAAAAAAKABMAAgAFAAAAAAARABMAAgAFAAAAAAAQABIAAgAKAAIAAAAQABEAAgADAAgAAAAQABAAAgAMAAIAAAAMABIAAgALAAIAAAAMABEAAgADAAgAAAAMABAAAgAKAAIAAAAMAA4AAgADAAgAAAAQAA4AAgADAAgAAAAMAA8AAgAMAAIAAAAQAA0AAgAMAAIAAAAQAA8AAgALAAIAAAAMAA0AAgAKAAIAAAARABEAAgAFAAAAAAARAA4AAgAFAAAAAAAKABEAAgAFAAAAAAAKAA4AAgAFAAAAAAA=")
 tile_set = SubResource("TileSet_d0grl")
 
-[node name="Player" parent="." instance=ExtResource("1_cperm")]
-position = Vector2(80, 72)
+[node name="NPCs" type="Node2D" parent="."]
 
-[node name="Enemy" parent="." instance=ExtResource("2_hghvf")]
+[node name="CatVendorNPC" parent="NPCs" instance=ExtResource("6_d0grl")]
+position = Vector2(-51, 160)
+npc_stats = ExtResource("7_fj52k")
+
+[node name="Npc1" parent="NPCs" instance=ExtResource("6_d0grl")]
+position = Vector2(200, 137)
+npc_stats = ExtResource("7_1nvli")
+
+[node name="Npc2" parent="NPCs" instance=ExtResource("6_d0grl")]
+position = Vector2(-42, 122)
+npc_stats = ExtResource("8_vals0")
+
+[node name="Npc3" parent="NPCs" instance=ExtResource("6_d0grl")]
+position = Vector2(125, 89)
+npc_stats = ExtResource("9_oem7y")
+
+[node name="Npc4" parent="NPCs" instance=ExtResource("6_d0grl")]
+position = Vector2(161, 117)
+npc_stats = ExtResource("10_a76di")
+
+[node name="Npc5" parent="NPCs" instance=ExtResource("6_d0grl")]
+position = Vector2(14, 84)
+npc_stats = ExtResource("11_d3ub6")
+
+[node name="Npc6" parent="NPCs" instance=ExtResource("6_d0grl")]
+position = Vector2(-28, 84)
+npc_stats = ExtResource("12_7s2gi")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("2_hghvf")]
 position = Vector2(135, 29)
 
-[node name="Npc" parent="." instance=ExtResource("6_d0grl")]
-position = Vector2(-51, 160)
+[node name="Player" parent="." instance=ExtResource("1_cperm")]
+position = Vector2(80, 72)

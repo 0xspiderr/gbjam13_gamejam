@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if dialogue_list.is_empty():
+		rewind_data()
 		return
 	
 	if event.is_action_pressed("interact"):
@@ -21,10 +22,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func continue_dialogue() -> void:
 	if diag_index >= dialogue_list.size():
-		visible = false
-		diag_index = 0
-		PlayerData.is_talking = false
+		rewind_data()
 		return
 	
 	dialogue_box.draw_text(dialogue_list[diag_index])
 	diag_index += 1
+
+
+func rewind_data() -> void:
+	visible = false
+	diag_index = 0
+	PlayerData.is_talking = false
