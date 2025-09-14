@@ -10,13 +10,16 @@ enum
 #region CONTROLS
 @onready var draw_card_btn: Button = %DrawCardBtn
 @onready var roll_dice_btn: Button = %RollDiceBtn
-@onready var button_container: PanelContainer = %ButtonContainer
+@onready var button_container: CenterContainer = %ButtonContainer
 @onready var card: ColorRect = %Card
 @onready var card_value_label: Label = %CardValueLabel
 @onready var dialogue_box: DialogueBox = %DialogueBox
 #endregion
 
+#region SOUNDS
 @onready var draw_card_sound: AudioStreamPlayer = $DrawCardSound
+@onready var roll_dice_sound: AudioStreamPlayer = $RollDiceSound
+#endregion
 
 @export var _can_interact: bool = true
 
@@ -72,6 +75,7 @@ func _button_action() -> void:
 
 
 func _draw_card() -> void:
+	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
 	
 	var player_card_value: int = randi_range(1, 13)
@@ -87,6 +91,9 @@ func _draw_card() -> void:
 
 
 func _roll_dice() -> void:
+	SoundManager.randomize_pitch_scale(roll_dice_sound)
+	roll_dice_sound.play()
+	
 	var first_player_dice_value: int = randi_range(1, 6)
 	var second_player_dice_value: int = randi_range(1, 6)
 	

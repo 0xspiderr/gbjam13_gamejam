@@ -19,6 +19,7 @@ const DIALOGUE_3 = "res://sounds/dialogue/Dialogue3.ogg"
 #endregion
 
 
+
 func change_music_stream(path: String) -> void:
 	music_stream_player.stop()
 
@@ -33,6 +34,12 @@ func play_sfx(path: String, is_looping: bool) -> void:
 	stream.loop = is_looping
 	sfx_stream_player.stream = stream
 	sfx_stream_player.play()
+
+
+func randomize_pitch_scale(audio_stream: AudioStreamPlayer) -> void:
+	randomize()
+	var pitch_scale = randf_range(0.75, 1.25)
+	audio_stream.pitch_scale = pitch_scale
 
 
 func stop_sfx() -> void:
