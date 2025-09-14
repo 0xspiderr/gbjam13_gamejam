@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://detj406ixpum0"]
+
+[ext_resource type="StyleBox" uid="uid://dljn5jttwm1us" path="res://ui/themes/button_normal.tres" id="1_wk3e0"]
+[ext_resource type="FontFile" uid="uid://bg1hl8lucd23x" path="res://assets/font/Khonjin.ttf" id="2_e3qii"]
+
+[resource]
+default_font = ExtResource("2_e3qii")
+Button/colors/font_color = Color(0.984314, 0.980392, 0.921569, 1)
+Button/colors/font_outline_color = Color(0.388235, 0.447059, 0.705882, 1)
+Button/constants/outline_size = 2
+Button/font_sizes/font_size = 16
+Button/styles/normal = ExtResource("1_wk3e0")
