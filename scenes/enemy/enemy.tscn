@@ -11,6 +11,14 @@ radius = 50.0
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_40wdo")
 
+[node name="PatrolTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,16 +32,9 @@ scale = Vector2(1.2, 1.198)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChasePlayerArea"]
 shape = SubResource("CircleShape2D_a3pup")
 
-[node name="PatrolTimer" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="WaitTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
-[connection signal="body_entered" from="ChasePlayerArea" to="." method="_on_chase_player_area_body_entered"]
-[connection signal="body_exited" from="ChasePlayerArea" to="." method="_on_chase_player_area_body_exited"]
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="body_entered" from="ChasePlayerArea" to="." method="_on_chase_player_area_body_entered"]
+[connection signal="body_exited" from="ChasePlayerArea" to="." method="_on_chase_player_area_body_exited"]
 
 [editable path="AreaDetectionComponent"]

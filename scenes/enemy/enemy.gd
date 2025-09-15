@@ -79,6 +79,7 @@ func _on_patrol_timer_timeout() -> void:
 	var index = randi_range(0, 3)
 	_enemy_dir = _directions[index]
 	_change_state(State.PATROL)
+	wait_timer.start()
 
 
 func _change_state(new_state: State) -> void:
@@ -102,23 +103,22 @@ func _do_state_action() -> void:
 			_patrol()
 		State.CHASE:
 			_chase_player()
-		State.WAIT:
-			pass
 		_:
 			pass
 
 
 func _chase_player() -> void:
 	var dir = round(position.direction_to(_player.position))
-	
+
 	if abs(dir.x) >= abs(dir.y):
 		_enemy_dir = Vector2(dir.x, 0)
 	else:
 		_enemy_dir = Vector2(0, dir.y)
+	
 	velocity = _enemy_dir * (_speed + 25)
-
 
 func _on_wait_timer_timeout() -> void:
 	_change_state(State.WAIT)
 	velocity = Vector2.ZERO
+	_enemy_dir = Vector2.ZERO
 	patrol_timer.start()
