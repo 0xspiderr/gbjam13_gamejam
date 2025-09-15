@@ -2,25 +2,35 @@ class_name Enemy
 extends CharacterBody2D
 
 
+enum State
+{
+	WAIT = 0,
+	PATROL = 1,
+	CHASE = 2
+}
+
+
 # use resources for enemies, that way this enemy script
 # will spawn enemies based on the level we are in
 @export var enemy_stats: EnemyStats
 @onready var enemy_sprite: AnimatedSprite2D = $EnemySprite
 @onready var patrol_timer: Timer = $PatrolTimer
+@onready var wait_timer: Timer = $WaitTimer
 @onready var area_detection_component: AreaDetectionComponent = $AreaDetectionComponent
 
-
+@export var _player: Player = null
+var current_state: State = State.PATROL
 var _speed: int = 0
 var _max_health: int = 0
 var _current_health: int = 0
 var _directions: Array[Vector2] = [Vector2(1, 0), Vector2(-1, 0), \
 Vector2(0, 1), Vector2(0, -1)]
 var _enemy_dir: Vector2 = Vector2.ZERO
-var _is_colliding: bool = false
 
 
 func _ready() -> void:
 	_enemy_stats_setup()
+	patrol_timer.start()
 
 
 func _physics_process(delta: float) -> void:
@@ -29,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		enemy_sprite.play(&"idle")
 		return
 	
-	velocity = _enemy_dir * _speed
+	_do_state_action()
 	_play_animation()
 	move_and_slide()
 
@@ -46,10 +56,6 @@ func _enemy_stats_setup() -> void:
 
 
 func _play_animation() -> void:
-	if _is_colliding:
-		enemy_sprite.play(&"idle")
-		return
-	
 	var enemy_dir_len: float = _enemy_dir.length()
 	
 	if enemy_dir_len == 0:
@@ -65,10 +71,54 @@ func _play_animation() -> void:
 
 
 func _patrol() -> void:
-	randomize()
-	var index = randi_range(0, 3)
-	_enemy_dir = _directions[index]
+	velocity = _enemy_dir * _speed
 
 
 func _on_patrol_timer_timeout() -> void:
-	_patrol()
+	randomize()
+	var index = randi_range(0, 3)
+	_enemy_dir = _directions[index]
+	_change_state(State.PATROL)
+
+
+func _change_state(new_state: State) -> void:
+	current_state = new_state
+
+
+func _on_chase_player_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		patrol_timer.stop()
+		_change_state(State.CHASE)
+
+
+func _on_chase_player_area_body_exited(body: Node2D) -> void:
+	if body is Player:
+		patrol_timer.start()
+
+
+func _do_state_action() -> void:
+	match current_state:
+		State.PATROL:
+			_patrol()
+		State.CHASE:
+			_chase_player()
+		State.WAIT:
+			pass
+		_:
+			pass
+
+
+func _chase_player() -> void:
+	var dir = round(position.direction_to(_player.position))
+	
+	if abs(dir.x) >= abs(dir.y):
+		_enemy_dir = Vector2(dir.x, 0)
+	else:
+		_enemy_dir = Vector2(0, dir.y)
+	velocity = _enemy_dir * (_speed + 25)
+
+
+func _on_wait_timer_timeout() -> void:
+	_change_state(State.WAIT)
+	velocity = Vector2.ZERO
+	patrol_timer.start()

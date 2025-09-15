@@ -371,9 +371,10 @@ interactable_stats = ExtResource("15_3asx1")
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("2_hghvf")]
-position = Vector2(174, 186)
+[node name="Enemy" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_hghvf")]
+position = Vector2(140, 68)
 enemy_stats = ExtResource("16_ng1gw")
+_player = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_cperm")]
 position = Vector2(80, 72)
