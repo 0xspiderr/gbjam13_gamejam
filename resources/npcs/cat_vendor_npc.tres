@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="NpcStats" load_steps=11 format=3 uid="uid://cd4wgr2wxoeh3"]
+
+[ext_resource type="Texture2D" uid="uid://n7m4whfvks0q" path="res://assets/sprites/characters/black-cat-idle.png" id="1_cyu4g"]
+[ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_t1qjg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyu4g"]
+atlas = ExtResource("1_cyu4g")
+region = Rect2(0, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10a52"]
+atlas = ExtResource("1_cyu4g")
+region = Rect2(12, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhmy6"]
+atlas = ExtResource("1_cyu4g")
+region = Rect2(24, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrt1d"]
+atlas = ExtResource("1_cyu4g")
+region = Rect2(36, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqqge"]
+atlas = ExtResource("1_cyu4g")
+region = Rect2(48, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu5pb"]
+atlas = ExtResource("1_cyu4g")
+region = Rect2(60, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76bvy"]
+atlas = ExtResource("1_cyu4g")
+region = Rect2(72, 0, 12, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d87uy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyu4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10a52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhmy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrt1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqqge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu5pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76bvy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[resource]
+script = ExtResource("1_t1qjg")
+name = "Cat Vendor"
+sprite_frames = SubResource("SpriteFrames_d87uy")
+dialogues = Array[String](["Hi, welcome to the casino!", "Hello world!", "Goodbye, cruel world!", "AAAAAasdasdasdasd
+asdasdasddasd"])
+metadata/_custom_type_script = "uid://c6dabu5biw7gj"

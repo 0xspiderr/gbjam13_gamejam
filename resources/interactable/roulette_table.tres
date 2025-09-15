@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=5 format=3 uid="uid://caeoc386ptk0m"]
+
+[ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_flo8k"]
+[ext_resource type="Texture2D" uid="uid://d15rlcvvxg4yi" path="res://assets/tilesets/casino_tileset/tileset.png" id="2_itinf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aolyd"]
+atlas = ExtResource("2_itinf")
+region = Rect2(120, 0, 36, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1rhar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aolyd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_flo8k")
+name = "RouletteTable"
+sprite_frames = SubResource("SpriteFrames_1rhar")
+area_size = Vector2(40, 40)
+collision_size = Vector2(24, 24)
+metadata/_custom_type_script = "uid://bbnwp50rt7iwt"

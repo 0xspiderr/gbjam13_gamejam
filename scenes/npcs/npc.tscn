@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://mlu3i7nhaelg"]
+
+[ext_resource type="Script" uid="uid://dydo2x7362ptg" path="res://scenes/npcs/npc.gd" id="1_ivh6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5fb5"]
+radius = 17.0
+
+[node name="Npc" type="CharacterBody2D"]
+script = ExtResource("1_ivh6b")
+
+[node name="NpcSprite" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ivh6b")
+
+[node name="DialogueArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+shape = SubResource("CircleShape2D_m5fb5")
+
+[connection signal="body_entered" from="DialogueArea" to="." method="_on_dialogue_area_body_entered"]
+[connection signal="body_exited" from="DialogueArea" to="." method="_on_dialogue_area_body_exited"]

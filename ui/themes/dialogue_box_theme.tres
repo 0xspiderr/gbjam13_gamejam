@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b0bn4xyu3a25a"]
+
+[ext_resource type="StyleBox" uid="uid://dmhggo0741156" path="res://ui/themes/stylebox_textures/dialogue_box_panel.tres" id="1_fw3d5"]
+[ext_resource type="FontFile" uid="uid://bg1hl8lucd23x" path="res://assets/font/Khonjin.ttf" id="2_4uyo1"]
+
+[resource]
+default_font = ExtResource("2_4uyo1")
+Panel/styles/panel = ExtResource("1_fw3d5")

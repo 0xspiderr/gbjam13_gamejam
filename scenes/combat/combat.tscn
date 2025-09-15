@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnseaei7cyk0j"]
+[gd_scene load_steps=8 format=3 uid="uid://cnseaei7cyk0j"]
 
 [ext_resource type="Script" uid="uid://ckmfpkw5erjvw" path="res://scenes/combat/combat.gd" id="1_5vqsm"]
-[ext_resource type="Texture2D" uid="uid://c6wddf3aubqja" path="res://assets/sprites/player/dice-sprite.png" id="2_6aonj"]
+[ext_resource type="Theme" uid="uid://b0bn4xyu3a25a" path="res://ui/themes/dialogue_box_theme.tres" id="3_ijgaf"]
+[ext_resource type="PackedScene" uid="uid://b5ho1oy8lu7r5" path="res://ui/dialogue_box/dialogue_box.tscn" id="3_ltalu"]
+[ext_resource type="AudioStream" uid="uid://cr0xvseab1ygj" path="res://sounds/sfx/FlipCard.ogg" id="3_pqpfu"]
+[ext_resource type="AudioStream" uid="uid://c0xelrs5hsfbc" path="res://sounds/sfx/DiceRoll3.ogg" id="5_jgg25"]
+[ext_resource type="AudioStream" uid="uid://byclhu0er03hv" path="res://sounds/sfx/DiceRoll4.ogg" id="6_ijgaf"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uakg0"]
+streams_count = 2
+stream_0/stream = ExtResource("5_jgg25")
+stream_1/stream = ExtResource("6_ijgaf")
 
 [node name="Combat" type="Control"]
 layout_mode = 3
@@ -12,47 +21,130 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5vqsm")
 
-[node name="MarginContainer" type="AspectRatioContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -67.0
-offset_top = -22.0
-offset_right = 67.0
+offset_left = -10.0
+offset_top = -5.0
+offset_right = 10.0
+offset_bottom = 5.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+
+[node name="TestBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 4
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_6aonj")
-
-[node name="AttackBtn" type="Button" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 10
-text = "attack"
-
-[node name="DefendBtn" type="Button" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 10
-text = "defend"
-
-[node name="TestBtn" type="Button" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 16
 text = "go back"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/TestBtn" to="." method="_on_test_btn_pressed"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(160, 80)
+layout_mode = 2
+
+[node name="Card" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer2/Background"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0214347, 0.0214346, 0.0214346, 1)
+
+[node name="CardValueLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/Background/Card"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -11.5
+offset_right = 6.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ButtonContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="DrawCardBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(55, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 16
+text = "draw card"
+autowrap_mode = 2
+
+[node name="RollDiceBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(55, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 16
+text = "roll dice"
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+theme = ExtResource("3_ijgaf")
+
+[node name="DialogueBox" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer/Panel" instance=ExtResource("3_ltalu")]
+unique_name_in_owner = true
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 7.0
+offset_top = 3.5
+offset_right = 87.0
+offset_bottom = 23.5
+
+[node name="DrawCardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pqpfu")
+volume_db = 10.0
+
+[node name="RollDiceSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_uakg0")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TestBtn" to="." method="_on_test_btn_pressed"]

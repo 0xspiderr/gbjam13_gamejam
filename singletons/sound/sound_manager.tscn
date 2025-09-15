@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcby6xdw3b0mm"]
+
+[ext_resource type="Script" uid="uid://dx2lsu732vvek" path="res://singletons/sound/sound_manager.gd" id="1_dx566"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_dx566")
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="SfxStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 2

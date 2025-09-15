@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://crmqy2vwos5m"]
+
+[ext_resource type="Theme" uid="uid://b0bn4xyu3a25a" path="res://ui/themes/dialogue_box_theme.tres" id="1_ackl5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 135.0
+offset_bottom = 81.0
+theme = ExtResource("1_ackl5")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 26.0
+offset_right = 61.0
+offset_bottom = 57.0
+text = "play
+"
