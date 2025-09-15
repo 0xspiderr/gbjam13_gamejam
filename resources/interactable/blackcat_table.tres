@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=8 format=3 uid="uid://b7rdupdwsrdly"]
+
+[ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_qbt0f"]
+[ext_resource type="Texture2D" uid="uid://b5ynhu5a7jae6" path="res://assets/tilesets/animated_obj/cash-booth.png" id="2_dcc1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jl4p"]
+atlas = ExtResource("2_dcc1y")
+region = Rect2(0, 0, 48, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l05ph"]
+atlas = ExtResource("2_dcc1y")
+region = Rect2(48, 0, 48, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chphm"]
+atlas = ExtResource("2_dcc1y")
+region = Rect2(0, 36, 48, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eeyj"]
+atlas = ExtResource("2_dcc1y")
+region = Rect2(48, 36, 48, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ff0cq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jl4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l05ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chphm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eeyj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_qbt0f")
+name = "BlackcatTable"
+sprite_frames = SubResource("SpriteFrames_ff0cq")
+area_size = Vector2(20, 20)
+collision_size = Vector2(0, 0)
+metadata/_custom_type_script = "uid://bbnwp50rt7iwt"
