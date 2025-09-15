@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnu52vt6wkp1f"]
+
+[ext_resource type="Script" uid="uid://cys7k8sd4ufpm" path="res://gambling_minigames/roulette_minigame.gd" id="1_1ee0b"]
+[ext_resource type="Texture2D" uid="uid://br5e5urp0ct70" path="res://gambling_assets/roulette_wheel.png" id="1_ca0yt"]
+[ext_resource type="Script" uid="uid://dcl7knu245jd3" path="res://gambling_minigames/roulette.gd" id="1_ofm1w"]
+[ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_ofm1w"]
+[ext_resource type="Texture2D" uid="uid://bahqx0tuyj8bm" path="res://gambling_assets/button.png" id="5_klsr3"]
+[ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="6_klsr3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_svqt3"]
+font_size = 10
+
+[node name="RouletteMinigame" type="Node2D"]
+script = ExtResource("1_1ee0b")
+
+[node name="Header" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="Header"]
+offset_right = 160.0
+offset_bottom = 23.0
+text = "Roulette"
+horizontal_alignment = 1
+
+[node name="Prev" type="Button" parent="Header"]
+offset_right = 24.0
+offset_bottom = 23.0
+icon = ExtResource("2_ofm1w")
+flat = true
+
+[node name="Next" type="Button" parent="Header"]
+offset_left = 160.0
+offset_top = 23.0
+offset_right = 184.0
+offset_bottom = 46.0
+rotation = 3.14159
+icon = ExtResource("2_ofm1w")
+flat = true
+
+[node name="Roulette" type="Node2D" parent="."]
+position = Vector2(40.48, 56.81)
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_ofm1w")
+
+[node name="Sprite" type="Sprite2D" parent="Roulette"]
+texture = ExtResource("1_ca0yt")
+
+[node name="Arrow" type="Node2D" parent="."]
+position = Vector2(100, 70)
+
+[node name="Sprite" type="Sprite2D" parent="Arrow"]
+position = Vector2(-37, -13)
+texture = ExtResource("2_ofm1w")
+
+[node name="BetOn" type="Node2D" parent="."]
+position = Vector2(0, 100)
+
+[node name="Text" type="Label" parent="BetOn"]
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 39.0
+offset_bottom = 6.0
+text = "Bet on:"
+label_settings = SubResource("LabelSettings_svqt3")
+horizontal_alignment = 1
+
+[node name="Black" type="Button" parent="BetOn"]
+self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
+offset_left = 37.0
+offset_top = -15.0
+offset_right = 61.0
+offset_bottom = 9.0
+icon = ExtResource("5_klsr3")
+flat = true
+icon_alignment = 1
+
+[node name="Black" type="Button" parent="BetOn/Black"]
+self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
+offset_left = -23.0
+offset_top = 28.0
+offset_right = 22.0
+offset_bottom = 59.0
+text = "SPIN"
+flat = true
+icon_alignment = 1
+
+[node name="Pink" type="Button" parent="BetOn"]
+self_modulate = Color(0.936325, 0.630353, 0.89116, 1)
+offset_left = 57.0
+offset_top = -15.0
+offset_right = 81.0
+offset_bottom = 9.0
+icon = ExtResource("5_klsr3")
+flat = true
+icon_alignment = 1
+
+[node name="Money" type="Node2D" parent="."]
+position = Vector2(80, 50)
+
+[node name="Bet" type="Label" parent="Money"]
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 51.0
+offset_bottom = 6.0
+text = "Bet: "
+label_settings = SubResource("LabelSettings_svqt3")
+
+[node name="Bet2" type="Label" parent="Money"]
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 51.0
+offset_bottom = 23.0
+text = "Total:"
+label_settings = SubResource("LabelSettings_svqt3")
+
+[node name="PLACEHOLDER" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_klsr3")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Header/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Header/Next" to="." method="_on_next_pressed"]

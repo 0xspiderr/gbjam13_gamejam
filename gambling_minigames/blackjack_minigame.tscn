@@ -1,0 +1,206 @@
+[gd_scene load_steps=11 format=3 uid="uid://wikpds4xmuvt"]
+
+[ext_resource type="Script" uid="uid://dwfh6rw1vmhy4" path="res://gambling_minigames/blackjack_minigame.gd" id="1_7vd6g"]
+[ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_joqlj"]
+[ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="3_pdxap"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7vd6g"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vw1g"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_2xfhs"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_ttp6a"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_joqlj"]
+font_size = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_4o5vn"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_v1g0t"]
+font_size = 8
+
+[node name="BlackJackMinigame" type="Node2D"]
+script = ExtResource("1_7vd6g")
+
+[node name="Header" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="Header"]
+offset_right = 160.0
+offset_bottom = 23.0
+text = "Blackjack"
+horizontal_alignment = 1
+
+[node name="Prev" type="Button" parent="Header"]
+offset_right = 24.0
+offset_bottom = 23.0
+icon = ExtResource("2_joqlj")
+flat = true
+
+[node name="Next" type="Button" parent="Header"]
+offset_left = 160.0
+offset_top = 23.0
+offset_right = 184.0
+offset_bottom = 46.0
+rotation = 3.14159
+icon = ExtResource("2_joqlj")
+flat = true
+
+[node name="PreGame" type="Node2D" parent="."]
+
+[node name="Play" type="Button" parent="PreGame"]
+offset_left = 5.0
+offset_top = 110.0
+offset_right = 45.0
+offset_bottom = 136.0
+
+[node name="Text" type="Label" parent="PreGame/Play"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 40.0
+offset_bottom = 22.0
+text = "PLAY"
+label_settings = SubResource("LabelSettings_7vd6g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BetPanel" type="Node2D" parent="PreGame"]
+position = Vector2(54, 110)
+
+[node name="Bet" type="Node2D" parent="PreGame/BetPanel"]
+
+[node name="Text" type="Label" parent="PreGame/BetPanel/Bet"]
+offset_right = 20.0
+offset_bottom = 12.0
+text = "Bet: "
+label_settings = SubResource("LabelSettings_8vw1g")
+
+[node name="Value" type="Label" parent="PreGame/BetPanel/Bet"]
+offset_left = 24.0
+offset_right = 44.0
+offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_8vw1g")
+
+[node name="Total" type="Node2D" parent="PreGame/BetPanel"]
+position = Vector2(0, 14)
+
+[node name="Text" type="Label" parent="PreGame/BetPanel/Total"]
+offset_right = 20.0
+offset_bottom = 12.0
+text = "Total:"
+label_settings = SubResource("LabelSettings_8vw1g")
+
+[node name="Value" type="Label" parent="PreGame/BetPanel/Total"]
+offset_left = 24.0
+offset_right = 44.0
+offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_8vw1g")
+
+[node name="BetAdjust" type="Node2D" parent="PreGame"]
+position = Vector2(110, 110)
+
+[node name="Raise" type="Button" parent="PreGame/BetAdjust"]
+offset_right = 40.0
+offset_bottom = 12.0
+
+[node name="Text" type="Label" parent="PreGame/BetAdjust/Raise"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 12.0
+text = "RAISE"
+label_settings = SubResource("LabelSettings_2xfhs")
+horizontal_alignment = 1
+
+[node name="Lower" type="Button" parent="PreGame/BetAdjust"]
+offset_top = 14.0
+offset_right = 40.0
+offset_bottom = 26.0
+
+[node name="Text" type="Label" parent="PreGame/BetAdjust/Lower"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 12.0
+text = "LOWER"
+label_settings = SubResource("LabelSettings_ttp6a")
+horizontal_alignment = 1
+
+[node name="MidGame" type="Node2D" parent="."]
+visible = false
+
+[node name="TryAgain" type="Button" parent="MidGame"]
+offset_left = 5.0
+offset_top = 110.0
+offset_right = 45.0
+offset_bottom = 136.0
+disabled = true
+
+[node name="Text" type="Label" parent="MidGame/TryAgain"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 40.0
+offset_bottom = 22.0
+text = "TRY AGAIN"
+label_settings = SubResource("LabelSettings_joqlj")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GameStatus" type="Label" parent="MidGame"]
+offset_left = 50.0
+offset_top = 110.0
+offset_right = 104.0
+offset_bottom = 136.0
+label_settings = SubResource("LabelSettings_7vd6g")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayButtons" type="Node2D" parent="MidGame"]
+position = Vector2(110, 110)
+
+[node name="Hit" type="Button" parent="MidGame/PlayButtons"]
+offset_right = 40.0
+offset_bottom = 12.0
+
+[node name="Text" type="Label" parent="MidGame/PlayButtons/Hit"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 12.0
+text = "HIT"
+label_settings = SubResource("LabelSettings_4o5vn")
+horizontal_alignment = 1
+
+[node name="Stand" type="Button" parent="MidGame/PlayButtons"]
+offset_top = 14.0
+offset_right = 40.0
+offset_bottom = 26.0
+
+[node name="Text" type="Label" parent="MidGame/PlayButtons/Stand"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 12.0
+text = "STAND"
+label_settings = SubResource("LabelSettings_v1g0t")
+horizontal_alignment = 1
+
+[node name="PLACEHOLDER" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pdxap")
+autoplay = true
+parameters/looping = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Header/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Header/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="PreGame/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PreGame/BetAdjust/Raise" to="." method="_on_raise_pressed"]
+[connection signal="pressed" from="PreGame/BetAdjust/Lower" to="." method="_on_lower_pressed"]
+[connection signal="pressed" from="MidGame/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="MidGame/PlayButtons/Hit" to="." method="_on_hit_pressed"]
+[connection signal="pressed" from="MidGame/PlayButtons/Stand" to="." method="_on_stand_pressed"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
