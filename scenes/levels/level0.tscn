@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=26 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
-[ext_resource type="PackedScene" uid="uid://cp6enqfwfeyu7" path="res://scenes/enemy/enemy.tscn" id="2_hghvf"]
 [ext_resource type="Texture2D" uid="uid://d15rlcvvxg4yi" path="res://assets/tilesets/casino_tileset/tileset.png" id="3_hghvf"]
 [ext_resource type="Texture2D" uid="uid://b5ynhu5a7jae6" path="res://assets/tilesets/animated_obj/cash-booth.png" id="3_ry65h"]
 [ext_resource type="PackedScene" uid="uid://mlu3i7nhaelg" path="res://scenes/npcs/npc.tscn" id="6_d0grl"]
@@ -18,7 +17,6 @@
 [ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_m6lg1"]
 [ext_resource type="Resource" uid="uid://b7rdupdwsrdly" path="res://resources/interactable/blackcat_table.tres" id="15_yxkm4"]
 [ext_resource type="Resource" uid="uid://tkti4onay0o1" path="res://resources/interactable/pocanele.tres" id="16_3ebcg"]
-[ext_resource type="Resource" uid="uid://bih3etdk8k7o" path="res://resources/enemies/broken_mirror.tres" id="16_ng1gw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
@@ -329,27 +327,27 @@ slide_on_ceiling = false
 npc_stats = ExtResource("7_fj52k")
 
 [node name="Npc1" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(201, 45)
+position = Vector2(194, 44)
 npc_stats = ExtResource("7_1nvli")
 
 [node name="Npc2" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(-42, 122)
+position = Vector2(124, 137)
 npc_stats = ExtResource("8_vals0")
 
 [node name="Npc3" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(52, 102)
+position = Vector2(-63, 170)
 npc_stats = ExtResource("9_oem7y")
 
 [node name="Npc4" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(221, 51)
+position = Vector2(219, 52)
 npc_stats = ExtResource("10_a76di")
 
 [node name="Npc5" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(14, 84)
+position = Vector2(-50, 139)
 npc_stats = ExtResource("11_d3ub6")
 
 [node name="Npc6" parent="NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(-28, 84)
+position = Vector2(147, 113)
 npc_stats = ExtResource("12_7s2gi")
 
 [node name="BlackcatTable" parent="." instance=ExtResource("14_m6lg1")]
@@ -430,8 +428,3 @@ collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
 [node name="Enemies" type="Node2D" parent="."]
-
-[node name="Enemy" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_hghvf")]
-position = Vector2(-15, 147)
-enemy_stats = ExtResource("16_ng1gw")
-_player = NodePath("../../Player")

@@ -33,7 +33,7 @@ func _ready() -> void:
 	patrol_timer.start()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# dont process enemy movement if player is talking or in combat
 	if PlayerData.is_in_combat or PlayerData.is_talking:
 		enemy_sprite.play(&"idle")

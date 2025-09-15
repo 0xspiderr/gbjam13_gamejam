@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwaayo7m2tkb2"]
+
+[ext_resource type="Script" uid="uid://c46ehjy0etjxv" path="res://ui/dialogue/random_npc_dialogue.gd" id="1_kicr1"]
+
+[sub_resource type="Animation" id="Animation_sxbcy"]
+resource_name = "character"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_kicr1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41c10"]
+_data = {
+&"RESET": SubResource("Animation_kicr1"),
+&"character": SubResource("Animation_sxbcy")
+}
+
+[node name="RandomNpcDialogue" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kicr1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_41c10")
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 11.0
+offset_bottom = 19.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 30.0
+offset_bottom = 16.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 23.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = ". . ."
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RandDialogueTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DialogueVisibilityTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RandDialogueTimer" to="." method="_on_rand_dialogue_timer_timeout"]
+[connection signal="timeout" from="DialogueVisibilityTimer" to="." method="_on_dialogue_visibility_timer_timeout"]
