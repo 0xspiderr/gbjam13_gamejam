@@ -43,5 +43,5 @@ animations = [{
 script = ExtResource("1_kcg7h")
 name = "Npc 1"
 sprite_frames = SubResource("SpriteFrames_6nlir")
-dialogues = Array[String]([])
+dialogues = Array[String](["Hi there!"])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

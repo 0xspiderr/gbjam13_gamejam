@@ -18,13 +18,15 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	# dont process movement logic for the npcs if the player is in combat
-	if PlayerData.is_in_combat:
+	if PlayerData.is_in_combat or PlayerData.is_talking:
 		return
 
 
-func _on_dialogue_area_body_entered(_body: Node2D) -> void:
-	EventBus.entered_dialogue_area.emit(self)
+func _on_dialogue_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		EventBus.entered_dialogue_area.emit(self)
 
 
-func _on_dialogue_area_body_exited(_body: Node2D) -> void:
-	EventBus.exited_dialogue_area.emit()
+func _on_dialogue_area_body_exited(body: Node2D) -> void:
+	if body is Player:
+		EventBus.exited_dialogue_area.emit()

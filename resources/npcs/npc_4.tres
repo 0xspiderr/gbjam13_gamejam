@@ -43,5 +43,5 @@ animations = [{
 script = ExtResource("1_8d0qg")
 name = "Npc 4"
 sprite_frames = SubResource("SpriteFrames_ex3wa")
-dialogues = Array[String]([])
+dialogues = Array[String](["wazup"])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

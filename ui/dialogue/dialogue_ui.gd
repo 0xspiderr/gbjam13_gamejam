@@ -11,7 +11,10 @@ func _ready() -> void:
 	pass
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void: 
+	#if not PlayerData.is_talking:
+		#return
+	
 	if dialogue_list.is_empty():
 		rewind_data()
 		return
@@ -32,4 +35,5 @@ func continue_dialogue() -> void:
 func rewind_data() -> void:
 	visible = false
 	diag_index = 0
+	dialogue_list = []
 	PlayerData.is_talking = false
