@@ -4,13 +4,13 @@ extends CharacterBody2D
 
 @export var npc_stats: NpcStats
 @onready var npc_sprite: AnimatedSprite2D = $NpcSprite
+var idle_anim: String
 
 
 func _ready() -> void:
 	# when a new npc spawns get the first animation from it's resource
 	# which is the idle animation for every npc and play it.
-	var idle_anim = npc_stats.sprite_frames.get_animation_names()[0]
-	
+	idle_anim = npc_stats.sprite_frames.get_animation_names()[0]
 	npc_sprite.sprite_frames = npc_stats.sprite_frames
 	npc_sprite.animation = idle_anim
 	npc_sprite.play(idle_anim)

@@ -1,31 +1,50 @@
-extends Control
+extends Node2D
 
-
-var wait_time: float = 1.0
+enum
+{
+	ANGRY = 0,
+	NORMAL = 1,
+}
+var rand_index: int = 0
 var visibility_time: float = 1.0
 @onready var rand_dialogue_timer: Timer = $RandDialogueTimer
-@onready var dialogue_visibility_timer: Timer = $DialogueVisibilityTimer
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var animated_speaking: AnimatedSprite2D = $AnimatedSpeaking
+
 
 
 func _ready() -> void:
+	hide()
 	randomize()
-	visible = false
-	wait_time = randf_range(1.0, 10.0)
-	rand_dialogue_timer.wait_time = wait_time
+	rand_dialogue_timer.wait_time = randf_range(5.0, 10.0)
 	rand_dialogue_timer.start()
 
 
 func _on_rand_dialogue_timer_timeout() -> void:
-	visible = true
-	animation_player.play(&"character")
-	wait_time = randf_range(5.0, 15.0)
-	visibility_time = randf_range(3.0, 5.0)
-	rand_dialogue_timer.wait_time = wait_time
-	dialogue_visibility_timer.wait_time = visibility_time
+	show()
+	animated_speaking.show()
+	animated_sprite.show()
+	_play_animation()
+	rand_index = randi_range(0, 2)
+	rand_dialogue_timer.wait_time = randf_range(5.0, 10.0)
 	rand_dialogue_timer.start()
-	dialogue_visibility_timer.start()
 
 
-func _on_dialogue_visibility_timer_timeout() -> void:
-	visible = false
+func _play_animation() -> void:
+	match rand_index:
+		ANGRY:
+			animated_sprite.play(&"angry")
+		NORMAL:
+			animated_sprite.play(&"normal")
+		_:
+			animated_sprite.play(&"normal")
+	animated_speaking.play(&"speak")
+
+
+func _on_animated_speaking_animation_finished() -> void:
+	animated_speaking.stop()
+	animated_speaking.hide()
+
+
+func _on_animated_sprite_animation_finished() -> void:
+	animated_sprite.hide()
