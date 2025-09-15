@@ -13,3 +13,4 @@ func draw_text(text: String) -> void:
 	# draw text letter by letter
 	dialogue_label.text = text
 	text_animation_player.play(&"character")
+	audio_stream_player.play()
