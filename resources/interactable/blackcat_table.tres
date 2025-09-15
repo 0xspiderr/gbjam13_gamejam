@@ -44,5 +44,5 @@ script = ExtResource("1_qbt0f")
 name = "BlackcatTable"
 sprite_frames = SubResource("SpriteFrames_ff0cq")
 area_size = Vector2(20, 20)
-collision_size = Vector2(0, 0)
+collision_size = Vector2(40, 20)
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"
