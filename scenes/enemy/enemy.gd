@@ -13,13 +13,17 @@ enum State
 # use resources for enemies, that way this enemy script
 # will spawn enemies based on the level we are in
 @export var enemy_stats: EnemyStats
+@export var _player: Player = null
+
+
 @onready var enemy_sprite: AnimatedSprite2D = $EnemySprite
 @onready var patrol_timer: Timer = $PatrolTimer
 @onready var wait_timer: Timer = $WaitTimer
 @onready var area_detection_component: AreaDetectionComponent = $AreaDetectionComponent
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
-@export var _player: Player = null
-var current_state: State = State.PATROL
+
+var _current_state: State = State.PATROL
 var _speed: int = 0
 var _max_health: int = 0
 var _current_health: int = 0
@@ -71,19 +75,20 @@ func _play_animation() -> void:
 
 
 func _patrol() -> void:
-	velocity = _enemy_dir * _speed
+	_navigate(_speed)
 
 
 func _on_patrol_timer_timeout() -> void:
-	randomize()
-	var index = randi_range(0, 3)
-	_enemy_dir = _directions[index]
+	var nav_rid: RID = navigation_agent_2d.get_navigation_map()
+	var random_pos = NavigationServer2D.map_get_random_point(nav_rid, 1, false)
+	
+	navigation_agent_2d.target_position = random_pos
 	_change_state(State.PATROL)
 	wait_timer.start()
 
 
 func _change_state(new_state: State) -> void:
-	current_state = new_state
+	_current_state = new_state
 
 
 func _on_chase_player_area_body_entered(body: Node2D) -> void:
@@ -98,7 +103,7 @@ func _on_chase_player_area_body_exited(body: Node2D) -> void:
 
 
 func _do_state_action() -> void:
-	match current_state:
+	match _current_state:
 		State.PATROL:
 			_patrol()
 		State.CHASE:
@@ -108,17 +113,29 @@ func _do_state_action() -> void:
 
 
 func _chase_player() -> void:
-	var dir = round(position.direction_to(_player.position))
+	_navigate(_speed + 25.0)
 
-	if abs(dir.x) >= abs(dir.y):
-		_enemy_dir = Vector2(dir.x, 0)
-	else:
-		_enemy_dir = Vector2(0, dir.y)
+
+func _navigate(speed: float) -> void:
+	var next_path_pos = navigation_agent_2d.get_next_path_position()
+	var dir = global_position.direction_to(next_path_pos).normalized()
 	
-	velocity = _enemy_dir * (_speed + 25)
+	var animation_dir = round(dir)
+	if abs(animation_dir.x) > abs(animation_dir.y):
+		_enemy_dir = Vector2(animation_dir.x, 0)
+	else:
+		_enemy_dir = Vector2(0, animation_dir.y) 
+	
+	velocity = dir * speed
+
 
 func _on_wait_timer_timeout() -> void:
 	_change_state(State.WAIT)
 	velocity = Vector2.ZERO
 	_enemy_dir = Vector2.ZERO
 	patrol_timer.start()
+
+
+func _on_path_update_timer_timeout() -> void:
+	if _current_state == State.CHASE:
+		navigation_agent_2d.target_position = _player.global_position

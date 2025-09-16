@@ -14,7 +14,6 @@ config/name="GBJAM13_gamejam"
 run/main_scene="uid://bgasbu3xvl0ur"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
-<<<<<<<HEADrun/main_scene="uid://wikpds4xmuvt"
 
 [autoload]
 
@@ -27,8 +26,8 @@ UIManager="*res://singletons/ui_manager.gd"
 
 window/size/viewport_width=160
 window/size/viewport_height=144
-window/size/window_width_override=1680
-window/size/window_height_override=1024
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/stretch/scale=0.5
 window/stretch/scale_mode="integer"
@@ -76,3 +75,5 @@ interact={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
