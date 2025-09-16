@@ -17,3 +17,4 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [connection signal="body_entered" from="InteractableComponentArea" to="." method="_on_interactable_component_area_body_entered"]
+[connection signal="body_exited" from="InteractableComponentArea" to="." method="_on_interactable_component_area_body_exited"]

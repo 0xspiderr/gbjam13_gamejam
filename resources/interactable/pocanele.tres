@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="InteractableStats" load_steps=23 format=3 uid="uid://tkti4onay0o1"]
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=24 format=3 uid="uid://tkti4onay0o1"]
 
 [ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_4ntcy"]
+[ext_resource type="PackedScene" uid="uid://cxgfacmnppn7h" path="res://gambling_minigames/slots_minigame.tscn" id="1_evv8j"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_wodkh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evv8j"]
@@ -150,4 +151,5 @@ name = "Pocanele"
 sprite_frames = SubResource("SpriteFrames_dgdeb")
 area_size = Vector2(20, 20)
 collision_size = Vector2(0, 0)
+scene_to_change = ExtResource("1_evv8j")
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"

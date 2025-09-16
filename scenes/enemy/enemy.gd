@@ -117,6 +117,9 @@ func _chase_player() -> void:
 
 
 func _navigate(speed: float) -> void:
+	if navigation_agent_2d.is_navigation_finished():
+		return
+	
 	var next_path_pos = navigation_agent_2d.get_next_path_position()
 	var dir = global_position.direction_to(next_path_pos).normalized()
 	

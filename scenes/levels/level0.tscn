@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=31 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://b7rdupdwsrdly" path="res://resources/interactable/blackcat_table.tres" id="15_yxkm4"]
 [ext_resource type="Resource" uid="uid://tkti4onay0o1" path="res://resources/interactable/pocanele.tres" id="16_3ebcg"]
 [ext_resource type="PackedScene" uid="uid://cp6enqfwfeyu7" path="res://scenes/enemy/enemy.tscn" id="18_db1u1"]
+[ext_resource type="Resource" uid="uid://cm4d3126vbscu" path="res://resources/interactable/level_door.tres" id="18_po5je"]
 [ext_resource type="Resource" uid="uid://bih3etdk8k7o" path="res://resources/enemies/broken_mirror.tres" id="19_po5je"]
 [ext_resource type="Resource" uid="uid://dyakpr6vdjkd5" path="res://resources/enemies/devil.tres" id="20_mtrs4"]
 [ext_resource type="Resource" uid="uid://btsx4fvp17suh" path="res://resources/enemies/stair.tres" id="21_rbahy"]
@@ -430,6 +431,10 @@ position = Vector2(318, 42)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
+
+[node name="LevelDoor" parent="Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(139, 51)
+interactable_stats = ExtResource("18_po5je")
 
 [node name="Enemies" type="Node2D" parent="."]
 
