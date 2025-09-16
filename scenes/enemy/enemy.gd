@@ -110,7 +110,6 @@ func _do_state_action() -> void:
 
 
 func _chase_player() -> void:
-	print(stats.chase_speed)
 	_navigate(stats.chase_speed)
 
 

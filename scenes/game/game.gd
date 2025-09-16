@@ -38,7 +38,6 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("interact"):
 		if PlayerData.can_interact:
-			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 			_change_level_scene(interactable_scene_change)
 		
 		if PlayerData.can_talk and is_instance_valid(current_npc):
@@ -57,6 +56,11 @@ func _change_level_scene(scene: PackedScene) -> void:
 	if current_scene.get_child_count():
 		var instance := scene.instantiate()
 		current_level = instance
+		
+		# temporary solution
+		if current_level.name.begins_with("Level"):
+			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
+		
 		current_scene.get_child(0).queue_free()
 		current_scene.add_child(instance)
 
