@@ -57,7 +57,7 @@ func _change_level_scene(scene: PackedScene) -> void:
 		var instance := scene.instantiate()
 		current_level = instance
 		
-		# temporary solution
+		# temporary solution until combat is implemented
 		if current_level.name.begins_with("Level"):
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 		
