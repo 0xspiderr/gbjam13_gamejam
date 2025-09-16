@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://mlu3i7nhaelg"]
+[gd_scene load_steps=5 format=3 uid="uid://mlu3i7nhaelg"]
 
 [ext_resource type="Script" uid="uid://dydo2x7362ptg" path="res://scenes/npcs/npc.gd" id="1_ivh6b"]
+[ext_resource type="PackedScene" uid="uid://bwaayo7m2tkb2" path="res://ui/dialogue/random_npc_dialogue.tscn" id="2_m5fb5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
 
@@ -19,6 +20,8 @@ shape = SubResource("RectangleShape2D_ivh6b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
 shape = SubResource("CircleShape2D_m5fb5")
+
+[node name="RandomNpcDialogue" parent="." instance=ExtResource("2_m5fb5")]
 
 [connection signal="body_entered" from="DialogueArea" to="." method="_on_dialogue_area_body_entered"]
 [connection signal="body_exited" from="DialogueArea" to="." method="_on_dialogue_area_body_exited"]

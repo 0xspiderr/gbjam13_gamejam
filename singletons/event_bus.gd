@@ -8,3 +8,7 @@ signal end_combat()
 # dialogue signals
 signal entered_dialogue_area(npc: NPC)
 signal exited_dialogue_area()
+
+# interactable signals
+signal entered_interactable_area(_scene_to_change: PackedScene)
+signal exited_interactable_area()

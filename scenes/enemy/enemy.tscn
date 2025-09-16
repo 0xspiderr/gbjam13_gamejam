@@ -1,12 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp6enqfwfeyu7"]
+[gd_scene load_steps=5 format=3 uid="uid://cp6enqfwfeyu7"]
 
 [ext_resource type="Script" uid="uid://d1nyum16d6ixl" path="res://scenes/enemy/enemy.gd" id="1_40wdo"]
 [ext_resource type="PackedScene" uid="uid://v3kgvdsj8d8i" path="res://components/area_detection_component/area_detection_component.tscn" id="2_a3pup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a83h"]
+size = Vector2(16, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3pup"]
+radius = 50.0
 
 [node name="Enemy" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_40wdo")
+
+[node name="PatrolTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="PathUpdateTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 
@@ -14,6 +32,22 @@ script = ExtResource("1_40wdo")
 shape = SubResource("RectangleShape2D_4a83h")
 
 [node name="AreaDetectionComponent" parent="." instance=ExtResource("2_a3pup")]
-scale = Vector2(1.56, 1.529)
+scale = Vector2(1.2, 1.198)
+
+[node name="ChasePlayerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChasePlayerArea"]
+shape = SubResource("CircleShape2D_a3pup")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 12.0
+
+[connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="PathUpdateTimer" to="." method="_on_path_update_timer_timeout"]
+[connection signal="body_entered" from="ChasePlayerArea" to="." method="_on_chase_player_area_body_entered"]
+[connection signal="body_exited" from="ChasePlayerArea" to="." method="_on_chase_player_area_body_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 
 [editable path="AreaDetectionComponent"]

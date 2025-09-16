@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=8 format=3 uid="uid://b5mg6bqktofai"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=9 format=3 uid="uid://b5mg6bqktofai"]
 
+[ext_resource type="AudioStream" uid="uid://bdys7qr1qnm4n" path="res://sounds/dialogue/Dialogue1.ogg" id="1_5o2g4"]
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_dfjeg"]
 [ext_resource type="Texture2D" uid="uid://c02u6dueiey6x" path="res://assets/sprites/npcs/npc5-idle.png" id="2_8n6im"]
 
@@ -44,4 +45,5 @@ script = ExtResource("1_dfjeg")
 name = "Npc 5"
 sprite_frames = SubResource("SpriteFrames_tm7hs")
 dialogues = Array[String]([])
+dialogue_stream = ExtResource("1_5o2g4")
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

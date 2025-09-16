@@ -6,6 +6,7 @@ extends Node
 
 #region MUSIC PATHS
 const COMBAT = "res://sounds/music/Combat.ogg"
+const COMBAT_LEVEL = "res://sounds/music/Combat2.ogg"
 const MAIN_MENU_OGG = "res://sounds/music/MainMenuOGG.ogg"
 const OVERWORLD = "res://sounds/music/Overworld.ogg"
 #endregion
