@@ -12,7 +12,7 @@ enum State
 
 # use resources for enemies, that way this enemy script
 # will spawn enemies based on the level we are in
-@export var enemy_stats: EnemyStats
+@export var stats: EnemyStats
 @export var _player: Player = null
 
 
@@ -24,11 +24,8 @@ enum State
 
 
 var _current_state: State = State.PATROL
-var _speed: int = 0
 var _max_health: int = 0
 var _current_health: int = 0
-var _directions: Array[Vector2] = [Vector2(1, 0), Vector2(-1, 0), \
-Vector2(0, 1), Vector2(0, -1)]
 var _enemy_dir: Vector2 = Vector2.ZERO
 
 
@@ -50,12 +47,11 @@ func _physics_process(_delta: float) -> void:
 
 func _enemy_stats_setup() -> void:
 	# attributes
-	_max_health = enemy_stats.max_health
+	_max_health = stats.max_health
 	_current_health = _max_health
-	_speed = enemy_stats.speed
 	
 	# animations
-	enemy_sprite.sprite_frames = enemy_stats.sprite_frames
+	enemy_sprite.sprite_frames = stats.sprite_frames
 	enemy_sprite.play(&"idle")
 
 
@@ -75,7 +71,7 @@ func _play_animation() -> void:
 
 
 func _patrol() -> void:
-	_navigate(_speed)
+	_navigate(stats.speed)
 
 
 func _on_patrol_timer_timeout() -> void:
@@ -94,6 +90,7 @@ func _change_state(new_state: State) -> void:
 func _on_chase_player_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		patrol_timer.stop()
+		wait_timer.stop()
 		_change_state(State.CHASE)
 
 
@@ -113,7 +110,8 @@ func _do_state_action() -> void:
 
 
 func _chase_player() -> void:
-	_navigate(_speed + 25.0)
+	print(stats.chase_speed)
+	_navigate(stats.chase_speed)
 
 
 func _navigate(speed: float) -> void:

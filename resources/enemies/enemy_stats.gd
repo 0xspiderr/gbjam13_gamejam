@@ -3,5 +3,6 @@ extends Resource
 
 
 @export var speed: int
+@export var chase_speed: int
 @export var max_health: int
 @export var sprite_frames: SpriteFrames

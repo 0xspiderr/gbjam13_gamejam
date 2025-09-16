@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=27 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
@@ -17,11 +17,7 @@
 [ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_m6lg1"]
 [ext_resource type="Resource" uid="uid://b7rdupdwsrdly" path="res://resources/interactable/blackcat_table.tres" id="15_yxkm4"]
 [ext_resource type="Resource" uid="uid://tkti4onay0o1" path="res://resources/interactable/pocanele.tres" id="16_3ebcg"]
-[ext_resource type="PackedScene" uid="uid://cp6enqfwfeyu7" path="res://scenes/enemy/enemy.tscn" id="18_db1u1"]
 [ext_resource type="Resource" uid="uid://cm4d3126vbscu" path="res://resources/interactable/level_door.tres" id="18_po5je"]
-[ext_resource type="Resource" uid="uid://bih3etdk8k7o" path="res://resources/enemies/broken_mirror.tres" id="19_po5je"]
-[ext_resource type="Resource" uid="uid://dyakpr6vdjkd5" path="res://resources/enemies/devil.tres" id="20_mtrs4"]
-[ext_resource type="Resource" uid="uid://btsx4fvp17suh" path="res://resources/enemies/stair.tres" id="21_rbahy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
@@ -435,19 +431,3 @@ interactable_stats = ExtResource("16_3ebcg")
 [node name="LevelDoor" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(139, 51)
 interactable_stats = ExtResource("18_po5je")
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Enemy" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("18_db1u1")]
-enemy_stats = ExtResource("19_po5je")
-_player = NodePath("../../Player")
-
-[node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("18_db1u1")]
-position = Vector2(-82, 78)
-enemy_stats = ExtResource("20_mtrs4")
-_player = NodePath("../../Player")
-
-[node name="Enemy3" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("18_db1u1")]
-position = Vector2(85, -53)
-enemy_stats = ExtResource("21_rbahy")
-_player = NodePath("../../Player")
