@@ -64,6 +64,7 @@ func _tween_btn_scale_down(button: Button) -> void:
 func _change_menu(button_index: int) -> void:
 	match button_index:
 		PLAY:
+			print_debug("bruh")
 			get_tree().change_scene_to_packed(GAME)
 		QUIT:
 			get_tree().quit()
