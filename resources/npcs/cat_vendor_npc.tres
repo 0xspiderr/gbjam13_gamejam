@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=12 format=3 uid="uid://cd4wgr2wxoeh3"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=13 format=3 uid="uid://cd4wgr2wxoeh3"]
 
 [ext_resource type="AudioStream" uid="uid://bxlbdcq7wivuc" path="res://sounds/dialogue/Dialogue2.ogg" id="1_10a52"]
 [ext_resource type="Texture2D" uid="uid://n7m4whfvks0q" path="res://assets/sprites/characters/black-cat-idle.png" id="1_cyu4g"]
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_t1qjg"]
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="2_jhmy6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cyu4g"]
 atlas = ExtResource("1_cyu4g")
@@ -65,7 +66,6 @@ animations = [{
 script = ExtResource("1_t1qjg")
 name = "Cat Vendor"
 sprite_frames = SubResource("SpriteFrames_d87uy")
-dialogues = Array[String](["Hi, welcome to the casino!", "Hello world!", "Goodbye, cruel world!", "AAAAAasdasdasdasd
-asdasdasddasd"])
+dialogues = Array[ExtResource("2_jhmy6")]([])
 dialogue_stream = ExtResource("1_10a52")
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

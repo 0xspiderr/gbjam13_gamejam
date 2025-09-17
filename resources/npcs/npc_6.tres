@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=9 format=3 uid="uid://eufpje6pfnc7"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=10 format=3 uid="uid://eufpje6pfnc7"]
 
 [ext_resource type="AudioStream" uid="uid://bdys7qr1qnm4n" path="res://sounds/dialogue/Dialogue1.ogg" id="1_0a1hy"]
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_dswfn"]
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="2_26yw2"]
 [ext_resource type="Texture2D" uid="uid://cmkqvg6mtaq50" path="res://assets/sprites/npcs/npc6-idle.png" id="2_ljyke"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0a1hy"]
@@ -44,6 +45,6 @@ animations = [{
 script = ExtResource("1_dswfn")
 name = "Npc 6"
 sprite_frames = SubResource("SpriteFrames_sef6w")
-dialogues = Array[String]([])
+dialogues = Array[ExtResource("2_26yw2")]([])
 dialogue_stream = ExtResource("1_0a1hy")
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
