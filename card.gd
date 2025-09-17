@@ -1,25 +1,20 @@
 extends Node2D
 
-var strValue
 @export var numValue:int
-@onready var valueText: Label = $Value
+@onready var base: Sprite2D = $Base
 
 func Spawn(x,y):
 	position.x = x
 	position.y = y
 
 func Update(value):
-	strValue = value
+	base.frame = value
 	
-	valueText.text = strValue
-	match value:
-		"J","K","Q": # face - 10
+	match value % 13:
+		10,11,12: # face - 10
 			numValue = 10
-		"lA": # low ace - 1
-			numValue = 1
-		"hA": # high ace - 11
-			numValue = 11
-		"": # null
-			numValue = 0
-		_: # everything else
-			numValue = int(strValue)
+		_: # everything else (ace is calculated separately)
+			numValue = value % 13 + 1
+
+func SetAce(value): # 0 -> 1 value ace, 1 -> 11 value ace
+	numValue = 1 + 10 * value 

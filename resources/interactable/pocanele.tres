@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InteractableStats" load_steps=24 format=3 uid="uid://tkti4onay0o1"]
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=24 format=3 uid="uid://6vuixnenofhl"]
 
 [ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_4ntcy"]
 [ext_resource type="PackedScene" uid="uid://cxgfacmnppn7h" path="res://gambling_minigames/slots_minigame.tscn" id="1_evv8j"]

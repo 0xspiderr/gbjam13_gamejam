@@ -78,17 +78,17 @@ func _ready() -> void:
 	ResetSlots([10,10,10]) # nr of refreshes before result, purely visual
 	
 	UpdateBet(5)
-	UpdateTotal(int(FileAccess.open("res://data.txt", FileAccess.READ).get_line())) # total money
+	UpdateTotal(PlayerData.money) # total money
 
 func _on_prev_pressed() -> void:
 	var file = FileAccess.open("res://data.txt", FileAccess.WRITE)
-	file.store_line(str(totalMoney))
+	PlayerData.money = totalMoney
 	get_tree().change_scene_to_file("res://gambling_minigames/blackjack_minigame.tscn")
 
 
 func _on_next_pressed() -> void:
 	var file = FileAccess.open("res://data.txt", FileAccess.WRITE)
-	file.store_line(str(totalMoney))
+	PlayerData.money = totalMoney
 	get_tree().change_scene_to_file("res://gambling_minigames/roulette_minigame.tscn")
 
 

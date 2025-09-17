@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="InteractableStats" load_steps=6 format=3 uid="uid://c277plawxcyl3"]
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=5 format=3 uid="uid://c277plawxcyl3"]
 
 [ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_0wyxm"]
-[ext_resource type="PackedScene" uid="uid://wikpds4xmuvt" path="res://gambling_minigames/blackjack_minigame.tscn" id="1_uqg3f"]
 [ext_resource type="Texture2D" uid="uid://d15rlcvvxg4yi" path="res://assets/tilesets/casino_tileset/tileset.png" id="2_lfhcd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfhcd"]
@@ -25,5 +24,4 @@ name = "BlackjackTable"
 sprite_frames = SubResource("SpriteFrames_uqg3f")
 area_size = Vector2(30, 30)
 collision_size = Vector2(25, 25)
-scene_to_change = ExtResource("1_uqg3f")
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"

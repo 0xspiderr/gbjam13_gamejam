@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5h8qseebioe2" path="res://gambling_minigames/slots_minigame.gd" id="1_gubm0"]
 [ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_jm7xa"]
-[ext_resource type="PackedScene" uid="uid://c7dr6chxe2hwd" path="res://card.tscn" id="3_nf43e"]
+[ext_resource type="PackedScene" uid="uid://biadmigqa56wo" path="res://card.tscn" id="3_nf43e"]
 [ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="3_ulbyp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_do5dl"]
@@ -119,6 +119,7 @@ offset_right = 40.0
 offset_bottom = 12.0
 
 [node name="Text" type="Label" parent="Footer/BetAdjust/Raise"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 12.0
 text = "RAISE"

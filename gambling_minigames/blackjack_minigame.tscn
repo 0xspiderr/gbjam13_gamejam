@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://wikpds4xmuvt"]
+[gd_scene load_steps=12 format=3 uid="uid://wikpds4xmuvt"]
 
 [ext_resource type="Script" uid="uid://dwfh6rw1vmhy4" path="res://gambling_minigames/blackjack_minigame.gd" id="1_7vd6g"]
 [ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_joqlj"]
-[ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="3_pdxap"]
+[ext_resource type="PackedScene" uid="uid://b5nv0mtg24h0x" path="res://gambling_minigames/blackjack.tscn" id="2_pdxap"]
+[ext_resource type="AudioStream" uid="uid://dkbubo64dtrtr" path="res://sounds/music/Overworld.ogg" id="4_pdxap"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7vd6g"]
-font_size = 10
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8vw1g"]
-font_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xfhs"]
 font_size = 8
@@ -16,17 +18,21 @@ font_size = 8
 [sub_resource type="LabelSettings" id="LabelSettings_ttp6a"]
 font_size = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_joqlj"]
-font_size = 6
-
 [sub_resource type="LabelSettings" id="LabelSettings_4o5vn"]
 font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_v1g0t"]
 font_size = 8
 
+[sub_resource type="LabelSettings" id="LabelSettings_joqlj"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [node name="BlackJackMinigame" type="Node2D"]
 script = ExtResource("1_7vd6g")
+
+[node name="BlackJack" parent="." instance=ExtResource("2_pdxap")]
+maxHandSize = 5
 
 [node name="Header" type="Node2D" parent="."]
 
@@ -37,8 +43,8 @@ text = "Blackjack"
 horizontal_alignment = 1
 
 [node name="Prev" type="Button" parent="Header"]
-offset_right = 24.0
-offset_bottom = 23.0
+offset_right = 16.0
+offset_bottom = 21.0
 icon = ExtResource("2_joqlj")
 flat = true
 
@@ -62,28 +68,27 @@ offset_bottom = 136.0
 [node name="Text" type="Label" parent="PreGame/Play"]
 layout_mode = 0
 offset_top = 4.0
-offset_right = 40.0
-offset_bottom = 22.0
+offset_right = 39.0
+offset_bottom = 21.0
 text = "PLAY"
 label_settings = SubResource("LabelSettings_7vd6g")
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="BetPanel" type="Node2D" parent="PreGame"]
-position = Vector2(54, 110)
+position = Vector2(54, 108)
 
 [node name="Bet" type="Node2D" parent="PreGame/BetPanel"]
 
 [node name="Text" type="Label" parent="PreGame/BetPanel/Bet"]
-offset_right = 20.0
-offset_bottom = 12.0
+offset_right = 24.0
+offset_bottom = 11.0
 text = "Bet: "
 label_settings = SubResource("LabelSettings_8vw1g")
 
 [node name="Value" type="Label" parent="PreGame/BetPanel/Bet"]
-offset_left = 24.0
-offset_right = 44.0
-offset_bottom = 12.0
+offset_left = 30.0
+offset_right = 50.0
+offset_bottom = 13.0
 label_settings = SubResource("LabelSettings_8vw1g")
 
 [node name="Total" type="Node2D" parent="PreGame/BetPanel"]
@@ -96,9 +101,9 @@ text = "Total:"
 label_settings = SubResource("LabelSettings_8vw1g")
 
 [node name="Value" type="Label" parent="PreGame/BetPanel/Total"]
-offset_left = 24.0
-offset_right = 44.0
-offset_bottom = 12.0
+offset_left = 30.0
+offset_right = 50.0
+offset_bottom = 13.0
 label_settings = SubResource("LabelSettings_8vw1g")
 
 [node name="BetAdjust" type="Node2D" parent="PreGame"]
@@ -131,24 +136,6 @@ horizontal_alignment = 1
 
 [node name="MidGame" type="Node2D" parent="."]
 visible = false
-
-[node name="TryAgain" type="Button" parent="MidGame"]
-offset_left = 5.0
-offset_top = 110.0
-offset_right = 45.0
-offset_bottom = 136.0
-disabled = true
-
-[node name="Text" type="Label" parent="MidGame/TryAgain"]
-layout_mode = 0
-offset_top = 4.0
-offset_right = 40.0
-offset_bottom = 22.0
-text = "TRY AGAIN"
-label_settings = SubResource("LabelSettings_joqlj")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="GameStatus" type="Label" parent="MidGame"]
 offset_left = 50.0
@@ -188,19 +175,46 @@ text = "STAND"
 label_settings = SubResource("LabelSettings_v1g0t")
 horizontal_alignment = 1
 
+[node name="TryAgain" type="Button" parent="MidGame"]
+offset_left = 5.0
+offset_top = 110.0
+offset_right = 45.0
+offset_bottom = 136.0
+
+[node name="Text" type="Label" parent="MidGame/TryAgain"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 40.0
+offset_bottom = 22.0
+text = "AGAIN"
+label_settings = SubResource("LabelSettings_joqlj")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Points" type="Label" parent="MidGame"]
+offset_left = 50.0
+offset_top = 131.0
+offset_right = 104.0
+offset_bottom = 144.0
+label_settings = SubResource("LabelSettings_7vd6g")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="PLACEHOLDER" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_pdxap")
+stream = ExtResource("4_pdxap")
 autoplay = true
 parameters/looping = true
 
 [node name="CooldownTimer" type="Timer" parent="."]
 
+[connection signal="state_changed" from="BlackJack" to="." method="_on_state_changed"]
 [connection signal="pressed" from="Header/Prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="Header/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="PreGame/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PreGame/BetAdjust/Raise" to="." method="_on_raise_pressed"]
 [connection signal="pressed" from="PreGame/BetAdjust/Lower" to="." method="_on_lower_pressed"]
-[connection signal="pressed" from="MidGame/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="MidGame/PlayButtons/Hit" to="." method="_on_hit_pressed"]
 [connection signal="pressed" from="MidGame/PlayButtons/Stand" to="." method="_on_stand_pressed"]
+[connection signal="pressed" from="MidGame/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

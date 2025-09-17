@@ -75,6 +75,7 @@ icon_alignment = 1
 
 [node name="Black" type="Button" parent="BetOn/Black"]
 self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
+layout_mode = 0
 offset_left = -23.0
 offset_top = 28.0
 offset_right = 22.0
