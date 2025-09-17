@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://v3kgvdsj8d8i" path="res://components/area_detection_component/area_detection_component.tscn" id="2_a3pup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a83h"]
-size = Vector2(16, 24)
+size = Vector2(10, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3pup"]
 radius = 50.0
@@ -32,7 +32,6 @@ autostart = true
 shape = SubResource("RectangleShape2D_4a83h")
 
 [node name="AreaDetectionComponent" parent="." instance=ExtResource("2_a3pup")]
-scale = Vector2(1.2, 1.198)
 
 [node name="ChasePlayerArea" type="Area2D" parent="."]
 
@@ -46,8 +45,8 @@ radius = 12.0
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
 [connection signal="timeout" from="PathUpdateTimer" to="." method="_on_path_update_timer_timeout"]
+[connection signal="body_entered" from="AreaDetectionComponent" to="." method="_on_area_detection_component_body_entered"]
 [connection signal="body_entered" from="ChasePlayerArea" to="." method="_on_chase_player_area_body_entered"]
 [connection signal="body_exited" from="ChasePlayerArea" to="." method="_on_chase_player_area_body_exited"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 
 [editable path="AreaDetectionComponent"]

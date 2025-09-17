@@ -52,6 +52,7 @@ func _get_current_level() -> void:
 	if current_scene.get_child_count():
 		current_level = current_scene.get_child(0)
 
+
 func _change_level_scene(scene: PackedScene) -> void:
 	if current_scene.get_child_count():
 		var instance := scene.instantiate()

@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=4 uid="uid://dhwp28rueuyv4"]
+
+[ext_resource type="Texture2D" uid="uid://c0m7uox3oq3y6" path="res://assets/tilesets/battle_map_tileset/tileset_battle_1.png" id="1_b7e54"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6ivy"]
+texture = ExtResource("1_b7e54")
+texture_region_size = Vector2i(12, 12)
+7:0/size_in_atlas = Vector2i(1, 3)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)
+10:0/size_in_atlas = Vector2i(1, 2)
+10:0/0 = 0
+10:0/0/texture_origin = Vector2i(2, -6)
+11:0/size_in_atlas = Vector2i(1, 2)
+11:0/0 = 0
+11:0/0/texture_origin = Vector2i(-2, -6)
+10:5/size_in_atlas = Vector2i(2, 2)
+10:5/0 = 0
+10:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.5, -8, 10, -9.5, 10, 10.5, -10.5, 11.5)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)
+6:1/size_in_atlas = Vector2i(1, 2)
+6:1/0 = 0
+6:1/0/texture_origin = Vector2i(0, 4)
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, 5, -8, 5, 6, -5, 6)
+5:0/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+12:3/0 = 0
+12:4/0 = 0
+11:4/0 = 0
+10:4/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4tcl0"]
+tile_size = Vector2i(12, 12)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_x6ivy")
+
+[node name="DecorationsTilemapLayer" type="TileMapLayer" groups=["navigation"]]
+tile_map_data = PackedByteArray("AAAUAP//AAAEAAAAAAARAP//AAAEAAAAAAAQAAAAAAAEAAEAAADx/xgAAAALAAMAAADx/xkAAAALAAMAAADy/xkAAAALAAMAAADy/xgAAAALAAMAAADz/xgAAAALAAMAAADz/xkAAAALAAMAAAD0/xgAAAALAAMAAAD0/xkAAAALAAMAAAD1/xkAAAAMAAMAAAD1/xgAAAAMAAMAAADy/xoAAAALAAQAAADz/xoAAAALAAQAAAD0/xoAAAALAAQAAAD1/xoAAAAMAAQAAADv/xoAAAAKAAQAAADw/xoAAAALAAQAAADx/xoAAAALAAQAAADv/xkAAAAKAAMAAADv/xgAAAAKAAMAAADv/xcAAAAKAAIAAADw/xcAAAALAAIAAADx/xcAAAALAAIAAADy/xcAAAALAAIAAADz/xcAAAALAAIAAAD0/xcAAAALAAIAAAD1/xcAAAAMAAIAAADw/xkAAAALAAMAAADw/xgAAAALAAMAAAD6/xgAAAAGAAEAAAD5/xwAAAAKAAUAAAD2/xcAAAAEAAEAAAD8/xgAAAAFAAAAAAD9/xUAAAAEAAAAAADy/xUAAAAEAAAAAAAAABoAAAAEAAAAAAAFABcAAAAEAAAAAAAOABAAAAAEAAAAAAAXAAIAAAAGAAEAAAAdAAIAAAAGAAEAAAAXAAsAAAAGAAEAAAAdAAsAAAAGAAEAAAADAAcAAAAGAAEAAAAKAAcAAAAGAAEAAAAKAAIAAAAGAAEAAAADAAIAAAAGAAEAAAAYAAUAAAAFAAIAAAAYAAQAAAAKAAUAAAAZAAUAAAAFAAIAAAAYAAYAAAAEAAEAAAAbAAMAAAAEAAEAAAAeAA4AAAAEAAEAAAAXAA0AAAAFAAAAAAAWAAkAAAAEAAIAAAAQAAYAAAAEAAIAAAAGAAUAAAAEAAEAAAABAAIAAAAEAAEAAAAEAAoAAAAEAAIAAAAGAA8AAAAEAAIAAAAKABIAAAAEAAEAAAAQABUAAAAEAAEAAAAOABoAAAAEAAEAAAAWABQAAAAFAAAAAAAVABMAAAAEAAAAAAAPABMAAAAGAAEAAAAPABgAAAAGAAEAAAAOABgAAAAFAAIAAAALABUAAAAEAAIAAAANABIAAAAEAAIAAAAbABIAAAAEAAIAAAAZABUAAAAEAAIAAAA=")
+tile_set = SubResource("TileSet_4tcl0")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfuu3m0gnanxv"]
+
+[ext_resource type="PackedScene" uid="uid://cxcv5f6sr7y6l" path="res://scenes/levels/tilemap_layers/combat_tilemap_layer.tscn" id="1_71baw"]
+[ext_resource type="PackedScene" uid="uid://dhwp28rueuyv4" path="res://scenes/levels/tilemap_layers/decorations_tilemap_layer.tscn" id="2_niitk"]
+[ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="3_d5djh"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="CombatTilemapLayer" parent="." instance=ExtResource("1_71baw")]
+tile_map_data = PackedByteArray()
+
+[node name="DecorationsTilemapLayer" parent="." instance=ExtResource("2_niitk")]
+tile_map_data = PackedByteArray()
+
+[node name="Player" parent="." instance=ExtResource("3_d5djh")]

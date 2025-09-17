@@ -114,7 +114,7 @@ func _chase_player() -> void:
 
 
 func _navigate(speed: float) -> void:
-	if navigation_agent_2d.is_navigation_finished():
+	if navigation_agent_2d.is_navigation_finished() and _current_state == State.PATROL:
 		return
 	
 	var next_path_pos = navigation_agent_2d.get_next_path_position()
@@ -139,3 +139,13 @@ func _on_wait_timer_timeout() -> void:
 func _on_path_update_timer_timeout() -> void:
 	if _current_state == State.CHASE:
 		navigation_agent_2d.target_position = _player.global_position
+
+
+func _on_area_detection_component_body_entered(body: Node2D) -> void:
+	# if the enemy collides with another enemy, stop the enemies and patrol again
+	# to pick another random point on the navigation map
+	if body is Enemy:
+		_change_state(State.WAIT)
+		velocity = Vector2.ZERO
+		_enemy_dir = Vector2.ZERO
+		patrol_timer.start()
