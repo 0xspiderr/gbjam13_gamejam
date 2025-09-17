@@ -114,7 +114,7 @@ func _chase_player() -> void:
 
 
 func _navigate(speed: float) -> void:
-	if navigation_agent_2d.is_navigation_finished():
+	if navigation_agent_2d.is_navigation_finished() and _current_state == State.PATROL:
 		return
 	
 	var next_path_pos = navigation_agent_2d.get_next_path_position()

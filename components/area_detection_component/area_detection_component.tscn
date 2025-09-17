@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjiq5"]
 
 [node name="AreaDetectionComponent" type="Area2D"]
-scale = Vector2(2, 2.049)
+scale = Vector2(1.5, 1.537)
 script = ExtResource("1_miaap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

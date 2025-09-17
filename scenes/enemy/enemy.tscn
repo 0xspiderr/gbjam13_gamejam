@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://v3kgvdsj8d8i" path="res://components/area_detection_component/area_detection_component.tscn" id="2_a3pup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a83h"]
-size = Vector2(16, 24)
+size = Vector2(12, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3pup"]
 radius = 50.0
@@ -32,7 +32,6 @@ autostart = true
 shape = SubResource("RectangleShape2D_4a83h")
 
 [node name="AreaDetectionComponent" parent="." instance=ExtResource("2_a3pup")]
-scale = Vector2(1.2, 1.198)
 
 [node name="ChasePlayerArea" type="Area2D" parent="."]
 
