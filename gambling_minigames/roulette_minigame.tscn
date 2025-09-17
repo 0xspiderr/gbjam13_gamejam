@@ -1,17 +1,55 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnu52vt6wkp1f"]
+[gd_scene load_steps=18 format=3 uid="uid://bnu52vt6wkp1f"]
 
 [ext_resource type="Script" uid="uid://cys7k8sd4ufpm" path="res://gambling_minigames/roulette_minigame.gd" id="1_1ee0b"]
 [ext_resource type="Texture2D" uid="uid://br5e5urp0ct70" path="res://gambling_assets/roulette_wheel.png" id="1_ca0yt"]
-[ext_resource type="Script" uid="uid://dcl7knu245jd3" path="res://gambling_minigames/roulette.gd" id="1_ofm1w"]
+[ext_resource type="Script" uid="uid://dcl7knu245jd3" path="res://gambling_minigames/roulette_wheel.gd" id="1_ofm1w"]
 [ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_ofm1w"]
+[ext_resource type="PackedScene" uid="uid://chwahh0h3f2bt" path="res://gambling_minigames/roulette.tscn" id="2_se6ef"]
+[ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_svqt3"]
+[ext_resource type="Script" uid="uid://c4llsulbpgil0" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
 [ext_resource type="Texture2D" uid="uid://bahqx0tuyj8bm" path="res://gambling_assets/button.png" id="5_klsr3"]
-[ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="6_klsr3"]
+[ext_resource type="AudioStream" uid="uid://dkbubo64dtrtr" path="res://sounds/music/Overworld.ogg" id="7_hb88k"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_svqt3"]
-font_size = 10
+[sub_resource type="LabelSettings" id="LabelSettings_klsr3"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_se6ef"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_37lws"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_owxbp"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_se6ef"]
+radius = 2.10596
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37lws"]
+size = Vector2(15, 9)
+
+[sub_resource type="LabelSettings" id="LabelSettings_awuun"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_huas3"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="RouletteMinigame" type="Node2D"]
 script = ExtResource("1_1ee0b")
+
+[node name="RouletteEngine" parent="." instance=ExtResource("2_se6ef")]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+texture = ExtResource("2_svqt3")
+centered = false
 
 [node name="Header" type="Node2D" parent="."]
 
@@ -19,22 +57,56 @@ script = ExtResource("1_1ee0b")
 offset_right = 160.0
 offset_bottom = 23.0
 text = "Roulette"
+label_settings = SubResource("LabelSettings_klsr3")
 horizontal_alignment = 1
 
-[node name="Prev" type="Button" parent="Header"]
-offset_right = 24.0
-offset_bottom = 23.0
-icon = ExtResource("2_ofm1w")
-flat = true
+[node name="PlayButtons" type="Node2D" parent="."]
+position = Vector2(65, 110)
 
-[node name="Next" type="Button" parent="Header"]
-offset_left = 160.0
-offset_top = 23.0
-offset_right = 184.0
-offset_bottom = 46.0
-rotation = 3.14159
-icon = ExtResource("2_ofm1w")
-flat = true
+[node name="Play" type="Button" parent="PlayButtons"]
+offset_top = -5.0
+offset_right = 45.0
+offset_bottom = 33.0
+icon_alignment = 1
+
+[node name="Text" type="Label" parent="PlayButtons/Play"]
+layout_mode = 0
+offset_right = 43.0
+offset_bottom = 32.0
+text = "SPIN"
+label_settings = SubResource("LabelSettings_se6ef")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BetAdjust" type="Node2D" parent="PlayButtons"]
+position = Vector2(50, 0)
+
+[node name="Raise" type="Button" parent="PlayButtons/BetAdjust"]
+offset_top = -5.0
+offset_right = 40.0
+offset_bottom = 13.0
+
+[node name="Text" type="Label" parent="PlayButtons/BetAdjust/Raise"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 12.0
+text = "RAISE"
+label_settings = SubResource("LabelSettings_37lws")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lower" type="Button" parent="PlayButtons/BetAdjust"]
+offset_top = 14.0
+offset_right = 40.0
+offset_bottom = 32.0
+
+[node name="Text" type="Label" parent="PlayButtons/BetAdjust/Lower"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 12.0
+text = "LOWER"
+label_settings = SubResource("LabelSettings_owxbp")
+horizontal_alignment = 1
 
 [node name="Roulette" type="Node2D" parent="."]
 position = Vector2(40.48, 56.81)
@@ -44,15 +116,96 @@ script = ExtResource("1_ofm1w")
 [node name="Sprite" type="Sprite2D" parent="Roulette"]
 texture = ExtResource("1_ca0yt")
 
+[node name="CollisionPoints" type="Node2D" parent="Roulette"]
+
+[node name="Slice" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(16, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice2" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(13, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice2"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice3" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(5, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice3"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice4" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(-3, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice4"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice5" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(-11, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice5"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice6" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(-15, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice6"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice7" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(-15, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice7"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice8" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(-11, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice8"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice9" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(-5, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice9"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice10" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(3, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice10"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice11" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(12, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice11"]
+shape = SubResource("CircleShape2D_se6ef")
+
+[node name="Slice12" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+position = Vector2(16, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice12"]
+shape = SubResource("CircleShape2D_se6ef")
+
 [node name="Arrow" type="Node2D" parent="."]
 position = Vector2(100, 70)
+script = ExtResource("5_hb88k")
 
 [node name="Sprite" type="Sprite2D" parent="Arrow"]
 position = Vector2(-37, -13)
 texture = ExtResource("2_ofm1w")
 
+[node name="Area2D" type="Area2D" parent="Arrow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow/Area2D"]
+position = Vector2(-36.5, -12.5)
+shape = SubResource("RectangleShape2D_37lws")
+
 [node name="BetOn" type="Node2D" parent="."]
-position = Vector2(0, 100)
+position = Vector2(5, 110)
 
 [node name="Text" type="Label" parent="BetOn"]
 offset_left = 2.0
@@ -60,63 +213,69 @@ offset_top = -11.0
 offset_right = 39.0
 offset_bottom = 6.0
 text = "Bet on:"
-label_settings = SubResource("LabelSettings_svqt3")
+label_settings = SubResource("LabelSettings_awuun")
 horizontal_alignment = 1
 
 [node name="Black" type="Button" parent="BetOn"]
 self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
-offset_left = 37.0
-offset_top = -15.0
-offset_right = 61.0
-offset_bottom = 9.0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 32.0
 icon = ExtResource("5_klsr3")
-flat = true
-icon_alignment = 1
-
-[node name="Black" type="Button" parent="BetOn/Black"]
-self_modulate = Color(0.118581, 0.118581, 0.118581, 1)
-layout_mode = 0
-offset_left = -23.0
-offset_top = 28.0
-offset_right = 22.0
-offset_bottom = 59.0
-text = "SPIN"
 flat = true
 icon_alignment = 1
 
 [node name="Pink" type="Button" parent="BetOn"]
 self_modulate = Color(0.936325, 0.630353, 0.89116, 1)
-offset_left = 57.0
-offset_top = -15.0
-offset_right = 81.0
-offset_bottom = 9.0
+offset_left = 22.0
+offset_top = 8.0
+offset_right = 46.0
+offset_bottom = 32.0
 icon = ExtResource("5_klsr3")
 flat = true
 icon_alignment = 1
 
-[node name="Money" type="Node2D" parent="."]
-position = Vector2(80, 50)
-
-[node name="Bet" type="Label" parent="Money"]
-offset_left = 2.0
-offset_top = -11.0
-offset_right = 51.0
-offset_bottom = 6.0
-text = "Bet: "
-label_settings = SubResource("LabelSettings_svqt3")
-
-[node name="Bet2" type="Label" parent="Money"]
-offset_left = 2.0
-offset_top = 6.0
-offset_right = 51.0
-offset_bottom = 23.0
-text = "Total:"
-label_settings = SubResource("LabelSettings_svqt3")
-
 [node name="PLACEHOLDER" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_klsr3")
+stream = ExtResource("7_hb88k")
 autoplay = true
 parameters/looping = true
 
-[connection signal="pressed" from="Header/Prev" to="." method="_on_prev_pressed"]
-[connection signal="pressed" from="Header/Next" to="." method="_on_next_pressed"]
+[node name="BetPanel" type="Node2D" parent="."]
+position = Vector2(90, 40)
+
+[node name="Bet" type="Node2D" parent="BetPanel"]
+
+[node name="Text" type="Label" parent="BetPanel/Bet"]
+offset_right = 24.0
+offset_bottom = 11.0
+text = "Bet: "
+label_settings = SubResource("LabelSettings_huas3")
+
+[node name="Value" type="Label" parent="BetPanel/Bet"]
+offset_left = 30.0
+offset_right = 50.0
+offset_bottom = 13.0
+label_settings = SubResource("LabelSettings_huas3")
+
+[node name="Total" type="Node2D" parent="BetPanel"]
+position = Vector2(0, 14)
+
+[node name="Text" type="Label" parent="BetPanel/Total"]
+offset_right = 20.0
+offset_bottom = 12.0
+text = "Total:"
+label_settings = SubResource("LabelSettings_huas3")
+
+[node name="Value" type="Label" parent="BetPanel/Total"]
+offset_left = 30.0
+offset_right = 50.0
+offset_bottom = 13.0
+label_settings = SubResource("LabelSettings_huas3")
+
+[connection signal="state_changed" from="RouletteEngine" to="." method="_on_state_changed"]
+[connection signal="toggle_color" from="RouletteEngine" to="." method="_on_toggle_color"]
+[connection signal="pressed" from="PlayButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PlayButtons/BetAdjust/Raise" to="." method="_on_raise_pressed"]
+[connection signal="pressed" from="PlayButtons/BetAdjust/Lower" to="." method="_on_lower_pressed"]
+[connection signal="slow_down" from="Arrow" to="Roulette" method="_on_arrow_slow_down"]
+[connection signal="area_entered" from="Arrow/Area2D" to="Arrow" method="_on_area_entered"]

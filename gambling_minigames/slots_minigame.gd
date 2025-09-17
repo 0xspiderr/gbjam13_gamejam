@@ -6,7 +6,6 @@ var moneyToBet
 var moneyToBetText
 var playButton
 var betAdjust
-var winMUlt
 
 var slotsArray
 var slotsRefreshArray = [7,7,12]
