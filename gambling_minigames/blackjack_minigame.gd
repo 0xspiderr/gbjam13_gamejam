@@ -77,14 +77,14 @@ func _on_try_again_pressed() -> void:
 
 func _on_hit_pressed() -> void:
 	if blackjackEngine.playerCardList.size() < blackjackEngine.maxHandSize:
-		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 15, 80) 
+		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
 
 func _on_stand_pressed() -> void:
 	blackjackEngine.UpdateState(2) # skip to dealer
 
 func _on_cooldown_timer_timeout() -> void:
 	if blackjackEngine.state == 2:
-		blackjackEngine.DealCard(32 * blackjackEngine.dealerCardList.size() + 15, 40)
+		blackjackEngine.DealCard(32 * blackjackEngine.dealerCardList.size() + 17, 40)
 		cooldownTimer.start()
 
 
