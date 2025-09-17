@@ -25,7 +25,6 @@ func _ready() -> void:
 	gameStatus = $MidGame/GameStatus
 	cooldownTimer = $CooldownTimer
 	blackjackEngine = $BlackJack
-	pointsText = $MidGame/Points
 	
 	UpdateBet(5)
 	UpdateTotal(PlayerData.money) # total money
@@ -66,9 +65,8 @@ func _on_play_pressed() -> void:
 		midGame.visible = true
 		blackjackEngine.UpdateState(1)
 		# deal two cards
-		blackjackEngine.DealCard(30 * blackjackEngine.playerCardList.size() + 15, 80) 
-		blackjackEngine.DealCard(30 * blackjackEngine.playerCardList.size() + 15, 80)
-		pointsText.text = str(blackjackEngine.CalcTotalPoints(blackjackEngine.playerCardList))
+		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
+		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80)
 
 func _on_try_again_pressed() -> void:
 	tryAgain.disabled = true
@@ -79,15 +77,14 @@ func _on_try_again_pressed() -> void:
 
 func _on_hit_pressed() -> void:
 	if blackjackEngine.playerCardList.size() < blackjackEngine.maxHandSize:
-		blackjackEngine.DealCard(30 * blackjackEngine.playerCardList.size() + 15, 80) 
-	pointsText.text = str(blackjackEngine.CalcTotalPoints(blackjackEngine.playerCardList))
+		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 15, 80) 
 
 func _on_stand_pressed() -> void:
 	blackjackEngine.UpdateState(2) # skip to dealer
 
 func _on_cooldown_timer_timeout() -> void:
 	if blackjackEngine.state == 2:
-		blackjackEngine.DealCard(30 * blackjackEngine.dealerCardList.size() + 15, 40)
+		blackjackEngine.DealCard(32 * blackjackEngine.dealerCardList.size() + 15, 40)
 		cooldownTimer.start()
 
 
@@ -98,6 +95,7 @@ func _on_state_changed() -> void:
 			var playButtons = midGame.find_child("PlayButtons")
 			playButtons.find_child("Hit").disabled = false
 			playButtons.find_child("Stand").disabled = false
+			tryAgain.disabled = true
 		2:
 			gameStatus.text = "DEALER'S TURN"
 			cooldownTimer.start()
@@ -108,18 +106,21 @@ func _on_state_changed() -> void:
 			var playButtons = midGame.find_child("PlayButtons")
 			playButtons.find_child("Hit").disabled = true
 			playButtons.find_child("Stand").disabled = true
+			tryAgain.disabled = false
 		4:
 			gameStatus.text = "DEALER WIN"
 			tryAgain.disabled = false
 			var playButtons = midGame.find_child("PlayButtons")
 			playButtons.find_child("Hit").disabled = true
 			playButtons.find_child("Stand").disabled = true
+			tryAgain.disabled = false
 		5:
 			gameStatus.text = "BUST"
 			tryAgain.disabled = false
 			var playButtons = midGame.find_child("PlayButtons")
 			playButtons.find_child("Hit").disabled = true
 			playButtons.find_child("Stand").disabled = true
+			tryAgain.disabled = false
 		6:
 			gameStatus.text = "DEALER BUST"
 			UpdateTotal(totalMoney + 5 * moneyToBet)
@@ -127,3 +128,4 @@ func _on_state_changed() -> void:
 			var playButtons = midGame.find_child("PlayButtons")
 			playButtons.find_child("Hit").disabled = true
 			playButtons.find_child("Stand").disabled = true
+			tryAgain.disabled = false
