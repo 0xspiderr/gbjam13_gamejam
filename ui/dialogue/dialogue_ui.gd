@@ -3,9 +3,9 @@ extends Control
 
 
 @onready var dialogue_box: DialogueBox = %DialogueBox
+@onready var player_sprites: AnimatedSprite2D = $PlayerSprites
+
 var dialogues: Array[Dialogue] = []
-var npc_index: int = 0
-var player_index: int = 0
 var dialogue_line_finished: bool = true
 var is_player_turn: bool = false
 
@@ -23,7 +23,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if dialogues.is_empty():
 			rewind_data()
 			return
-		var dialogue = dialogues.front()
+		
+		var dialogue: Dialogue = dialogues.front()
 		continue_dialogue(dialogue.line)
 
 
@@ -32,7 +33,10 @@ func continue_dialogue(dialogue: String) -> void:
 	await dialogue_box.text_animation_player.animation_finished
 	dialogue_line_finished = true
 	dialogues.pop_front()
-	
+
+
+func is_player_speaking(speaker: String) -> bool:
+	return true if speaker == "player" else false
 
 
 func rewind_data() -> void:
