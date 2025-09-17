@@ -8,12 +8,14 @@
 [sub_resource type="Resource" id="Resource_qm2cq"]
 script = ExtResource("2_cexsv")
 speaker = "player"
+emotion = "neutral"
 line = "hello"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_cexsv"]
 script = ExtResource("2_cexsv")
 speaker = "npc"
+emotion = "neutral"
 line = "hi"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 

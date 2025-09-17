@@ -4,4 +4,6 @@ extends Resource
 
 
 @export var speaker: String
+# emotions based on the dialogue line
+@export_enum("neutral", "annoyed", "smug", "surprised") var emotion: String = "neutral"
 @export_multiline var line: String
