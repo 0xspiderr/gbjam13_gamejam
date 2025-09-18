@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bwaayo7m2tkb2" path="res://ui/dialogue/random_npc_dialogue.tscn" id="2_m5fb5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
+size = Vector2(8, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m5fb5"]
 radius = 17.0
@@ -14,6 +15,7 @@ script = ExtResource("1_ivh6b")
 [node name="NpcSprite" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.005, 3.055)
 shape = SubResource("RectangleShape2D_ivh6b")
 
 [node name="DialogueArea" type="Area2D" parent="."]
