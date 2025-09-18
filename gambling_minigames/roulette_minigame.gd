@@ -9,6 +9,7 @@ var betAdjust
 var blackButton
 var pinkButton
 var rouletteEngine
+var gameStatus
 
 func UpdateBet(new):
 	moneyToBet = new
@@ -27,6 +28,7 @@ func _ready() -> void:
 	blackButton = $BetOn/Black
 	pinkButton = $BetOn/Pink
 	rouletteEngine = $RouletteEngine
+	gameStatus = $Status
 	
 	UpdateBet(5)
 	UpdateTotal(PlayerData.money)
@@ -56,8 +58,27 @@ func _on_toggle_color() -> void:
 func _on_state_changed() -> void:
 	match rouletteEngine.state:
 		1:
-			pass
+			gameStatus.text = ""
+			blackButton.disabled = true
+			pinkButton.disabled = true
 		2:
 			UpdateTotal(totalMoney + 8 * moneyToBet)
+			gameStatus.text = "YOU WIN!"
+			blackButton.disabled = false
+			pinkButton.disabled = false
 		3:
-			pass
+			gameStatus.text = "WOMP WOMP"
+			blackButton.disabled = false
+			pinkButton.disabled = false
+
+
+func _on_black_pressed() -> void:
+	rouletteEngine.ToggleColor()
+	pinkButton.disabled = false
+	blackButton.disabled = true
+
+
+func _on_pink_pressed() -> void:
+	rouletteEngine.ToggleColor()
+	pinkButton.disabled = true
+	blackButton.disabled = false

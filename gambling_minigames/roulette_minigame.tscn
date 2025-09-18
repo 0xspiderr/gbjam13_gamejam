@@ -31,7 +31,7 @@ outline_color = Color(0, 0, 0, 1)
 radius = 2.10596
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37lws"]
-size = Vector2(15, 9)
+size = Vector2(15, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_awuun"]
 font_size = 20
@@ -50,6 +50,14 @@ script = ExtResource("1_1ee0b")
 [node name="Backdrop" type="Sprite2D" parent="."]
 texture = ExtResource("2_svqt3")
 centered = false
+
+[node name="Status" type="Label" parent="."]
+offset_left = 90.0
+offset_top = 80.0
+offset_right = 140.0
+offset_bottom = 96.0
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_klsr3")
 
 [node name="Header" type="Node2D" parent="."]
 
@@ -118,73 +126,73 @@ texture = ExtResource("1_ca0yt")
 
 [node name="CollisionPoints" type="Node2D" parent="Roulette"]
 
-[node name="Slice" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_pink"]]
 position = Vector2(16, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice2" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice2" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_black"]]
 position = Vector2(13, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice2"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice3" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice3" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_pink"]]
 position = Vector2(5, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice3"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice4" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice4" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_black"]]
 position = Vector2(-3, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice4"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice5" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice5" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_pink"]]
 position = Vector2(-11, -11)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice5"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice6" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice6" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_black"]]
 position = Vector2(-15, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice6"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice7" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice7" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_pink"]]
 position = Vector2(-15, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice7"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice8" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice8" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_black"]]
 position = Vector2(-11, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice8"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice9" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice9" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_pink"]]
 position = Vector2(-5, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice9"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice10" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice10" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_black"]]
 position = Vector2(3, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice10"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice11" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice11" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_pink"]]
 position = Vector2(12, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice11"]
 shape = SubResource("CircleShape2D_se6ef")
 
-[node name="Slice12" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice"]]
+[node name="Slice12" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_black"]]
 position = Vector2(16, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice12"]
@@ -199,6 +207,7 @@ position = Vector2(-37, -13)
 texture = ExtResource("2_ofm1w")
 
 [node name="Area2D" type="Area2D" parent="Arrow"]
+position = Vector2(0, -0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow/Area2D"]
 position = Vector2(-36.5, -12.5)
@@ -277,5 +286,8 @@ label_settings = SubResource("LabelSettings_huas3")
 [connection signal="pressed" from="PlayButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PlayButtons/BetAdjust/Raise" to="." method="_on_raise_pressed"]
 [connection signal="pressed" from="PlayButtons/BetAdjust/Lower" to="." method="_on_lower_pressed"]
-[connection signal="slow_down" from="Arrow" to="Roulette" method="_on_arrow_slow_down"]
+[connection signal="stop" from="Arrow" to="RouletteEngine" method="_on_arrow_stop"]
+[connection signal="stop" from="Arrow" to="Roulette" method="_on_arrow_stop"]
 [connection signal="area_entered" from="Arrow/Area2D" to="Arrow" method="_on_area_entered"]
+[connection signal="pressed" from="BetOn/Black" to="." method="_on_black_pressed"]
+[connection signal="pressed" from="BetOn/Pink" to="." method="_on_pink_pressed"]

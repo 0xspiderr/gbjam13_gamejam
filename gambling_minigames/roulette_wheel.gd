@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var rotateSpeed:float = 1
+@export var isSpinning:bool = false
 @onready var collision_points: Node2D = $CollisionPoints
 
 
@@ -14,13 +15,15 @@ func ToggleCollisionPoints():
 func Spin(speed):
 	ToggleCollisionPoints()
 	rotateSpeed = speed
+	isSpinning = true
 
 func _physics_process(delta: float) -> void:
 	rotate(rotateSpeed * delta)
-
-
-func _on_arrow_slow_down(delta: Variant) -> void:
-	if rotateSpeed > 0:
+	if isSpinning:
 		rotateSpeed -= delta
-	else:
-		rotateSpeed = 0
+
+
+func _on_arrow_stop(col) -> void:
+	rotateSpeed = 0
+	ToggleCollisionPoints()
+	isSpinning = false
