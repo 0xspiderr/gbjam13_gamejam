@@ -65,8 +65,10 @@ func _on_play_pressed() -> void:
 		midGame.visible = true
 		blackjackEngine.UpdateState(1)
 		# deal two cards
-		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
-		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80)
+		if blackjackEngine.state == 1:
+			blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
+		if blackjackEngine.state == 1: # in case of +4 on first card
+			blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80)
 
 func _on_try_again_pressed() -> void:
 	tryAgain.disabled = true

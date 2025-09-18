@@ -8,6 +8,7 @@ signal state_changed
 @export var playerCardList = Array()
 @export var dealerCardList = Array()
 
+@onready var dealer_luck:float = 3.0
 
 func DealCard(x, y):
 	var card = load("res://card.tscn").instantiate()
@@ -16,9 +17,12 @@ func DealCard(x, y):
 	match state:
 		1:
 			var type = CalcCardType(PlayerData.luck)
-			card.Update(type)
-			if type % 13 == 0:
-				card.SetAce(CalcAceValue())
+			if type == 52: # +4 - instant win
+				card.SetPlusFour(21 - CalcTotalPoints(playerCardList))
+			else: # not +4
+				card.Update(type)
+				if type % 13 == 0:
+					card.SetAce(CalcAceValue())
 			playerCardList.append(card)
 			# check match conditions
 			if CalcTotalPoints(playerCardList) > 21: # bust
@@ -28,7 +32,7 @@ func DealCard(x, y):
 			elif playerCardList.size() == maxHandSize: # max hand size, goes to dealer's turn
 				UpdateState(2)
 		2:
-			card.Update(CalcCardType(3))
+			card.Update(CalcCardType(dealer_luck))
 			dealerCardList.append(card)
 			# check match conditions
 			if CalcTotalPoints(dealerCardList) > 21: # bust
@@ -79,23 +83,27 @@ func ConvertNumValueToType(num): # reverse of above function
 
 func CalcCardType(luck): # calculates card based on the player/dealer's current hand and luck
 	var cardType
-	var pointsToBlackjack
-	match state:
-		1:
-			pointsToBlackjack = 21 - CalcTotalPoints(playerCardList)
-		2:
-			pointsToBlackjack = 21 - CalcTotalPoints(dealerCardList)
-	var suit = randi_range(0,3)
-	var luckRoll = randf_range(0,100)
-	if luckRoll < (float(100 / 13) + 4 * luck) and pointsToBlackjack <= 11: # exact number for blackjack
-		cardType = suit * 13 + ConvertNumValueToType(pointsToBlackjack)
-	elif luckRoll >= (float(100 / 13) + 4 * luck): # literally any card except for the one you need
-		var number = randi_range(0,12)
-		while ConvertTypeToNumValue(number) == pointsToBlackjack:
-			number = randi_range(0,12)
-		cardType = suit * 13 + number
-	else: # regular roll
-		cardType = suit * 13 + randi_range(0,12)
+	var plusFourRoll = randf_range(0,1000)
+	if plusFourRoll < 1 + 0.2 * luck:
+		cardType = 52 # +4 frame
+	else:
+		var pointsToBlackjack
+		match state:
+			1:
+				pointsToBlackjack = 21 - CalcTotalPoints(playerCardList)
+			2:
+				pointsToBlackjack = 21 - CalcTotalPoints(dealerCardList)
+		var suit = randi_range(0,3)
+		var luckRoll = randf_range(0,100)
+		if luckRoll < (float(100 / 13) + 4 * luck) and pointsToBlackjack <= 11: # exact number for blackjack
+			cardType = suit * 13 + ConvertNumValueToType(pointsToBlackjack)
+		elif luckRoll >= (float(100 / 13) + 4 * luck): # literally any card except for the one you need
+			var number = randi_range(0,12)
+			while ConvertTypeToNumValue(number) == pointsToBlackjack:
+				number = randi_range(0,12)
+			cardType = suit * 13 + number
+		else: # regular roll
+			cardType = suit * 13 + randi_range(0,12)
 	return int(cardType)
 
 func CalcTotalPoints(array):

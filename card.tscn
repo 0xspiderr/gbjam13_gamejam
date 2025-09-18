@@ -9,4 +9,4 @@ script = ExtResource("1_rjlel")
 [node name="Base" type="Sprite2D" parent="."]
 texture = ExtResource("2_rjlel")
 hframes = 13
-vframes = 4
+vframes = 5
