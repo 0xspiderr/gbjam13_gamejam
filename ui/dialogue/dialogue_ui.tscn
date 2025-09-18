@@ -1,8 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://3h1q6twd686v"]
+[gd_scene load_steps=16 format=3 uid="uid://3h1q6twd686v"]
 
 [ext_resource type="Script" uid="uid://crrh862e5ry8s" path="res://ui/dialogue/dialogue_ui.gd" id="1_2081n"]
 [ext_resource type="Theme" uid="uid://b0bn4xyu3a25a" path="res://ui/themes/dialogue_box_theme.tres" id="2_4cdch"]
+[ext_resource type="Texture2D" uid="uid://yw5o6fs7uetk" path="res://assets/portraits/jg-neutral.png" id="2_cn46s"]
+[ext_resource type="Texture2D" uid="uid://bwmylo4434po0" path="res://assets/portraits/jg-annoyed.png" id="2_jrdj0"]
 [ext_resource type="PackedScene" uid="uid://b5ho1oy8lu7r5" path="res://ui/dialogue_box/dialogue_box.tscn" id="2_vl8is"]
+[ext_resource type="Texture2D" uid="uid://c6lbint7ebfsb" path="res://assets/portraits/jg-smug.png" id="4_m2bcb"]
+[ext_resource type="Texture2D" uid="uid://dw8iuxogg1k2g" path="res://assets/portraits/jg-surprised.png" id="5_gnmtr"]
+[ext_resource type="Texture2D" uid="uid://c1xf5nw2u5f4g" path="res://assets/portraits/npc-portrait-neutral.png" id="6_g6j8g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2bcb"]
+atlas = ExtResource("2_jrdj0")
+region = Rect2(0, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrdj0"]
+atlas = ExtResource("2_cn46s")
+region = Rect2(0, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnmtr"]
+atlas = ExtResource("4_m2bcb")
+region = Rect2(0, 0, 71, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6j8g"]
+atlas = ExtResource("5_gnmtr")
+region = Rect2(0, 0, 42, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2bcb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2bcb")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrdj0")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnmtr")
+}],
+"loop": true,
+"name": &"smug",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6j8g")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuoo2"]
+atlas = ExtResource("6_g6j8g")
+region = Rect2(0, 0, 38, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qkgn1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuoo2")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
 
 [node name="DialogueUI" type="Control"]
 layout_mode = 3
@@ -13,30 +84,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2081n")
 
+[node name="PlayerSprites" type="AnimatedSprite2D" parent="."]
+position = Vector2(120, 57)
+scale = Vector2(0.985915, 1)
+sprite_frames = SubResource("SpriteFrames_m2bcb")
+animation = &"neutral"
+
+[node name="NpcSprites" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, 61)
+sprite_frames = SubResource("SpriteFrames_qkgn1")
+animation = &"neutral"
+
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -78.0
-offset_top = -55.0
-offset_right = 77.0
-offset_bottom = -1.0
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+offset_top = 84.0
+offset_right = 160.0
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset = Vector2(79.9994, 23.2792)
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme = ExtResource("2_4cdch")
 
-[node name="DialogueBox" parent="Panel" instance=ExtResource("2_vl8is")]
+[node name="DialogueBox" parent="." instance=ExtResource("2_vl8is")]
 unique_name_in_owner = true
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 14.0
-offset_top = 7.0
-offset_right = 137.0
-offset_bottom = 30.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+offset_left = 17.0
+offset_top = 90.0
+offset_right = -20.0
+offset_bottom = -22.0

@@ -1,8 +1,25 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=9 format=3 uid="uid://j18y6xpluomp"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=13 format=3 uid="uid://j18y6xpluomp"]
 
 [ext_resource type="AudioStream" uid="uid://3y53u4e8k6l3" path="res://sounds/dialogue/Dialogue3.ogg" id="1_fokrg"]
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_ooidi"]
 [ext_resource type="Texture2D" uid="uid://djjpoqnfrfepd" path="res://assets/sprites/npcs/npc3-idle.png" id="2_pycyn"]
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="2_y1bve"]
+[ext_resource type="Texture2D" uid="uid://c1xf5nw2u5f4g" path="res://assets/portraits/npc-portrait-neutral.png" id="3_mvpnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e6br"]
+atlas = ExtResource("3_mvpnq")
+region = Rect2(0, 0, 38, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1bve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e6br")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fokrg"]
 atlas = ExtResource("2_pycyn")
@@ -44,6 +61,7 @@ animations = [{
 script = ExtResource("1_ooidi")
 name = "Npc 3"
 sprite_frames = SubResource("SpriteFrames_2e6br")
-dialogues = Array[String]([])
+portraits = SubResource("SpriteFrames_y1bve")
+dialogues = Array[ExtResource("2_y1bve")]([])
 dialogue_stream = ExtResource("1_fokrg")
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

@@ -1,8 +1,74 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=12 format=3 uid="uid://cd4wgr2wxoeh3"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=23 format=3 uid="uid://cd4wgr2wxoeh3"]
 
 [ext_resource type="AudioStream" uid="uid://bxlbdcq7wivuc" path="res://sounds/dialogue/Dialogue2.ogg" id="1_10a52"]
 [ext_resource type="Texture2D" uid="uid://n7m4whfvks0q" path="res://assets/sprites/characters/black-cat-idle.png" id="1_cyu4g"]
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_t1qjg"]
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="2_jhmy6"]
+[ext_resource type="Texture2D" uid="uid://dwj1hkn7ql0ic" path="res://assets/portraits/black-cat-neutral.png" id="3_qrt1d"]
+[ext_resource type="Texture2D" uid="uid://dash8xqcg2yu3" path="res://assets/portraits/black-cat-annoyed.png" id="3_uqqge"]
+
+[sub_resource type="Resource" id="Resource_uqqge"]
+script = ExtResource("2_jhmy6")
+speaker = "npc"
+emotion = "neutral"
+line = "welcome to the casino!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_mu5pb"]
+script = ExtResource("2_jhmy6")
+speaker = "player"
+emotion = "neutral"
+line = "hi"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_76bvy"]
+script = ExtResource("2_jhmy6")
+speaker = "npc"
+emotion = "annoyed"
+line = "WHAT!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_d87uy"]
+script = ExtResource("2_jhmy6")
+speaker = "player"
+emotion = "annoyed"
+line = "WHAT?!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_cqy6u"]
+script = ExtResource("2_jhmy6")
+speaker = "npc"
+emotion = "neutral"
+line = "nothing xd
+"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqy6u"]
+atlas = ExtResource("3_uqqge")
+region = Rect2(0, 0, 52, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d87uy"]
+atlas = ExtResource("3_qrt1d")
+region = Rect2(0, 0, 52, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cqy6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqy6u")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d87uy")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cyu4g"]
 atlas = ExtResource("1_cyu4g")
@@ -65,7 +131,7 @@ animations = [{
 script = ExtResource("1_t1qjg")
 name = "Cat Vendor"
 sprite_frames = SubResource("SpriteFrames_d87uy")
-dialogues = Array[String](["Hi, welcome to the casino!", "Hello world!", "Goodbye, cruel world!", "AAAAAasdasdasdasd
-asdasdasddasd"])
+portraits = SubResource("SpriteFrames_cqy6u")
+dialogues = Array[ExtResource("2_jhmy6")]([SubResource("Resource_uqqge"), SubResource("Resource_mu5pb"), SubResource("Resource_76bvy"), SubResource("Resource_d87uy"), SubResource("Resource_cqy6u")])
 dialogue_stream = ExtResource("1_10a52")
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
