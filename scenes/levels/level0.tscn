@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="14_m6lg1"]
 [ext_resource type="Resource" uid="uid://c277plawxcyl3" path="res://resources/interactable/blackjack_table.tres" id="15_3asx1"]
 [ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_m6lg1"]
-[ext_resource type="Resource" uid="uid://ddkqauql1rgag" path="res://resources/interactable/blackcat_table.tres" id="15_yxkm4"]
+[ext_resource type="Resource" uid="uid://b7rdupdwsrdly" path="res://resources/interactable/blackcat_table.tres" id="15_yxkm4"]
 [ext_resource type="Resource" uid="uid://6vuixnenofhl" path="res://resources/interactable/pocanele.tres" id="16_3ebcg"]
-[ext_resource type="Resource" uid="uid://w1urssek4kxv" path="res://resources/interactable/level_door.tres" id="18_po5je"]
+[ext_resource type="Resource" uid="uid://cm4d3126vbscu" path="res://resources/interactable/level_door.tres" id="18_po5je"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
