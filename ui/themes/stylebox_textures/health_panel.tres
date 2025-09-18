@@ -1,0 +1,12 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b630jnkht46l4"]
+
+[ext_resource type="Texture2D" uid="uid://dxquqj0bka0ob" path="res://assets/ui_textures/health_panel.png" id="1_3dani"]
+
+[resource]
+texture = ExtResource("1_3dani")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

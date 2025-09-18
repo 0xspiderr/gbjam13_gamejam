@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://3ffs4luai0mx"]
+
+[ext_resource type="Texture2D" uid="uid://dghqhghqwmrb3" path="res://assets/ui_textures/heart-health-bar-fill.png" id="1_k7yn3"]
+
+[resource]
+texture = ExtResource("1_k7yn3")
+axis_stretch_horizontal = 1

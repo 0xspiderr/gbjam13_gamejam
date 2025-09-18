@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://vxo8j2ok6cvh"]
+
+[ext_resource type="StyleBox" uid="uid://c5ycdn0bw22tc" path="res://ui/themes/stylebox_textures/heart_health_bar.tres" id="1_6yl6v"]
+[ext_resource type="StyleBox" uid="uid://b630jnkht46l4" path="res://ui/themes/stylebox_textures/health_panel.tres" id="1_fo057"]
+[ext_resource type="StyleBox" uid="uid://3ffs4luai0mx" path="res://ui/themes/stylebox_textures/heart_fill.tres" id="2_fo057"]
+
+[resource]
+Label/colors/font_color = Color(0.172549, 0, 0.0862745, 1)
+Panel/styles/panel = ExtResource("1_fo057")
+ProgressBar/styles/background = ExtResource("1_6yl6v")
+ProgressBar/styles/fill = ExtResource("2_fo057")
