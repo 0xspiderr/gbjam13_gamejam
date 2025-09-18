@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cys7k8sd4ufpm" path="res://gambling_minigames/roulette_minigame.gd" id="1_1ee0b"]
 [ext_resource type="Texture2D" uid="uid://br5e5urp0ct70" path="res://gambling_assets/roulette_wheel.png" id="1_ca0yt"]
-[ext_resource type="Script" uid="uid://dcl7knu245jd3" path="res://gambling_minigames/roulette_wheel.gd" id="1_ofm1w"]
+[ext_resource type="Script" uid="uid://bn4vlnav5bch8" path="res://gambling_minigames/roulette.gd" id="1_ofm1w"]
 [ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_ofm1w"]
-[ext_resource type="PackedScene" uid="uid://chwahh0h3f2bt" path="res://gambling_minigames/roulette.tscn" id="2_se6ef"]
+[ext_resource type="PackedScene" path="res://gambling_minigames/roulette.tscn" id="2_se6ef"]
 [ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_svqt3"]
-[ext_resource type="Script" uid="uid://c4llsulbpgil0" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
+[ext_resource type="Script" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
 [ext_resource type="Texture2D" uid="uid://bahqx0tuyj8bm" path="res://gambling_assets/button.png" id="5_klsr3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_klsr3"]
@@ -198,6 +198,7 @@ position = Vector2(16, 4)
 shape = SubResource("CircleShape2D_se6ef")
 
 [node name="Arrow" type="Node2D" parent="."]
+visible = false
 position = Vector2(100, 70)
 script = ExtResource("5_hb88k")
 

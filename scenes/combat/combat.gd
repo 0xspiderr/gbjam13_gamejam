@@ -7,7 +7,7 @@ enum
 	ROLL_DICE = 1
 }
 
-#region CONTROLS
+#region CONTROLS 
 @onready var draw_card_btn: Button = %DrawCardBtn
 @onready var roll_dice_btn: Button = %RollDiceBtn
 @onready var button_container: CenterContainer = %ButtonContainer
@@ -73,7 +73,7 @@ func _button_action() -> void:
 		ROLL_DICE:
 			_roll_dice()
 
-
+ 
 func _draw_card() -> void:
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()

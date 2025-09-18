@@ -2,38 +2,45 @@
 
 [ext_resource type="Script" uid="uid://dwfh6rw1vmhy4" path="res://gambling_minigames/blackjack_minigame.gd" id="1_7vd6g"]
 [ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_8vw1g"]
-[ext_resource type="PackedScene" uid="uid://b5nv0mtg24h0x" path="res://gambling_minigames/blackjack.tscn" id="2_pdxap"]
+[ext_resource type="PackedScene" path="res://gambling_minigames/blackjack.tscn" id="2_pdxap"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81nil"]
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7vd6g"]
+font_size = 10
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8vw1g"]
+font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xfhs"]
+font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ttp6a"]
+font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4o5vn"]
+font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_v1g0t"]
+font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_joqlj"]
 line_spacing = 0.0
+font_size = 6
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
