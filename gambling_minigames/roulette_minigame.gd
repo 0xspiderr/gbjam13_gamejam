@@ -61,15 +61,21 @@ func _on_state_changed() -> void:
 			gameStatus.text = ""
 			blackButton.disabled = true
 			pinkButton.disabled = true
+			playButton.disabled = true
+			betAdjust.visible = false
 		2:
 			UpdateTotal(totalMoney + 8 * moneyToBet)
 			gameStatus.text = "YOU WIN!"
 			blackButton.disabled = false
 			pinkButton.disabled = false
+			playButton.disabled = false
+			betAdjust.visible = true
 		3:
 			gameStatus.text = "WOMP WOMP"
 			blackButton.disabled = false
 			pinkButton.disabled = false
+			playButton.disabled = false
+			betAdjust.visible = true
 
 
 func _on_black_pressed() -> void:

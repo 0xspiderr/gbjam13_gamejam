@@ -35,6 +35,7 @@ func UpdateBet(new):
 
 func UpdateTotal(new):
 	totalMoney = new
+	PlayerData.money = totalMoney
 	totalMoneyText.text = str(totalMoney)
 
 
