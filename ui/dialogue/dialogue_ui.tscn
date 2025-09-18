@@ -85,13 +85,13 @@ grow_vertical = 2
 script = ExtResource("1_2081n")
 
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="."]
-position = Vector2(120, 57)
+position = Vector2(123, 57)
 scale = Vector2(0.985915, 1)
 sprite_frames = SubResource("SpriteFrames_m2bcb")
 animation = &"neutral"
 
 [node name="NpcSprites" type="AnimatedSprite2D" parent="."]
-position = Vector2(30, 61)
+position = Vector2(35, 61)
 sprite_frames = SubResource("SpriteFrames_qkgn1")
 animation = &"neutral"
 
