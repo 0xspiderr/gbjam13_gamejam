@@ -1,59 +1,67 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxgfacmnppn7h"]
+[gd_scene load_steps=11 format=3 uid="uid://cxgfacmnppn7h"]
 
 [ext_resource type="Script" uid="uid://5h8qseebioe2" path="res://gambling_minigames/slots_minigame.gd" id="1_gubm0"]
-[ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_jm7xa"]
-[ext_resource type="PackedScene" uid="uid://c7dr6chxe2hwd" path="res://card.tscn" id="3_nf43e"]
-[ext_resource type="AudioStream" uid="uid://tkh7q1ceapk" path="res://gambling_assets/MIKE, the BOARD, please!.mp3" id="3_ulbyp"]
+[ext_resource type="PackedScene" uid="uid://cnskh7rh06en0" path="res://gambling_minigames/slots.tscn" id="2_0jwqi"]
+[ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_nf43e"]
+[ext_resource type="Texture2D" uid="uid://d23r6v5iuq10j" path="res://gambling_assets/slot_machine_placeholder.png" id="3_nf43e"]
+[ext_resource type="PackedScene" uid="uid://b14pmmqyhed3f" path="res://gambling_minigames/slot.tscn" id="4_do5dl"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_do5dl"]
-font_size = 10
+[sub_resource type="LabelSettings" id="LabelSettings_vvi6l"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jwqi"]
-font_size = 8
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_do5dl"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_egpui"]
-font_size = 8
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mrrow"]
-font_size = 8
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="SlotsMinigame" type="Node2D"]
 script = ExtResource("1_gubm0")
 
-[node name="Header" type="Node2D" parent="."]
+[node name="SlotsEngine" parent="." instance=ExtResource("2_0jwqi")]
 
-[node name="Title" type="Label" parent="Header"]
-offset_right = 160.0
-offset_bottom = 23.0
-text = "Slots"
-horizontal_alignment = 1
-
-[node name="Prev" type="Button" parent="Header"]
-offset_right = 24.0
-offset_bottom = 23.0
-icon = ExtResource("2_jm7xa")
-flat = true
-
-[node name="Next" type="Button" parent="Header"]
-offset_left = 160.0
-offset_top = 23.0
-offset_right = 184.0
-offset_bottom = 46.0
-rotation = 3.14159
-icon = ExtResource("2_jm7xa")
-flat = true
+[node name="Backdrop" type="Sprite2D" parent="."]
+texture = ExtResource("2_nf43e")
+centered = false
 
 [node name="Slots" type="Node2D" parent="."]
 position = Vector2(50, 60)
 scale = Vector2(1.5, 1.5)
 
-[node name="Card" parent="Slots" instance=ExtResource("3_nf43e")]
+[node name="SlotSprite" type="Sprite2D" parent="Slots"]
+position = Vector2(20, 16)
+texture = ExtResource("3_nf43e")
 
-[node name="Card2" parent="Slots" instance=ExtResource("3_nf43e")]
-position = Vector2(20, 0)
+[node name="Slot" parent="Slots" instance=ExtResource("4_do5dl")]
+position = Vector2(-3.333, -4.667)
 
-[node name="Card3" parent="Slots" instance=ExtResource("3_nf43e")]
-position = Vector2(40, 0)
+[node name="Slot2" parent="Slots" instance=ExtResource("4_do5dl")]
+position = Vector2(21.3333, -4.66667)
+
+[node name="Slot3" parent="Slots" instance=ExtResource("4_do5dl")]
+position = Vector2(44, -4.667)
+
+[node name="Header" type="Node2D" parent="Slots"]
+position = Vector2(-33.333, -30.21)
+scale = Vector2(0.666667, 0.666667)
+
+[node name="Title" type="Label" parent="Slots/Header"]
+offset_right = 160.0
+offset_bottom = 23.0
+text = "Slots"
+label_settings = SubResource("LabelSettings_vvi6l")
+horizontal_alignment = 1
 
 [node name="GameStatus" type="Label" parent="."]
 offset_top = 80.0
@@ -61,13 +69,45 @@ offset_right = 160.0
 offset_bottom = 103.0
 horizontal_alignment = 1
 
+[node name="BetPanel" type="Node2D" parent="."]
+position = Vector2(30, 80)
+
+[node name="Bet" type="Node2D" parent="BetPanel"]
+
+[node name="Text" type="Label" parent="BetPanel/Bet"]
+offset_right = 20.0
+offset_bottom = 12.0
+text = "Bet: "
+label_settings = SubResource("LabelSettings_0jwqi")
+
+[node name="Value" type="Label" parent="BetPanel/Bet"]
+offset_left = 24.0
+offset_right = 44.0
+offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_0jwqi")
+
+[node name="Total" type="Node2D" parent="BetPanel"]
+position = Vector2(50, 0)
+
+[node name="Text" type="Label" parent="BetPanel/Total"]
+offset_right = 20.0
+offset_bottom = 12.0
+text = "Total:"
+label_settings = SubResource("LabelSettings_0jwqi")
+
+[node name="Value" type="Label" parent="BetPanel/Total"]
+offset_left = 32.0
+offset_right = 52.0
+offset_bottom = 13.0
+label_settings = SubResource("LabelSettings_0jwqi")
+
 [node name="Footer" type="Node2D" parent="."]
 
 [node name="Play" type="Button" parent="Footer"]
-offset_left = 5.0
-offset_top = 110.0
-offset_right = 45.0
-offset_bottom = 136.0
+offset_left = 18.0
+offset_top = 98.0
+offset_right = 58.0
+offset_bottom = 130.0
 
 [node name="Text" type="Label" parent="Footer/Play"]
 layout_mode = 0
@@ -79,46 +119,15 @@ label_settings = SubResource("LabelSettings_do5dl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BetPanel" type="Node2D" parent="Footer"]
-position = Vector2(54, 110)
-
-[node name="Bet" type="Node2D" parent="Footer/BetPanel"]
-
-[node name="Text" type="Label" parent="Footer/BetPanel/Bet"]
-offset_right = 20.0
-offset_bottom = 12.0
-text = "Bet: "
-label_settings = SubResource("LabelSettings_0jwqi")
-
-[node name="Value" type="Label" parent="Footer/BetPanel/Bet"]
-offset_left = 24.0
-offset_right = 44.0
-offset_bottom = 12.0
-label_settings = SubResource("LabelSettings_0jwqi")
-
-[node name="Total" type="Node2D" parent="Footer/BetPanel"]
-position = Vector2(0, 14)
-
-[node name="Text" type="Label" parent="Footer/BetPanel/Total"]
-offset_right = 20.0
-offset_bottom = 12.0
-text = "Total:"
-label_settings = SubResource("LabelSettings_0jwqi")
-
-[node name="Value" type="Label" parent="Footer/BetPanel/Total"]
-offset_left = 24.0
-offset_right = 44.0
-offset_bottom = 12.0
-label_settings = SubResource("LabelSettings_0jwqi")
-
 [node name="BetAdjust" type="Node2D" parent="Footer"]
-position = Vector2(110, 110)
+position = Vector2(63, 105)
 
 [node name="Raise" type="Button" parent="Footer/BetAdjust"]
 offset_right = 40.0
-offset_bottom = 12.0
+offset_bottom = 18.0
 
 [node name="Text" type="Label" parent="Footer/BetAdjust/Raise"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 12.0
 text = "RAISE"
@@ -126,9 +135,9 @@ label_settings = SubResource("LabelSettings_egpui")
 horizontal_alignment = 1
 
 [node name="Lower" type="Button" parent="Footer/BetAdjust"]
-offset_top = 14.0
-offset_right = 40.0
-offset_bottom = 26.0
+offset_left = 45.0
+offset_right = 85.0
+offset_bottom = 18.0
 
 [node name="Text" type="Label" parent="Footer/BetAdjust/Lower"]
 layout_mode = 0
@@ -138,18 +147,7 @@ text = "LOWER"
 label_settings = SubResource("LabelSettings_mrrow")
 horizontal_alignment = 1
 
-[node name="PLACEHOLDER" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ulbyp")
-autoplay = true
-parameters/looping = true
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.15
-one_shot = true
-
-[connection signal="pressed" from="Header/Prev" to="." method="_on_prev_pressed"]
-[connection signal="pressed" from="Header/Next" to="." method="_on_next_pressed"]
+[connection signal="state_changed" from="SlotsEngine" to="." method="_on_state_changed"]
 [connection signal="pressed" from="Footer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Footer/BetAdjust/Raise" to="." method="_on_raise_pressed"]
 [connection signal="pressed" from="Footer/BetAdjust/Lower" to="." method="_on_lower_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
