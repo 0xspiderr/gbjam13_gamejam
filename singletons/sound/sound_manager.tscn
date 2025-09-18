@@ -7,6 +7,7 @@ script = ExtResource("1_dx566")
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
+playback_type = 1
 
 [node name="SfxStreamPlayer" type="AudioStreamPlayer" parent="."]
 max_polyphony = 2
