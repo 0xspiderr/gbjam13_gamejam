@@ -1,30 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7dr6chxe2hwd"]
+[gd_scene load_steps=3 format=3 uid="uid://biadmigqa56wo"]
 
-[ext_resource type="Texture2D" uid="uid://dp2bsjikgw13a" path="res://gambling_assets/card_placeholder.png" id="1_kikvd"]
 [ext_resource type="Script" uid="uid://d2puogioxfmij" path="res://card.gd" id="1_rjlel"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_rjlel"]
-font_size = 12
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://fllujs2x0yfi" path="res://assets/tilesets/casino_tileset/cards.png" id="2_rjlel"]
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_rjlel")
 
 [node name="Base" type="Sprite2D" parent="."]
-texture = ExtResource("1_kikvd")
-
-[node name="Value" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -11.5
-offset_right = 8.0
-offset_bottom = 12.5
-grow_horizontal = 2
-grow_vertical = 2
-label_settings = SubResource("LabelSettings_rjlel")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("2_rjlel")
+hframes = 13
+vframes = 4

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b14pmmqyhed3f"]
+
+[ext_resource type="Script" uid="uid://b071o1lsvd8jr" path="res://gambling_minigames/slot.gd" id="1_jygfl"]
+[ext_resource type="Texture2D" uid="uid://cqcwr8ohdxhp8" path="res://gambling_assets/slot_spritesheet_placeholder.png" id="2_jppk4"]
+
+[node name="Slot" type="Node2D"]
+script = ExtResource("1_jygfl")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_jppk4")
+hframes = 8
