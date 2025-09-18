@@ -44,13 +44,16 @@ func continue_dialogue(dialogue: String) -> void:
 
 
 func on_speaker_changed(speaker: String) -> void:
+	if previous_speaker == "":
+		previous_speaker = speaker
+		tween_sprite_pos()
+		return
+	
 	if previous_speaker != speaker:
 		previous_speaker = speaker
 		# this flips the panel when the speaker changes in the dialogue
 		panel.scale.x *= -1.0
 		tween_sprite_pos()
-
-	
 
 
 func tween_sprite_pos() -> void:
