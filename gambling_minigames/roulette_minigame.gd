@@ -64,7 +64,7 @@ func _on_state_changed() -> void:
 			playButton.disabled = true
 			betAdjust.visible = false
 		2:
-			UpdateTotal(totalMoney + 8 * moneyToBet)
+			UpdateTotal(totalMoney + 5 * moneyToBet)
 			gameStatus.text = "YOU WIN!"
 			blackButton.disabled = false
 			pinkButton.disabled = false
