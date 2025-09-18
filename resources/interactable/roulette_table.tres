@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="InteractableStats" load_steps=5 format=3 uid="uid://caeoc386ptk0m"]
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=6 format=3 uid="uid://caeoc386ptk0m"]
 
+[ext_resource type="PackedScene" uid="uid://bnu52vt6wkp1f" path="res://gambling_minigames/roulette_minigame.tscn" id="1_aolyd"]
 [ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_flo8k"]
 [ext_resource type="Texture2D" uid="uid://d15rlcvvxg4yi" path="res://assets/tilesets/casino_tileset/tileset.png" id="2_itinf"]
 
@@ -24,4 +25,5 @@ name = "RouletteTable"
 sprite_frames = SubResource("SpriteFrames_1rhar")
 area_size = Vector2(40, 40)
 collision_size = Vector2(24, 24)
+scene_to_change = ExtResource("1_aolyd")
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"
