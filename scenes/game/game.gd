@@ -25,11 +25,6 @@ func _ready() -> void:
 	EventBus.exited_interactable_area.connect(_on_exited_interactable_area)
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("exit"):
-		get_tree().quit()
-
-
 func _input(event: InputEvent) -> void:
 	# dont process player input if in combat or if talking
 	# to an npc.
@@ -46,6 +41,14 @@ func _input(event: InputEvent) -> void:
 			dialogue_ui.npc_sprites.sprite_frames = current_npc.npc_stats.portraits
 			dialogue_ui.dialogue_box.audio_stream_player.stream = current_npc.npc_stats.dialogue_stream
 			dialogue_ui.visible = true
+	
+	if event.is_action_pressed("exit"): 
+		var scene = current_scene.get_child(0) as Node2D
+		# allow exit only out of minigame levels when pressing the exit action,
+		# minigames dont start with "Level".
+		if not scene.name.begins_with("Level"):
+			current_scene.get_child(0).queue_free()
+			current_scene.add_child(current_level)
 #endregion
 
 
@@ -57,12 +60,12 @@ func _get_current_level() -> void:
 func _change_level_scene(scene: PackedScene) -> void:
 	if current_scene.get_child_count():
 		var instance := scene.instantiate()
-		current_level = instance
 		
 		# temporary solution until combat is implemented
-		if current_level.name.begins_with("Level"):
+		if instance.name.begins_with("Level"):
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 		
+		current_level = current_scene.get_child(0).duplicate()
 		current_scene.get_child(0).queue_free()
 		current_scene.add_child(instance)
 
@@ -91,6 +94,10 @@ func _on_end_combat() -> void:
 	for child in canvas_layer.get_children():
 		if child.name == &"Combat":
 			child.queue_free()
+	
+	# temporary solution until combat is implemented
+	if current_level.name.begins_with("Level"):
+		SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 #endregion
 
 
@@ -110,7 +117,8 @@ func _on_exited_dialogue_area() -> void:
 func _on_entered_interactable_area(scene_to_change: PackedScene) -> void:
 	interactable_scene_change = scene_to_change
 	PlayerData.can_interact = true
-	
+
+
 func _on_exited_interactable_area() -> void:
 	interactable_scene_change = null
 	PlayerData.can_interact = false

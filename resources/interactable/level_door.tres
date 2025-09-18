@@ -39,4 +39,5 @@ sprite_frames = SubResource("SpriteFrames_xr74y")
 area_size = Vector2(28, 28)
 collision_size = Vector2(24, 24)
 scene_to_change = ExtResource("1_v1kvk")
+is_minigame = false
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"
