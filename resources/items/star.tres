@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://dg3et3c0qn8x"]
+
+[ext_resource type="Script" uid="uid://mfk4ag0fvunn" path="res://resources/items/item_stats.gd" id="1_kjs24"]
+
+[resource]
+script = ExtResource("1_kjs24")
+name = "Star"
+cost = 450
+stats_to_mod = Dictionary[String, int]({
+"luck": 6,
+"max health": 3
+})
+icon_frame = 7

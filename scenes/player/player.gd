@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 
-@export var speed: float = 100.0
+@export var speed: float = PlayerData.speed
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
 
 var player_dir: Vector2 = Vector2.ZERO

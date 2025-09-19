@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_4lss6")
 name = "Clover"
-cost = 400
+cost = 160
 stats_to_mod = Dictionary[String, int]({
 "luck": 4
 })

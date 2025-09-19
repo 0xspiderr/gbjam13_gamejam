@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://djlfxxg7cjiol"]
+[gd_scene load_steps=16 format=3 uid="uid://djlfxxg7cjiol"]
 
 [ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="1_ildct"]
 [ext_resource type="Texture2D" uid="uid://dwj1hkn7ql0ic" path="res://assets/portraits/black-cat-neutral.png" id="2_t5lqu"]
 [ext_resource type="Theme" uid="uid://detj406ixpum0" path="res://ui/themes/general_theme.tres" id="3_qvuq5"]
 [ext_resource type="PackedScene" uid="uid://b0jijsp5tf856" path="res://scenes/shop/shop.tscn" id="4_f1vv4"]
+[ext_resource type="Script" uid="uid://mfk4ag0fvunn" path="res://resources/items/item_stats.gd" id="5_7cu2k"]
+[ext_resource type="Resource" uid="uid://iheki1pcvl3i" path="res://resources/items/clover.tres" id="5_8i8uj"]
+[ext_resource type="AudioStream" uid="uid://brih6wni2bqk2" path="res://sounds/music/BeepBox-Song (1).mp3" id="5_ildct"]
+[ext_resource type="Resource" uid="uid://bnkeyt2qgqeh2" path="res://resources/items/coin.tres" id="7_p3say"]
+[ext_resource type="Resource" uid="uid://bder4n8bvd33g" path="res://resources/items/horseshoe.tres" id="8_og0gd"]
+[ext_resource type="Resource" uid="uid://b57da7mn8qjwe" path="res://resources/items/dice.tres" id="9_5nplp"]
+[ext_resource type="Resource" uid="uid://b2qpdoabejb8c" path="res://resources/items/feather.tres" id="10_w84a0"]
+[ext_resource type="Resource" uid="uid://6viiq610yle2" path="res://resources/items/rainbow.tres" id="11_ht2a7"]
+[ext_resource type="Resource" uid="uid://dg3et3c0qn8x" path="res://resources/items/star.tres" id="12_rnqcg"]
+[ext_resource type="Resource" uid="uid://bm7jx6rjqsx47" path="res://resources/items/the_sun.tres" id="13_dvwgf"]
+[ext_resource type="Resource" uid="uid://2vs2rak7um7g" path="res://resources/items/ace.tres" id="14_aciqn"]
 
 [node name="ShopScene" type="Node2D"]
 
@@ -23,6 +34,7 @@ offset_bottom = 145.0
 theme = ExtResource("3_qvuq5")
 
 [node name="Shop" parent="." instance=ExtResource("4_f1vv4")]
+item_list = Array[ExtResource("5_7cu2k")]([ExtResource("5_8i8uj"), ExtResource("7_p3say"), ExtResource("8_og0gd"), ExtResource("9_5nplp"), ExtResource("10_w84a0"), ExtResource("11_ht2a7"), ExtResource("12_rnqcg"), ExtResource("13_dvwgf"), ExtResource("14_aciqn")])
 
 [node name="Prev" type="Button" parent="."]
 offset_left = 5.0
@@ -39,3 +51,10 @@ offset_right = 150.0
 offset_bottom = 89.0
 button_mask = 0
 text = "NEXT PAGE"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ildct")
+parameters/looping = true
+
+[connection signal="pressed" from="Prev" to="Shop" method="_on_prev_pressed"]
+[connection signal="pressed" from="Next" to="Shop" method="_on_next_pressed"]

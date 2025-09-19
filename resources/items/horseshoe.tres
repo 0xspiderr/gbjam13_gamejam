@@ -7,6 +7,6 @@ script = ExtResource("1_83df3")
 name = "Horseshoe"
 cost = 120
 stats_to_mod = Dictionary[String, int]({
-"luck": 2
+"luck": 3
 })
 icon_frame = 1
