@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://iheki1pcvl3i"]
+
+[ext_resource type="Script" uid="uid://mfk4ag0fvunn" path="res://resources/items/item_stats.gd" id="1_24t0u"]
+
+[resource]
+script = ExtResource("1_24t0u")
+name = ""
+cost = 50
+stats_to_mod = Dictionary[String, int]({})

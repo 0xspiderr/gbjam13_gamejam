@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://djlfxxg7cjiol"]
+
+[ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="1_42hh6"]
+
+[node name="ShopScene" type="Node2D"]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+texture = ExtResource("1_42hh6")
+centered = false
