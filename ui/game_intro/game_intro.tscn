@@ -1,6 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://fy8rujvdasrg"]
+[gd_scene load_steps=15 format=3 uid="uid://fy8rujvdasrg"]
 
 [ext_resource type="Script" uid="uid://d3j0qchs8501e" path="res://ui/game_intro/game_intro.gd" id="1_irq66"]
+[ext_resource type="Texture2D" uid="uid://8r1wd3oee1yy" path="res://assets/intro_scene_panels/first-panel-spritesheet.png" id="2_rf1jj"]
+[ext_resource type="Texture2D" uid="uid://bte33sbhxxf0t" path="res://assets/intro_scene_panels/game-panel2.png" id="2_s30di"]
+[ext_resource type="Texture2D" uid="uid://bpob86epli2xy" path="res://assets/intro_scene_panels/game-panel3.png" id="3_g06il"]
+[ext_resource type="Texture2D" uid="uid://bmarp77n7oo0w" path="res://assets/intro_scene_panels/game-panel4.png" id="4_80mh3"]
+[ext_resource type="Texture2D" uid="uid://ci62ihasmlumd" path="res://assets/intro_scene_panels/game-panel5.png" id="5_cdnbt"]
+[ext_resource type="Texture2D" uid="uid://ddgelunq8mxvm" path="res://assets/intro_scene_panels/game-panel6.png" id="6_r268i"]
+[ext_resource type="Resource" uid="uid://cetir7egb7gyd" path="res://resources/npcs/game_intro_npc.tres" id="7_80mh3"]
+[ext_resource type="PackedScene" uid="uid://3h1q6twd686v" path="res://ui/dialogue/dialogue_ui.tscn" id="8_g06il"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk5ge"]
+atlas = ExtResource("2_rf1jj")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gx17"]
+atlas = ExtResource("2_rf1jj")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vhrk"]
+atlas = ExtResource("2_rf1jj")
+region = Rect2(0, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyb7a"]
+atlas = ExtResource("2_rf1jj")
+region = Rect2(160, 144, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s30di"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk5ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gx17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vhrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyb7a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GameIntro" type="Control"]
 layout_mode = 3
@@ -10,3 +54,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_irq66")
+game_panels_array = Array[Texture2D]([ExtResource("2_s30di"), ExtResource("3_g06il"), ExtResource("4_80mh3"), ExtResource("5_cdnbt"), ExtResource("6_r268i")])
+GAME_INTRO_NPC = ExtResource("7_80mh3")
+
+[node name="AnimatedPanel" type="AnimatedSprite2D" parent="."]
+position = Vector2(80, 72)
+sprite_frames = SubResource("SpriteFrames_s30di")
+
+[node name="DefaultPanels" type="Sprite2D" parent="."]
+position = Vector2(80, 72)
+
+[node name="DialogueUI" parent="." instance=ExtResource("8_g06il")]
+visible = false
+layout_mode = 1
