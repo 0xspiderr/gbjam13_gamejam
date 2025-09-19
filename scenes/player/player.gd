@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 
 @export var speed: float = 100.0
+@export var combat_player_sprites: SpriteFrames
+@export var casino_player_sprites: SpriteFrames
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
 
 var player_dir: Vector2 = Vector2.ZERO
@@ -11,14 +13,18 @@ var last_position: Vector2
 
 #region BUILT IN GODOT METHODS
 func _ready() -> void:
-	pass
+	var parent_level = get_parent()
+	print(parent_level.name)
+	if parent_level.name == "Level0":
+		player_sprites.sprite_frames = casino_player_sprites
+	else:
+		player_sprites.sprite_frames = combat_player_sprites
 
 
 func _physics_process(_delta: float) -> void:
 	# dont process player character move input if in combat or if talking
 	# to an npc.
 	if PlayerData.is_in_combat or PlayerData.is_talking:
-		player_sprites.play(&"idle")
 		return
 	
 	_play_animation()
