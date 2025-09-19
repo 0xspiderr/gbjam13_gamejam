@@ -80,6 +80,8 @@ func _on_start_combat(enemy: Enemy) -> void:
 	# get the combat scene and add it to the canvas layer because the
 	# combat scene is a ui scene
 	var combat_scene = COMBAT_TSCN.instantiate()
+	combat_scene.enemy_sprite_frames = current_enemy.stats.combat_sprite_frames
+	combat_scene.enemy_name = current_enemy.stats.name
 	canvas_layer.add_child(combat_scene, true)
 
 

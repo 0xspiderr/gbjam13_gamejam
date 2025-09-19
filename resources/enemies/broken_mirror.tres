@@ -1,11 +1,69 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=28 format=3 uid="uid://bih3etdk8k7o"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=37 format=3 uid="uid://bih3etdk8k7o"]
 
+[ext_resource type="Texture2D" uid="uid://ds6ld865mmucn" path="res://assets/combat/characters/mirror-combat-idle.png" id="1_fkwh2"]
 [ext_resource type="Script" uid="uid://d1vw4kshx1q10" path="res://resources/enemies/enemy_stats.gd" id="1_yms8e"]
 [ext_resource type="Texture2D" uid="uid://dvjfrkelbban" path="res://assets/sprites/npcs/broken-mirror-idle.png" id="2_a34lg"]
 [ext_resource type="Texture2D" uid="uid://bdwmf5mmf5770" path="res://assets/sprites/npcs/broken-mirror-walk-down.png" id="3_4afya"]
 [ext_resource type="Texture2D" uid="uid://5a576je4c62l" path="res://assets/sprites/npcs/broken-mirror-walk-left.png" id="4_jpt7a"]
 [ext_resource type="Texture2D" uid="uid://dh732ddo4f4rf" path="res://assets/sprites/npcs/broken-mirror-walk-right.png" id="5_jpt7a"]
 [ext_resource type="Texture2D" uid="uid://g4a4x8ag6d4j" path="res://assets/sprites/npcs/broken-mirror-walk-up.png" id="6_hdtr7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je42x"]
+atlas = ExtResource("1_fkwh2")
+region = Rect2(0, 0, 31, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvh5y"]
+atlas = ExtResource("1_fkwh2")
+region = Rect2(31, 0, 31, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5ov7"]
+atlas = ExtResource("1_fkwh2")
+region = Rect2(62, 0, 31, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3bo8"]
+atlas = ExtResource("1_fkwh2")
+region = Rect2(93, 0, 31, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0htu"]
+atlas = ExtResource("1_fkwh2")
+region = Rect2(124, 0, 31, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e5yb"]
+atlas = ExtResource("1_fkwh2")
+region = Rect2(155, 0, 31, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kit6x"]
+atlas = ExtResource("1_fkwh2")
+region = Rect2(186, 0, 31, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_invqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je42x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvh5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5ov7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3bo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0htu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e5yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kit6x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_moj3q"]
 atlas = ExtResource("2_a34lg")
@@ -177,8 +235,10 @@ animations = [{
 
 [resource]
 script = ExtResource("1_yms8e")
+name = "broken mirror"
 speed = 30
 chase_speed = 40
 max_health = 10
 sprite_frames = SubResource("SpriteFrames_fkwh2")
+combat_sprite_frames = SubResource("SpriteFrames_invqg")
 metadata/_custom_type_script = "uid://d1vw4kshx1q10"

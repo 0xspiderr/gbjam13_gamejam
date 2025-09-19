@@ -395,7 +395,7 @@ collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
 [node name="LevelDoor" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
-position = Vector2(139, 51)
+position = Vector2(193, 117)
 interactable_stats = ExtResource("18_po5je")
 
 [node name="NPCs" type="Node2D" parent="Entities"]

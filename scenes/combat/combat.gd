@@ -11,8 +11,6 @@ enum
 @onready var draw_card_btn: Button = %DrawCardBtn
 @onready var roll_dice_btn: Button = %RollDiceBtn
 @onready var button_container: CenterContainer = %ButtonContainer
-@onready var card: ColorRect = %Card
-@onready var card_value_label: Label = %CardValueLabel
 @onready var dialogue_box: DialogueBox = %DialogueBox
 #endregion
 
@@ -25,7 +23,15 @@ enum
 
 var buttons: Array[Button] = []
 var current_button: int = 0
+@onready var player_sprites: AnimatedSprite2D = %PlayerSprites
 
+#region ENEMY
+var enemy_name: String = ""
+var enemy_sprite_frames: SpriteFrames = null
+@onready var enemy_sprites: AnimatedSprite2D = %EnemySprites
+@onready var enemy_label: Label = %EnemyLabel
+
+#endregion
 
 func _ready() -> void:
 	SoundManager.change_music_stream(SoundManager.COMBAT)
@@ -35,12 +41,16 @@ func _ready() -> void:
 	
 	buttons[current_button].visible = true
 	buttons[current_button].disabled = false
+	
+	enemy_sprites.sprite_frames = enemy_sprite_frames
+	enemy_label.text = enemy_name
+	enemy_sprites.play(&"idle")
+	player_sprites.play(&"idle")
 
 
 func _input(event: InputEvent) -> void:
 	if not _can_interact:
 		return
-	
 	if event.is_action_pressed("interact"):
 		_can_interact = false
 		_button_action()
