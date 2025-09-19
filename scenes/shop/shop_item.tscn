@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://52t81pt1vmfb"]
+
+[ext_resource type="Script" uid="uid://pwjbpvlgwom" path="res://scenes/shop/shop_item.gd" id="1_3rqce"]
+[ext_resource type="Texture2D" uid="uid://skvjmpr1ocyq" path="res://assets/shop/shop_items_tileset.png" id="2_35nb3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3rqce"]
+line_spacing = 0.0
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ShopItem" type="Node2D"]
+script = ExtResource("1_3rqce")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(6, 0)
+texture = ExtResource("2_35nb3")
+centered = false
+hframes = 3
+vframes = 3
+
+[node name="ItemCost" type="Label" parent="."]
+offset_top = 36.0
+offset_right = 24.0
+offset_bottom = 49.0
+text = "COST:"
+label_settings = SubResource("LabelSettings_3rqce")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 2
+
+[node name="CostValue" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 36.0
+offset_right = 48.0
+offset_bottom = 49.0
+text = "4444"
+label_settings = SubResource("LabelSettings_3rqce")
+vertical_alignment = 1
+text_overrun_behavior = 2

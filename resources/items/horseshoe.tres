@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://bder4n8bvd33g"]
+
+[ext_resource type="Script" uid="uid://mfk4ag0fvunn" path="res://resources/items/item_stats.gd" id="1_83df3"]
+
+[resource]
+script = ExtResource("1_83df3")
+name = "Horseshoe"
+cost = 120
+stats_to_mod = Dictionary[String, int]({
+"luck": 2
+})
+icon_frame = 1

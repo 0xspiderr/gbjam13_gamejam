@@ -1,0 +1,13 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0jijsp5tf856"]
+
+[ext_resource type="Script" uid="uid://c86h0d6wxp03v" path="res://scenes/shop/shop.gd" id="1_7lxhl"]
+[ext_resource type="Script" uid="uid://mfk4ag0fvunn" path="res://resources/items/item_stats.gd" id="2_jp048"]
+[ext_resource type="Resource" uid="uid://iheki1pcvl3i" path="res://resources/items/clover.tres" id="3_ctpgp"]
+[ext_resource type="Resource" uid="uid://bnkeyt2qgqeh2" path="res://resources/items/coin.tres" id="4_ctpgp"]
+[ext_resource type="Resource" uid="uid://bder4n8bvd33g" path="res://resources/items/horseshoe.tres" id="5_ptf86"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_7lxhl")
+item_list = Array[ExtResource("2_jp048")]([ExtResource("3_ctpgp"), ExtResource("4_ctpgp"), ExtResource("5_ptf86")])
+
+[node name="Items" type="Node2D" parent="."]
