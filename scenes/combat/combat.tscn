@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cnseaei7cyk0j"]
+[gd_scene load_steps=38 format=3 uid="uid://cnseaei7cyk0j"]
 
 [ext_resource type="Script" uid="uid://ckmfpkw5erjvw" path="res://scenes/combat/combat.gd" id="1_5vqsm"]
 [ext_resource type="Texture2D" uid="uid://b4mjrh0twvwwf" path="res://assets/combat/background/combat-bg.png" id="2_ijgaf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://vxo8j2ok6cvh" path="res://ui/themes/health_n_name_combat_ui.tres" id="9_8cw2p"]
 [ext_resource type="Texture2D" uid="uid://ocy6783bo4an" path="res://assets/recolors/utilities/rolling-dice-animation-recolored.png" id="10_4a6i5"]
 [ext_resource type="Texture2D" uid="uid://cetslkpdwuoos" path="res://assets/recolors/utilities/dice-numbers-recolored.png" id="11_3dmww"]
+[ext_resource type="Texture2D" uid="uid://316gpc4pduya" path="res://assets/recolors/utilities/cards-recolored.png" id="12_gwckk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cw2p"]
 atlas = ExtResource("3_uakg0")
@@ -229,6 +230,9 @@ position = Vector2(90, 63)
 [node name="DiceInitialPos" type="Marker2D" parent="."]
 position = Vector2(0, 145)
 
+[node name="Card1Pos" type="Marker2D" parent="."]
+position = Vector2(83, 51)
+
 [node name="TestBtn" type="Button" parent="."]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -381,5 +385,12 @@ animation = &"roll"
 visible = false
 sprite_frames = SubResource("SpriteFrames_jr0f0")
 animation = &"roll"
+
+[node name="Card" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("12_gwckk")
+hframes = 13
+vframes = 4
+frame = 1
 
 [connection signal="pressed" from="TestBtn" to="." method="_on_test_btn_pressed"]

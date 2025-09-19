@@ -14,6 +14,7 @@ enum
 @onready var dialogue_box: DialogueBox = %DialogueBox
 #endregion
 
+
 #region DICE
 @onready var animated_dice_1: AnimatedSprite2D = $AnimatedDice1
 @onready var animated_dice_2: AnimatedSprite2D = $AnimatedDice2
@@ -21,6 +22,15 @@ enum
 @onready var dice_2_pos: Marker2D = $Dice2Pos
 @onready var dice_initial_pos: Marker2D = $DiceInitialPos
 #endregion
+
+
+#region CARD
+@onready var card: Sprite2D = $Card
+const CARDS_RECOLORED: Texture2D = preload("uid://316gpc4pduya")
+@onready var card_1_pos: Marker2D = $Card1Pos
+
+#endregion
+
 
 #region SOUNDS
 @onready var draw_card_sound: AudioStreamPlayer = $DrawCardSound
@@ -97,12 +107,13 @@ func _draw_card() -> void:
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
 	
-	var player_card_value: int = randi_range(1, 13)
-	var enemy_card_value: int = randi_range(1, 13)
+	var player_card_value: int = randi_range(2, 13)
+	var enemy_card_value: int = randi_range(2, 13)
 	
 	if player_card_value > enemy_card_value:
 		_button_toggle()
 	
+	_draw_card_anim(player_card_value)
 	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
@@ -163,4 +174,19 @@ func _reset_dice_pos() -> void:
 	animated_dice_2.hide()
 	animated_dice_1.position = dice_initial_pos.position
 	animated_dice_2.position = dice_initial_pos.position
+#endregion
+
+
+#region DRAW CARD ANIMATION LOGIC
+func _draw_card_anim(value: int) -> void:
+	card.show()
+	var tween_card_pos1 = create_tween()
+	
+	tween_card_pos1.tween_property(card, "position", card_1_pos.position, 0.5)
+	# tween_card.tween_property(card, "scale", Vector2(0, 0), 0.5)
+	
+	if value == 13:
+		card.frame = 12
+	else:
+		card.frame = value - 1
 #endregion

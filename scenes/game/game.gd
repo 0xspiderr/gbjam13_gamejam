@@ -37,6 +37,7 @@ func _input(event: InputEvent) -> void:
 		
 		if PlayerData.can_talk and is_instance_valid(current_npc):
 			PlayerData.is_talking = true
+			dialogue_ui.npc_name.text = current_npc.name
 			dialogue_ui.dialogues.assign(current_npc.npc_stats.dialogues)
 			dialogue_ui.npc_sprites.sprite_frames = current_npc.npc_stats.portraits
 			dialogue_ui.dialogue_box.audio_stream_player.stream = current_npc.npc_stats.dialogue_stream

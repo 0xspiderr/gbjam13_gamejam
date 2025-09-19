@@ -115,3 +115,21 @@ offset_left = 17.0
 offset_top = 90.0
 offset_right = -20.0
 offset_bottom = -22.0
+
+[node name="NpcName" type="Button" parent="."]
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme = ExtResource("2_4cdch")
+
+[node name="PlayerName" type="Button" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 1.0
+offset_right = 146.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme = ExtResource("2_4cdch")
+text = "JOHN GAMBLE"
