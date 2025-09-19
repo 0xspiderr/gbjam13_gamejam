@@ -11,7 +11,7 @@
 [ext_resource type="Theme" uid="uid://vxo8j2ok6cvh" path="res://ui/themes/health_n_name_combat_ui.tres" id="9_8cw2p"]
 [ext_resource type="Texture2D" uid="uid://ocy6783bo4an" path="res://assets/recolors/utilities/rolling-dice-animation-recolored.png" id="10_4a6i5"]
 [ext_resource type="Texture2D" uid="uid://cetslkpdwuoos" path="res://assets/recolors/utilities/dice-numbers-recolored.png" id="11_3dmww"]
-[ext_resource type="Texture2D" uid="uid://316gpc4pduya" path="res://assets/recolors/utilities/cards-recolored.png" id="12_gwckk"]
+[ext_resource type="Texture2D" uid="uid://blbmkjk61756w" path="res://assets/recolors/utilities/card-back.png" id="12_gwckk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cw2p"]
 atlas = ExtResource("3_uakg0")
@@ -222,16 +222,19 @@ sprite_frames = SubResource("SpriteFrames_ijgaf")
 animation = &"idle"
 
 [node name="Dice1Pos" type="Marker2D" parent="."]
-position = Vector2(71, 56)
+position = Vector2(74, 51)
 
 [node name="Dice2Pos" type="Marker2D" parent="."]
-position = Vector2(90, 63)
+position = Vector2(90, 55)
 
 [node name="DiceInitialPos" type="Marker2D" parent="."]
 position = Vector2(0, 145)
 
 [node name="Card1Pos" type="Marker2D" parent="."]
-position = Vector2(83, 51)
+position = Vector2(74, 51)
+
+[node name="Card2Pos" type="Marker2D" parent="."]
+position = Vector2(94, 51)
 
 [node name="TestBtn" type="Button" parent="."]
 custom_minimum_size = Vector2(50, 0)
@@ -386,11 +389,12 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_jr0f0")
 animation = &"roll"
 
-[node name="Card" type="Sprite2D" parent="."]
+[node name="Card1" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("12_gwckk")
-hframes = 13
-vframes = 4
-frame = 1
+
+[node name="Card2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("12_gwckk")
 
 [connection signal="pressed" from="TestBtn" to="." method="_on_test_btn_pressed"]

@@ -25,10 +25,12 @@ enum
 
 
 #region CARD
-@onready var card: Sprite2D = $Card
+@onready var card_1: Sprite2D = $Card1
+@onready var card_2: Sprite2D = $Card2
 const CARDS_RECOLORED: Texture2D = preload("uid://316gpc4pduya")
+const CARD_BACK: Texture2D = preload("uid://blbmkjk61756w")
 @onready var card_1_pos: Marker2D = $Card1Pos
-
+@onready var card_2_pos: Marker2D = $Card2Pos
 #endregion
 
 
@@ -103,6 +105,7 @@ func _button_action() -> void:
 
  
 func _draw_card() -> void:
+	_reset_card_pos()
 	_reset_dice_pos()
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
@@ -110,10 +113,10 @@ func _draw_card() -> void:
 	var player_card_value: int = randi_range(2, 13)
 	var enemy_card_value: int = randi_range(2, 13)
 	
+	_draw_card_anim(player_card_value, enemy_card_value)
 	if player_card_value > enemy_card_value:
 		_button_toggle()
 	
-	_draw_card_anim(player_card_value)
 	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
@@ -121,6 +124,7 @@ func _draw_card() -> void:
 
 
 func _roll_dice() -> void:
+	_reset_card_pos()
 	SoundManager.randomize_pitch_scale(roll_dice_sound)
 	roll_dice_sound.play()
 	
@@ -178,15 +182,69 @@ func _reset_dice_pos() -> void:
 
 
 #region DRAW CARD ANIMATION LOGIC
-func _draw_card_anim(value: int) -> void:
-	card.show()
-	var tween_card_pos1 = create_tween()
+func _draw_card_anim(card_1_value: int, card_2_value: int) -> void:
+	card_1.show()
+	card_2.show()
+	var tween_card_1_pos = create_tween()
+	var tween_card_2_pos = create_tween()
+	var tween_card_1_scale = create_tween()
+	var tween_card_2_scale = create_tween()
+	tween_card_1_pos.stop()
+	tween_card_1_scale.stop()
+	tween_card_2_pos.stop()
+	tween_card_2_scale.stop()
 	
-	tween_card_pos1.tween_property(card, "position", card_1_pos.position, 0.5)
-	# tween_card.tween_property(card, "scale", Vector2(0, 0), 0.5)
+	tween_card_1_pos.tween_property(card_1, "position", card_1_pos.position, 0.5)
+	tween_card_2_pos.tween_property(card_2, "position", card_2_pos.position, 0.5)
+	tween_card_1_pos.play()
+	tween_card_2_pos.play()
+	await tween_card_1_pos.finished
+	await tween_card_2_pos.finished
 	
-	if value == 13:
-		card.frame = 12
+	tween_card_1_scale.tween_property(card_1, "scale", Vector2(0, 0), 0.2)
+	tween_card_2_scale.tween_property(card_2, "scale", Vector2(0, 0), 0.2)
+	tween_card_1_scale.play()
+	tween_card_2_scale.play()
+	await tween_card_1_scale.finished
+	await tween_card_2_scale.finished
+	tween_card_1_scale.stop()
+	tween_card_2_scale.stop()
+	
+	card_1.texture = CARDS_RECOLORED
+	card_1.hframes = 13
+	card_1.vframes = 4
+	card_2.texture = CARDS_RECOLORED
+	card_2.hframes = 13
+	card_2.vframes = 4
+	
+	if card_1_value == 13:
+		card_1.frame = 14
 	else:
-		card.frame = value - 1
+		card_1.frame = card_1_value - 1
+	
+	if card_2_value == 13:
+		card_2.frame = 14
+	else:
+		card_2.frame = card_2_value - 1
+	
+	
+	tween_card_1_scale.tween_property(card_1, "scale", Vector2.ONE, 0.2)
+	tween_card_2_scale.tween_property(card_2, "scale", Vector2.ONE, 0.2)
+	tween_card_1_scale.play()
+	tween_card_2_scale.play()
+
+
+func _reset_card_pos() -> void:
+	card_1.hide()
+	card_2.hide()
+	card_1.position = Vector2.ZERO
+	card_1.texture = CARD_BACK
+	card_1.hframes = 1
+	card_1.vframes = 1
+	card_1.frame = 0
+	card_2.position = Vector2.ZERO
+	card_2.texture = CARD_BACK
+	card_2.hframes = 1
+	card_2.vframes = 1
+	card_2.frame = 0
 #endregion
