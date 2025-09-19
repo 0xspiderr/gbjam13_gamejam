@@ -26,8 +26,7 @@ var current_button: int = 0
 @onready var player_sprites: AnimatedSprite2D = %PlayerSprites
 
 #region ENEMY
-var enemy_name: String = ""
-var enemy_sprite_frames: SpriteFrames = null
+var enemy_stats: EnemyStats = null
 @onready var enemy_sprites: AnimatedSprite2D = %EnemySprites
 @onready var enemy_label: Label = %EnemyLabel
 
@@ -42,8 +41,8 @@ func _ready() -> void:
 	buttons[current_button].visible = true
 	buttons[current_button].disabled = false
 	
-	enemy_sprites.sprite_frames = enemy_sprite_frames
-	enemy_label.text = enemy_name
+	enemy_sprites.sprite_frames = enemy_stats.combat_sprite_frames
+	enemy_label.text = enemy_stats.name
 	enemy_sprites.play(&"idle")
 	player_sprites.play(&"idle")
 
