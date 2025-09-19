@@ -18,12 +18,14 @@
 [resource]
 default_font = ExtResource("2_e3qii")
 Button/colors/font_color = Color(0.984314, 0.980392, 0.921569, 1)
+Button/colors/font_disabled_color = Color(0.984314, 0.980392, 0.921569, 1)
 Button/colors/font_focus_color = Color(0.984314, 0.980392, 0.921569, 1)
 Button/colors/font_hover_color = Color(0.984314, 0.980392, 0.921569, 1)
 Button/colors/font_outline_color = Color(0.388235, 0.447059, 0.705882, 1)
 Button/colors/font_pressed_color = Color(1, 0.54902, 0.729412, 1)
 Button/constants/outline_size = 2
 Button/font_sizes/font_size = 16
+Button/styles/disabled = ExtResource("1_wk3e0")
 Button/styles/focus = ExtResource("1_e3qii")
 Button/styles/hover = ExtResource("1_e3qii")
 Button/styles/normal = ExtResource("1_wk3e0")
