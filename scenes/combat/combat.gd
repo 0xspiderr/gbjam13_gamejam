@@ -29,6 +29,7 @@ var current_button: int = 0
 var enemy_stats: EnemyStats = null
 @onready var enemy_sprites: AnimatedSprite2D = %EnemySprites
 @onready var enemy_label: Label = %EnemyLabel
+@onready var enemy_health: ProgressBar = %EnemyHealth
 
 #endregion
 
@@ -110,6 +111,13 @@ func _roll_dice() -> void:
 	var text = "You rolled %s & %s" % [first_player_dice_value, second_player_dice_value]
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
+	_damage()
 	_can_interact = true
+	
+	
+func _damage() -> void:
+	enemy_stats.max_health -= 10
+	#%EnemyHealth.value -=10
+	
 
 #endregion
