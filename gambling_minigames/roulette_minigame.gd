@@ -30,6 +30,7 @@ func _ready() -> void:
 	rouletteEngine = $RouletteEngine
 	gameStatus = $Status
 	
+	blackButton.disabled = true
 	UpdateBet(5)
 	UpdateTotal(PlayerData.money)
 	rouletteEngine.Init($Roulette, $Arrow)

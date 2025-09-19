@@ -4,8 +4,10 @@ extends Node2D
 @onready var itemCollection = $Items # placeholder
 @onready var changePage: Array[Button] = [$"../Prev", $"../Next"]
 var focusedButton: Button
+var focusSection:String
 var currentPage:int
 var currentItem:int
+@export var popupOpen:bool = false
 
 func ShowItems(startIndex):
 	for ind in range(0, 3):
@@ -27,31 +29,55 @@ func _ready() -> void:
 	currentPage = 0
 	currentItem = 0
 	ShowItems(currentPage * 3)
-	focusedButton = changePage[0]
+	focusSection = "change_page"
+	SetFocus(changePage[0], focusSection)
 
 func _process(delta: float) -> void:
 	# input handling
-	if Input.is_action_just_pressed("left"):
-		SetFocus(changePage[0], null)
-	if Input.is_action_just_pressed("right"):
-		SetFocus(changePage[1], null)
-	if Input.is_action_just_pressed("up"):
-		SetFocus(changePage[1], null)
-	if Input.is_action_just_pressed("down"):
-		SetFocus(changePage[1], null)
-	if Input.is_action_just_pressed("interact"):
-		if focusedButton != null:
-			focusedButton.pressed.emit()
+	if popupOpen == false:
+		if Input.is_action_just_pressed("left"):
+			if focusSection == "change_page": # change page section
+				SetFocus(changePage[0], focusSection)
+			else: # item section
+				if currentItem > 0:
+					currentItem -= 1
+					SetFocus(itemCollection.get_child(currentItem).find_child("Button"), focusSection)
+		if Input.is_action_just_pressed("right"):
+			if focusSection == "change_page": # change page section
+				SetFocus(changePage[1], focusSection)
+			else: # item section
+				if currentItem < 2:
+					currentItem += 1
+					SetFocus(itemCollection.get_child(currentItem).find_child("Button"), focusSection)
+		if Input.is_action_just_pressed("up"):
+			if focusSection != "change_page":
+				focusSection = "change_page"
+				SetFocus(changePage[1], focusSection)
+		if Input.is_action_just_pressed("down"):
+			if focusSection != "item_list":
+				focusSection = "item_list"
+				currentItem = 0
+				SetFocus(itemCollection.get_child(currentItem).find_child("Button"), focusSection)
+		if Input.is_action_just_pressed("interact"):
+			if focusedButton != null:
+				focusedButton.pressed.emit()
 
 func SetFocus(button: Button, section:Variant):
 	button.grab_focus()
-	if section != null:
+	if section != "change_page":
 		focusedButton = button
-	else:
+		popupOpen = true
+		focusedButton.pressed.connect(_on_item_pressed)
+		popupOpen = false # weird ahh fix so sognal doesnt autofire
+	else: # does not connect signals for change page - signals are alradey connected
+		if focusedButton != null:
+			focusedButton.pressed.disconnect(_on_item_pressed)
 		focusedButton = null
 
 func AddPopup(item):
-	
+	var popup = load("res://scenes/shop/shop_popup.tscn").instantiate()
+	add_child(popup)
+	popup.Init(item)
 
 func _on_prev_pressed() -> void:
 	if currentPage > 0:
@@ -66,4 +92,6 @@ func _on_next_pressed() -> void:
 		ShowItems(currentPage * 3)
 
 func _on_item_pressed():
-	pass
+	if popupOpen == false:
+		AddPopup(itemCollection.get_child(currentItem))
+		popupOpen = true

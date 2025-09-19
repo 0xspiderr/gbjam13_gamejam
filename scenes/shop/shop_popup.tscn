@@ -26,7 +26,7 @@ hframes = 3
 vframes = 3
 
 [node name="StatModifiers" type="Node2D" parent="Panel"]
-position = Vector2(92, 0)
+position = Vector2(82, 0)
 
 [node name="BuyForCost" type="Label" parent="."]
 offset_left = 12.0
@@ -41,12 +41,16 @@ position = Vector2(30, 73)
 [node name="Yes" type="Button" parent="Buttons"]
 offset_right = 40.0
 offset_bottom = 6.0
+mouse_filter = 2
+button_mask = 0
 text = "YES"
 
 [node name="No" type="Button" parent="Buttons"]
 offset_left = 60.0
 offset_right = 100.0
 offset_bottom = 19.0
+mouse_filter = 2
+button_mask = 0
 text = "NO"
 
 [connection signal="pressed" from="Buttons/Yes" to="." method="_on_yes_pressed"]
