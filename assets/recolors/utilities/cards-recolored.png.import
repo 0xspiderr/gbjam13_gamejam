@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://82jnd80bbkmn"
-path="res://.godot/imported/THE-VOID.png-2a905fd0e1ffd2d5cdfb9a74bdbc0ce8.ctex"
+uid="uid://316gpc4pduya"
+path="res://.godot/imported/cards-recolored.png-f0b5005f38d5789d00b2921cae569d55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/recolors/THE-VOID.png"
-dest_files=["res://.godot/imported/THE-VOID.png-2a905fd0e1ffd2d5cdfb9a74bdbc0ce8.ctex"]
+source_file="res://assets/recolors/utilities/cards-recolored.png"
+dest_files=["res://.godot/imported/cards-recolored.png-f0b5005f38d5789d00b2921cae569d55.ctex"]
 
 [params]
 
