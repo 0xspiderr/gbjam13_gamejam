@@ -29,6 +29,7 @@ var current_button: int = 0
 var enemy_stats: EnemyStats = null
 @onready var enemy_sprites: AnimatedSprite2D = %EnemySprites
 @onready var enemy_label: Label = %EnemyLabel
+@onready var enemy_health: ProgressBar = %EnemyHealth
 
 #endregion
 
