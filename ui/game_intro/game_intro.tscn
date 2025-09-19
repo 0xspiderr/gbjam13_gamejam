@@ -58,6 +58,14 @@ script = ExtResource("1_irq66")
 game_panels_array = Array[Texture2D]([ExtResource("3_cdnbt"), ExtResource("2_s30di"), ExtResource("3_g06il"), ExtResource("4_80mh3"), ExtResource("5_cdnbt"), ExtResource("6_r268i")])
 GAME_INTRO_NPC = ExtResource("7_80mh3")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -23.0
+offset_right = 194.0
+offset_bottom = 173.0
+color = Color(0.0588235, 0.0156863, 0.0588235, 1)
+
 [node name="AnimatedPanel" type="AnimatedSprite2D" parent="."]
 position = Vector2(80, 72)
 sprite_frames = SubResource("SpriteFrames_s30di")
