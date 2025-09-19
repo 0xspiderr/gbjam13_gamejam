@@ -7,8 +7,8 @@ extends Control
 @export var GAME_INTRO_NPC: NpcStats
 var dialogue_index = 0
 var start_dialogue: bool = false
-var change_scene_indexes = [3, 8, 0]
-var stop_talking_indexes = [2, 7, 0]
+var change_scene_indexes = [2, 7, 0]
+var stop_talking_indexes = [1, 6, 0]
 
 func _ready() -> void:
 	PlayerData.is_talking = true
@@ -33,8 +33,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if dialogue_index == change_scene_indexes[0]:
 			if dialogue_index == 2:
 				dialogue_ui.player_sprites.hide()
+				dialogue_ui.player_name.hide()
 			else:
 				dialogue_ui.player_sprites.show()
+				dialogue_ui.player_name.show()
 			start_dialogue = false
 			default_panels.texture = game_panels_array.pop_front()
 			animated_panel.stop()
