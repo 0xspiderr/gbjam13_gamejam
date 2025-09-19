@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var combat_player_sprites: SpriteFrames
 @export var casino_player_sprites: SpriteFrames
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
+@onready var _void: Sprite2D = $Void
 
 var player_dir: Vector2 = Vector2.ZERO
 var last_position: Vector2
@@ -19,6 +20,8 @@ func _ready() -> void:
 		player_sprites.sprite_frames = casino_player_sprites
 	else:
 		player_sprites.sprite_frames = combat_player_sprites
+		_void.show()
+		
 
 
 func _physics_process(_delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://byvrh5g6p20lk"]
+[gd_scene load_steps=51 format=3 uid="uid://byvrh5g6p20lk"]
 
 [ext_resource type="Script" uid="uid://cjafidlcvvgv3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://b86rvma1u34as" path="res://assets/sprites/player/idle-dice-battle-map.png" id="2_0owmy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cfwoj615cvib7" path="res://assets/sprites/player/walk-left-dice-battle-map.png" id="4_h17s1"]
 [ext_resource type="Texture2D" uid="uid://cek8q487l8gee" path="res://assets/sprites/player/walk-right-dice-battle-map.png" id="5_je7p5"]
 [ext_resource type="SpriteFrames" uid="uid://c5alqfq7pelnk" path="res://scenes/player/casino_player_sprites.tres" id="7_0owmy"]
+[ext_resource type="Texture2D" uid="uid://82jnd80bbkmn" path="res://assets/recolors/utilities/THE-VOID.png" id="8_qek5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
 atlas = ExtResource("2_0owmy")
@@ -324,6 +325,10 @@ script = ExtResource("1_dovo2")
 speed = 75.0
 combat_player_sprites = SubResource("SpriteFrames_75vfm")
 casino_player_sprites = ExtResource("7_0owmy")
+
+[node name="Void" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_qek5x")
 
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("7_0owmy")

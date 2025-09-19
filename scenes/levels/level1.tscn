@@ -26,9 +26,6 @@ navigation_polygon = SubResource("NavigationPolygon_bfxgj")
 
 [node name="DecorationsTilemapLayer" parent="." instance=ExtResource("2_8a7m2")]
 
-[node name="Player" parent="." instance=ExtResource("3_dd0lh")]
-position = Vector2(85, 48)
-
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
@@ -50,7 +47,7 @@ stats = ExtResource("3_bfxgj")
 _player = NodePath("../../Player")
 
 [node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(140, 60)
+position = Vector2(146, 123)
 stats = ExtResource("5_dywbp")
 _player = NodePath("../../Player")
 
@@ -70,6 +67,9 @@ stats = ExtResource("6_1seuy")
 _player = NodePath("../../Player")
 
 [node name="Enemy4" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(84, 84)
+position = Vector2(-42, 342)
 stats = ExtResource("6_1seuy")
 _player = NodePath("../../Player")
+
+[node name="Player" parent="." instance=ExtResource("3_dd0lh")]
+position = Vector2(85, 48)
