@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnseaei7cyk0j"]
+[gd_scene load_steps=38 format=3 uid="uid://cnseaei7cyk0j"]
 
 [ext_resource type="Script" uid="uid://ckmfpkw5erjvw" path="res://scenes/combat/combat.gd" id="1_5vqsm"]
 [ext_resource type="Texture2D" uid="uid://b4mjrh0twvwwf" path="res://assets/combat/background/combat-bg.png" id="2_ijgaf"]
@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://byclhu0er03hv" path="res://sounds/sfx/DiceRoll4.ogg" id="6_ijgaf"]
 [ext_resource type="Theme" uid="uid://808qkkp6tqlj" path="res://ui/themes/combat_main_theme.tres" id="6_uakg0"]
 [ext_resource type="Theme" uid="uid://vxo8j2ok6cvh" path="res://ui/themes/health_n_name_combat_ui.tres" id="9_8cw2p"]
+[ext_resource type="Texture2D" uid="uid://ocy6783bo4an" path="res://assets/recolors/utilities/rolling-dice-animation-recolored.png" id="10_4a6i5"]
+[ext_resource type="Texture2D" uid="uid://cetslkpdwuoos" path="res://assets/recolors/utilities/dice-numbers-recolored.png" id="11_3dmww"]
+[ext_resource type="Texture2D" uid="uid://blbmkjk61756w" path="res://assets/recolors/utilities/card-back.png" id="12_gwckk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cw2p"]
 atlas = ExtResource("3_uakg0")
@@ -72,6 +75,124 @@ streams_count = 2
 stream_0/stream = ExtResource("5_jgg25")
 stream_1/stream = ExtResource("6_ijgaf")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3cqa"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgm65"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05d77"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akrri"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j11kn"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs84n"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08wqo"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt4lv"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crn1f"]
+atlas = ExtResource("10_4a6i5")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr0f0"]
+atlas = ExtResource("11_3dmww")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsobv"]
+atlas = ExtResource("11_3dmww")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gaff"]
+atlas = ExtResource("11_3dmww")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq1tr"]
+atlas = ExtResource("11_3dmww")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2dhc"]
+atlas = ExtResource("11_3dmww")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxr7k"]
+atlas = ExtResource("11_3dmww")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jr0f0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3cqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgm65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05d77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akrri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j11kn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs84n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08wqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt4lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crn1f")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr0f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsobv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gaff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq1tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2dhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxr7k")
+}],
+"loop": true,
+"name": &"value",
+"speed": 5.0
+}]
+
 [node name="Combat" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -86,19 +207,34 @@ position = Vector2(80, 72.5)
 scale = Vector2(1, 1.00694)
 texture = ExtResource("2_ijgaf")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="EnemyPos" type="Marker2D" parent="."]
 position = Vector2(119, 32)
 
-[node name="EnemySprites" type="AnimatedSprite2D" parent="Marker2D"]
+[node name="EnemySprites" type="AnimatedSprite2D" parent="EnemyPos"]
 unique_name_in_owner = true
 
-[node name="Marker2D2" type="Marker2D" parent="."]
+[node name="PlayerPos" type="Marker2D" parent="."]
 position = Vector2(50, 67)
 
-[node name="PlayerSprites" type="AnimatedSprite2D" parent="Marker2D2"]
+[node name="PlayerSprites" type="AnimatedSprite2D" parent="PlayerPos"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_ijgaf")
 animation = &"idle"
+
+[node name="Dice1Pos" type="Marker2D" parent="."]
+position = Vector2(74, 51)
+
+[node name="Dice2Pos" type="Marker2D" parent="."]
+position = Vector2(90, 55)
+
+[node name="DiceInitialPos" type="Marker2D" parent="."]
+position = Vector2(0, 145)
+
+[node name="Card1Pos" type="Marker2D" parent="."]
+position = Vector2(74, 51)
+
+[node name="Card2Pos" type="Marker2D" parent="."]
+position = Vector2(94, 51)
 
 [node name="TestBtn" type="Button" parent="."]
 custom_minimum_size = Vector2(50, 0)
@@ -152,6 +288,7 @@ autowrap_mode = 2
 
 [node name="RollDiceBtn" type="Button" parent="HBoxContainer4/HBoxContainer/ButtonContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(55, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -176,13 +313,6 @@ offset_left = 6.0
 offset_top = 5.0
 offset_right = 94.0
 offset_bottom = 34.0
-
-[node name="DrawCardSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_pqpfu")
-volume_db = 10.0
-
-[node name="RollDiceSound" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_uakg0")
 
 [node name="PlayerPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -241,5 +371,30 @@ offset_bottom = 15.0
 theme = ExtResource("9_8cw2p")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DrawCardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pqpfu")
+volume_db = 10.0
+
+[node name="RollDiceSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_uakg0")
+
+[node name="AnimatedDice1" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_jr0f0")
+animation = &"roll"
+
+[node name="AnimatedDice2" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_jr0f0")
+animation = &"roll"
+
+[node name="Card1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("12_gwckk")
+
+[node name="Card2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("12_gwckk")
 
 [connection signal="pressed" from="TestBtn" to="." method="_on_test_btn_pressed"]
