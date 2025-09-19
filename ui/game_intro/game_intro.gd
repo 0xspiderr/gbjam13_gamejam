@@ -18,7 +18,7 @@ func _ready() -> void:
 	animated_panel.play("default")
 	
 
-
+# FORGIVE ME FATHER FOR THE HARDCODED MESS I AM ABOUT TO MAKE
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if start_dialogue == false:
