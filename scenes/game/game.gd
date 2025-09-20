@@ -5,6 +5,7 @@ extends Node
 @onready var current_scene: Node = $CurrentScene
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
+
 var current_level: Node2D = null
 var current_enemy: Enemy = null
 var current_npc: NPC = null
@@ -12,7 +13,7 @@ var interactable_scene_change: PackedScene = null
 
 const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
 @onready var dialogue_ui: DialogueUI = %DialogueUI
-
+const LEVEL_0 = preload("res://scenes/levels/level0.tscn")
 
 #region BUILTIN METHODS
 func _ready() -> void:
@@ -81,9 +82,20 @@ func _on_start_combat(enemy: Enemy) -> void:
 	# get the combat scene and add it to the canvas layer because the
 	# combat scene is a ui scene
 	var combat_scene = COMBAT_TSCN.instantiate()
+	combat_scene.death.connect(_on_death)
 	combat_scene.enemy_stats = current_enemy.stats
 	canvas_layer.add_child(combat_scene, true)
-
+	
+func _on_death(is_player_turn) -> void:
+	if is_player_turn:
+		canvas_layer.get_child(1).queue_free()
+		current_enemy.queue_free()
+	else:
+		current_scene.get_child(0).queue_free()
+		current_scene.add_child(LEVEL_0.instantiate())
+		
+	PlayerData.is_in_combat = false
+	
 
 func _on_end_combat() -> void:
 	PlayerData.toggle_is_in_combat()
@@ -107,6 +119,8 @@ func _on_end_combat() -> void:
 func _on_entered_dialogue_area(npc: NPC) -> void:
 	PlayerData.can_talk = true
 	current_npc = npc
+	print(current_npc.name)
+	print(PlayerData.can_talk)
 
 
 func _on_exited_dialogue_area() -> void:
