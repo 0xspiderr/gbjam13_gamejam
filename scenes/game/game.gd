@@ -12,12 +12,15 @@ var interactable_scene_change: PackedScene = null
 
 const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
 @onready var dialogue_ui: DialogueUI = %DialogueUI
+@onready var dialogue_choices: DialogueChoices = %DialogueChoices
+
 const LEVEL_0 = preload("res://scenes/levels/level0.tscn")
 
 #region BUILTIN METHODS
 func _ready() -> void:
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
 	dialogue_ui.dialogue_finished.connect(_on_dialogue_finished)
+	dialogue_choices.start_dialogue.connect(_on_start_dialogue)
 	
 	EventBus.start_combat.connect(_on_start_combat)
 	EventBus.end_combat.connect(_on_end_combat)
@@ -30,7 +33,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# dont process player input if in combat or if talking
 	# to an npc.
-	if PlayerData.is_in_combat or PlayerData.is_talking:
+	if PlayerData.is_in_combat or PlayerData.is_talking or PlayerData.is_selecting_choice:
 		return
 	
 	if event.is_action_pressed("interact"):
@@ -38,13 +41,10 @@ func _input(event: InputEvent) -> void:
 			_change_level_scene(interactable_scene_change)
 		
 		if PlayerData.can_talk and is_instance_valid(current_npc):
-			dialogue_ui.set_to_theme(false)
-			PlayerData.is_talking = true
-			dialogue_ui.npc_name.text = current_npc.name
-			dialogue_ui.dialogues.assign(current_npc.npc_stats.dialogues)
-			dialogue_ui.npc_sprites.sprite_frames = current_npc.npc_stats.portraits
-			dialogue_ui.dialogue_box.audio_stream_player.stream = current_npc.npc_stats.dialogue_stream
-			dialogue_ui.visible = true
+			dialogue_choices.choices = current_npc.npc_stats.dialogue_options
+			dialogue_choices.show_choice_buttons()
+			dialogue_choices.show()
+			PlayerData.is_selecting_choice = true
 	
 	if event.is_action_pressed("exit"): 
 		var scene = current_scene.get_child(0) as Node2D
@@ -54,6 +54,16 @@ func _input(event: InputEvent) -> void:
 			current_scene.get_child(0).queue_free()
 			current_scene.add_child(current_level)
 #endregion
+
+
+func _on_start_dialogue() -> void:
+	PlayerData.is_talking = true
+	dialogue_ui.set_to_theme(false)
+	dialogue_ui.npc_name.text = current_npc.name
+	dialogue_ui.dialogues.assign(current_npc.npc_stats.dialogues)
+	dialogue_ui.npc_sprites.sprite_frames = current_npc.npc_stats.portraits
+	dialogue_ui.dialogue_box.audio_stream_player.stream = current_npc.npc_stats.dialogue_stream
+	dialogue_ui.visible = true
 
 
 func _get_current_level() -> void:
