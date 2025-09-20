@@ -114,7 +114,7 @@ func _on_dialogue_finished() -> void:
 
 func _on_death(is_player_turn) -> void:
 	if is_player_turn:
-		canvas_layer.get_child(1).queue_free()
+		canvas_layer.get_child(2).queue_free()
 		current_enemy.queue_free()
 	else:
 		current_scene.get_child(0).queue_free()
