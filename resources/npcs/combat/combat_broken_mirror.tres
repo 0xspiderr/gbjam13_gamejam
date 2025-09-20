@@ -60,4 +60,5 @@ name = "broken mirror"
 portraits = SubResource("SpriteFrames_ksief")
 dialogues = Array[ExtResource("1_d61d5")]([SubResource("Resource_53smh"), SubResource("Resource_1epy7"), SubResource("Resource_v6byi")])
 dialogue_stream = ExtResource("1_53smh")
+dialogue_options = Array[int]([])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

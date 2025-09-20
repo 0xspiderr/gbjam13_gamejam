@@ -46,4 +46,5 @@ name = "devil"
 portraits = SubResource("SpriteFrames_es1ye")
 dialogues = Array[ExtResource("1_rgdpk")]([SubResource("Resource_rbtbj")])
 dialogue_stream = ExtResource("1_20qdr")
+dialogue_options = Array[int]([])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
