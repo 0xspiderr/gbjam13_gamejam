@@ -1,11 +1,62 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=28 format=3 uid="uid://c7wxohcrhptw8"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=36 format=3 uid="uid://c7wxohcrhptw8"]
 
 [ext_resource type="Script" uid="uid://d1vw4kshx1q10" path="res://resources/enemies/enemy_stats.gd" id="1_8nk1a"]
+[ext_resource type="Texture2D" uid="uid://dfikv1dl3krxm" path="res://assets/recolors/mobs_combat/cards-combat-idle.png" id="1_vww5x"]
 [ext_resource type="Texture2D" uid="uid://cdhjl66lo6b06" path="res://assets/recolors/mobs/cards-mob-idle.png" id="2_rkt5l"]
 [ext_resource type="Texture2D" uid="uid://d0kvfgnn3kmvn" path="res://assets/recolors/mobs/cards-mob-walk-down.png" id="3_je3qj"]
 [ext_resource type="Texture2D" uid="uid://c7mtqvnhbdloe" path="res://assets/recolors/mobs/cards-mob-walk-left.png" id="4_4lqjh"]
 [ext_resource type="Texture2D" uid="uid://tnm4g2x8evrb" path="res://assets/recolors/mobs/cards-mob-walk-up.png" id="4_382jd"]
 [ext_resource type="Texture2D" uid="uid://cbqpgpjkjr2ok" path="res://assets/recolors/mobs/cards-mob-walk-right.png" id="5_vww5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpgas"]
+atlas = ExtResource("1_vww5x")
+region = Rect2(0, 0, 34, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpqdk"]
+atlas = ExtResource("1_vww5x")
+region = Rect2(34, 0, 34, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0pwv"]
+atlas = ExtResource("1_vww5x")
+region = Rect2(68, 0, 34, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tad87"]
+atlas = ExtResource("1_vww5x")
+region = Rect2(102, 0, 34, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gfm1"]
+atlas = ExtResource("1_vww5x")
+region = Rect2(136, 0, 34, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxje0"]
+atlas = ExtResource("1_vww5x")
+region = Rect2(170, 0, 34, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lqjh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpgas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpqdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0pwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tad87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gfm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxje0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je3qj"]
 atlas = ExtResource("2_rkt5l")
@@ -183,4 +234,5 @@ chase_speed = 45
 max_health = 50
 damage = 10
 sprite_frames = SubResource("SpriteFrames_vww5x")
+combat_sprite_frames = SubResource("SpriteFrames_4lqjh")
 metadata/_custom_type_script = "uid://d1vw4kshx1q10"

@@ -90,12 +90,22 @@ func _on_start_combat(enemy: Enemy) -> void:
 	
 	dialogue_ui.set_to_theme(true)
 	if is_instance_valid(current_enemy):
-		PlayerData.is_talking = true
-		dialogue_ui.npc_name.text = current_enemy.npc_stats.name
-		dialogue_ui.dialogues.assign(current_enemy.npc_stats.dialogues)
-		dialogue_ui.npc_sprites.sprite_frames = current_enemy.npc_stats.portraits
-		dialogue_ui.dialogue_box.audio_stream_player.stream = current_enemy.npc_stats.dialogue_stream
-		dialogue_ui.visible = true
+		if is_instance_valid(current_enemy.npc_stats):
+			PlayerData.is_talking = true
+			dialogue_ui.npc_name.text = current_enemy.npc_stats.name
+			dialogue_ui.dialogues.assign(current_enemy.npc_stats.dialogues)
+			dialogue_ui.npc_sprites.sprite_frames = current_enemy.npc_stats.portraits
+			dialogue_ui.dialogue_box.audio_stream_player.stream = current_enemy.npc_stats.dialogue_stream
+			dialogue_ui.visible = true
+		else:
+			# hide the current level
+			current_level.visible = false
+			# get the combat scene and add it to the canvas layer because the
+			# combat scene is a ui scene
+			var combat_scene = COMBAT_TSCN.instantiate()
+			combat_scene.death.connect(_on_death)
+			combat_scene.enemy_stats = current_enemy.stats
+			canvas_layer.add_child(combat_scene, true)
 
 
 func _on_dialogue_finished() -> void:
