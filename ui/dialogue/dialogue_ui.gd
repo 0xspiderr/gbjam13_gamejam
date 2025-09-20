@@ -3,6 +3,7 @@ extends Control
 
 
 signal text_finished()
+signal dialogue_finished()
 @onready var panel: Panel = $Panel
 @onready var dialogue_box: DialogueBox = %DialogueBox
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
@@ -32,6 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		dialogue_line_finished = false
 		if dialogues.is_empty():
 			rewind_data()
+			dialogue_finished.emit()
 			return
 		
 		var dialogue: Dialogue = dialogues.front()
@@ -106,13 +108,12 @@ func is_player_speaking(speaker: String) -> bool:
 func rewind_data() -> void:
 	dialogues.clear()
 	dialogue_line_finished = true
-	
+	dialogue_box.dialogue_label.text = ""
 	player_sprites.scale = Vector2.ONE
 	npc_sprites.scale = Vector2.ONE
 	player_sprites.position = player_initial_pos
 	npc_sprites.position = npc_initial_pos
 	previous_speaker = ""
-	
 	
 	PlayerData.is_talking = false
 	visible = false

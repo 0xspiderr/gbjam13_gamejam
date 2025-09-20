@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="NpcStats" load_steps=10 format=3 uid="uid://bberg6osf7m7q"]
+
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="1_ktoci"]
+[ext_resource type="Texture2D" uid="uid://c1l8n48a5b76u" path="res://assets/recolors/portraits/stairs-neutral-combat.png" id="2_0r7ky"]
+[ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="2_hpghf"]
+[ext_resource type="Texture2D" uid="uid://ubgo5vi8xwoo" path="res://assets/recolors/portraits/stairs-annoyed-combat.png" id="2_yihwo"]
+
+[sub_resource type="Resource" id="Resource_hpghf"]
+script = ExtResource("1_ktoci")
+speaker = "npc"
+emotion = "neutral"
+line = "idk what to say"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_0r7ky"]
+script = ExtResource("1_ktoci")
+speaker = "npc"
+emotion = "annoyed"
+line = "asdasdasdas"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnbyv"]
+atlas = ExtResource("2_yihwo")
+region = Rect2(0, 0, 75, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yihwo"]
+atlas = ExtResource("2_0r7ky")
+region = Rect2(0, 0, 75, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnbyv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnbyv")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yihwo")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_hpghf")
+name = "stair"
+portraits = SubResource("SpriteFrames_pnbyv")
+dialogues = Array[ExtResource("1_ktoci")]([SubResource("Resource_hpghf"), SubResource("Resource_0r7ky")])
+metadata/_custom_type_script = "uid://c6dabu5biw7gj"

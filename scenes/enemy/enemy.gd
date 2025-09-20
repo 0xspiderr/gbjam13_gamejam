@@ -13,6 +13,7 @@ enum State
 # use resources for enemies, that way this enemy script
 # will spawn enemies based on the level we are in
 @export var stats: EnemyStats
+@export var npc_stats: NpcStats
 @export var _player: Player = null
 
 

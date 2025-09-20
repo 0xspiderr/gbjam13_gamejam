@@ -2,7 +2,7 @@ extends Node
 
 
 var max_health: int = 100
-var current_health: int = 1
+var current_health: int = 100
 var damage: int = 1
 var luck: float = 0.0
 var is_in_combat: bool = false

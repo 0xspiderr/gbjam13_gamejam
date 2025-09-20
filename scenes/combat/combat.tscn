@@ -331,6 +331,7 @@ offset_bottom = 23.0
 theme = ExtResource("9_8cw2p")
 step = 1.0
 value = 100.0
+show_percentage = false
 
 [node name="PlayerLabel" type="Label" parent="PlayerPanel"]
 layout_mode = 0
@@ -359,6 +360,7 @@ offset_bottom = 24.0
 theme = ExtResource("9_8cw2p")
 step = 1.0
 value = 100.0
+show_percentage = false
 
 [node name="EnemyLabel" type="Label" parent="EnemyPanel"]
 unique_name_in_owner = true

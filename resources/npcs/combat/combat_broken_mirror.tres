@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="NpcStats" load_steps=12 format=3 uid="uid://dktxfetfxf8tn"]
+
+[ext_resource type="AudioStream" uid="uid://3y53u4e8k6l3" path="res://sounds/dialogue/Dialogue3.ogg" id="1_53smh"]
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="1_d61d5"]
+[ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="2_v4fw5"]
+[ext_resource type="Texture2D" uid="uid://7j0hcof13klp" path="res://assets/recolors/portraits/mirror-annoyed-combat.png" id="2_v7xoa"]
+[ext_resource type="Texture2D" uid="uid://dk7rj8fp02y23" path="res://assets/recolors/portraits/mirror-neutral-combat.png" id="3_53smh"]
+
+[sub_resource type="Resource" id="Resource_53smh"]
+script = ExtResource("1_d61d5")
+speaker = "npc"
+emotion = "neutral"
+line = "test"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_1epy7"]
+script = ExtResource("1_d61d5")
+speaker = "player"
+emotion = "neutral"
+line = "asda"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_v6byi"]
+script = ExtResource("1_d61d5")
+speaker = "npc"
+emotion = "annoyed"
+line = "test annoyed"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1epy7"]
+atlas = ExtResource("2_v7xoa")
+region = Rect2(0, 0, 58, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6byi"]
+atlas = ExtResource("3_53smh")
+region = Rect2(0, 0, 80, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksief"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1epy7")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6byi")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_v4fw5")
+name = "broken mirror"
+portraits = SubResource("SpriteFrames_ksief")
+dialogues = Array[ExtResource("1_d61d5")]([SubResource("Resource_53smh"), SubResource("Resource_1epy7"), SubResource("Resource_v6byi")])
+dialogue_stream = ExtResource("1_53smh")
+metadata/_custom_type_script = "uid://c6dabu5biw7gj"
