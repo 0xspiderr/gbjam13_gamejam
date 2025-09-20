@@ -7,6 +7,9 @@ signal dialogue_finished()
 @onready var panel: Panel = $Panel
 @onready var dialogue_box: DialogueBox = %DialogueBox
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
+@export var casino_sprites: SpriteFrames 
+@export var combat_sprites: SpriteFrames
+
 @onready var npc_sprites: AnimatedSprite2D = $NpcSprites
 
 #region THEMES
@@ -126,10 +129,14 @@ func rewind_data() -> void:
 
 func set_to_theme(is_combat: bool) -> void:
 	if is_combat:
+		dialogue_box.dialogue_label.theme = COMBAT_DIALOGUE_BOX_THEME
 		panel.theme = COMBAT_DIALOGUE_BOX_THEME
 		player_name.theme = COMBAT_DIALOGUE_BOX_THEME
 		npc_name.theme = COMBAT_DIALOGUE_BOX_THEME
+		player_sprites.sprite_frames = combat_sprites
 	else:
+		dialogue_box.dialogue_label.theme = DIALOGUE_BOX_THEME
 		panel.theme = DIALOGUE_BOX_THEME
 		player_name.theme = DIALOGUE_BOX_THEME
 		npc_name.theme = DIALOGUE_BOX_THEME
+		player_sprites.sprite_frames = casino_sprites

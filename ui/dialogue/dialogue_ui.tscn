@@ -1,13 +1,119 @@
-[gd_scene load_steps=16 format=3 uid="uid://3h1q6twd686v"]
+[gd_scene load_steps=30 format=3 uid="uid://3h1q6twd686v"]
 
 [ext_resource type="Script" uid="uid://crrh862e5ry8s" path="res://ui/dialogue/dialogue_ui.gd" id="1_2081n"]
 [ext_resource type="Theme" uid="uid://b0bn4xyu3a25a" path="res://ui/themes/dialogue_box_theme.tres" id="2_4cdch"]
+[ext_resource type="Texture2D" uid="uid://b6je2kfq1j0um" path="res://assets/recolors/portraits/jg-annoyed-combat.png" id="2_04cfl"]
 [ext_resource type="Texture2D" uid="uid://yw5o6fs7uetk" path="res://assets/portraits/jg-neutral.png" id="2_cn46s"]
 [ext_resource type="Texture2D" uid="uid://bwmylo4434po0" path="res://assets/portraits/jg-annoyed.png" id="2_jrdj0"]
 [ext_resource type="PackedScene" uid="uid://b5ho1oy8lu7r5" path="res://ui/dialogue_box/dialogue_box.tscn" id="2_vl8is"]
+[ext_resource type="Texture2D" uid="uid://bnmn6wyaq2pyl" path="res://assets/recolors/portraits/jg-neutral-combat.png" id="3_wq0pl"]
 [ext_resource type="Texture2D" uid="uid://c6lbint7ebfsb" path="res://assets/portraits/jg-smug.png" id="4_m2bcb"]
+[ext_resource type="Texture2D" uid="uid://cu2rjql8x7og7" path="res://assets/recolors/portraits/jg-smug-combat.png" id="4_oj5xs"]
+[ext_resource type="Texture2D" uid="uid://p3aj7b5g3yjx" path="res://assets/recolors/portraits/jg-surprised-combat.png" id="5_a4beh"]
 [ext_resource type="Texture2D" uid="uid://dw8iuxogg1k2g" path="res://assets/portraits/jg-surprised.png" id="5_gnmtr"]
 [ext_resource type="Texture2D" uid="uid://c1xf5nw2u5f4g" path="res://assets/portraits/npc-portrait-neutral.png" id="6_g6j8g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq0pl"]
+atlas = ExtResource("2_jrdj0")
+region = Rect2(0, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04cfl"]
+atlas = ExtResource("2_cn46s")
+region = Rect2(0, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj5xs"]
+atlas = ExtResource("4_m2bcb")
+region = Rect2(0, 0, 71, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4beh"]
+atlas = ExtResource("5_gnmtr")
+region = Rect2(0, 0, 42, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04cfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq0pl")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04cfl")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj5xs")
+}],
+"loop": true,
+"name": &"smug",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4beh")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id737"]
+atlas = ExtResource("2_04cfl")
+region = Rect2(0, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luls6"]
+atlas = ExtResource("3_wq0pl")
+region = Rect2(0, 0, 56, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmjag"]
+atlas = ExtResource("4_oj5xs")
+region = Rect2(0, 0, 71, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmcc4"]
+atlas = ExtResource("5_a4beh")
+region = Rect2(0, 0, 42, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnjgj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id737")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luls6")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmjag")
+}],
+"loop": true,
+"name": &"smug",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmcc4")
+}],
+"loop": true,
+"name": &"surprised",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m2bcb"]
 atlas = ExtResource("2_jrdj0")
@@ -83,6 +189,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2081n")
+casino_sprites = SubResource("SpriteFrames_04cfl")
+combat_sprites = SubResource("SpriteFrames_vnjgj")
 
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="."]
 position = Vector2(123, 57)
