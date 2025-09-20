@@ -51,4 +51,5 @@ script = ExtResource("2_hpghf")
 name = "stair"
 portraits = SubResource("SpriteFrames_pnbyv")
 dialogues = Array[ExtResource("1_ktoci")]([SubResource("Resource_hpghf"), SubResource("Resource_0r7ky")])
+dialogue_options = Array[int]([])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

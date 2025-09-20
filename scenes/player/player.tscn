@@ -327,7 +327,7 @@ combat_player_sprites = SubResource("SpriteFrames_75vfm")
 casino_player_sprites = ExtResource("7_0owmy")
 
 [node name="Void" type="Sprite2D" parent="."]
-visible = false
+scale = Vector2(1.13946, 1.16742)
 texture = ExtResource("8_qek5x")
 
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="."]

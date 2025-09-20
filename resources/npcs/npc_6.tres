@@ -109,5 +109,5 @@ sprite_frames = SubResource("SpriteFrames_sef6w")
 portraits = SubResource("SpriteFrames_26yw2")
 dialogues = Array[ExtResource("2_26yw2")]([SubResource("Resource_p6l58"), SubResource("Resource_adu6i"), SubResource("Resource_gtb3o"), SubResource("Resource_sef6w"), SubResource("Resource_jbbwl"), SubResource("Resource_tbnau")])
 dialogue_stream = ExtResource("1_0a1hy")
-dialogue_options = Array[int]([])
+dialogue_options = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
