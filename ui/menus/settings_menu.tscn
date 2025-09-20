@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://34c4qwkglvv"]
+[gd_scene load_steps=3 format=3 uid="uid://re8t7lphu05f"]
 
 [ext_resource type="Script" uid="uid://cfsc82o6ha6g" path="res://ui/menus/settings_menu.gd" id="1_86yk5"]
 [ext_resource type="Theme" uid="uid://detj406ixpum0" path="res://ui/themes/general_theme.tres" id="1_jq3r0"]
@@ -47,7 +47,7 @@ layout_mode = 2
 
 [node name="Back_Button" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 text = "Back"
 
 [connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/Volume_Slider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Back_Button" to="." method="_on_back_button_pressed"]

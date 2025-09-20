@@ -19,7 +19,8 @@ var current_button: int = 0
 
 
 const GAME_INTRO = preload("uid://fy8rujvdasrg")
-const SETTINGS_MENU = preload("uid://34c4qwkglvv")
+const SETTINGS_MENU = preload("uid://re8t7lphu05f")
+
 
 func _ready() -> void:
 	SoundManager.change_music_stream(SoundManager.MAIN_MENU_OGG)
