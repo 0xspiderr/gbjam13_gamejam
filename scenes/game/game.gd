@@ -4,6 +4,7 @@ extends Node
 
 @onready var current_scene: Node = $CurrentScene
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var scene_transition: SceneTransition = $SceneTransition
 
 var current_level: Node2D = null
 var current_enemy: Enemy = null
@@ -77,16 +78,20 @@ func _change_level_scene(scene: PackedScene) -> void:
 		# temporary solution until combat is implemented
 		if instance.name.begins_with("Level"):
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
-		
+		scene_transition.play_transitions()
 		current_level = current_scene.get_child(0).duplicate()
 		current_scene.get_child(0).queue_free()
 		current_scene.add_child(instance)
+		
 
 
 #region COMBAT SIGNALS
 func _on_start_combat(enemy: Enemy) -> void:
 	PlayerData.toggle_is_in_combat()
 	current_enemy = enemy
+	
+	scene_transition.play_transitions()
+	await get_tree().create_timer(0.5).timeout
 	
 	dialogue_ui.set_to_theme(true)
 	if is_instance_valid(current_enemy):
