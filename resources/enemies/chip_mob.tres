@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=36 format=3 uid="uid://dmhwfn7e4r215"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=36 format=3 uid="uid://uk18dtd4vmqt"]
 
 [ext_resource type="Script" uid="uid://d1vw4kshx1q10" path="res://resources/enemies/enemy_stats.gd" id="1_7l14d"]
 [ext_resource type="Texture2D" uid="uid://vppkq64p0d7b" path="res://assets/recolors/mobs_combat/chip-combat-idle.png" id="1_duyg8"]
