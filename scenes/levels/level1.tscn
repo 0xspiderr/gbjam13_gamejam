@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dyi4yred14us4"]
+[gd_scene load_steps=12 format=4 uid="uid://dyi4yred14us4"]
 
 [ext_resource type="PackedScene" uid="uid://cxcv5f6sr7y6l" path="res://scenes/levels/tilemap_layers/combat_tilemap_layer.tscn" id="1_2r1tl"]
 [ext_resource type="PackedScene" uid="uid://cp6enqfwfeyu7" path="res://scenes/enemy/enemy.tscn" id="2_4tcl0"]
@@ -6,7 +6,10 @@
 [ext_resource type="Resource" uid="uid://bih3etdk8k7o" path="res://resources/enemies/broken_mirror.tres" id="3_bfxgj"]
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="3_dd0lh"]
 [ext_resource type="Resource" uid="uid://dyakpr6vdjkd5" path="res://resources/enemies/devil.tres" id="5_dywbp"]
+[ext_resource type="Resource" uid="uid://dktxfetfxf8tn" path="res://resources/npcs/combat/combat_broken_mirror.tres" id="5_plydf"]
 [ext_resource type="Resource" uid="uid://btsx4fvp17suh" path="res://resources/enemies/stair.tres" id="6_1seuy"]
+[ext_resource type="Resource" uid="uid://bdlxwkorwxkdh" path="res://resources/npcs/combat/combat_devil.tres" id="6_8a7m2"]
+[ext_resource type="Resource" uid="uid://bberg6osf7m7q" path="res://resources/npcs/combat/combat_stair.tres" id="9_5ntmo"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bfxgj"]
 vertices = PackedVector2Array(63, -38, 62.9531, -38, 62.7813, -40, 63, -40, 156, 130.5, 99, 130.5, 54, 104, 54, 74, 112, 104, 384, 19.4531, 384, 104, 366, 44, 366, 14, 382.656, 4, 156, 5, 156, 68, 138, 44, 138, 14, 98.8203, 5, 112, 14, 366, 152, 366, 122, 384, 133, 384, 178.5, 138, 104, 138, 74, 156, 85, 319, 80, 319, 52, 340, 44, 387, 130.5, 387, 133, 339, 178.5, 340, 152, 253.672, 4, 340, 14, -54, 308, -24, 260, -24, 320, -61, 323.859, -54, 278, -57, 260, -80, 278, 198, 248, 198, 218, 210.711, 212.828, 219.781, 249.094, 219, 262.5, 216, 265, 98.8594, 209.781, 172, 218, -61, 360.117, -24, 349, -24, 382.5, -122, 382.5, -97.9375, 361.922, -122, 325, -96.1328, 326.563, 216, 305.242, 214.25, 322.5, 198, 308, 198, 278, 87, 322.5, 159, 308, 66.6875, 7, 65.7813, -4, 82, -4, 311, 35.8594, 294, 37.1563, 294, 14, 660, 718.5, 550.32, 718.5, 552.523, 682.102, 626.789, 683.109, 660, 613, 630.797, 533.648, 741.063, 528.641, 663, 610.5, 274.063, 73.9375, 279, 73.6797, 279, 80, 268, 122, 250, 85, 250.672, 76.1016, 268, 44, 275.594, 44, 202.063, -202.078, 228, -203.344, 228, -169.5, 135, -169.5, 294, 152, 294, 122, 340, 122, 336, 181, 310, 181, 307, 178.5, 499.258, 190.648, 499.172, 188, 502, 188, 518.563, 199.219, 880.156, 420.117, 1006.86, 418.117, 1004.35, 574.5, 879, 574.5, 84, -4, 99.0234, -4, 742, 262.82, 876, 260.18, 876, 316, 867, 316, 742, 356, 867, 380, 96, 200, 99.0391, 200, 766, 613, 763, 610.5, 741.023, 524, 742, 524, 876, 577, 876, 643.5, 874.93, 670.5, 103, -208, 103, -221, 200.906, -221, 203.008, -220.867, 135, -167, 132, -167, 132, -73.5, 87, -73.5, 87, -71, 84, -71, 79, -73.5, 311, 52, 516, 162.93, 516, 188, 502, 133, 512.508, 113.633, 499, 133, 499, 130.5, 391.633, 107.641, 339, 181, 307, 181, 247, 85, 247, 82.5, 159, 82.5, 159, 85, 99, 133, 96, 133, 304, 247.891, 304, 236, 310, 236, 341.219, 246.109, 663, 286.5, 663, 289, 660, 289, 876, 380, 876, 416, 742, 373, 879, 577, 766, 670.5, 763, 613, 663, 613, 739, 373, 739, 370.5, 739.93, 365.883, 646, 289, 643, 289, 643, 286.5, 622, 286.5, 622, 205, 619, 205, 619, 202.5, 684, 194.328, 543, 202.5, 543, 205, 540, 205, 540, 244, 531, 244, 531, 320, 540, 320, 540, 334.5, 430, 334.5, 430, 265, 427, 265, 427, 262.5, 427.703, 244.891, 430, 236, 219, 265, 172, 278, 172, 280, 159, 280, 103, 220, 87, 325, 84, 325, 84, 337, 72, 337, 58, 320, 63, 284, 72, 346.5, -21, 346.5, -21, 349, -125, 325, -125, 322.5, -65, 260, -206, 322.5, -206, 260, -137, 260, -137, 259, -129, 259, -129, 260, -65, 259, -57, 259, -80, 308, 58, 283, 63, 283, 91, 284, 91, 281, 103, 281, 94, 220, 94, 217, 91, 217, 91, 214.5, 70, 214.5, 70, 133, 67, 133, 67, 130.5, 82, -71, 79, -71, -14, -73.5, -14, -184, 6, -184, 6, -214, -14, -214, -14, -220, -5, -220, -5, -221, 75, -221, 75, -208, 740.023, 356, 880.078, 416, 336, 236, 340.938, 236, 250, 178.5, 268, 152, 160.023, 68, 160.219, 74.8984, 428.039, 236, 684, 258.594, 682.844, 286.5, 430, 193.648, 517.773, 188, 391.32, 104, 268, 14, 172, 248, 54, 44, 54, 14, 112, 44, 112, 74, 28, 44, 657.203, 367.133, 646, 370.5, 660, 337.469, 28, 74, 10, 130.5, 28, 104, 10, 7, 28, 14)
@@ -34,43 +37,51 @@ tile_map_data = PackedByteArray("AAAUAP//AAAEAAAAAAARAP//AAAEAAAAAAAQAAAAAAAEAAE
 position = Vector2(196, -189)
 safe_margin = 0.1
 stats = ExtResource("3_bfxgj")
+npc_stats = ExtResource("5_plydf")
 _player = NodePath("../../Player")
 
 [node name="Enemy8" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(819, 334)
 safe_margin = 0.1
 stats = ExtResource("3_bfxgj")
+npc_stats = ExtResource("5_plydf")
 _player = NodePath("../../Player")
 
 [node name="Enemy5" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(32, -179)
 safe_margin = 0.1
 stats = ExtResource("3_bfxgj")
+npc_stats = ExtResource("5_plydf")
 _player = NodePath("../../Player")
 
 [node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(146, 123)
 stats = ExtResource("5_dywbp")
+npc_stats = ExtResource("6_8a7m2")
 _player = NodePath("../../Player")
 
 [node name="Enemy6" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(151, 268)
 stats = ExtResource("5_dywbp")
+npc_stats = ExtResource("6_8a7m2")
 _player = NodePath("../../Player")
 
 [node name="Enemy7" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(486, 262)
 stats = ExtResource("5_dywbp")
+npc_stats = ExtResource("6_8a7m2")
 _player = NodePath("../../Player")
 
 [node name="Enemy3" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(-162, 294)
 stats = ExtResource("6_1seuy")
+npc_stats = ExtResource("9_5ntmo")
 _player = NodePath("../../Player")
 
 [node name="Enemy4" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(-42, 342)
 stats = ExtResource("6_1seuy")
+npc_stats = ExtResource("9_5ntmo")
 _player = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_dd0lh")]

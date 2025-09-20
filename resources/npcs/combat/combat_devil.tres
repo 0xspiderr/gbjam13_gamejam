@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="NpcStats" load_steps=10 format=3 uid="uid://bdlxwkorwxkdh"]
+
+[ext_resource type="AudioStream" uid="uid://bdys7qr1qnm4n" path="res://sounds/dialogue/Dialogue1.ogg" id="1_20qdr"]
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="1_rgdpk"]
+[ext_resource type="Texture2D" uid="uid://c275053p01ml0" path="res://assets/recolors/portraits/devil-annoyed-combat.png" id="2_1ds6r"]
+[ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="2_i6mvq"]
+[ext_resource type="Texture2D" uid="uid://b2h4e21ejlv" path="res://assets/recolors/portraits/devil-neutral-combat.png" id="3_20qdr"]
+
+[sub_resource type="Resource" id="Resource_rbtbj"]
+script = ExtResource("1_rgdpk")
+speaker = "npc"
+emotion = "annoyed"
+line = "i will kill you! xd"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbtbj"]
+atlas = ExtResource("2_1ds6r")
+region = Rect2(0, 0, 85, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deorx"]
+atlas = ExtResource("3_20qdr")
+region = Rect2(0, 0, 66, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_es1ye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbtbj")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deorx")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_i6mvq")
+name = "devil"
+portraits = SubResource("SpriteFrames_es1ye")
+dialogues = Array[ExtResource("1_rgdpk")]([SubResource("Resource_rbtbj")])
+dialogue_stream = ExtResource("1_20qdr")
+metadata/_custom_type_script = "uid://c6dabu5biw7gj"

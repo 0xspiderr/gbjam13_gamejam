@@ -18,6 +18,8 @@ const LEVEL_0 = preload("res://scenes/levels/level0.tscn")
 #region BUILTIN METHODS
 func _ready() -> void:
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
+	dialogue_ui.dialogue_finished.connect(_on_dialogue_finished)
+	
 	EventBus.start_combat.connect(_on_start_combat)
 	EventBus.end_combat.connect(_on_end_combat)
 	EventBus.entered_dialogue_area.connect(_on_entered_dialogue_area)
@@ -75,17 +77,31 @@ func _change_level_scene(scene: PackedScene) -> void:
 #region COMBAT SIGNALS
 func _on_start_combat(enemy: Enemy) -> void:
 	PlayerData.toggle_is_in_combat()
-	# hide the current level
-	current_level.visible = false
 	current_enemy = enemy
 	
-	# get the combat scene and add it to the canvas layer because the
-	# combat scene is a ui scene
-	var combat_scene = COMBAT_TSCN.instantiate()
-	combat_scene.death.connect(_on_death)
-	combat_scene.enemy_stats = current_enemy.stats
-	canvas_layer.add_child(combat_scene, true)
-	
+	if is_instance_valid(current_enemy):
+		PlayerData.is_talking = true
+		dialogue_ui.npc_name.text = current_enemy.npc_stats.name
+		dialogue_ui.dialogues.assign(current_enemy.npc_stats.dialogues)
+		dialogue_ui.npc_sprites.sprite_frames = current_enemy.npc_stats.portraits
+		dialogue_ui.dialogue_box.audio_stream_player.stream = current_enemy.npc_stats.dialogue_stream
+		dialogue_ui.visible = true
+
+
+func _on_dialogue_finished() -> void:
+	# change to combat level after dialogue, only if we are interacting
+	# with an enemy.
+	if is_instance_valid(current_enemy):
+		# hide the current level
+		current_level.visible = false
+		# get the combat scene and add it to the canvas layer because the
+		# combat scene is a ui scene
+		var combat_scene = COMBAT_TSCN.instantiate()
+		combat_scene.death.connect(_on_death)
+		combat_scene.enemy_stats = current_enemy.stats
+		canvas_layer.add_child(combat_scene, true)
+
+
 func _on_death(is_player_turn) -> void:
 	if is_player_turn:
 		canvas_layer.get_child(1).queue_free()
@@ -119,8 +135,6 @@ func _on_end_combat() -> void:
 func _on_entered_dialogue_area(npc: NPC) -> void:
 	PlayerData.can_talk = true
 	current_npc = npc
-	print(current_npc.name)
-	print(PlayerData.can_talk)
 
 
 func _on_exited_dialogue_area() -> void:
