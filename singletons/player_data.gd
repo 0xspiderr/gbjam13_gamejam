@@ -6,6 +6,7 @@ var current_health: int = 100
 var damage: int = 1
 var luck: float = 0.0
 var is_in_combat: bool = false
+var is_in_combat_level = false
 var can_talk: bool = false
 var is_talking: bool = false
 var can_interact: bool = false

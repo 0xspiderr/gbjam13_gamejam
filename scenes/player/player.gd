@@ -14,9 +14,8 @@ var last_position: Vector2
 
 #region BUILT IN GODOT METHODS
 func _ready() -> void:
-	var parent_level = get_parent()
-	
-	if parent_level.name == "Level0":
+	var level = get_parent().get_parent()
+	if level.name == "Level0":
 		player_sprites.sprite_frames = casino_player_sprites
 	else:
 		player_sprites.sprite_frames = combat_player_sprites
