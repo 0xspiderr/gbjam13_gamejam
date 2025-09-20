@@ -118,6 +118,7 @@ offset_bottom = -22.0
 
 [node name="PlayerName" type="Button" parent="."]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 85.0
 offset_top = 1.0
 offset_right = 146.0
@@ -128,6 +129,7 @@ text = "JOHN GAMBLE"
 
 [node name="NpcName" type="Button" parent="."]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 9.0
 offset_top = 1.0
 offset_right = 70.0

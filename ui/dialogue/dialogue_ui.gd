@@ -9,6 +9,11 @@ signal dialogue_finished()
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
 @onready var npc_sprites: AnimatedSprite2D = $NpcSprites
 
+#region THEMES
+const COMBAT_DIALOGUE_BOX_THEME = preload("res://ui/themes/combat_dialogue_box_theme.tres")
+const DIALOGUE_BOX_THEME = preload("res://ui/themes/dialogue_box_theme.tres")
+#endregion
+
 @onready var player_initial_pos: Vector2 = player_sprites.position
 @onready var npc_initial_pos: Vector2 = npc_sprites.position
 @onready var npc_name: Button = %NpcName
@@ -117,3 +122,14 @@ func rewind_data() -> void:
 	
 	PlayerData.is_talking = false
 	visible = false
+
+
+func set_to_theme(is_combat: bool) -> void:
+	if is_combat:
+		panel.theme = COMBAT_DIALOGUE_BOX_THEME
+		player_name.theme = COMBAT_DIALOGUE_BOX_THEME
+		npc_name.theme = COMBAT_DIALOGUE_BOX_THEME
+	else:
+		panel.theme = DIALOGUE_BOX_THEME
+		player_name.theme = DIALOGUE_BOX_THEME
+		npc_name.theme = DIALOGUE_BOX_THEME

@@ -5,7 +5,6 @@ extends Node
 @onready var current_scene: Node = $CurrentScene
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
-
 var current_level: Node2D = null
 var current_enemy: Enemy = null
 var current_npc: NPC = null
@@ -39,6 +38,7 @@ func _input(event: InputEvent) -> void:
 			_change_level_scene(interactable_scene_change)
 		
 		if PlayerData.can_talk and is_instance_valid(current_npc):
+			dialogue_ui.set_to_theme(false)
 			PlayerData.is_talking = true
 			dialogue_ui.npc_name.text = current_npc.name
 			dialogue_ui.dialogues.assign(current_npc.npc_stats.dialogues)
@@ -79,6 +79,7 @@ func _on_start_combat(enemy: Enemy) -> void:
 	PlayerData.toggle_is_in_combat()
 	current_enemy = enemy
 	
+	dialogue_ui.set_to_theme(true)
 	if is_instance_valid(current_enemy):
 		PlayerData.is_talking = true
 		dialogue_ui.npc_name.text = current_enemy.npc_stats.name
