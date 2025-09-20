@@ -64,17 +64,20 @@ func _process(delta: float) -> void:
 			buttonList[currentButton].grab_focus()
 
 func _on_raise_pressed() -> void:
-	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet < 100:
 		UpdateBet(moneyToBet + 5)
 
 func _on_lower_pressed() -> void:
-	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet > 5:
 		UpdateBet(moneyToBet - 5)
 
 func _on_play_pressed() -> void:
-	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet <= totalMoney:
 		UpdateTotal(totalMoney - moneyToBet)
 		slotsEngine.ResetSlots(slotsRefreshArray)

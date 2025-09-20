@@ -165,7 +165,7 @@ func _deal_damage(mult) -> void:
 		PlayerData.current_health -= enemy_stats.damage
 		player_health.value = PlayerData.current_health
 	else:
-		enemy_health -= (PlayerData.damage + PlayerData.extra_damage)* mult
+		enemy_health -= (PlayerData.damage + PlayerData.extra_damage) * mult
 		enemy_health_bar.value = enemy_health
 
 	if enemy_health <= 0 or PlayerData.current_health <= 0:

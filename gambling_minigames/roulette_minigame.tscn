@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_ofm1w"]
 [ext_resource type="PackedScene" uid="uid://c1c1df6vaowmj" path="res://gambling_minigames/roulette.tscn" id="2_se6ef"]
 [ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_svqt3"]
-[ext_resource type="Script" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
+[ext_resource type="Script" uid="uid://c4llsulbpgil0" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
 [ext_resource type="Texture2D" uid="uid://bahqx0tuyj8bm" path="res://gambling_assets/button.png" id="5_klsr3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_klsr3"]
@@ -284,6 +284,9 @@ offset_right = 50.0
 offset_bottom = 13.0
 label_settings = SubResource("LabelSettings_huas3")
 
+[node name="SFXCooldown" type="Timer" parent="."]
+wait_time = 0.05
+
 [connection signal="state_changed" from="RouletteEngine" to="." method="_on_state_changed"]
 [connection signal="toggle_color" from="RouletteEngine" to="." method="_on_toggle_color"]
 [connection signal="pressed" from="PlayButtons/Play" to="." method="_on_play_pressed"]
@@ -294,3 +297,4 @@ label_settings = SubResource("LabelSettings_huas3")
 [connection signal="area_entered" from="Arrow/Area2D" to="Arrow" method="_on_area_entered"]
 [connection signal="pressed" from="BetOn/Black" to="." method="_on_black_pressed"]
 [connection signal="pressed" from="BetOn/Pink" to="." method="_on_pink_pressed"]
+[connection signal="timeout" from="SFXCooldown" to="." method="_on_sfx_cooldown_timeout"]
