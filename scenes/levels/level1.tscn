@@ -84,5 +84,8 @@ stats = ExtResource("6_1seuy")
 npc_stats = ExtResource("9_5ntmo")
 _player = NodePath("../../Player")
 
+[node name="Enemy9" parent="Enemies" instance=ExtResource("2_4tcl0")]
+position = Vector2(99, 18)
+
 [node name="Player" parent="." instance=ExtResource("3_dd0lh")]
 position = Vector2(85, 48)
