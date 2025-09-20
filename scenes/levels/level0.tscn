@@ -299,10 +299,10 @@ sources/2 = SubResource("TileSetAtlasSource_1nvli")
 [node name="Level0" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -534.0
-offset_top = -386.0
-offset_right = 758.0
-offset_bottom = 603.0
+offset_left = -577.0
+offset_top = -445.0
+offset_right = 715.0
+offset_bottom = 544.0
 color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [node name="CasinoTilemapLayer" type="TileMapLayer" parent="."]

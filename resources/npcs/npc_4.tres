@@ -9,7 +9,6 @@
 [sub_resource type="Resource" id="Resource_gmimq"]
 script = ExtResource("2_2tu07")
 speaker = "npc"
-emotion = "neutral"
 line = "I lost all my money on
   these stupid machines"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
@@ -17,7 +16,6 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_dxqkk"]
 script = ExtResource("2_2tu07")
 speaker = "npc"
-emotion = "neutral"
 line = "Do you happen to have
   some extra change"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
@@ -25,7 +23,6 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_ex3wa"]
 script = ExtResource("2_2tu07")
 speaker = "player"
-emotion = "neutral"
 line = "(Responds to clearly fake
    phone call and leaves)"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
