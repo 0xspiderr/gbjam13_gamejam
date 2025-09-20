@@ -10,24 +10,22 @@
 script = ExtResource("2_y1bve")
 speaker = "npc"
 emotion = "neutral"
-line = "There are no cameras in
-  this casino"
+line = "I dont trust the games here"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_83c7i"]
 script = ExtResource("2_y1bve")
 speaker = "npc"
 emotion = "neutral"
-line = "You can steal anything and 
-  get away with it"
+line = "The dealers are straight 
+  up cheating"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_2e6br"]
 script = ExtResource("2_y1bve")
-speaker = "player"
-emotion = "annoyed"
-line = "Why is everyone here 
-  so weird"
+speaker = "npc"
+emotion = "neutral"
+line = "He won with a hand of 26 "
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2e6br"]
@@ -88,4 +86,5 @@ sprite_frames = SubResource("SpriteFrames_2e6br")
 portraits = SubResource("SpriteFrames_y1bve")
 dialogues = Array[ExtResource("2_y1bve")]([SubResource("Resource_mvpnq"), SubResource("Resource_83c7i"), SubResource("Resource_2e6br")])
 dialogue_stream = ExtResource("1_fokrg")
+dialogue_options = Array[int]([])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
