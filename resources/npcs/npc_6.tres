@@ -9,7 +9,6 @@
 [sub_resource type="Resource" id="Resource_p6l58"]
 script = ExtResource("2_26yw2")
 speaker = "npc"
-emotion = "neutral"
 line = "Hi, im the manager 
   of the casino"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
@@ -17,21 +16,18 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_adu6i"]
 script = ExtResource("2_26yw2")
 speaker = "npc"
-emotion = "neutral"
 line = "I manage the casino"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_gtb3o"]
 script = ExtResource("2_26yw2")
 speaker = "player"
-emotion = "neutral"
 line = "I figured that much"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_sef6w"]
 script = ExtResource("2_26yw2")
 speaker = "npc"
-emotion = "neutral"
 line = "Wait you're not with 
   the IRS are you?"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
@@ -46,7 +42,6 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_tbnau"]
 script = ExtResource("2_26yw2")
 speaker = "npc"
-emotion = "neutral"
 line = "i already told you i am 
  NOT paying my taxes"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
