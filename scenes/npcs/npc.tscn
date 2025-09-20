@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivh6b"]
 size = Vector2(8, 7)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m5fb5"]
-radius = 24.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5fb5"]
+size = Vector2(28, 28)
 
 [node name="Npc" type="CharacterBody2D"]
 script = ExtResource("1_ivh6b")
@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_ivh6b")
 [node name="DialogueArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
-shape = SubResource("CircleShape2D_m5fb5")
+shape = SubResource("RectangleShape2D_m5fb5")
 
 [node name="RandomNpcDialogue" parent="." instance=ExtResource("2_m5fb5")]
 

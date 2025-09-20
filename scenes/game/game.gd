@@ -107,6 +107,8 @@ func _on_end_combat() -> void:
 func _on_entered_dialogue_area(npc: NPC) -> void:
 	PlayerData.can_talk = true
 	current_npc = npc
+	print(current_npc.name)
+	print(PlayerData.can_talk)
 
 
 func _on_exited_dialogue_area() -> void:
