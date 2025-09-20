@@ -1,5 +1,7 @@
 extends Control
 
+signal death(is_player_turn)
+
 
 enum
 {
@@ -12,6 +14,7 @@ enum
 @onready var roll_dice_btn: Button = %RollDiceBtn
 @onready var button_container: CenterContainer = %ButtonContainer
 @onready var dialogue_box: DialogueBox = %DialogueBox
+@onready var is_player_turn: bool = false
 #endregion
 
 
@@ -45,16 +48,25 @@ var buttons: Array[Button] = []
 var current_button: int = 0
 @onready var player_sprites: AnimatedSprite2D = %PlayerSprites
 
+#region Player
+@onready var player_health: ProgressBar = $PlayerPanel/PlayerHealth
+
+#endregion
+
 #region ENEMY
 var enemy_stats: EnemyStats = null
+var enemy_health: int
 @onready var enemy_sprites: AnimatedSprite2D = %EnemySprites
 @onready var enemy_label: Label = %EnemyLabel
-@onready var enemy_health: ProgressBar = %EnemyHealth
+@onready var enemy_health_bar: ProgressBar = %EnemyHealth
 
 #endregion
 
 func _ready() -> void:
 	SoundManager.change_music_stream(SoundManager.COMBAT)
+	enemy_health = enemy_stats.max_health
+	enemy_health_bar.value = enemy_health
+	player_health.value = PlayerData.current_health
 	
 	for button in button_container.get_children():
 		buttons.append(button)
@@ -113,13 +125,18 @@ func _draw_card() -> void:
 	var player_card_value: int = randi_range(2, 13)
 	var enemy_card_value: int = randi_range(2, 13)
 	
+	is_player_turn = !is_player_turn
+	print(is_player_turn)
 	_draw_card_anim(player_card_value, enemy_card_value)
-	if player_card_value > enemy_card_value:
+	if player_card_value > enemy_card_value and is_player_turn:
 		_button_toggle()
+	elif player_card_value < enemy_card_value and !is_player_turn:
+		_deal_damage(1)
 	
 	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
+	
 	_can_interact = true
 
 
@@ -136,7 +153,25 @@ func _roll_dice() -> void:
 	var text = "You rolled %s & %s" % [first_player_dice_value, second_player_dice_value]
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
+	if first_player_dice_value == second_player_dice_value:
+		_deal_damage(2)
+	else:
+		_deal_damage(1)
 	_can_interact = true
+	
+	
+func _deal_damage(mult) -> void:
+	if is_player_turn:
+		PlayerData.current_health -= enemy_stats.damage
+		player_health.value = PlayerData.current_health
+	else:
+		enemy_health -= PlayerData.damage * mult
+		enemy_health_bar.value = enemy_health
+
+	if enemy_health <= 0 or PlayerData.current_health <= 0:
+		await get_tree().create_timer(3).timeout
+		death.emit(is_player_turn)
+	
 
 #endregion
 
