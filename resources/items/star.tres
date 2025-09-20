@@ -5,9 +5,8 @@
 [resource]
 script = ExtResource("1_kjs24")
 name = "Star"
-cost = 450
+cost = 380
 stats_to_mod = Dictionary[String, int]({
-"luck": 6,
-"max health": 25
+"luck": 7
 })
 icon_frame = 7

@@ -9,7 +9,6 @@ cost = 4444
 stats_to_mod = Dictionary[String, int]({
 "attack": 4,
 "luck": 4,
-"max health": 40,
 "speed": 40
 })
 icon_frame = 0
