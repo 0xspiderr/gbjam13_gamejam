@@ -1,10 +1,34 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=13 format=3 uid="uid://cbno3bkxmwinw"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=16 format=3 uid="uid://cbno3bkxmwinw"]
 
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_8d0qg"]
 [ext_resource type="AudioStream" uid="uid://3y53u4e8k6l3" path="res://sounds/dialogue/Dialogue3.ogg" id="1_dsb46"]
 [ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="2_2tu07"]
 [ext_resource type="Texture2D" uid="uid://j2ruvvfcn7cs" path="res://assets/sprites/npcs/npc4-idle.png" id="2_factn"]
 [ext_resource type="Texture2D" uid="uid://c1xf5nw2u5f4g" path="res://assets/portraits/npc-portrait-neutral.png" id="3_gmimq"]
+
+[sub_resource type="Resource" id="Resource_gmimq"]
+script = ExtResource("2_2tu07")
+speaker = "npc"
+emotion = "neutral"
+line = "I lost all my money on
+  these stupid machines"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_dxqkk"]
+script = ExtResource("2_2tu07")
+speaker = "npc"
+emotion = "neutral"
+line = "Do you happen to have
+  some extra change"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_ex3wa"]
+script = ExtResource("2_2tu07")
+speaker = "player"
+emotion = "neutral"
+line = "(Responds to clearly fake
+   phone call and leaves)"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ex3wa"]
 atlas = ExtResource("3_gmimq")
@@ -62,6 +86,7 @@ script = ExtResource("1_8d0qg")
 name = "Npc 4"
 sprite_frames = SubResource("SpriteFrames_ex3wa")
 portraits = SubResource("SpriteFrames_2tu07")
-dialogues = Array[ExtResource("2_2tu07")]([])
+dialogues = Array[ExtResource("2_2tu07")]([SubResource("Resource_gmimq"), SubResource("Resource_dxqkk"), SubResource("Resource_ex3wa")])
 dialogue_stream = ExtResource("1_dsb46")
+dialogue_options = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

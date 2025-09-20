@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var rotateSpeed:float = 1
+@export var rotateSpeed:float = 0.5
 @export var isSpinning:bool = false
 @onready var collision_points: Node2D = $CollisionPoints
 

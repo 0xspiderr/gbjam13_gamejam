@@ -1,13 +1,26 @@
 class_name DialogueUI
 extends Control
 
+
+signal text_finished()
+signal dialogue_finished()
 @onready var panel: Panel = $Panel
 @onready var dialogue_box: DialogueBox = %DialogueBox
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
+@export var casino_sprites: SpriteFrames 
+@export var combat_sprites: SpriteFrames
+
 @onready var npc_sprites: AnimatedSprite2D = $NpcSprites
+
+#region THEMES
+const COMBAT_DIALOGUE_BOX_THEME = preload("res://ui/themes/combat_dialogue_box_theme.tres")
+const DIALOGUE_BOX_THEME = preload("res://ui/themes/dialogue_box_theme.tres")
+#endregion
 
 @onready var player_initial_pos: Vector2 = player_sprites.position
 @onready var npc_initial_pos: Vector2 = npc_sprites.position
+@onready var npc_name: Button = %NpcName
+@onready var player_name: Button = %PlayerName
 var previous_speaker: String = ""
 
 var dialogues: Array[Dialogue] = []
@@ -28,6 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		dialogue_line_finished = false
 		if dialogues.is_empty():
 			rewind_data()
+			dialogue_finished.emit()
 			return
 		
 		var dialogue: Dialogue = dialogues.front()
@@ -41,6 +55,7 @@ func continue_dialogue(dialogue: String) -> void:
 	await dialogue_box.text_animation_player.animation_finished
 	dialogue_line_finished = true
 	dialogues.pop_front()
+	text_finished.emit()
 
 
 func on_speaker_changed(speaker: String) -> void:
@@ -101,13 +116,27 @@ func is_player_speaking(speaker: String) -> bool:
 func rewind_data() -> void:
 	dialogues.clear()
 	dialogue_line_finished = true
-	
+	dialogue_box.dialogue_label.text = ""
 	player_sprites.scale = Vector2.ONE
 	npc_sprites.scale = Vector2.ONE
 	player_sprites.position = player_initial_pos
 	npc_sprites.position = npc_initial_pos
 	previous_speaker = ""
 	
-	
 	PlayerData.is_talking = false
 	visible = false
+
+
+func set_to_theme(is_combat: bool) -> void:
+	if is_combat:
+		dialogue_box.dialogue_label.theme = COMBAT_DIALOGUE_BOX_THEME
+		panel.theme = COMBAT_DIALOGUE_BOX_THEME
+		player_name.theme = COMBAT_DIALOGUE_BOX_THEME
+		npc_name.theme = COMBAT_DIALOGUE_BOX_THEME
+		player_sprites.sprite_frames = combat_sprites
+	else:
+		dialogue_box.dialogue_label.theme = DIALOGUE_BOX_THEME
+		panel.theme = DIALOGUE_BOX_THEME
+		player_name.theme = DIALOGUE_BOX_THEME
+		npc_name.theme = DIALOGUE_BOX_THEME
+		player_sprites.sprite_frames = casino_sprites

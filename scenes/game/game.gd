@@ -12,11 +12,16 @@ var interactable_scene_change: PackedScene = null
 
 const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
 @onready var dialogue_ui: DialogueUI = %DialogueUI
+@onready var dialogue_choices: DialogueChoices = %DialogueChoices
 
+const LEVEL_0 = preload("res://scenes/levels/level0.tscn")
 
 #region BUILTIN METHODS
 func _ready() -> void:
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
+	dialogue_ui.dialogue_finished.connect(_on_dialogue_finished)
+	dialogue_choices.start_dialogue.connect(_on_start_dialogue)
+	
 	EventBus.start_combat.connect(_on_start_combat)
 	EventBus.end_combat.connect(_on_end_combat)
 	EventBus.entered_dialogue_area.connect(_on_entered_dialogue_area)
@@ -28,7 +33,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# dont process player input if in combat or if talking
 	# to an npc.
-	if PlayerData.is_in_combat or PlayerData.is_talking:
+	if PlayerData.is_in_combat or PlayerData.is_talking or PlayerData.is_selecting_choice:
 		return
 	
 	if event.is_action_pressed("interact"):
@@ -36,11 +41,9 @@ func _input(event: InputEvent) -> void:
 			_change_level_scene(interactable_scene_change)
 		
 		if PlayerData.can_talk and is_instance_valid(current_npc):
-			PlayerData.is_talking = true
-			dialogue_ui.dialogues.assign(current_npc.npc_stats.dialogues)
-			dialogue_ui.npc_sprites.sprite_frames = current_npc.npc_stats.portraits
-			dialogue_ui.dialogue_box.audio_stream_player.stream = current_npc.npc_stats.dialogue_stream
-			dialogue_ui.visible = true
+			dialogue_choices.choices = current_npc.npc_stats.dialogue_options
+			dialogue_choices.show_choice_buttons()
+			dialogue_choices.show()
 	
 	if event.is_action_pressed("exit"): 
 		var scene = current_scene.get_child(0) as Node2D
@@ -50,6 +53,16 @@ func _input(event: InputEvent) -> void:
 			current_scene.get_child(0).queue_free()
 			current_scene.add_child(current_level)
 #endregion
+
+
+func _on_start_dialogue() -> void:
+	PlayerData.is_talking = true
+	dialogue_ui.set_to_theme(false)
+	dialogue_ui.npc_name.text = current_npc.name
+	dialogue_ui.dialogues.assign(current_npc.npc_stats.dialogues)
+	dialogue_ui.npc_sprites.sprite_frames = current_npc.npc_stats.portraits
+	dialogue_ui.dialogue_box.audio_stream_player.stream = current_npc.npc_stats.dialogue_stream
+	dialogue_ui.visible = true
 
 
 func _get_current_level() -> void:
@@ -73,15 +86,42 @@ func _change_level_scene(scene: PackedScene) -> void:
 #region COMBAT SIGNALS
 func _on_start_combat(enemy: Enemy) -> void:
 	PlayerData.toggle_is_in_combat()
-	# hide the current level
-	current_level.visible = false
 	current_enemy = enemy
 	
-	# get the combat scene and add it to the canvas layer because the
-	# combat scene is a ui scene
-	var combat_scene = COMBAT_TSCN.instantiate()
-	canvas_layer.add_child(combat_scene, true)
+	dialogue_ui.set_to_theme(true)
+	if is_instance_valid(current_enemy):
+		PlayerData.is_talking = true
+		dialogue_ui.npc_name.text = current_enemy.npc_stats.name
+		dialogue_ui.dialogues.assign(current_enemy.npc_stats.dialogues)
+		dialogue_ui.npc_sprites.sprite_frames = current_enemy.npc_stats.portraits
+		dialogue_ui.dialogue_box.audio_stream_player.stream = current_enemy.npc_stats.dialogue_stream
+		dialogue_ui.visible = true
 
+
+func _on_dialogue_finished() -> void:
+	# change to combat level after dialogue, only if we are interacting
+	# with an enemy.
+	if is_instance_valid(current_enemy):
+		# hide the current level
+		current_level.visible = false
+		# get the combat scene and add it to the canvas layer because the
+		# combat scene is a ui scene
+		var combat_scene = COMBAT_TSCN.instantiate()
+		combat_scene.death.connect(_on_death)
+		combat_scene.enemy_stats = current_enemy.stats
+		canvas_layer.add_child(combat_scene, true)
+
+
+func _on_death(is_player_turn) -> void:
+	if is_player_turn:
+		canvas_layer.get_child(2).queue_free()
+		current_enemy.queue_free()
+	else:
+		current_scene.get_child(0).queue_free()
+		current_scene.add_child(LEVEL_0.instantiate())
+		
+	PlayerData.is_in_combat = false
+	
 
 func _on_end_combat() -> void:
 	PlayerData.toggle_is_in_combat()

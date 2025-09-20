@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://br5e5urp0ct70" path="res://gambling_assets/roulette_wheel.png" id="1_ca0yt"]
 [ext_resource type="Script" uid="uid://dcl7knu245jd3" path="res://gambling_minigames/roulette_wheel.gd" id="1_ofm1w"]
 [ext_resource type="Texture2D" uid="uid://bqn8qxa38w863" path="res://gambling_assets/roulette_arrow.png" id="2_ofm1w"]
-[ext_resource type="PackedScene" uid="uid://chwahh0h3f2bt" path="res://gambling_minigames/roulette.tscn" id="2_se6ef"]
+[ext_resource type="PackedScene" uid="uid://c1c1df6vaowmj" path="res://gambling_minigames/roulette.tscn" id="2_se6ef"]
 [ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_svqt3"]
-[ext_resource type="Script" uid="uid://c4llsulbpgil0" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
+[ext_resource type="Script" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
 [ext_resource type="Texture2D" uid="uid://bahqx0tuyj8bm" path="res://gambling_assets/button.png" id="5_klsr3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_klsr3"]
@@ -122,8 +122,10 @@ horizontal_alignment = 1
 position = Vector2(40.48, 56.81)
 scale = Vector2(1.2, 1.2)
 script = ExtResource("1_ofm1w")
+rotateSpeed = 0.6
 
 [node name="Sprite" type="Sprite2D" parent="Roulette"]
+texture_filter = 1
 texture = ExtResource("1_ca0yt")
 
 [node name="CollisionPoints" type="Node2D" parent="Roulette"]

@@ -17,7 +17,8 @@ enum
 var buttons: Array[Button] = []
 var current_button: int = 0
 
-const GAME: PackedScene = preload("res://scenes/game/game.tscn")
+
+const GAME_INTRO = preload("uid://fy8rujvdasrg")
 
 
 func _ready() -> void:
@@ -64,7 +65,7 @@ func _tween_btn_scale_down(button: Button) -> void:
 func _change_menu(button_index: int) -> void:
 	match button_index:
 		PLAY:
-			get_tree().change_scene_to_packed(GAME)
+			get_tree().change_scene_to_packed(GAME_INTRO)
 		QUIT:
 			get_tree().quit()
 		_:

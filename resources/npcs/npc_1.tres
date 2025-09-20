@@ -8,16 +8,18 @@
 
 [sub_resource type="Resource" id="Resource_qm2cq"]
 script = ExtResource("2_cexsv")
-speaker = "player"
+speaker = "npc"
 emotion = "neutral"
-line = "hello"
+line = "This idiot lost all their 
+  money"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
-[sub_resource type="Resource" id="Resource_cexsv"]
+[sub_resource type="Resource" id="Resource_igg3f"]
 script = ExtResource("2_cexsv")
 speaker = "npc"
 emotion = "neutral"
-line = "hi"
+line = "Its the third time this 
+  week"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nlir"]
@@ -76,6 +78,7 @@ script = ExtResource("1_kcg7h")
 name = "Npc 1"
 sprite_frames = SubResource("SpriteFrames_6nlir")
 portraits = SubResource("SpriteFrames_cexsv")
-dialogues = Array[ExtResource("2_cexsv")]([SubResource("Resource_qm2cq"), SubResource("Resource_cexsv")])
+dialogues = Array[ExtResource("2_cexsv")]([SubResource("Resource_qm2cq"), SubResource("Resource_igg3f")])
 dialogue_stream = ExtResource("1_l2rvu")
+dialogue_options = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://chrdfb3gtc1qp"]
+
+[ext_resource type="Texture2D" uid="uid://dloumnsvesqen" path="res://assets/ui_textures/dialogue-button-combat.png" id="1_ayrqn"]
+
+[resource]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("1_ayrqn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 3.0
+axis_stretch_horizontal = 2

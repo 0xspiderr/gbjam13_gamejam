@@ -1,10 +1,41 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=13 format=3 uid="uid://b5mg6bqktofai"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=17 format=3 uid="uid://b5mg6bqktofai"]
 
 [ext_resource type="AudioStream" uid="uid://bdys7qr1qnm4n" path="res://sounds/dialogue/Dialogue1.ogg" id="1_5o2g4"]
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_dfjeg"]
 [ext_resource type="Texture2D" uid="uid://c02u6dueiey6x" path="res://assets/sprites/npcs/npc5-idle.png" id="2_8n6im"]
 [ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="2_b5ovy"]
 [ext_resource type="Texture2D" uid="uid://c1xf5nw2u5f4g" path="res://assets/portraits/npc-portrait-neutral.png" id="3_edlcd"]
+
+[sub_resource type="Resource" id="Resource_edlcd"]
+script = ExtResource("2_b5ovy")
+speaker = "npc"
+emotion = "neutral"
+line = "There s something fishy about
+  this casino"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_vwhje"]
+script = ExtResource("2_b5ovy")
+speaker = "player"
+emotion = "neutral"
+line = "Finally someone
+  with common sense"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_tm7hs"]
+script = ExtResource("2_b5ovy")
+speaker = "npc"
+emotion = "neutral"
+line = "There s sounds coming 
+  from the basement"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_a5ncq"]
+script = ExtResource("2_b5ovy")
+speaker = "player"
+emotion = "neutral"
+line = "Forget what i just said"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tm7hs"]
 atlas = ExtResource("3_edlcd")
@@ -62,6 +93,6 @@ script = ExtResource("1_dfjeg")
 name = "Npc 5"
 sprite_frames = SubResource("SpriteFrames_tm7hs")
 portraits = SubResource("SpriteFrames_b5ovy")
-dialogues = Array[ExtResource("2_b5ovy")]([])
+dialogues = Array[ExtResource("2_b5ovy")]([SubResource("Resource_edlcd"), SubResource("Resource_vwhje"), SubResource("Resource_tm7hs"), SubResource("Resource_a5ncq")])
 dialogue_stream = ExtResource("1_5o2g4")
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
