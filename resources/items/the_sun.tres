@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://bm7jx6rjqsx47"]
+
+[ext_resource type="Script" uid="uid://mfk4ag0fvunn" path="res://resources/items/item_stats.gd" id="1_wfna5"]
+
+[resource]
+script = ExtResource("1_wfna5")
+name = "The sun"
+cost = 450
+stats_to_mod = Dictionary[String, int]({
+"attack": 2,
+"luck": 7
+})
+icon_frame = 0

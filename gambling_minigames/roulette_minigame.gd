@@ -10,6 +10,8 @@ var blackButton
 var pinkButton
 var rouletteEngine
 var gameStatus
+var buttonList
+var currentButton:int
 
 func UpdateBet(new):
 	moneyToBet = new
@@ -29,11 +31,22 @@ func _ready() -> void:
 	pinkButton = $BetOn/Pink
 	rouletteEngine = $RouletteEngine
 	gameStatus = $Status
-	
+	buttonList = [blackButton, pinkButton, playButton, betAdjust.find_child("Raise"), betAdjust.find_child("Lower")]
+	currentButton = 0
+	blackButton.disabled = true
 	UpdateBet(5)
 	UpdateTotal(PlayerData.money)
 	rouletteEngine.Init($Roulette, $Arrow)
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("left"):
+		if currentButton > 0:
+			currentButton -= 1
+			buttonList[currentButton].grab_focus()
+	if Input.is_action_just_pressed("right"):
+		if currentButton < buttonList.size() - 1:
+			currentButton += 1
+			buttonList[currentButton].grab_focus()
 
 func _on_play_pressed() -> void:
 	if moneyToBet <= totalMoney:
