@@ -44,7 +44,6 @@ func _input(event: InputEvent) -> void:
 			dialogue_choices.choices = current_npc.npc_stats.dialogue_options
 			dialogue_choices.show_choice_buttons()
 			dialogue_choices.show()
-			PlayerData.is_selecting_choice = true
 	
 	if event.is_action_pressed("exit"): 
 		var scene = current_scene.get_child(0) as Node2D
@@ -115,7 +114,7 @@ func _on_dialogue_finished() -> void:
 
 func _on_death(is_player_turn) -> void:
 	if is_player_turn:
-		canvas_layer.get_child(1).queue_free()
+		canvas_layer.get_child(2).queue_free()
 		current_enemy.queue_free()
 	else:
 		current_scene.get_child(0).queue_free()
