@@ -450,3 +450,7 @@ interactable_stats = ExtResource("16_3ebcg")
 [node name="LevelDoor" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(-139, 11)
 interactable_stats = ExtResource("18_po5je")
+
+[node name="LevelDoor2" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(185, 11)
+interactable_stats = ExtResource("18_po5je")
