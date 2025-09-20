@@ -26,7 +26,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	# dont process player character move input if in combat or if talking
 	# to an npc.
-	if PlayerData.is_in_combat or PlayerData.is_talking:
+	if PlayerData.is_in_combat or PlayerData.is_talking or PlayerData.is_selecting_choice:
 		player_sprites.play(&"idle")
 		return
 	

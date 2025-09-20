@@ -9,6 +9,7 @@ var is_in_combat: bool = false
 var is_in_combat_level = false
 var can_talk: bool = false
 var is_talking: bool = false
+var is_selecting_choice: bool = false
 var can_interact: bool = false
 var money: int = 100 # to test minigames
 
