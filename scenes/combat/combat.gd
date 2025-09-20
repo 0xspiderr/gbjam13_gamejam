@@ -10,6 +10,12 @@ enum
 	ROLL_DICE = 1
 }
 
+enum
+{
+	ATTACK = 0,
+	DEFENCE = 1
+}
+
 #region CONTROLS 
 @onready var draw_card_btn: Button = %DrawCardBtn
 @onready var roll_dice_btn: Button = %RollDiceBtn
@@ -46,6 +52,7 @@ const CARD_BACK: Texture2D = preload("uid://blbmkjk61756w")
 
 var buttons: Array[Button] = []
 var current_button: int = 0
+var round: int = 0
 @onready var player_sprites: AnimatedSprite2D = %PlayerSprites
 
 #region Player
@@ -111,13 +118,22 @@ func _button_toggle() -> void:
 func _button_action() -> void:
 	match current_button:
 		DRAW_CARD:
-			_draw_card()
+			_round_toggle()
+			round = (round + 1) % 2
 		ROLL_DICE:
 			_roll_dice()
-
- 
-func _draw_card() -> void:
+			
+func _round_toggle() -> void:
+	match round:
+		ATTACK:
+			_draw_card_attack()
+		DEFENCE:
+			_draw_card_defence()
+	
+			
+func _draw_card_attack() -> void:
 	_reset_card_pos()
+	_reset_dice_pos()
 	
 	if PlayerData.current_health <= 0:
 		player_death.emit()
@@ -137,27 +153,29 @@ func _draw_card() -> void:
 	await dialogue_box.text_animation_player.animation_finished
 	
 	_can_interact = true
+
+func _draw_card_defence() -> void:
 	
 	_reset_card_pos()
 	_reset_dice_pos()
 	if enemy_health <= 0:
 		enemy_death.emit()
+	
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
 	
-	player_card_value = randi_range(2, 13)
-	enemy_card_value = randi_range(2, 13)
+	var player_card_value: int = randi_range(2, 13)
+	var enemy_card_value: int = randi_range(2, 13)
 	
 	_draw_card_anim(player_card_value, enemy_card_value)
 	if player_card_value < enemy_card_value:
 		_enemy_deal_damage()
 	
-	text = "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
+	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
 	
 	_can_interact = true
-
 
 func _roll_dice() -> void:
 	_reset_card_pos()
