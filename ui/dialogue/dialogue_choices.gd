@@ -15,6 +15,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("interact"):
 		_change_scene(choices[current_button])
+		get_viewport().set_input_as_handled()
 	
 	if event.is_action_pressed("up"):
 		_increment_button_index(-1)
@@ -36,6 +37,7 @@ func _increment_button_index(num: int) -> void:
 
 
 func show_choice_buttons() -> void:
+	PlayerData.is_selecting_choice = true
 	buttons[0].grab_focus.call_deferred()
 	for choice in choices:
 		buttons[choice].show()
