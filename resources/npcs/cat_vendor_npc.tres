@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_mu5pb"]
 script = ExtResource("2_jhmy6")
 speaker = "npc"
-emotion = "surprised"
+emotion = "neutral"
 line = "Hey you're that guy
   that gambled his wife"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_d87uy"]
 script = ExtResource("2_jhmy6")
 speaker = "npc"
-emotion = "smug"
+emotion = "neutral"
 line = "It was on the news
   buddy"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
@@ -48,7 +48,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_w0owy"]
 script = ExtResource("2_jhmy6")
 speaker = "npc"
-emotion = "smug"
+emotion = "neutral"
 line = "Why are you here got 
   another wife to lose?"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
