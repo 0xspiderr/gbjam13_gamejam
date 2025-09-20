@@ -7,7 +7,7 @@
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "smug"
-line = "Today's a good day-"
+line = "Todays a good day-"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_fvs4a"]
@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "neutral"
-line = "What’s the worst 
+line = "Whats the worst 
  that could happen? "
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
@@ -58,7 +58,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "smug"
-line = "I’m talkin’ 
+line = "Im talkin’
 999999999999999999999% "
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
@@ -73,7 +73,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "smug"
-line = "I’m feelin’ lucky tonight, pal. 
+line = "Im feelin lucky tonight, pal. 
  You ready to eat my dust?"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
@@ -88,7 +88,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "annoyed"
-line = "@%$^ it! I’ll bet my last coin!"
+line = "@%$^ it! Ill bet my last coin!"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_rufyd"]
@@ -130,8 +130,8 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "surprised"
-line = "that's...
-that can't be."
+line = "thats...
+that cant be."
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_cmn2c"]
@@ -153,7 +153,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "annoyed"
-line = "this ain't luck-
+line = "this aint luck-
 this is witchcraft"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
@@ -161,14 +161,14 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "annoyed"
-line = "cursed!i'm cursed!"
+line = "cursed!im cursed!"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_fh151"]
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "surprised"
-line = "it's not possible."
+line = "its not possible."
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_wm07v"]
@@ -183,7 +183,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "surprised"
-line = "somebody must've
+line = "somebody mustve
 cursed me!!!"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
