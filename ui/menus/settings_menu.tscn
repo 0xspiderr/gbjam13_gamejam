@@ -12,6 +12,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_86yk5")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0156863, 0.0588235, 1)
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -44,10 +53,9 @@ text = "Volume:"
 
 [node name="Volume_Slider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
+value = 100.0
 
 [node name="Back_Button" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 text = "Back"
-
-[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/Volume_Slider" to="." method="_on_volume_slider_value_changed"]

@@ -16,9 +16,10 @@ var index: int = 0
 func _ready() -> void:
 	ui_elems.append(back_button)
 	ui_elems.append(volume_slider)
+	ui_elems[index].grab_focus.call_deferred()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("down"):
 		if index >= ui_elems.size() - 1:
 			index = 0
@@ -27,9 +28,6 @@ func _input(event: InputEvent) -> void:
 		if index <= 0:
 			index = ui_elems.size() - 1
 	
-
-	ui_elems[index].grab_focus.call_deferred()
-	
 	if event.is_action_pressed("interact"):
 		_do_action_on_control()
 	
@@ -37,12 +35,15 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("right"):
 			if volume_slider.value <= 100:
 				volume_slider.value += 5
+				AudioServer.set_bus_volume_db(0, linear_to_db(float(volume_slider.value / 100)))
 		
 		if event.is_action_pressed("left"):
 			if volume_slider.value - 5 >= 0:
 				volume_slider.value -= 5
-	
-
+				AudioServer.set_bus_volume_db(0, linear_to_db(float(volume_slider.value / 100)))
+		
+	if is_inside_tree():
+		ui_elems[index].grab_focus.call_deferred()
 
 func _do_action_on_control() -> void:
 	match index:
@@ -50,10 +51,6 @@ func _do_action_on_control() -> void:
 			pass
 		BACK:
 			_on_back_button_pressed()
-
-
-func _on_volume_slider_value_changed(value):
-	pass # Replace with function body.
 
 
 func _on_back_button_pressed():
