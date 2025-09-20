@@ -1,14 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://34c4qwkglvv"]
+[gd_scene load_steps=3 format=3 uid="uid://34c4qwkglvv"]
 
+[ext_resource type="Script" uid="uid://cfsc82o6ha6g" path="res://ui/menus/settings_menu.gd" id="1_86yk5"]
 [ext_resource type="Theme" uid="uid://detj406ixpum0" path="res://ui/themes/general_theme.tres" id="1_jq3r0"]
 
-[node name="Options" type="Control"]
+[node name="Settings_Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_86yk5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -35,14 +37,17 @@ offset_bottom = 52.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Volume_Label" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_jq3r0")
 text = "Volume:"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Volume_Slider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Back_Button" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[connection signal="value_changed" from="MarginContainer/Panel/VBoxContainer/Volume_Slider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Back_Button" to="." method="_on_back_button_pressed"]
