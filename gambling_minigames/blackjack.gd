@@ -43,6 +43,7 @@ func DealCard(x, y):
 				UpdateState(4)
 			elif dealerCardList.size() == maxHandSize: # max hand size, hands compared - dealer loss
 				UpdateState(3)
+	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
 
 func CalcAceValue():
 	var total
