@@ -320,120 +320,117 @@ tile_set = SubResource("TileSet_oem7y")
 tile_map_data = PackedByteArray("AAAAABQAAgAAAAAAAAAAABMAAgAFAAAAAAD5/xMAAgAFAAAAAAD6/xQAAgAAAAAAAAD8/xEAAgALAAIAAAD+/xEAAgALAAIAAAD+/w8AAgAMAAIAAAD8/w8AAgAKAAIAAAD7/xAAAgALAAIAAAD//xAAAgAKAAIAAAALABQAAgAAAAAAAAARABQAAgAAAAAAAAAKABMAAgAFAAAAAAARABMAAgAFAAAAAAAQABIAAgAKAAIAAAAQABAAAgAMAAIAAAAMABIAAgALAAIAAAAMABAAAgAKAAIAAAAMAA8AAgAMAAIAAAAQAA0AAgAMAAIAAAAQAA8AAgALAAIAAAAMAA0AAgAKAAIAAAARABEAAgAFAAAAAAARAA4AAgAFAAAAAAAKABEAAgAFAAAAAAAKAA4AAgAFAAAAAAAbAAIAAgAAAAAAAAARAAIAAgAAAAAAAAAXAAIAAgAFAAAAAAAUAAIAAgAFAAAAAAAZAAIAAgAFAAAAAAASAAIAAgAFAAAAAAAbAAQAAgAFAAAAAAAbAAcAAgAFAAAAAAAUAAQAAgAKAAIAAAAaAAQAAgAKAAIAAAAYAAQAAgAMAAIAAAAWAAQAAgALAAIAAAAUAAcAAgALAAIAAAAYAAcAAgALAAIAAAAaAAcAAgAMAAIAAAAWAAcAAgAKAAIAAAA=")
 tile_set = SubResource("TileSet_d0grl")
 
-[node name="Entities" type="Node2D" parent="."]
+[node name="Interactable" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Interactable" type="Node2D" parent="Entities"]
-y_sort_enabled = true
-
-[node name="RouletteTable" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="RouletteTable" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(-30, 199)
 interactable_stats = ExtResource("15_m6lg1")
 
-[node name="BlackjackTable" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="BlackjackTable" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(150, 212)
 interactable_stats = ExtResource("15_3asx1")
 
-[node name="BlackjackTable2" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="BlackjackTable2" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(198, 212)
 interactable_stats = ExtResource("15_3asx1")
 
-[node name="BlackjackTable3" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="BlackjackTable3" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(198, 177)
 interactable_stats = ExtResource("15_3asx1")
 
-[node name="BlackjackTable4" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="BlackjackTable4" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(150, 177)
 interactable_stats = ExtResource("15_3asx1")
 
-[node name="Pocanele1" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele1" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(246, 42)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
-[node name="Pocanele5" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele5" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(246, 79)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
-[node name="Pocanele6" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele6" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(294, 79)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
-[node name="Pocanele2" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele2" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(270, 42)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
-[node name="Pocanele7" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele7" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(270, 79)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
-[node name="Pocanele8" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele8" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(318, 79)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
-[node name="Pocanele3" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele3" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(294, 42)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
-[node name="Pocanele4" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele4" parent="Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(318, 42)
 collision_layer = 0
 collision_mask = 0
 interactable_stats = ExtResource("16_3ebcg")
 
-[node name="LevelDoor" parent="Entities/Interactable" instance=ExtResource("14_m6lg1")]
-position = Vector2(139, 51)
+[node name="LevelDoor" parent="Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(193, 117)
 interactable_stats = ExtResource("18_po5je")
 
-[node name="NPCs" type="Node2D" parent="Entities"]
+[node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="CatVendorNPC" parent="Entities/NPCs" instance=ExtResource("6_d0grl")]
+[node name="CatVendorNPC" parent="NPCs" instance=ExtResource("6_d0grl")]
 position = Vector2(83, 34)
 slide_on_ceiling = false
 npc_stats = ExtResource("7_fj52k")
 
-[node name="Npc1" parent="Entities/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc1" parent="NPCs" instance=ExtResource("6_d0grl")]
 position = Vector2(194, 44)
 npc_stats = ExtResource("7_1nvli")
 
-[node name="Npc2" parent="Entities/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc2" parent="NPCs" instance=ExtResource("6_d0grl")]
 position = Vector2(124, 137)
 npc_stats = ExtResource("8_vals0")
 
-[node name="Npc3" parent="Entities/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc3" parent="NPCs" instance=ExtResource("6_d0grl")]
 position = Vector2(-63, 170)
 npc_stats = ExtResource("9_oem7y")
 
-[node name="Npc4" parent="Entities/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc4" parent="NPCs" instance=ExtResource("6_d0grl")]
 position = Vector2(219, 52)
 npc_stats = ExtResource("10_a76di")
 
-[node name="Npc5" parent="Entities/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc5" parent="NPCs" instance=ExtResource("6_d0grl")]
 position = Vector2(-50, 139)
 npc_stats = ExtResource("11_d3ub6")
 
-[node name="Npc6" parent="Entities/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc6" parent="NPCs" instance=ExtResource("6_d0grl")]
 position = Vector2(147, 113)
 npc_stats = ExtResource("12_7s2gi")
 
-[node name="Player" parent="Entities" instance=ExtResource("1_cperm")]
-position = Vector2(214, 79)
-
-[node name="BlackcatTable" parent="Entities" instance=ExtResource("14_m6lg1")]
+[node name="BlackcatTable" parent="." instance=ExtResource("14_m6lg1")]
 y_sort_enabled = true
 position = Vector2(83, 36)
 interactable_stats = ExtResource("15_yxkm4")
+
+[node name="Player" parent="." instance=ExtResource("1_cperm")]
+position = Vector2(214, 79)

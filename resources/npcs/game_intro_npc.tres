@@ -1,0 +1,218 @@
+[gd_resource type="Resource" script_class="NpcStats" load_steps=31 format=3 uid="uid://cetir7egb7gyd"]
+
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="1_rufyd"]
+[ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="2_2iluc"]
+
+[sub_resource type="Resource" id="Resource_2iluc"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "smug"
+line = "Today's a good day-"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_fvs4a"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "smug"
+line = "- to double my money."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_hdpe7"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "smug"
+line = "Time to turn this
+ into a fortune."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_agx3g"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "What’s the worst 
+ that could happen? "
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_ugoqm"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "Lose it all?"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_aokus"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "I can only lose 100%"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_mrd8b"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "But winning?"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_h6lml"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "smug"
+line = "I’m talkin’ 
+999999999999999999999% "
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_ugycm"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "smug"
+line = "JACKPOT CITY, BABY!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_kdevd"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "smug"
+line = "I’m feelin’ lucky tonight, pal. 
+ You ready to eat my dust?"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_22wwr"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "… no chips left, huh?"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_tue3k"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "annoyed"
+line = "@%$^ it! I’ll bet my last coin!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_rufyd"]
+script = ExtResource("1_rufyd")
+speaker = "npc"
+emotion = "neutral"
+line = "...last coin?"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_68nnt"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "..."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_hrcmh"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "my wife."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_v6cdq"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "I WIN!!!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_whw56"]
+script = ExtResource("1_rufyd")
+speaker = "npc"
+emotion = "neutral"
+line = "... not so fast."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_wswb1"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "surprised"
+line = "that's...
+that can't be."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_cmn2c"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "surprised"
+line = "is that even
+possible?"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_j6om6"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "neutral"
+line = "no..."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_j454a"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "annoyed"
+line = "this ain't luck-
+this is witchcraft"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_32oy6"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "annoyed"
+line = "cursed!i'm cursed!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_fh151"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "surprised"
+line = "it's not possible."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_wm07v"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "surprised"
+line = "no. no. no.
+nononononon..."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_wu83v"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "surprised"
+line = "somebody must've
+cursed me!!!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_cu52n"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "annoyed"
+line = "...i must get my hands
+on that scallywag."
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_i30kg"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "annoyed"
+line = "and get my money 
+back"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_21mdq"]
+script = ExtResource("1_rufyd")
+speaker = "player"
+emotion = "smug"
+line = "...i mean my
+wife"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[resource]
+script = ExtResource("2_2iluc")
+name = "someone"
+dialogues = Array[ExtResource("1_rufyd")]([SubResource("Resource_2iluc"), SubResource("Resource_fvs4a"), SubResource("Resource_hdpe7"), SubResource("Resource_agx3g"), SubResource("Resource_ugoqm"), SubResource("Resource_aokus"), SubResource("Resource_mrd8b"), SubResource("Resource_h6lml"), SubResource("Resource_ugycm"), SubResource("Resource_kdevd"), SubResource("Resource_22wwr"), SubResource("Resource_tue3k"), SubResource("Resource_rufyd"), SubResource("Resource_68nnt"), SubResource("Resource_hrcmh"), SubResource("Resource_v6cdq"), SubResource("Resource_whw56"), SubResource("Resource_wswb1"), SubResource("Resource_cmn2c"), SubResource("Resource_j6om6"), SubResource("Resource_j454a"), SubResource("Resource_32oy6"), SubResource("Resource_fh151"), SubResource("Resource_wm07v"), SubResource("Resource_wu83v"), SubResource("Resource_cu52n"), SubResource("Resource_i30kg"), SubResource("Resource_21mdq")])
+metadata/_custom_type_script = "uid://c6dabu5biw7gj"

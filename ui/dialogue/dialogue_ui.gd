@@ -1,6 +1,8 @@
 class_name DialogueUI
 extends Control
 
+
+signal text_finished()
 @onready var panel: Panel = $Panel
 @onready var dialogue_box: DialogueBox = %DialogueBox
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
@@ -8,6 +10,8 @@ extends Control
 
 @onready var player_initial_pos: Vector2 = player_sprites.position
 @onready var npc_initial_pos: Vector2 = npc_sprites.position
+@onready var npc_name: Button = %NpcName
+@onready var player_name: Button = %PlayerName
 var previous_speaker: String = ""
 
 var dialogues: Array[Dialogue] = []
@@ -41,6 +45,7 @@ func continue_dialogue(dialogue: String) -> void:
 	await dialogue_box.text_animation_player.animation_finished
 	dialogue_line_finished = true
 	dialogues.pop_front()
+	text_finished.emit()
 
 
 func on_speaker_changed(speaker: String) -> void:
