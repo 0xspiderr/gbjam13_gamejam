@@ -103,7 +103,8 @@ func _on_start_combat(enemy: Enemy) -> void:
 			# get the combat scene and add it to the canvas layer because the
 			# combat scene is a ui scene
 			var combat_scene = COMBAT_TSCN.instantiate()
-			combat_scene.death.connect(_on_death)
+			combat_scene.player_death.connect(_on_player_death)
+			combat_scene.enemy_death.connect(_on_enemy_death)
 			combat_scene.enemy_stats = current_enemy.stats
 			canvas_layer.add_child(combat_scene, true)
 
@@ -117,19 +118,27 @@ func _on_dialogue_finished() -> void:
 		# get the combat scene and add it to the canvas layer because the
 		# combat scene is a ui scene
 		var combat_scene = COMBAT_TSCN.instantiate()
-		combat_scene.death.connect(_on_death)
+		
 		combat_scene.enemy_stats = current_enemy.stats
 		canvas_layer.add_child(combat_scene, true)
+		combat_scene.player_death.connect(_on_player_death)
+		combat_scene.enemy_death.connect(_on_enemy_death)
 
 
-func _on_death(is_player_turn) -> void:
-	if is_player_turn:
-		canvas_layer.get_child(2).queue_free()
-		current_enemy.queue_free()
-	else:
-		current_scene.get_child(0).queue_free()
-		current_scene.add_child(LEVEL_0.instantiate())
-		
+func _on_player_death() -> void:
+	canvas_layer.get_child(2).queue_free()
+	current_scene.get_child(0).queue_free()
+	current_scene.add_child(LEVEL_0.instantiate())
+	PlayerData.current_health = PlayerData.max_health
+	PlayerData.money=max((PlayerData.money-20),0)
+	print("you die")
+	PlayerData.is_in_combat = false
+	
+func _on_enemy_death() -> void:
+	current_enemy.queue_free()
+	canvas_layer.get_child(2).queue_free()
+	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
+	print("enemy die")
 	PlayerData.is_in_combat = false
 	
 
