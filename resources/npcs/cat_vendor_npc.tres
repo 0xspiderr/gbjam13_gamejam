@@ -10,6 +10,7 @@
 [sub_resource type="Resource" id="Resource_uqqge"]
 script = ExtResource("2_jhmy6")
 speaker = "npc"
+emotion = "neutral"
 line = "welcome to the casino!
   I sell lucky trinkets"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"

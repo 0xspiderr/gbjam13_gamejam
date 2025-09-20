@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="GBJAM13_gamejam"
-run/main_scene="uid://bgasbu3xvl0ur"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+run/main_scene="uid://dscp41dctwy3h"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
