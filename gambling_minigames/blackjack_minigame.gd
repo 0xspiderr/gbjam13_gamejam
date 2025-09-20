@@ -52,27 +52,23 @@ func _process(delta: float) -> void:
 		if currentButton < buttonList.size() - 1:
 			SetFocus(currentButton + 1)
 
-# change scene
-func _on_prev_pressed() -> void:
-	PlayerData.money = totalMoney
-	get_tree().change_scene_to_file("res://gambling_minigames/roulette_minigame.tscn")
-
-func _on_next_pressed() -> void:
-	PlayerData.money = totalMoney
-	get_tree().change_scene_to_file("res://gambling_minigames/slots_minigame.tscn")
-
-
 
 func _on_raise_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet < 100:
 		UpdateBet(moneyToBet + 5)
 
 func _on_lower_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet > 5:
 		UpdateBet(moneyToBet - 5)
 
 
 func _on_play_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet <= totalMoney:
 		UpdateTotal(totalMoney - moneyToBet)
 		preGame.visible = false
@@ -87,6 +83,8 @@ func _on_play_pressed() -> void:
 			blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80)
 
 func _on_try_again_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	tryAgain.disabled = true
 	midGame.visible = false
 	preGame.visible = true
@@ -100,6 +98,7 @@ func _on_hit_pressed() -> void:
 		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
 
 func _on_stand_pressed() -> void:
+	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
 	blackjackEngine.UpdateState(2) # skip to dealer
 
 func _on_cooldown_timer_timeout() -> void:

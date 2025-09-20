@@ -11,7 +11,7 @@ signal state_changed
 @onready var dealer_luck:float = 3.0
 
 func DealCard(x, y):
-	var card = load("res://card.tscn").instantiate()
+	var card = load("res://gambling_minigames/card.tscn").instantiate()
 	add_child(card)
 	card.Spawn(x,y)
 	match state:
@@ -43,6 +43,8 @@ func DealCard(x, y):
 				UpdateState(4)
 			elif dealerCardList.size() == maxHandSize: # max hand size, hands compared - dealer loss
 				UpdateState(3)
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 
 func CalcAceValue():
 	var total

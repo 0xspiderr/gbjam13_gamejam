@@ -198,7 +198,7 @@ func _roll_dice() -> void:
 	
 	
 func _player_deal_damage(mult) -> void:
-	enemy_health -= PlayerData.damage * mult
+	enemy_health -= (PlayerData.damage + PlayerData.extra_damage) * mult
 	enemy_health_bar.value = enemy_health
 	
 func _enemy_deal_damage() -> void:

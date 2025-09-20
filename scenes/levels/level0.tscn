@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=28 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://b7rdupdwsrdly" path="res://resources/interactable/blackcat_table.tres" id="15_yxkm4"]
 [ext_resource type="Resource" uid="uid://6vuixnenofhl" path="res://resources/interactable/pocanele.tres" id="16_3ebcg"]
 [ext_resource type="Resource" uid="uid://cm4d3126vbscu" path="res://resources/interactable/level_door.tres" id="18_po5je"]
+[ext_resource type="Texture2D" uid="uid://bmwxnil5v6m3v" path="res://assets/tilesets/doors/entrance_door_2_tiles.png" id="19_3ebcg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
@@ -337,7 +338,7 @@ position = Vector2(78, 85)
 interactable_stats = ExtResource("15_yxkm4")
 
 [node name="Player" parent="YSort" instance=ExtResource("1_cperm")]
-position = Vector2(78, 226)
+position = Vector2(78, 241)
 
 [node name="NPCs" type="Node2D" parent="YSort"]
 y_sort_enabled = true
@@ -348,27 +349,27 @@ slide_on_ceiling = false
 npc_stats = ExtResource("7_fj52k")
 
 [node name="Npc1" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(183, 39)
+position = Vector2(190, 69)
 npc_stats = ExtResource("7_1nvli")
 
 [node name="Npc2" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(193, 132)
+position = Vector2(194, 132)
 npc_stats = ExtResource("8_vals0")
 
 [node name="Npc3" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(21, 56)
+position = Vector2(-77, 51)
 npc_stats = ExtResource("9_oem7y")
 
 [node name="Npc4" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(211, 58)
+position = Vector2(210, 76)
 npc_stats = ExtResource("10_a76di")
 
 [node name="Npc5" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(-64, 139)
+position = Vector2(-99, 56)
 npc_stats = ExtResource("11_d3ub6")
 
 [node name="Npc6" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(217, 138)
+position = Vector2(217, 122)
 npc_stats = ExtResource("12_7s2gi")
 
 [node name="Interactable" type="Node2D" parent="YSort"]
@@ -450,3 +451,11 @@ interactable_stats = ExtResource("16_3ebcg")
 [node name="LevelDoor" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(-139, 11)
 interactable_stats = ExtResource("18_po5je")
+
+[node name="LevelDoor2" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(185, 11)
+interactable_stats = ExtResource("18_po5je")
+
+[node name="EntranceDoor" type="Sprite2D" parent="."]
+position = Vector2(78, 260)
+texture = ExtResource("19_3ebcg")
