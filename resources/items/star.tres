@@ -8,6 +8,6 @@ name = "Star"
 cost = 450
 stats_to_mod = Dictionary[String, int]({
 "luck": 6,
-"max health": 3
+"max health": 25
 })
 icon_frame = 7
