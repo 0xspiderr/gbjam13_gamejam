@@ -150,5 +150,6 @@ script = ExtResource("1_4ntcy")
 name = "Pocanele"
 sprite_frames = SubResource("SpriteFrames_dgdeb")
 area_size = Vector2(20, 20)
+collision_size = Vector2(0, 0)
 scene_to_change = ExtResource("1_evv8j")
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"

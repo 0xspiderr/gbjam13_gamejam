@@ -9,6 +9,7 @@
 [sub_resource type="Resource" id="Resource_qm2cq"]
 script = ExtResource("2_cexsv")
 speaker = "npc"
+emotion = "neutral"
 line = "This idiot lost all their 
   money"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
@@ -16,6 +17,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_igg3f"]
 script = ExtResource("2_cexsv")
 speaker = "npc"
+emotion = "neutral"
 line = "Its the third time this 
   week"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"

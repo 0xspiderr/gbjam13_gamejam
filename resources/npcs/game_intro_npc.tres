@@ -28,6 +28,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_agx3g"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "What’s the worst 
  that could happen? "
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
@@ -35,18 +36,21 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_ugoqm"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "Lose it all?"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_aokus"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "I can only lose 100%"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_mrd8b"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "But winning?"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
@@ -76,6 +80,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_22wwr"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "… no chips left, huh?"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
@@ -89,30 +94,35 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_rufyd"]
 script = ExtResource("1_rufyd")
 speaker = "npc"
+emotion = "neutral"
 line = "...last coin?"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_68nnt"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "..."
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_hrcmh"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "my wife."
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_v6cdq"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "I WIN!!!"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_whw56"]
 script = ExtResource("1_rufyd")
 speaker = "npc"
+emotion = "neutral"
 line = "... not so fast."
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
@@ -135,6 +145,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [sub_resource type="Resource" id="Resource_j6om6"]
 script = ExtResource("1_rufyd")
 speaker = "player"
+emotion = "neutral"
 line = "no..."
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
