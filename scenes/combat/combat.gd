@@ -138,6 +138,9 @@ func _draw_card_attack() -> void:
 	
 	if PlayerData.current_health <= 0:
 		player_death.emit()
+	
+	dialogue_box.draw_text("")
+	await dialogue_box.text_animation_player.animation_finished
 	combat_box.draw_text("ATTACK")
 	await combat_box.text_animation_player.animation_finished
 	SoundManager.randomize_pitch_scale(draw_card_sound)
@@ -163,6 +166,8 @@ func _draw_card_defence() -> void:
 	if enemy_health <= 0:
 		enemy_death.emit()
 		
+	dialogue_box.draw_text("")
+	await dialogue_box.text_animation_player.animation_finished
 	combat_box.draw_text("DEFENCE")
 	await combat_box.text_animation_player.animation_finished
 	
