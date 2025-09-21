@@ -99,9 +99,12 @@ func _change_level_scene(scene: PackedScene) -> void:
 		
 		if scene == null:
 			SoundManager.change_music_stream(SoundManager.OVERWORLD)
-			scene_transition.set_rect_color(false)
 		elif instance.name.begins_with("Level"):
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
+		
+		if instance.name == "Level0":
+			scene_transition.set_rect_color(false)
+		else:
 			scene_transition.set_rect_color(true)
 		
 		scene_transition.play_transitions()

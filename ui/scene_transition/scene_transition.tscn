@@ -8,6 +8,7 @@
 shader = ExtResource("2_nvaao")
 shader_parameter/dissolve = 1.0
 shader_parameter/noise_texture = ExtResource("3_shyc5")
+shader_parameter/color = Vector4(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_itgu7"]
 length = 0.001
@@ -77,7 +78,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.172549, 0, 0.0862745, 1)
+localize_numeral_system = false
+color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 unique_name_in_owner = true
