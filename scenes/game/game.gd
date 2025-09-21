@@ -217,6 +217,9 @@ func _on_player_death() -> void:
 	stat_ui.Show()
 	
 func _on_enemy_death() -> void:
+	if not is_instance_valid(current_enemy):
+		return
+	
 	if current_enemy.stats.name == "stair":
 		PlayerData.keys_obtained = 1
 		stat_ui.ShowKey(PlayerData.keys_obtained)
@@ -224,7 +227,7 @@ func _on_enemy_death() -> void:
 		PlayerData.keys_obtained = 2
 		stat_ui.ShowKey(PlayerData.keys_obtained)
 	canvas_layer.get_child(3).queue_free()
-	current_enemy.queue_free()
+	current_enemy = null
 	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
 	PlayerData.current_health = min(PlayerData.current_health + 20, PlayerData.max_health)
 	SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
@@ -232,11 +235,11 @@ func _on_enemy_death() -> void:
 	stat_ui.Show()
 
 func _on_end_combat() -> void:
-	PlayerData.toggle_is_in_combat()
+	PlayerData.is_in_combat = false
 	# after the combat has ended make the current level visible again
 	current_level.visible = true
 	# free the enemy when ending combat
-	current_enemy.queue_free()
+	current_enemy = null
 	
 	# remove the combat scene
 	for child in canvas_layer.get_children():
