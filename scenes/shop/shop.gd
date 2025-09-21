@@ -9,6 +9,8 @@ var currentPage:int
 var currentItem:int
 @export var popupOpen:bool = false
 
+signal shop_closed
+
 func ShowItems(startIndex):
 	for ind in range(0, 3):
 		AddItem(4 + 50 * ind, 90, startIndex + ind)
@@ -62,9 +64,7 @@ func _process(delta: float) -> void:
 			if focusedButton != null:
 				focusedButton.pressed.emit()
 		if Input.is_action_just_pressed("exit"):
-			PlayerData.is_shopping = false
-			SoundManager.music_stream_player.stream = SoundManager.OVERWORLD
-			SoundManager.music_stream_player.play()
+			emit_signal("shop_closed")
 			get_parent().queue_free()
 
 func SetFocus(button: Button, section:Variant):
