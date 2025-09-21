@@ -197,12 +197,15 @@ func _roll_dice() -> void:
 	_play_dice_anim(first_player_dice_value, second_player_dice_value)
 	_button_toggle()
 	var text = "You rolled %s & %s" % [first_player_dice_value, second_player_dice_value]
+	if first_player_dice_value == second_player_dice_value:
+		text += " Critical hit!"
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
+	var dice_mult = (first_player_dice_value + second_player_dice_value) / 4
 	if first_player_dice_value == second_player_dice_value:
-		_player_deal_damage(2)
+		_player_deal_damage(2 * dice_mult)
 	else:
-		_player_deal_damage(1)
+		_player_deal_damage(1 * dice_mult)
 	_can_interact = true
 
 func _player_deal_damage(mult) -> void:
