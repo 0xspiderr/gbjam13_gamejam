@@ -95,4 +95,4 @@ position = Vector2(123, 82)
 interactable_stats = ExtResource("11_hgky1")
 
 [node name="Player" parent="." instance=ExtResource("3_d5djh")]
-position = Vector2(1120.71, 302.232)
+position = Vector2(269, 302)

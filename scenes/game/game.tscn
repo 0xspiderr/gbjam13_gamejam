@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dscp41dctwy3h"]
+[gd_scene load_steps=9 format=3 uid="uid://dscp41dctwy3h"]
 
 [ext_resource type="Script" uid="uid://crnuy0h8pe3n0" path="res://scenes/game/game.gd" id="1_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://c6onavsfv4e3e" path="res://scenes/levels/level0.tscn" id="2_7h61r"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://duj2yhejqwaqh" path="res://scenes/ui/stat_ui.tscn" id="3_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://bcrntcgnahwa6" path="res://ui/dialogue/dialogue_choices.tscn" id="3_kelw5"]
 [ext_resource type="PackedScene" uid="uid://daf5guf6an8ld" path="res://ui/scene_transition/scene_transition.tscn" id="5_lfrn8"]
+[ext_resource type="Theme" uid="uid://b0bn4xyu3a25a" path="res://ui/themes/dialogue_box_theme.tres" id="6_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://b5ho1oy8lu7r5" path="res://ui/dialogue_box/dialogue_box.tscn" id="7_87uf6"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_0sr1o")
@@ -25,6 +27,26 @@ visible = false
 [node name="DialogueUI" parent="CanvasLayer" instance=ExtResource("3_0sr1o")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+custom_minimum_size = Vector2(160, 60)
+offset_top = 84.0
+offset_right = 160.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(79.9994, 23.2792)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("6_bdhmt")
+
+[node name="DialogueBox" parent="CanvasLayer/Panel" instance=ExtResource("7_87uf6")]
+layout_mode = 1
+offset_left = 13.0
+offset_top = 5.0
+offset_right = -18.0
+offset_bottom = -20.0
 
 [node name="SceneTransition" parent="." instance=ExtResource("5_lfrn8")]
 visible = false

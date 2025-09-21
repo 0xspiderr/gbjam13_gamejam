@@ -8,6 +8,8 @@ extends StaticBody2D
 @onready var collision_shape: CollisionShape2D = %CollisionShape
 var scene_to_change: PackedScene = null
 const LEVEL_0: PackedScene = preload("res://scenes/levels/level0.tscn")
+@onready var dialogue_box: DialogueBox = $DialogueBox
+
 
 func _ready() -> void:
 	# when a new interactable spawns get the first animation from it's resource
@@ -22,7 +24,7 @@ func _ready() -> void:
 
 func _on_interactable_component_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		EventBus.entered_interactable_area.emit(scene_to_change)
+		EventBus.entered_interactable_area.emit(scene_to_change, self)
 
 
 func _set_shapes() -> void:
@@ -36,5 +38,6 @@ func _set_shapes() -> void:
 
 
 func _on_interactable_component_area_body_exited(body: Node2D) -> void:
-	if body is Player:
-		EventBus.exited_interactable_area.emit()
+	if PlayerData.keys_obtained >= interactable_stats.needs_keys:
+		if body is Player:
+			EventBus.exited_interactable_area.emit()
