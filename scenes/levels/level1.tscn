@@ -8,8 +8,8 @@
 [ext_resource type="Resource" uid="uid://btsx4fvp17suh" path="res://resources/enemies/stair.tres" id="6_1seuy"]
 [ext_resource type="Resource" uid="uid://bberg6osf7m7q" path="res://resources/npcs/combat/combat_stair.tres" id="9_5ntmo"]
 [ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="10_lgguw"]
-[ext_resource type="Resource" uid="uid://beip2fg1lsyu" path="res://resources/interactable/level_door0Return.tres" id="10_nfihu"]
 [ext_resource type="Resource" uid="uid://dxsd7aq5p24sq" path="res://resources/enemies/card_mob.tres" id="10_nkeig"]
+[ext_resource type="Resource" uid="uid://cpan08gufatd4" path="res://resources/interactable/level_door0.tres" id="11_lgguw"]
 [ext_resource type="Resource" uid="uid://dvvs1eu0rmvuw" path="res://resources/enemies/chip_mob.tres" id="11_nfihu"]
 [ext_resource type="Resource" uid="uid://jy4y2uxp7we2" path="res://resources/enemies/ghost_mob.tres" id="13_ps2vj"]
 
@@ -103,7 +103,7 @@ _player = NodePath("../../Player")
 
 [node name="LevelDoor" parent="Enemies" instance=ExtResource("10_lgguw")]
 position = Vector2(579, 660)
-interactable_stats = ExtResource("10_nfihu")
+interactable_stats = ExtResource("11_lgguw")
 
 [node name="Player" parent="." instance=ExtResource("3_dd0lh")]
 position = Vector2(12, 59)

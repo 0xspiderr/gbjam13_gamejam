@@ -3,6 +3,8 @@ extends Control
 
 
 signal start_dialogue()
+signal open_shop()
+
 
 var choices: Array
 @export var buttons: Array[Button]
@@ -10,7 +12,7 @@ var current_button: int = 0
 
 
 func _input(event: InputEvent) -> void:
-	if not PlayerData.is_selecting_choice or PlayerData.is_talking:
+	if not PlayerData.is_selecting_choice or PlayerData.is_talking or PlayerData.is_shopping:
 		return
 	
 	if event.is_action_pressed("interact"):
@@ -53,9 +55,13 @@ func _change_scene(choice: int) -> void:
 		0:
 			reset_data()
 			start_dialogue.emit()
+		1:
+			reset_data()
+			open_shop.emit()
 		2:
 			reset_data()
-			
+	
+	print(choice)
 
 
 func reset_data() -> void:

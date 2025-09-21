@@ -61,6 +61,9 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			if focusedButton != null:
 				focusedButton.pressed.emit()
+		if Input.is_action_just_pressed("exit"):
+			PlayerData.is_shopping = false
+			get_parent().queue_free()
 
 func SetFocus(button: Button, section:Variant):
 	button.grab_focus()

@@ -11,6 +11,7 @@ var extra_damage:int = 0
 var luck: float = 0.0
 var is_in_combat: bool = false
 var is_in_combat_level = false
+var is_shopping: bool = false
 var can_talk: bool = false
 var is_talking: bool = false
 var is_selecting_choice: bool = false
