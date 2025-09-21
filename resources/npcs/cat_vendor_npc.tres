@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=28 format=3 uid="uid://cd4wgr2wxoeh3"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=27 format=3 uid="uid://cd4wgr2wxoeh3"]
 
 [ext_resource type="AudioStream" uid="uid://bxlbdcq7wivuc" path="res://sounds/dialogue/Dialogue2.ogg" id="1_10a52"]
 [ext_resource type="Texture2D" uid="uid://n7m4whfvks0q" path="res://assets/sprites/characters/black-cat-idle.png" id="1_cyu4g"]
@@ -6,22 +6,6 @@
 [ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="2_jhmy6"]
 [ext_resource type="Texture2D" uid="uid://dwj1hkn7ql0ic" path="res://assets/portraits/black-cat-neutral.png" id="3_qrt1d"]
 [ext_resource type="Texture2D" uid="uid://dash8xqcg2yu3" path="res://assets/portraits/black-cat-annoyed.png" id="3_uqqge"]
-
-[sub_resource type="Resource" id="Resource_uqqge"]
-script = ExtResource("2_jhmy6")
-speaker = "npc"
-emotion = "neutral"
-line = "welcome to the casino!
-  I sell lucky trinkets"
-metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
-
-[sub_resource type="Resource" id="Resource_mu5pb"]
-script = ExtResource("2_jhmy6")
-speaker = "npc"
-emotion = "neutral"
-line = "Hey you're that guy
-  that gambled his wife"
-metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_76bvy"]
 script = ExtResource("2_jhmy6")
@@ -64,23 +48,32 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("2_jhmy6")
 speaker = "npc"
 emotion = "neutral"
-line = "Hey maybe i can help
-see that door over there?"
+line = "Ok listen, ill give 
+  you 100 credits"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_8w7yu"]
+script = ExtResource("2_jhmy6")
+speaker = "npc"
+emotion = "neutral"
+line = "Win another 100 and
+  ill help find your wife"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_ys13n"]
 script = ExtResource("2_jhmy6")
 speaker = "npc"
 emotion = "neutral"
-line = "Pretty sure the guy that
-took your wife went there"
+line = "The guy that took her went
+  through those doors"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_de02b"]
 script = ExtResource("2_jhmy6")
-speaker = "player"
+speaker = "npc"
 emotion = "neutral"
-line = "finally a lead"
+line = "Just go through once 
+  you have it"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqy6u"]
@@ -172,7 +165,7 @@ script = ExtResource("1_t1qjg")
 name = "Cat Vendor"
 sprite_frames = SubResource("SpriteFrames_d87uy")
 portraits = SubResource("SpriteFrames_cqy6u")
-dialogues = Array[ExtResource("2_jhmy6")]([SubResource("Resource_uqqge"), SubResource("Resource_mu5pb"), SubResource("Resource_76bvy"), SubResource("Resource_d87uy"), SubResource("Resource_cqy6u"), SubResource("Resource_w0owy"), SubResource("Resource_qg60v"), SubResource("Resource_2icvp"), SubResource("Resource_ys13n"), SubResource("Resource_de02b")])
+dialogues = Array[ExtResource("2_jhmy6")]([SubResource("Resource_76bvy"), SubResource("Resource_d87uy"), SubResource("Resource_cqy6u"), SubResource("Resource_w0owy"), SubResource("Resource_qg60v"), SubResource("Resource_2icvp"), SubResource("Resource_8w7yu"), SubResource("Resource_ys13n"), SubResource("Resource_de02b")])
 dialogue_stream = ExtResource("1_10a52")
 dialogue_options = Array[int]([0, 1, 2])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
