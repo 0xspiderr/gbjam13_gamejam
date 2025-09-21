@@ -1,3 +1,4 @@
+class_name RandomNPCDialogue
 extends Node2D
 
 enum
@@ -10,7 +11,7 @@ var visibility_time: float = 1.0
 @onready var rand_dialogue_timer: Timer = $RandDialogueTimer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var animated_speaking: AnimatedSprite2D = $AnimatedSpeaking
-
+var is_wife: bool = false
 
 
 func _ready() -> void:
@@ -33,12 +34,25 @@ func _on_rand_dialogue_timer_timeout() -> void:
 func _play_animation() -> void:
 	match rand_index:
 		ANGRY:
-			animated_sprite.play(&"angry")
+			if is_wife:
+				animated_sprite.play(&"angry_combat")
+			else:
+				animated_sprite.play(&"angry")
 		NORMAL:
-			animated_sprite.play(&"normal")
+			if is_wife:
+				animated_sprite.play(&"normal_combat")
+			else:
+				animated_sprite.play(&"normal")
 		_:
-			animated_sprite.play(&"normal")
-	animated_speaking.play(&"speak")
+			if is_wife:
+				animated_sprite.play(&"normal_combat")
+			else:
+				animated_sprite.play(&"normal")
+				
+	if is_wife:
+		animated_speaking.play(&"speak_combat")
+	else:
+		animated_speaking.play(&"speak")
 
 
 func _on_animated_speaking_animation_finished() -> void:

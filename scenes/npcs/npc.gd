@@ -5,9 +5,13 @@ extends CharacterBody2D
 @export var npc_stats: NpcStats
 @onready var npc_sprite: AnimatedSprite2D = $NpcSprite
 var idle_anim: String
+@onready var random_npc_dialogue: Node2D = $RandomNpcDialogue
 
 
 func _ready() -> void:
+	if name == "Wife":
+		random_npc_dialogue.is_wife = true
+	
 	# when a new npc spawns get the first animation from it's resource
 	# which is the idle animation for every npc and play it.
 	idle_anim = npc_stats.sprite_frames.get_animation_names()[0]
