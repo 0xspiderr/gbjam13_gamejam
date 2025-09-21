@@ -4,6 +4,7 @@ extends Node
 
 @onready var current_scene: Node = $CurrentScene
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var scene_transition: SceneTransition = $SceneTransition
 
 var current_level: Node2D = null
 var current_enemy: Enemy = null
@@ -77,10 +78,11 @@ func _change_level_scene(scene: PackedScene) -> void:
 		# temporary solution until combat is implemented
 		if instance.name.begins_with("Level"):
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
-		
+			scene_transition.play_transitions()
 		current_level = current_scene.get_child(0).duplicate()
 		current_scene.get_child(0).queue_free()
 		current_scene.add_child(instance)
+		
 
 
 #region COMBAT SIGNALS
@@ -88,14 +90,28 @@ func _on_start_combat(enemy: Enemy) -> void:
 	PlayerData.toggle_is_in_combat()
 	current_enemy = enemy
 	
+	scene_transition.play_transitions()
+	await get_tree().create_timer(0.5).timeout
+	
 	dialogue_ui.set_to_theme(true)
 	if is_instance_valid(current_enemy):
-		PlayerData.is_talking = true
-		dialogue_ui.npc_name.text = current_enemy.npc_stats.name
-		dialogue_ui.dialogues.assign(current_enemy.npc_stats.dialogues)
-		dialogue_ui.npc_sprites.sprite_frames = current_enemy.npc_stats.portraits
-		dialogue_ui.dialogue_box.audio_stream_player.stream = current_enemy.npc_stats.dialogue_stream
-		dialogue_ui.visible = true
+		if is_instance_valid(current_enemy.npc_stats):
+			PlayerData.is_talking = true
+			dialogue_ui.npc_name.text = current_enemy.npc_stats.name
+			dialogue_ui.dialogues.assign(current_enemy.npc_stats.dialogues)
+			dialogue_ui.npc_sprites.sprite_frames = current_enemy.npc_stats.portraits
+			dialogue_ui.dialogue_box.audio_stream_player.stream = current_enemy.npc_stats.dialogue_stream
+			dialogue_ui.visible = true
+		else:
+			# hide the current level
+			current_level.visible = false
+			# get the combat scene and add it to the canvas layer because the
+			# combat scene is a ui scene
+			var combat_scene = COMBAT_TSCN.instantiate()
+			combat_scene.player_death.connect(_on_player_death)
+			combat_scene.enemy_death.connect(_on_enemy_death)
+			combat_scene.enemy_stats = current_enemy.stats
+			canvas_layer.add_child(combat_scene, true)
 
 
 func _on_dialogue_finished() -> void:
@@ -107,19 +123,27 @@ func _on_dialogue_finished() -> void:
 		# get the combat scene and add it to the canvas layer because the
 		# combat scene is a ui scene
 		var combat_scene = COMBAT_TSCN.instantiate()
-		combat_scene.death.connect(_on_death)
+		
 		combat_scene.enemy_stats = current_enemy.stats
 		canvas_layer.add_child(combat_scene, true)
+		combat_scene.player_death.connect(_on_player_death)
+		combat_scene.enemy_death.connect(_on_enemy_death)
 
 
-func _on_death(is_player_turn) -> void:
-	if is_player_turn:
-		canvas_layer.get_child(2).queue_free()
-		current_enemy.queue_free()
-	else:
-		current_scene.get_child(0).queue_free()
-		current_scene.add_child(LEVEL_0.instantiate())
-		
+func _on_player_death() -> void:
+	canvas_layer.get_child(2).queue_free()
+	current_scene.get_child(0).queue_free()
+	current_scene.add_child(LEVEL_0.instantiate())
+	PlayerData.current_health = PlayerData.max_health
+	PlayerData.money=max((PlayerData.money-20),0)
+	print("you die")
+	PlayerData.is_in_combat = false
+	
+func _on_enemy_death() -> void:
+	current_enemy.queue_free()
+	canvas_layer.get_child(2).queue_free()
+	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
+	print("enemy die")
 	PlayerData.is_in_combat = false
 	
 

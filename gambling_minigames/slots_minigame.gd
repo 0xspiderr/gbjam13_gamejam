@@ -6,7 +6,8 @@ var moneyToBet
 var moneyToBetText
 var playButton
 var betAdjust
-
+var buttonList
+var currentButton:int
 var slotsArray
 var slotsRefreshArray = [7,7,12]
 var slotsEngine
@@ -44,21 +45,39 @@ func _ready() -> void:
 	playButton = $Footer/Play
 	betAdjust = $Footer/BetAdjust
 	slotsEngine = $SlotsEngine
+	buttonList = [playButton, betAdjust.find_child("Raise"), betAdjust.find_child("Lower")]
+	currentButton = 0
+	playButton.grab_focus()
 	slotsEngine.Init(slotsArray, slotsRefreshArray) # nr of refreshes before result, purely visual
 	
 	UpdateBet(5)
 	UpdateTotal(PlayerData.money) # total money
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("left"):
+		if currentButton > 0:
+			currentButton -= 1
+			buttonList[currentButton].grab_focus()
+	if Input.is_action_just_pressed("right"):
+		if currentButton < buttonList.size() - 1:
+			currentButton += 1
+			buttonList[currentButton].grab_focus()
 
 func _on_raise_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet < 100:
 		UpdateBet(moneyToBet + 5)
 
 func _on_lower_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet > 5:
 		UpdateBet(moneyToBet - 5)
 
 func _on_play_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet <= totalMoney:
 		UpdateTotal(totalMoney - moneyToBet)
 		slotsEngine.ResetSlots(slotsRefreshArray)

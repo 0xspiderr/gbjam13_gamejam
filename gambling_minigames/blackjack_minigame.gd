@@ -7,7 +7,8 @@ var totalMoneyText
 var moneyToBet
 var moneyToBetText
 var pointsText
-
+var buttonList
+var currentButton:int
 var preGame
 var midGame
 var tryAgain
@@ -25,9 +26,14 @@ func _ready() -> void:
 	gameStatus = $MidGame/GameStatus
 	cooldownTimer = $CooldownTimer
 	blackjackEngine = $BlackJack
-	
+	buttonList = [preGame.find_child("Play"), $PreGame/BetAdjust/Raise, $PreGame/BetAdjust/Lower]
+	SetFocus(0)
 	UpdateBet(5)
 	UpdateTotal(PlayerData.money) # total money
+
+func SetFocus(ind):
+	currentButton = ind
+	buttonList[currentButton].grab_focus()
 
 func UpdateBet(new):
 	moneyToBet = new
@@ -38,33 +44,38 @@ func UpdateTotal(new):
 	PlayerData.money = totalMoney
 	totalMoneyText.text = str(totalMoney)
 
-
-# change scene
-func _on_prev_pressed() -> void:
-	PlayerData.money = totalMoney
-	get_tree().change_scene_to_file("res://gambling_minigames/roulette_minigame.tscn")
-
-func _on_next_pressed() -> void:
-	PlayerData.money = totalMoney
-	get_tree().change_scene_to_file("res://gambling_minigames/slots_minigame.tscn")
-
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("left"):
+		if currentButton > 0:
+			SetFocus(currentButton - 1)
+	if Input.is_action_just_pressed("right"):
+		if currentButton < buttonList.size() - 1:
+			SetFocus(currentButton + 1)
 
 
 func _on_raise_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet < 100:
 		UpdateBet(moneyToBet + 5)
 
 func _on_lower_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet > 5:
 		UpdateBet(moneyToBet - 5)
 
 
 func _on_play_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	if moneyToBet <= totalMoney:
 		UpdateTotal(totalMoney - moneyToBet)
 		preGame.visible = false
 		midGame.visible = true
 		blackjackEngine.UpdateState(1)
+		buttonList = [tryAgain, $MidGame/PlayButtons/Hit, $MidGame/PlayButtons/Stand]
+		SetFocus(1)
 		# deal two cards
 		if blackjackEngine.state == 1:
 			blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
@@ -72,10 +83,14 @@ func _on_play_pressed() -> void:
 			blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80)
 
 func _on_try_again_pressed() -> void:
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	tryAgain.disabled = true
 	midGame.visible = false
 	preGame.visible = true
 	blackjackEngine.RefreshBoard()
+	buttonList = [preGame.find_child("Play"), $PreGame/BetAdjust/Raise, $PreGame/BetAdjust/Lower]
+	SetFocus(0)
 
 
 func _on_hit_pressed() -> void:
@@ -83,6 +98,7 @@ func _on_hit_pressed() -> void:
 		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
 
 func _on_stand_pressed() -> void:
+	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
 	blackjackEngine.UpdateState(2) # skip to dealer
 
 func _on_cooldown_timer_timeout() -> void:
@@ -101,6 +117,9 @@ func _on_state_changed() -> void:
 			tryAgain.disabled = true
 		2:
 			gameStatus.text = "DEALER'S TURN"
+			var playButtons = midGame.find_child("PlayButtons")
+			playButtons.find_child("Hit").disabled = false
+			playButtons.find_child("Stand").disabled = false
 			cooldownTimer.start()
 		3:
 			gameStatus.text = "WIN"

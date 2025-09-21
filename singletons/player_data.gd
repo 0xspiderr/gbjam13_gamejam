@@ -3,7 +3,11 @@ extends Node
 
 var max_health: int = 100
 var current_health: int = 100
-var damage: int = 1
+var extra_health:int = 0
+var speed:float = 100.0
+var extra_speed:float = 0.0
+var damage: int = 10
+var extra_damage:int = 0
 var luck: float = 0.0
 var is_in_combat: bool = false
 var is_in_combat_level = false

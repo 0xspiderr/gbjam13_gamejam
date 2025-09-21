@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 
-@export var speed: float = 100.0
+@export var speed: float = PlayerData.speed + PlayerData.extra_speed
 @export var combat_player_sprites: SpriteFrames
 @export var casino_player_sprites: SpriteFrames
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites

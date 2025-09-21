@@ -1,6 +1,7 @@
 extends Control
 
-signal death(is_player_turn)
+signal player_death
+signal enemy_death
 
 
 enum
@@ -9,12 +10,17 @@ enum
 	ROLL_DICE = 1
 }
 
+enum
+{
+	ATTACK = 0,
+	DEFENCE = 1
+}
+
 #region CONTROLS 
 @onready var draw_card_btn: Button = %DrawCardBtn
 @onready var roll_dice_btn: Button = %RollDiceBtn
 @onready var button_container: CenterContainer = %ButtonContainer
 @onready var dialogue_box: DialogueBox = %DialogueBox
-@onready var is_player_turn: bool = false
 #endregion
 
 
@@ -46,6 +52,7 @@ const CARD_BACK: Texture2D = preload("uid://blbmkjk61756w")
 
 var buttons: Array[Button] = []
 var current_button: int = 0
+var round: int = 0
 @onready var player_sprites: AnimatedSprite2D = %PlayerSprites
 
 #region Player
@@ -111,27 +118,35 @@ func _button_toggle() -> void:
 func _button_action() -> void:
 	match current_button:
 		DRAW_CARD:
-			_draw_card()
+			_round_toggle()
+			round = (round + 1) % 2
 		ROLL_DICE:
 			_roll_dice()
-
- 
-func _draw_card() -> void:
+			
+func _round_toggle() -> void:
+	match round:
+		ATTACK:
+			_draw_card_attack()
+		DEFENCE:
+			_draw_card_defence()
+	
+			
+func _draw_card_attack() -> void:
 	_reset_card_pos()
 	_reset_dice_pos()
+	
+	if PlayerData.current_health <= 0:
+		player_death.emit()
+	
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
 	
 	var player_card_value: int = randi_range(2, 13)
 	var enemy_card_value: int = randi_range(2, 13)
 	
-	is_player_turn = !is_player_turn
-	print(is_player_turn)
 	_draw_card_anim(player_card_value, enemy_card_value)
-	if player_card_value > enemy_card_value and is_player_turn:
+	if player_card_value > enemy_card_value:
 		_button_toggle()
-	elif player_card_value < enemy_card_value and !is_player_turn:
-		_deal_damage(1)
 	
 	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
 	dialogue_box.draw_text(text)
@@ -139,6 +154,28 @@ func _draw_card() -> void:
 	
 	_can_interact = true
 
+func _draw_card_defence() -> void:
+	
+	_reset_card_pos()
+	_reset_dice_pos()
+	if enemy_health <= 0:
+		enemy_death.emit()
+	
+	SoundManager.randomize_pitch_scale(draw_card_sound)
+	draw_card_sound.play()
+	
+	var player_card_value: int = randi_range(2, 13)
+	var enemy_card_value: int = randi_range(2, 13)
+	
+	_draw_card_anim(player_card_value, enemy_card_value)
+	if player_card_value < enemy_card_value:
+		_enemy_deal_damage()
+	
+	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
+	dialogue_box.draw_text(text)
+	await dialogue_box.text_animation_player.animation_finished
+	
+	_can_interact = true
 
 func _roll_dice() -> void:
 	_reset_card_pos()
@@ -154,24 +191,19 @@ func _roll_dice() -> void:
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
 	if first_player_dice_value == second_player_dice_value:
-		_deal_damage(2)
+		_player_deal_damage(2)
 	else:
-		_deal_damage(1)
+		_player_deal_damage(1)
 	_can_interact = true
 	
 	
-func _deal_damage(mult) -> void:
-	if is_player_turn:
-		PlayerData.current_health -= enemy_stats.damage
-		player_health.value = PlayerData.current_health
-	else:
-		enemy_health -= PlayerData.damage * mult
-		enemy_health_bar.value = enemy_health
-
-	if enemy_health <= 0 or PlayerData.current_health <= 0:
-		await get_tree().create_timer(3).timeout
-		death.emit(is_player_turn)
+func _player_deal_damage(mult) -> void:
+	enemy_health -= (PlayerData.damage + PlayerData.extra_damage) * mult
+	enemy_health_bar.value = enemy_health
 	
+func _enemy_deal_damage() -> void:
+	PlayerData.current_health -= enemy_stats.damage
+	player_health.value = PlayerData.current_health
 
 #endregion
 

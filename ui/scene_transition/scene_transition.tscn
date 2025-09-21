@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://daf5guf6an8ld"]
+
+[ext_resource type="Script" uid="uid://lyim3cdgxixi" path="res://ui/scene_transition/scene_transition.gd" id="1_drmcu"]
+[ext_resource type="Shader" uid="uid://7es865ecy3re" path="res://ui/scene_transition/scene_transition.gdshader" id="2_nvaao"]
+[ext_resource type="Texture2D" uid="uid://uvg12kmuh8yj" path="res://noise.png" id="3_shyc5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjvsv"]
+shader = ExtResource("2_nvaao")
+shader_parameter/dissolve = 1.0
+shader_parameter/noise_texture = ExtResource("3_shyc5")
+
+[sub_resource type="Animation" id="Animation_itgu7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/dissolve")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ct3oq"]
+resource_name = "dissolve"
+
+[sub_resource type="Animation" id="Animation_upm3h"]
+resource_name = "dissolve_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/dissolve")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_r1mwc"]
+resource_name = "dissolve_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/dissolve")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kuahe"]
+_data = {
+&"RESET": SubResource("Animation_itgu7"),
+&"dissolve": SubResource("Animation_ct3oq"),
+&"dissolve_in": SubResource("Animation_upm3h"),
+&"dissolve_out": SubResource("Animation_r1mwc")
+}
+
+[node name="SceneTransition" type="CanvasLayer"]
+script = ExtResource("1_drmcu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_cjvsv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172549, 0, 0.0862745, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_kuahe")
+}

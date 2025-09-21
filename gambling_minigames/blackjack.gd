@@ -11,7 +11,7 @@ signal state_changed
 @onready var dealer_luck:float = 3.0
 
 func DealCard(x, y):
-	var card = load("res://card.tscn").instantiate()
+	var card = load("res://gambling_minigames/card.tscn").instantiate()
 	add_child(card)
 	card.Spawn(x,y)
 	match state:
@@ -43,6 +43,8 @@ func DealCard(x, y):
 				UpdateState(4)
 			elif dealerCardList.size() == maxHandSize: # max hand size, hands compared - dealer loss
 				UpdateState(3)
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 
 func CalcAceValue():
 	var total
@@ -95,9 +97,9 @@ func CalcCardType(luck): # calculates card based on the player/dealer's current 
 				pointsToBlackjack = 21 - CalcTotalPoints(dealerCardList)
 		var suit = randi_range(0,3)
 		var luckRoll = randf_range(0,100)
-		if luckRoll < (float(100 / 13) + 4 * luck) and pointsToBlackjack <= 11: # exact number for blackjack
+		if luckRoll < (float(100 / 13) + 2.5 * luck) and pointsToBlackjack <= 11: # exact number for blackjack
 			cardType = suit * 13 + ConvertNumValueToType(pointsToBlackjack)
-		elif luckRoll >= (float(100 / 13) + 4 * luck): # literally any card except for the one you need
+		elif luckRoll >= (float(100 / 13) + 2.5 * luck): # literally any card except for the one you need
 			var number = randi_range(0,12)
 			while ConvertTypeToNumValue(number) == pointsToBlackjack:
 				number = randi_range(0,12)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://iheki1pcvl3i"]
+
+[ext_resource type="Script" uid="uid://mfk4ag0fvunn" path="res://resources/items/item_stats.gd" id="1_4lss6"]
+
+[resource]
+script = ExtResource("1_4lss6")
+name = "Clover"
+cost = 160
+stats_to_mod = Dictionary[String, int]({
+"luck": 4
+})
+icon_frame = 0

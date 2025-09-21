@@ -19,6 +19,7 @@ var current_button: int = 0
 
 
 const GAME_INTRO = preload("uid://fy8rujvdasrg")
+const SETTINGS_MENU = preload("uid://re8t7lphu05f")
 
 
 func _ready() -> void:
@@ -66,6 +67,8 @@ func _change_menu(button_index: int) -> void:
 	match button_index:
 		PLAY:
 			get_tree().change_scene_to_packed(GAME_INTRO)
+		SETTINGS:
+			get_tree().change_scene_to_packed(SETTINGS_MENU)
 		QUIT:
 			get_tree().quit()
 		_:

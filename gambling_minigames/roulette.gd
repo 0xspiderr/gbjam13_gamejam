@@ -33,7 +33,7 @@ func ReturnToggleColor():
 func StartSpin():
 	var col
 	var luckRoll = randf_range(0,100)
-	if luckRoll < 15 + 5 * PlayerData.luck:
+	if luckRoll < 15 + 3 * PlayerData.luck:
 		col = color
 	else:
 		col = ReturnToggleColor()

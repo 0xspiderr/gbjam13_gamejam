@@ -20,7 +20,7 @@ func Spin(speed):
 func _physics_process(delta: float) -> void:
 	rotate(rotateSpeed * delta)
 	if isSpinning:
-		rotateSpeed -= delta
+		rotateSpeed -= 2 * delta
 
 
 func _on_arrow_stop(col) -> void:
