@@ -53,9 +53,11 @@ offset_bottom = 50.0
 theme = ExtResource("2_v6flk")
 
 [node name="Key1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(68, 130)
 texture = ExtResource("5_04sy5")
 
 [node name="Key2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(82, 130)
 texture = ExtResource("5_04sy5")

@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://c0xelrs5hsfbc" path="res://sounds/sfx/DiceRoll3.ogg" id="5_jgg25"]
 [ext_resource type="AudioStream" uid="uid://byclhu0er03hv" path="res://sounds/sfx/DiceRoll4.ogg" id="6_ijgaf"]
 [ext_resource type="Theme" uid="uid://808qkkp6tqlj" path="res://ui/themes/combat_main_theme.tres" id="6_uakg0"]
-[ext_resource type="Theme" uid="uid://vxo8j2ok6cvh" path="res://ui/themes/health_n_name_combat_ui.tres" id="9_8cw2p"]
+[ext_resource type="Theme" uid="uid://fgswd6htjv58" path="res://ui/themes/health_n_name_combat_ui.tres" id="9_8cw2p"]
 [ext_resource type="Texture2D" uid="uid://ocy6783bo4an" path="res://assets/recolors/utilities/rolling-dice-animation-recolored.png" id="10_4a6i5"]
 [ext_resource type="Texture2D" uid="uid://cetslkpdwuoos" path="res://assets/recolors/utilities/dice-numbers-recolored.png" id="11_3dmww"]
 [ext_resource type="Texture2D" uid="uid://blbmkjk61756w" path="res://assets/recolors/utilities/card-back.png" id="12_gwckk"]

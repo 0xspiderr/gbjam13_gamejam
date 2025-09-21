@@ -139,7 +139,7 @@ func _draw_card_attack() -> void:
 		await combat_box.text_animation_player.animation_finished
 		dialogue_box.draw_text("Your luck ranout",2)
 		await dialogue_box.text_animation_player.animation_finished
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(2).timeout
 		player_death.emit()
 	
 	dialogue_box.draw_text("",10,false)
@@ -171,13 +171,13 @@ func _draw_card_defence() -> void:
 		await combat_box.text_animation_player.animation_finished
 		dialogue_box.draw_text("You feel your\nluck get better",2)
 		await dialogue_box.text_animation_player.animation_finished
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(2).timeout
 		dialogue_box.draw_text(" you feel fate \nsmile uppon you",2)
 		await dialogue_box.text_animation_player.animation_finished
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(2).timeout
 		dialogue_box.draw_text("(+1 Heart)",2)
 		await dialogue_box.text_animation_player.animation_finished
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(2).timeout
 		enemy_death.emit()
 		
 	dialogue_box.draw_text("",100,false)
