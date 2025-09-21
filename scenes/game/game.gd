@@ -120,10 +120,11 @@ func _change_level_scene(scene: PackedScene) -> void:
 		
 		if instance.name == "Level0":
 			scene_transition.set_rect_color(false)
-		else:
-			scene_transition.set_rect_color(true)
 		elif instance.name.ends_with("Minigame"): # dont show stat ui in minigames
 			stat_ui.Hide()
+			scene_transition.set_rect_color(false)
+		else:
+			scene_transition.set_rect_color(true)
 		
 		scene_transition.play_transitions()
 		await get_tree().create_timer(0.5).timeout
