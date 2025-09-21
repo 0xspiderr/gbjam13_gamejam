@@ -7,11 +7,16 @@ extends Node
 @onready var scene_transition: SceneTransition = $SceneTransition
 @onready var stat_ui: Control = $CanvasLayer/StatUI
 
+
+var current_interactable: InteractableComponent = null
 var current_level: Node2D = null
 var current_enemy: Enemy = null
 var current_npc: NPC = null
 var interactable_scene_change: PackedScene = null
+@onready var door_level_ui: DialogueUI = $CanvasLayer/DoorLevelUI
 
+
+const DIALOGUE_BOX = preload("res://ui/dialogue_box/dialogue_box.tscn")
 const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
 @onready var dialogue_ui: DialogueUI = %DialogueUI
 @onready var dialogue_choices: DialogueChoices = %DialogueChoices
@@ -28,7 +33,7 @@ func _ready() -> void:
 	dialogue_ui.dialogue_finished.connect(_on_dialogue_finished)
 	dialogue_choices.start_dialogue.connect(_on_start_dialogue)
 	dialogue_choices.open_shop.connect(_on_open_shop)
-	
+
 	EventBus.start_combat.connect(_on_start_combat)
 	EventBus.end_combat.connect(_on_end_combat)
 	EventBus.entered_dialogue_area.connect(_on_entered_dialogue_area)
@@ -49,7 +54,8 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("interact"):
 		if PlayerData.can_interact:
-			_change_level_scene(interactable_scene_change)
+			if await _check_can_enter_level():
+				_change_level_scene(interactable_scene_change)
 		
 		if PlayerData.can_talk and is_instance_valid(current_npc):
 			if current_npc.name == "Wife":
@@ -246,12 +252,38 @@ func _on_exited_dialogue_area() -> void:
 
 
 #region INTERACTABLE SIGNALS
-func _on_entered_interactable_area(scene_to_change: PackedScene) -> void:
+func _on_entered_interactable_area(scene_to_change: PackedScene, interactable: InteractableComponent) -> void:
 	interactable_scene_change = scene_to_change
+	current_interactable = interactable
 	PlayerData.can_interact = true
+
+
+func _check_can_enter_level() -> bool:
+	if current_interactable.name.begins_with("Level"):
+		if PlayerData.keys_obtained < current_interactable.interactable_stats.needs_keys:
+			var needed_keys = current_interactable.interactable_stats.needs_keys
+
+			if needed_keys == 1:
+				door_level_ui.npc_name.hide()
+				door_level_ui.npc_sprites.sprite_frames = null
+				door_level_ui.dialogue_box.draw_text("I need the first key\n to enter")
+				door_level_ui.show()
+				await get_tree().create_timer(2.0).timeout
+			elif needed_keys == 2:
+				door_level_ui.npc_name.hide()
+				door_level_ui.npc_sprites.sprite_frames = null
+				door_level_ui.dialogue_box.draw_text("I need the second key\n to enter")
+				door_level_ui.show()
+				await get_tree().create_timer(2.0).timeout
+			PlayerData.can_interact = false
+		else:
+			PlayerData.can_interact = true
+	door_level_ui.hide()
+	return PlayerData.can_interact
 
 
 func _on_exited_interactable_area() -> void:
 	interactable_scene_change = null
+	current_interactable = null
 	PlayerData.can_interact = false
 #endregion

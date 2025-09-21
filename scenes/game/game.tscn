@@ -26,5 +26,8 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
+[node name="DoorLevelUI" parent="CanvasLayer" instance=ExtResource("3_0sr1o")]
+visible = false
+
 [node name="SceneTransition" parent="." instance=ExtResource("5_lfrn8")]
 visible = false

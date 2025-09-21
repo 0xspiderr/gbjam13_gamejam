@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://boe3gvqcntc5i"]
+[gd_scene load_steps=3 format=3 uid="uid://boe3gvqcntc5i"]
 
 [ext_resource type="Script" uid="uid://cuejh3qliusqq" path="res://components/interactable_component/interactable_component.gd" id="1_5pheu"]
+[ext_resource type="PackedScene" uid="uid://b5ho1oy8lu7r5" path="res://ui/dialogue_box/dialogue_box.tscn" id="2_dai5t"]
 
 [node name="InteractableComponent" type="StaticBody2D"]
 script = ExtResource("1_5pheu")
@@ -15,6 +16,17 @@ unique_name_in_owner = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="InteractableComponentArea"]
 unique_name_in_owner = true
+
+[node name="DialogueBox" parent="." instance=ExtResource("2_dai5t")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = 107.0
+offset_right = 151.0
+offset_bottom = 140.0
 
 [connection signal="body_entered" from="InteractableComponentArea" to="." method="_on_interactable_component_area_body_entered"]
 [connection signal="body_exited" from="InteractableComponentArea" to="." method="_on_interactable_component_area_body_exited"]
