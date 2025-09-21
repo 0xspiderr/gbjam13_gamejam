@@ -31,7 +31,6 @@ func ResetSlots(array):
 	winMultiplier = null
 
 func RollSlot():
-	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
 	if slotsRefreshArray[currSlotIndex] > 0: # cosmetic roll
 		var value = randi_range(1,7)
 		while value == slotsArray[currSlotIndex].value:

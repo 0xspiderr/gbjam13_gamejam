@@ -38,21 +38,18 @@ tile_map_data = PackedByteArray("AAAUAP//AAAEAAAAAAARAP//AAAEAAAAAAAQAAAAAAAEAAE
 
 [node name="Enemy" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(195, -189)
-safe_margin = 0.1
 stats = ExtResource("3_bfxgj")
 npc_stats = ExtResource("5_plydf")
 _player = NodePath("../../Player")
 
 [node name="Enemy8" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(819, 334)
-safe_margin = 0.1
 stats = ExtResource("3_bfxgj")
 npc_stats = ExtResource("5_plydf")
 _player = NodePath("../../Player")
 
 [node name="Enemy5" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(32, -179)
-safe_margin = 0.1
 stats = ExtResource("3_bfxgj")
 npc_stats = ExtResource("5_plydf")
 _player = NodePath("../../Player")

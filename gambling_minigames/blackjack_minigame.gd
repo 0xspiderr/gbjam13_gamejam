@@ -98,7 +98,8 @@ func _on_hit_pressed() -> void:
 		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
 
 func _on_stand_pressed() -> void:
-	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
+	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
+	SoundManager.sfx_stream_player.play()
 	blackjackEngine.UpdateState(2) # skip to dealer
 
 func _on_cooldown_timer_timeout() -> void:
