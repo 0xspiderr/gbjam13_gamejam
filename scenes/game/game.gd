@@ -19,6 +19,8 @@ const SHOP_SCENE = preload("res://scenes/shop/shop_scene.tscn")
 const LEVEL_0 = preload("res://scenes/levels/level0.tscn")
 const GENERAL_THEME = preload("res://ui/themes/general_theme.tres")
 const COMBAT_THEME = preload("res://ui/themes/health_n_name_combat_ui.tres")
+const OUTRO_SCENE = preload("res://ui/outro_scene/outro_scene.tscn")
+
 
 #region BUILTIN METHODS
 func _ready() -> void:
@@ -179,6 +181,15 @@ func _on_dialogue_finished() -> void:
 		canvas_layer.add_child(combat_scene, true)
 		combat_scene.player_death.connect(_on_player_death)
 		combat_scene.enemy_death.connect(_on_enemy_death)
+	
+	if current_npc.name == "Wife":
+		var instance = OUTRO_SCENE.instantiate()
+		SoundManager.change_music_stream(SoundManager.OVERWORLD)
+		stat_ui.Hide()
+		current_scene.queue_free()
+		add_child(instance) 
+		return
+	
 	stat_ui.Show()
 
 

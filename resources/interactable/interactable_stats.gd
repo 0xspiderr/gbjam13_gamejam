@@ -7,3 +7,4 @@ extends Resource
 @export var area_size: Vector2
 @export var collision_size: Vector2
 @export var scene_to_change: PackedScene
+@export var needs_keys: int = 0

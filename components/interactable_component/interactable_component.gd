@@ -21,8 +21,9 @@ func _ready() -> void:
 
 
 func _on_interactable_component_area_body_entered(body: Node2D) -> void:
-	if body is Player:
-		EventBus.entered_interactable_area.emit(scene_to_change)
+	if PlayerData.keys_obtained >= interactable_stats.needs_keys:
+		if body is Player:
+			EventBus.entered_interactable_area.emit(scene_to_change)
 
 
 func _set_shapes() -> void:
@@ -36,5 +37,6 @@ func _set_shapes() -> void:
 
 
 func _on_interactable_component_area_body_exited(body: Node2D) -> void:
-	if body is Player:
-		EventBus.exited_interactable_area.emit()
+	if PlayerData.keys_obtained >= interactable_stats.needs_keys:
+		if body is Player:
+			EventBus.exited_interactable_area.emit()
