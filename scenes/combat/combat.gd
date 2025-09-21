@@ -24,7 +24,6 @@ enum
 @onready var combat_box: DialogueBox = %CombatBox
 #endregion
 
-
 #region DICE
 @onready var animated_dice_1: AnimatedSprite2D = $AnimatedDice1
 @onready var animated_dice_2: AnimatedSprite2D = $AnimatedDice2
@@ -136,6 +135,11 @@ func _draw_card_attack() -> void:
 	_reset_dice_pos()
 	
 	if PlayerData.current_health <= 0:
+		combat_box.draw_text("",100,false)
+		await combat_box.text_animation_player.animation_finished
+		dialogue_box.draw_text("Your luck ranout",2)
+		await dialogue_box.text_animation_player.animation_finished
+		await get_tree().create_timer(3).timeout
 		player_death.emit()
 	
 	dialogue_box.draw_text("",10,false)
@@ -145,7 +149,7 @@ func _draw_card_attack() -> void:
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
 	
-	var player_card_value: int = randi_range(2, 13)
+	var player_card_value: int = randi_range(2+floori(PlayerData.luck / 2), 13)
 	var enemy_card_value: int = randi_range(2, 13)
 	
 	_draw_card_anim(player_card_value, enemy_card_value)
@@ -163,17 +167,22 @@ func _draw_card_defence() -> void:
 	_reset_card_pos()
 	_reset_dice_pos()
 	if enemy_health <= 0:
+		combat_box.draw_text("",100,false)
+		await combat_box.text_animation_player.animation_finished
+		dialogue_box.draw_text("You feel your luck get better \nyou feel fate smile uppon you (+1 Heart)",2)
+		await dialogue_box.text_animation_player.animation_finished
+		await get_tree().create_timer(1).timeout
 		enemy_death.emit()
 		
-	dialogue_box.draw_text("",10,false)
+	dialogue_box.draw_text("",100,false)
 	await dialogue_box.text_animation_player.animation_finished
-	combat_box.draw_text("DEFENCE",10,false)
+	combat_box.draw_text("DEFENCE",100,false)
 	await combat_box.text_animation_player.animation_finished
 	
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
 	
-	var player_card_value: int = randi_range(2, 13)
+	var player_card_value: int = randi_range(2+floori(PlayerData.luck / 2), 13)
 	var enemy_card_value: int = randi_range(2, 13)
 	
 	_draw_card_anim(player_card_value, enemy_card_value)
@@ -191,7 +200,7 @@ func _roll_dice() -> void:
 	SoundManager.randomize_pitch_scale(roll_dice_sound)
 	roll_dice_sound.play()
 	
-	var first_player_dice_value: int = randi_range(1, 6)
+	var first_player_dice_value: int = randi_range(1+floori(PlayerData.luck / 5), 6)
 	var second_player_dice_value: int = randi_range(1, 6)
 	
 	_play_dice_anim(first_player_dice_value, second_player_dice_value)
@@ -202,10 +211,11 @@ func _roll_dice() -> void:
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
 	var dice_mult = (first_player_dice_value + second_player_dice_value) / 4
+	print(dice_mult)
 	if first_player_dice_value == second_player_dice_value:
-		_player_deal_damage(2 * dice_mult)
+		_player_deal_damage(2 * min(dice_mult, 1))
 	else:
-		_player_deal_damage(1 * dice_mult)
+		_player_deal_damage(1 * min(dice_mult, 1))
 	_can_interact = true
 
 func _player_deal_damage(mult) -> void:
