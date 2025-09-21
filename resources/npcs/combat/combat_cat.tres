@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=11 format=3 uid="uid://bunk3vkixm6qf"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=27 format=3 uid="uid://bunk3vkixm6qf"]
 
 [ext_resource type="AudioStream" uid="uid://bxlbdcq7wivuc" path="res://sounds/dialogue/Dialogue2.ogg" id="1_6d4ds"]
 [ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="1_fcb2t"]
@@ -8,16 +8,137 @@
 
 [sub_resource type="Resource" id="Resource_6d4ds"]
 script = ExtResource("1_fcb2t")
-speaker = "npc"
-emotion = "neutral"
-line = "sadfasfd"
+speaker = "player"
+emotion = "annoyed"
+line = "It was you all along"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_32gmt"]
 script = ExtResource("1_fcb2t")
 speaker = "npc"
+emotion = "neutral"
+line = "It was kinda obvious"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_ul58w"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
 emotion = "annoyed"
-line = "asdasdw"
+line = "I tried to get rid of 
+   you like 4 times"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_gv82b"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "annoyed"
+line = "Here and now is 
+  where we end this"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_jx441"]
+script = ExtResource("1_fcb2t")
+speaker = "player"
+emotion = "annoyed"
+line = "why do you want 
+my wife so much"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_p6fbi"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "annoyed"
+line = "I dont want your wife"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_yi01j"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "annoyed"
+line = "I want your luck"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_roqkg"]
+script = ExtResource("1_fcb2t")
+speaker = "player"
+emotion = "surprised"
+line = "What luck, and how would
+ you even get it"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_d8pto"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "neutral"
+line = "Its complicated"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_b1ghk"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "annoyed"
+line = "And as it turns out
+ you have no luck "
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_5p62e"]
+script = ExtResource("1_fcb2t")
+speaker = "player"
+emotion = "neutral"
+line = "I expected that much"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_k7cij"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "annoyed"
+line = "I was going to let her
+ go after i took your luck"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_yqbc6"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "neutral"
+line = "But now i dont know 
+ what to do"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_cpw0j"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "annoyed"
+line = "i cant just let you free"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_cahvv"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "annoyed"
+line = "Im already wanted in
+most nations"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_uq7vu"]
+script = ExtResource("1_fcb2t")
+speaker = "player"
+emotion = "smug"
+line = "wow you re a mess"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_mo21p"]
+script = ExtResource("1_fcb2t")
+speaker = "npc"
+emotion = "annoyed"
+line = "says the guy who
+ gambled his wife"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_twcpr"]
+script = ExtResource("1_fcb2t")
+speaker = "player"
+emotion = "annoyed"
+line = "Im done talking to you"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32gmt"]
@@ -51,7 +172,7 @@ animations = [{
 script = ExtResource("2_6nn6k")
 name = "Cat"
 portraits = SubResource("SpriteFrames_gv82b")
-dialogues = Array[ExtResource("1_fcb2t")]([SubResource("Resource_6d4ds"), SubResource("Resource_32gmt")])
+dialogues = Array[ExtResource("1_fcb2t")]([SubResource("Resource_6d4ds"), SubResource("Resource_32gmt"), SubResource("Resource_ul58w"), SubResource("Resource_gv82b"), SubResource("Resource_jx441"), SubResource("Resource_p6fbi"), SubResource("Resource_yi01j"), SubResource("Resource_roqkg"), SubResource("Resource_d8pto"), SubResource("Resource_b1ghk"), SubResource("Resource_5p62e"), SubResource("Resource_k7cij"), SubResource("Resource_yqbc6"), SubResource("Resource_cpw0j"), SubResource("Resource_cahvv"), SubResource("Resource_uq7vu"), SubResource("Resource_mo21p"), SubResource("Resource_twcpr")])
 dialogue_stream = ExtResource("1_6d4ds")
 dialogue_options = Array[int]([])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
