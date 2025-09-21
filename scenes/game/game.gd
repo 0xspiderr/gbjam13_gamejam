@@ -45,7 +45,6 @@ func _input(event: InputEvent) -> void:
 			_change_level_scene(interactable_scene_change)
 		
 		if PlayerData.can_talk and is_instance_valid(current_npc):
-			print("hi")
 			dialogue_choices.choices = current_npc.npc_stats.dialogue_options
 			dialogue_choices.show_choice_buttons()
 			dialogue_choices.show()
@@ -83,12 +82,21 @@ func _get_current_level() -> void:
 
 func _change_level_scene(scene: PackedScene) -> void:
 	if current_scene.get_child_count():
-		var instance := scene.instantiate()
+		var instance
+		if scene == null:
+			instance = LEVEL_0.instantiate()
+		else:
+			instance = scene.instantiate()
 		
-		# temporary solution until combat is implemented
-		if instance.name.begins_with("Level"):
+		if scene == null:
+			SoundManager.change_music_stream(SoundManager.OVERWORLD)
+			scene_transition.set_rect_color(false)
+		elif instance.name.begins_with("Level"):
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
-			scene_transition.play_transitions()
+			scene_transition.set_rect_color(true)
+		
+		scene_transition.play_transitions()
+		await get_tree().create_timer(0.5).timeout
 		current_level = current_scene.get_child(0).duplicate()
 		current_scene.get_child(0).queue_free()
 		current_scene.add_child(instance)
@@ -100,6 +108,7 @@ func _on_start_combat(enemy: Enemy) -> void:
 	PlayerData.toggle_is_in_combat()
 	current_enemy = enemy
 	
+	scene_transition.set_rect_color(true)
 	scene_transition.play_transitions()
 	await get_tree().create_timer(0.5).timeout
 	

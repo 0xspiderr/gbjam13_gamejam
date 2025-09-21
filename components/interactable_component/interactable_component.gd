@@ -7,7 +7,7 @@ extends StaticBody2D
 @onready var area_shape: CollisionShape2D = %AreaShape
 @onready var collision_shape: CollisionShape2D = %CollisionShape
 var scene_to_change: PackedScene = null
-
+const LEVEL_0: PackedScene = preload("res://scenes/levels/level0.tscn")
 
 func _ready() -> void:
 	# when a new interactable spawns get the first animation from it's resource
