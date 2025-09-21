@@ -15,6 +15,8 @@ var tryAgain
 var gameStatus
 var cooldownTimer
 var blackjackEngine
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 func _ready() -> void:
 	#init
@@ -54,21 +56,21 @@ func _process(delta: float) -> void:
 
 
 func _on_raise_pressed() -> void:
-	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
-	SoundManager.sfx_stream_player.play()
+	audio_stream_player.play()
+	
 	if moneyToBet < 100:
 		UpdateBet(moneyToBet + 5)
 
 func _on_lower_pressed() -> void:
-	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
-	SoundManager.sfx_stream_player.play()
+	audio_stream_player.play()
+	
 	if moneyToBet > 5:
 		UpdateBet(moneyToBet - 5)
 
 
 func _on_play_pressed() -> void:
-	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
-	SoundManager.sfx_stream_player.play()
+	audio_stream_player.play()
+	
 	if moneyToBet <= totalMoney:
 		UpdateTotal(totalMoney - moneyToBet)
 		preGame.visible = false
@@ -83,8 +85,8 @@ func _on_play_pressed() -> void:
 			blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80)
 
 func _on_try_again_pressed() -> void:
-	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
-	SoundManager.sfx_stream_player.play()
+	audio_stream_player.play()
+	
 	tryAgain.disabled = true
 	midGame.visible = false
 	preGame.visible = true
@@ -98,7 +100,7 @@ func _on_hit_pressed() -> void:
 		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
 
 func _on_stand_pressed() -> void:
-	SoundManager.sfx_stream_player.play(SoundManager.FLIP_CARD)
+	audio_stream_player.play()
 	blackjackEngine.UpdateState(2) # skip to dealer
 
 func _on_cooldown_timer_timeout() -> void:

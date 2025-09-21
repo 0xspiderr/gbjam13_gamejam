@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=36 format=3 uid="uid://c7wxohcrhptw8"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=36 format=3 uid="uid://dxsd7aq5p24sq"]
 
 [ext_resource type="Script" uid="uid://d1vw4kshx1q10" path="res://resources/enemies/enemy_stats.gd" id="1_8nk1a"]
 [ext_resource type="Texture2D" uid="uid://dfikv1dl3krxm" path="res://assets/recolors/mobs_combat/cards-combat-idle.png" id="1_vww5x"]
