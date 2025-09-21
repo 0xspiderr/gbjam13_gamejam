@@ -21,6 +21,7 @@ enum
 @onready var roll_dice_btn: Button = %RollDiceBtn
 @onready var button_container: CenterContainer = %ButtonContainer
 @onready var dialogue_box: DialogueBox = %DialogueBox
+@onready var combat_box: DialogueBox = %CombatBox
 #endregion
 
 
@@ -138,6 +139,10 @@ func _draw_card_attack() -> void:
 	if PlayerData.current_health <= 0:
 		player_death.emit()
 	
+	dialogue_box.draw_text("")
+	await dialogue_box.text_animation_player.animation_finished
+	combat_box.draw_text("ATTACK")
+	await combat_box.text_animation_player.animation_finished
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
 	
@@ -147,7 +152,7 @@ func _draw_card_attack() -> void:
 	_draw_card_anim(player_card_value, enemy_card_value)
 	if player_card_value > enemy_card_value:
 		_button_toggle()
-	
+		
 	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
@@ -160,6 +165,11 @@ func _draw_card_defence() -> void:
 	_reset_dice_pos()
 	if enemy_health <= 0:
 		enemy_death.emit()
+		
+	dialogue_box.draw_text("")
+	await dialogue_box.text_animation_player.animation_finished
+	combat_box.draw_text("DEFENCE")
+	await combat_box.text_animation_player.animation_finished
 	
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()

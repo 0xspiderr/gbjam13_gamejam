@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cnvqem41boaq6" path="res://assets/combat/characters/dice-combat-idle.png" id="3_uakg0"]
 [ext_resource type="AudioStream" uid="uid://c0xelrs5hsfbc" path="res://sounds/sfx/DiceRoll3.ogg" id="5_jgg25"]
 [ext_resource type="AudioStream" uid="uid://byclhu0er03hv" path="res://sounds/sfx/DiceRoll4.ogg" id="6_ijgaf"]
-[ext_resource type="Theme" path="res://ui/themes/combat_main_theme.tres" id="6_uakg0"]
-[ext_resource type="Theme" path="res://ui/themes/health_n_name_combat_ui.tres" id="9_8cw2p"]
+[ext_resource type="Theme" uid="uid://808qkkp6tqlj" path="res://ui/themes/combat_main_theme.tres" id="6_uakg0"]
+[ext_resource type="Theme" uid="uid://vxo8j2ok6cvh" path="res://ui/themes/health_n_name_combat_ui.tres" id="9_8cw2p"]
 [ext_resource type="Texture2D" uid="uid://ocy6783bo4an" path="res://assets/recolors/utilities/rolling-dice-animation-recolored.png" id="10_4a6i5"]
 [ext_resource type="Texture2D" uid="uid://cetslkpdwuoos" path="res://assets/recolors/utilities/dice-numbers-recolored.png" id="11_3dmww"]
 [ext_resource type="Texture2D" uid="uid://blbmkjk61756w" path="res://assets/recolors/utilities/card-back.png" id="12_gwckk"]
@@ -236,7 +236,31 @@ position = Vector2(74, 51)
 [node name="Card2Pos" type="Marker2D" parent="."]
 position = Vector2(94, 51)
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_top = 104.0
+offset_right = 56.0
+offset_bottom = 144.0
+
+[node name="Panel2" type="Panel" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(56.7, 20)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("6_uakg0")
+
+[node name="CombatBox" parent="HBoxContainer2/Panel2" instance=ExtResource("3_ltalu")]
+unique_name_in_owner = true
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 51.0
+offset_bottom = 15.0
+
 [node name="TestBtn" type="Button" parent="."]
+visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 offset_left = 3.0
@@ -312,7 +336,7 @@ anchor_bottom = 0.0
 offset_left = 6.0
 offset_top = 5.0
 offset_right = 94.0
-offset_bottom = 34.0
+offset_bottom = 35.0
 
 [node name="PlayerPanel" type="Panel" parent="."]
 layout_mode = 0
