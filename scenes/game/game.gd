@@ -65,8 +65,7 @@ func _input(event: InputEvent) -> void:
 		if not scene.name.begins_with("Level"):
 			current_scene.get_child(0).queue_free()
 			current_scene.add_child(current_level)
-			stat_ui.UpdateLuck(int(PlayerData.luck))
-			stat_ui.UpdateMoney(PlayerData.money)
+			stat_ui.Show()
 #endregion
 
 
@@ -120,6 +119,8 @@ func _change_level_scene(scene: PackedScene) -> void:
 			stat_ui.ChangeTheme(COMBAT_THEME, "combat")
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 			scene_transition.set_rect_color(true)
+		elif instance.name.ends_with("Minigame"): # dont show stat ui in minigames
+			stat_ui.Hide()
 		
 		scene_transition.play_transitions()
 		await get_tree().create_timer(0.5).timeout
@@ -131,6 +132,7 @@ func _change_level_scene(scene: PackedScene) -> void:
 
 #region COMBAT SIGNALS
 func _on_start_combat(enemy: Enemy) -> void:
+	stat_ui.Hide()
 	PlayerData.toggle_is_in_combat()
 	current_enemy = enemy
 	
@@ -186,16 +188,16 @@ func _on_player_death() -> void:
 	PlayerData.is_in_combat = false
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
 	stat_ui.ChangeTheme(GENERAL_THEME, "overworld")
-	stat_ui.UpdateLuck(int(PlayerData.luck))
-	stat_ui.UpdateMoney(PlayerData.money)
+	stat_ui.Show()
 	
 func _on_enemy_death() -> void:
-	current_enemy.queue_free()
 	canvas_layer.get_child(2).queue_free()
+	current_enemy.queue_free()
 	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
 	print("enemy die")
 	SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 	PlayerData.is_in_combat = false
+	stat_ui.Show()
 
 func _on_end_combat() -> void:
 	PlayerData.toggle_is_in_combat()
@@ -212,8 +214,7 @@ func _on_end_combat() -> void:
 	# temporary solution until combat is implemented
 	if current_level.name.begins_with("Level"):
 		SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
-	stat_ui.UpdateLuck(int(PlayerData.luck))
-	stat_ui.UpdateMoney(PlayerData.money)
+	stat_ui.Show()
 #endregion
 
 
