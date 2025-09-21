@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 
-@export var speed: float = PlayerData.speed + PlayerData.extra_speed
+#@export var speed: float = PlayerData.speed + PlayerData.extra_speed
 @export var combat_player_sprites: SpriteFrames
 @export var casino_player_sprites: SpriteFrames
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
@@ -42,11 +42,11 @@ func _move_player() -> void:
 	player_dir = Input.get_vector("left", "right", "up", "down")
 	
 	if player_dir == Vector2(1, 0) or player_dir == Vector2(-1, 0):
-		velocity.x = player_dir.x * speed
+		velocity.x = player_dir.x * _total_speed()
 		last_position = position
 		velocity.y = 0
 	if player_dir == Vector2(0, 1) or player_dir == Vector2(0, -1):
-		velocity.y = player_dir.y * speed
+		velocity.y = player_dir.y * _total_speed()
 		velocity.x = 0
 		last_position = position
 	if player_dir not in [Vector2(0, 1), Vector2(0, -1), Vector2(1, 0),Vector2(-1, 0)]:
@@ -54,6 +54,8 @@ func _move_player() -> void:
 		last_position = position
 	
 
+func _total_speed():
+	return PlayerData.speed + PlayerData.extra_speed
 
 func _play_animation() -> void:
 	if last_position == position:
