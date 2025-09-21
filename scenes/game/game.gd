@@ -173,6 +173,7 @@ func _on_enemy_death() -> void:
 	canvas_layer.get_child(2).queue_free()
 	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
 	print("enemy die")
+	SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 	PlayerData.is_in_combat = false
 	
 

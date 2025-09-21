@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://808qkkp6tqlj"]
 
-[ext_resource type="StyleBox" uid="uid://ckibxhk0vqf7s" path="res://ui/themes/stylebox_textures/combat_button.tres" id="1_2b33s"]
-[ext_resource type="StyleBox" uid="uid://bpw3a3eqtxaxp" path="res://ui/themes/stylebox_textures/combat_panel_main.tres" id="1_eebb5"]
+[ext_resource type="StyleBox" path="res://ui/themes/stylebox_textures/combat_button.tres" id="1_2b33s"]
+[ext_resource type="StyleBox" path="res://ui/themes/stylebox_textures/combat_panel_main.tres" id="1_eebb5"]
 
 [resource]
 Button/colors/font_color = Color(0.894118, 0.796078, 0.74902, 1)
