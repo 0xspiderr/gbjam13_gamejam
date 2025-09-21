@@ -8,7 +8,7 @@ extends Node
 @onready var COMBAT = preload("res://sounds/music/Combat.ogg")
 @onready var COMBAT_LEVEL = preload("res://sounds/music/Combat2.ogg")
 @onready var MAIN_MENU_OGG = preload("res://sounds/music/MainMenuOGG.ogg")
-@onready var OVERWORLD = preload("res://sounds/music/Overworld.ogg")
+@onready var OVERWORLD = preload("res://sounds/music/BeepBox-Song (1).mp3")
 #endregion
 
 #region SFX PATHS

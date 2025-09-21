@@ -13,7 +13,10 @@ var current_level: Node2D = null
 var current_enemy: Enemy = null
 var current_npc: NPC = null
 var interactable_scene_change: PackedScene = null
-@onready var door_level_ui: DialogueUI = $CanvasLayer/DoorLevelUI
+
+@onready var dialogue_box: DialogueBox = $CanvasLayer/Panel/DialogueBox
+@onready var panel: Panel = $CanvasLayer/Panel
+
 
 
 const DIALOGUE_BOX = preload("res://ui/dialogue_box/dialogue_box.tscn")
@@ -188,6 +191,9 @@ func _on_dialogue_finished() -> void:
 		combat_scene.player_death.connect(_on_player_death)
 		combat_scene.enemy_death.connect(_on_enemy_death)
 	
+	if not is_instance_valid(current_npc):
+		return
+	
 	if current_npc.name == "Wife":
 		var instance = OUTRO_SCENE.instantiate()
 		SoundManager.change_music_stream(SoundManager.OVERWORLD)
@@ -267,23 +273,21 @@ func _check_can_enter_level() -> bool:
 	if current_interactable.name.begins_with("Level"):
 		if PlayerData.keys_obtained < current_interactable.interactable_stats.needs_keys:
 			var needed_keys = current_interactable.interactable_stats.needs_keys
-
+			PlayerData.is_talking = true
 			if needed_keys == 1:
-				door_level_ui.npc_name.hide()
-				door_level_ui.npc_sprites.sprite_frames = null
-				door_level_ui.dialogue_box.draw_text("I need the first key\n to enter")
-				door_level_ui.show()
-				await get_tree().create_timer(2.0).timeout
+				panel.show()
+				dialogue_box.draw_text("I need the first key\n to enter")
+				await get_tree().create_timer(1.5).timeout
 			elif needed_keys == 2:
-				door_level_ui.npc_name.hide()
-				door_level_ui.npc_sprites.sprite_frames = null
-				door_level_ui.dialogue_box.draw_text("I need the second key\n to enter")
-				door_level_ui.show()
-				await get_tree().create_timer(2.0).timeout
+				panel.show()
+				dialogue_box.draw_text("I need the second key\n to enter")
+				await get_tree().create_timer(1.5).timeout
+			
 			PlayerData.can_interact = false
 		else:
 			PlayerData.can_interact = true
-	door_level_ui.hide()
+	panel.hide()
+	PlayerData.is_talking = false
 	return PlayerData.can_interact
 
 
