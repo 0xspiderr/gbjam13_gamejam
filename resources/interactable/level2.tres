@@ -26,5 +26,5 @@ sprite_frames = SubResource("SpriteFrames_isqdo")
 area_size = Vector2(28, 35)
 collision_size = Vector2(24, 24)
 scene_to_change = ExtResource("1_cdnp0")
-needs_keys = 1
+needs_keys = 0
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"
