@@ -54,6 +54,8 @@ text = "Volume:"
 [node name="Volume_Slider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 value = 100.0
+editable = false
+scrollable = false
 
 [node name="Brightness_Label" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
@@ -62,6 +64,8 @@ text = "Brightness:"
 [node name="Brightness_Slider" type="HSlider" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 value = 50.0
+editable = false
+scrollable = false
 
 [node name="Back_Button" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
