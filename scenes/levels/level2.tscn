@@ -21,6 +21,13 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(17, -103, 170, -102, 17
 
 [node name="Level2" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -480.0
+offset_top = -550.0
+offset_right = 1613.0
+offset_bottom = 1063.0
+color = Color(0.172549, 0, 0.0862745, 1)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(6, 199)
 navigation_polygon = SubResource("NavigationPolygon_ida7w")

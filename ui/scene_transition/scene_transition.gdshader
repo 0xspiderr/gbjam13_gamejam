@@ -2,11 +2,12 @@ shader_type canvas_item;
 
 uniform float dissolve = 0.0;
 uniform sampler2D noise_texture;
+uniform vec4 color = vec4(0.0, 0.0, 0.0, 1.0);
 
 void fragment() {
 	float dither = texture(noise_texture, SCREEN_UV).r;
 	float alpha = step(dither, dissolve);
-	COLOR = vec4(vec3(0.0), alpha);
+	COLOR = vec4(color.rgb, alpha);
 }
 
 //void light() {

@@ -7,7 +7,7 @@ extends Control
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
-func draw_text(text: String, speed: float = 1,sound: bool = true) -> void:
+func draw_text(text: String, speed: float = 1, sound: bool = true) -> void:
 	dialogue_label.text = ""
 	text_animation_player.speed_scale = speed
 	
