@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="InteractableStats" load_steps=8 format=3 uid="uid://dsk3tx6utnomq"]
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=8 format=3 uid="uid://beip2fg1lsyu"]
 
 [ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_8muj8"]
-[ext_resource type="PackedScene" uid="uid://cx5lyi3aqmvhm" path="res://scenes/levels/level0AfterReturn.tscn" id="1_ux7yn"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level0AfterReturn.tscn" id="1_ux7yn"]
 [ext_resource type="Texture2D" uid="uid://py883dvxftpg" path="res://assets/tilesets/casino_tileset/door-closed.png" id="2_ymq3l"]
 [ext_resource type="Texture2D" uid="uid://w8mv7ic55rsf" path="res://assets/tilesets/casino_tileset/door-open.png" id="3_v1kvk"]
 
