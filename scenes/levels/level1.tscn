@@ -62,12 +62,12 @@ stats = ExtResource("11_nfihu")
 _player = NodePath("../../Player")
 
 [node name="Enemy14" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(-108, 305)
+position = Vector2(82, 71)
 stats = ExtResource("11_nfihu")
 _player = NodePath("../../Player")
 
 [node name="Enemy7" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(81, 62)
+position = Vector2(644, 663)
 stats = ExtResource("5_dywbp")
 npc_stats = ExtResource("6_8a7m2")
 _player = NodePath("../../Player")
@@ -98,21 +98,21 @@ stats = ExtResource("10_nkeig")
 _player = NodePath("../../Player")
 
 [node name="Enemy13" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(596.804, 691.124)
+position = Vector2(-44, 340)
 stats = ExtResource("6_1seuy")
 npc_stats = ExtResource("9_5ntmo")
 _player = NodePath("../../Player")
 
 [node name="Enemy12" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(767, 565)
+position = Vector2(324, 193)
 stats = ExtResource("11_nfihu")
 _player = NodePath("../../Player")
 
 [node name="Interactable" type="Node2D" parent="."]
 
 [node name="InteractableComponent" parent="Interactable" instance=ExtResource("10_lgguw")]
-position = Vector2(685, 517)
+position = Vector2(573, 660)
 interactable_stats = ExtResource("11_lgguw")
 
 [node name="Player" parent="." instance=ExtResource("3_dd0lh")]
-position = Vector2(710, 552)
+position = Vector2(572, 685)
