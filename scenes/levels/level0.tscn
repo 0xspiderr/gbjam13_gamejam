@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=30 format=4 uid="uid://c6onavsfv4e3e"]
 
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
 [ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://cagmm2q14boj" path="res://resources/interactable/level1.tres" id="18_3ebcg"]
 [ext_resource type="Texture2D" uid="uid://bmwxnil5v6m3v" path="res://assets/tilesets/doors/entrance_door_2_tiles.png" id="19_3ebcg"]
 [ext_resource type="Resource" uid="uid://dctt224id0g20" path="res://resources/interactable/level2.tres" id="19_luu1i"]
+[ext_resource type="Resource" uid="uid://d4i31h5qkcxnk" path="res://resources/interactable/level3.tres" id="20_db1u1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
@@ -454,8 +455,12 @@ position = Vector2(-139, 11)
 interactable_stats = ExtResource("18_3ebcg")
 
 [node name="LevelDoor2" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
-position = Vector2(185, 11)
+position = Vector2(181, 11)
 interactable_stats = ExtResource("19_luu1i")
+
+[node name="LevelDoor3" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+position = Vector2(96, 60)
+interactable_stats = ExtResource("20_db1u1")
 
 [node name="EntranceDoor" type="Sprite2D" parent="."]
 position = Vector2(78, 260)
