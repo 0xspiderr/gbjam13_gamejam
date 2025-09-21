@@ -277,11 +277,11 @@ func _check_can_enter_level() -> bool:
 			PlayerData.is_talking = true
 			if needed_keys == 1:
 				panel.show()
-				dialogue_box.draw_text("I need the first key\n to enter")
+				dialogue_box.draw_text("I need a key\n to enter")
 				await get_tree().create_timer(1.5).timeout
 			elif needed_keys == 2:
 				panel.show()
-				dialogue_box.draw_text("I need the second key\n to enter")
+				dialogue_box.draw_text("I need two keys\n to enter")
 				await get_tree().create_timer(1.5).timeout
 			
 			PlayerData.can_interact = false
