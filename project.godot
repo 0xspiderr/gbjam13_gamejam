@@ -21,6 +21,7 @@ SoundManager="*res://singletons/sound/sound_manager.tscn"
 EventBus="*res://singletons/event_bus.gd"
 PlayerData="*res://singletons/player_data.gd"
 UIManager="*res://singletons/ui_manager.gd"
+GlobalWorldEnvironment="*res://scenes/environment/world_environment.tscn"
 
 [display]
 
