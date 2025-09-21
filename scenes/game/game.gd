@@ -148,7 +148,7 @@ func _change_level_scene(scene: PackedScene) -> void:
 #region COMBAT SIGNALS
 func _on_start_combat(enemy: Enemy) -> void:
 	stat_ui.Hide()
-	PlayerData.toggle_is_in_combat()
+	PlayerData.is_in_combat = true
 	current_enemy = enemy
 
 	scene_transition.set_rect_color(true)
@@ -230,6 +230,7 @@ func _on_enemy_death() -> void:
 	SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 	PlayerData.is_in_combat = false
 	stat_ui.Show()
+
 
 func _on_end_combat() -> void:
 	PlayerData.toggle_is_in_combat()
