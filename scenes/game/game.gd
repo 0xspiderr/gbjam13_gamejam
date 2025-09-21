@@ -206,7 +206,7 @@ func _on_dialogue_finished() -> void:
 
 
 func _on_player_death() -> void:
-	canvas_layer.get_child(3).queue_free()
+	canvas_layer.get_child(4).queue_free()
 	current_scene.get_child(0).queue_free()
 	current_scene.add_child(LEVEL_0.instantiate())
 	PlayerData.current_health =(PlayerData.max_health + PlayerData.extra_health)
@@ -223,7 +223,7 @@ func _on_enemy_death() -> void:
 	elif current_enemy.stats.name == "broken mirror":
 		PlayerData.keys_obtained = 2
 		stat_ui.ShowKey(PlayerData.keys_obtained)
-	canvas_layer.get_child(3).queue_free()
+	canvas_layer.get_child(4).queue_free()
 	current_enemy.queue_free()
 	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
 	PlayerData.current_health = min(PlayerData.current_health + 20, PlayerData.max_health)
