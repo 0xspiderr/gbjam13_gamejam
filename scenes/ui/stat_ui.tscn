@@ -47,9 +47,11 @@ text = "100"
 vertical_alignment = 1
 
 [node name="Key1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(60, 16)
 texture = ExtResource("5_04sy5")
 
 [node name="Key2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(60, 34)
 texture = ExtResource("5_04sy5")
