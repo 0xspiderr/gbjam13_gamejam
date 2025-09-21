@@ -52,9 +52,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event.is_action_pressed("right"):
 				if brightness_slider.value<=100:
 					brightness_slider.value +=5
+					GlobalWorldEnvironment.environment.adjustment_brightness += 0.05
 			if event.is_action_pressed("left"):
 				if brightness_slider.value - 5 >= 0:
 					brightness_slider.value -=5
+					GlobalWorldEnvironment.environment.adjustment_brightness -= 0.05
 	if is_inside_tree():
 		ui_elems[index].grab_focus()
 
