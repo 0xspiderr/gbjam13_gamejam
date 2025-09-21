@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgasbu3xvl0ur"]
+[gd_scene load_steps=4 format=3 uid="uid://bgasbu3xvl0ur"]
 
 [ext_resource type="Script" uid="uid://crlwdtmeh7yud" path="res://ui/menus/main_menu.gd" id="1_5oih7"]
+[ext_resource type="Texture2D" uid="uid://namnbfcnibet" path="res://assets/main_menu_assets/main-menu-bg.png" id="2_qc8qn"]
+[ext_resource type="Theme" uid="uid://bg1cosokbl03" path="res://ui/themes/main_menu_theme.tres" id="3_5ssi0"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,46 +13,90 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5oih7")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_qc8qn")
 
-[node name="VBoxButtons" type="VBoxContainer" parent="MarginContainer"]
-unique_name_in_owner = true
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -15.0
+offset_right = 34.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+theme = ExtResource("3_5ssi0")
 
-[node name="PlayBtn" type="Button" parent="MarginContainer/VBoxButtons"]
+[node name="VBoxButtons" type="VBoxContainer" parent="PanelContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -34.0
+offset_right = 28.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_5ssi0")
+alignment = 1
+
+[node name="PlayBtn" type="Button" parent="PanelContainer/Panel/VBoxButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
+theme = ExtResource("3_5ssi0")
+theme_override_colors/font_outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 theme_override_font_sizes/font_size = 16
 text = "PLAY"
 
-[node name="SettingsBtn" type="Button" parent="MarginContainer/VBoxButtons"]
+[node name="SettingsBtn" type="Button" parent="PanelContainer/Panel/VBoxButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 theme_override_font_sizes/font_size = 16
 text = "SETTINGS"
 
-[node name="QuitBtn" type="Button" parent="MarginContainer/VBoxButtons"]
+[node name="QuitBtn" type="Button" parent="PanelContainer/Panel/VBoxButtons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 theme_override_font_sizes/font_size = 16
 text = "QUIT"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = 49.0
+offset_right = 37.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
