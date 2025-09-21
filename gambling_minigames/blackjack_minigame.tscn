@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://wikpds4xmuvt"]
+[gd_scene load_steps=13 format=3 uid="uid://wikpds4xmuvt"]
 
 [ext_resource type="Script" uid="uid://dwfh6rw1vmhy4" path="res://gambling_minigames/blackjack_minigame.gd" id="1_7vd6g"]
 [ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_8vw1g"]
 [ext_resource type="PackedScene" uid="uid://b5nv0mtg24h0x" path="res://gambling_minigames/blackjack.tscn" id="2_pdxap"]
+[ext_resource type="AudioStream" uid="uid://cr0xvseab1ygj" path="res://sounds/sfx/FlipCard.ogg" id="4_pdxap"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81nil"]
 outline_size = 3
@@ -207,6 +208,9 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pdxap")
 
 [connection signal="state_changed" from="BlackJack" to="." method="_on_state_changed"]
 [connection signal="pressed" from="PreGame/Play" to="." method="_on_play_pressed"]

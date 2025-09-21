@@ -2,6 +2,7 @@ extends Node2D
 
 var state
 var winMultiplier
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 
 var slotsArray
 var slotsRefreshArray
@@ -31,6 +32,7 @@ func ResetSlots(array):
 	winMultiplier = null
 
 func RollSlot():
+	audio_stream_player.play()
 	if slotsRefreshArray[currSlotIndex] > 0: # cosmetic roll
 		var value = randi_range(1,7)
 		while value == slotsArray[currSlotIndex].value:

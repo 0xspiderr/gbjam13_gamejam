@@ -18,8 +18,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("2_b5ovy")
 speaker = "player"
 emotion = "neutral"
-line = "Finally someone
-  with common sense"
+line = "Finally someone normal"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_tm7hs"]
@@ -34,7 +33,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("2_b5ovy")
 speaker = "player"
 emotion = "neutral"
-line = "Forget what i just said"
+line = "Nevermind"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tm7hs"]

@@ -14,14 +14,16 @@ var interactable_scene_change: PackedScene = null
 const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
 @onready var dialogue_ui: DialogueUI = %DialogueUI
 @onready var dialogue_choices: DialogueChoices = %DialogueChoices
-
+const SHOP_SCENE = preload("res://scenes/shop/shop_scene.tscn")
 const LEVEL_0 = preload("res://scenes/levels/level0.tscn")
+
 
 #region BUILTIN METHODS
 func _ready() -> void:
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
 	dialogue_ui.dialogue_finished.connect(_on_dialogue_finished)
 	dialogue_choices.start_dialogue.connect(_on_start_dialogue)
+	dialogue_choices.open_shop.connect(_on_open_shop)
 	
 	EventBus.start_combat.connect(_on_start_combat)
 	EventBus.end_combat.connect(_on_end_combat)
@@ -34,7 +36,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# dont process player input if in combat or if talking
 	# to an npc.
-	if PlayerData.is_in_combat or PlayerData.is_talking or PlayerData.is_selecting_choice:
+	if PlayerData.is_in_combat or PlayerData.is_talking or PlayerData.is_selecting_choice or \
+	PlayerData.is_shopping:
 		return
 	
 	if event.is_action_pressed("interact"):
@@ -66,6 +69,12 @@ func _on_start_dialogue() -> void:
 	dialogue_ui.visible = true
 
 
+func _on_open_shop() -> void:
+	PlayerData.is_shopping = true
+	var instance = SHOP_SCENE.instantiate()
+	canvas_layer.add_child(instance)
+
+
 func _get_current_level() -> void:
 	if current_scene.get_child_count():
 		current_level = current_scene.get_child(0)
@@ -73,12 +82,21 @@ func _get_current_level() -> void:
 
 func _change_level_scene(scene: PackedScene) -> void:
 	if current_scene.get_child_count():
-		var instance := scene.instantiate()
+		var instance
+		if scene == null:
+			instance = LEVEL_0.instantiate()
+		else:
+			instance = scene.instantiate()
 		
-		# temporary solution until combat is implemented
-		if instance.name.begins_with("Level"):
+		if scene == null:
+			SoundManager.change_music_stream(SoundManager.OVERWORLD)
+			scene_transition.set_rect_color(false)
+		elif instance.name.begins_with("Level"):
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
+			scene_transition.set_rect_color(true)
+		
 		scene_transition.play_transitions()
+		await get_tree().create_timer(0.5).timeout
 		current_level = current_scene.get_child(0).duplicate()
 		current_scene.get_child(0).queue_free()
 		current_scene.add_child(instance)
@@ -90,6 +108,7 @@ func _on_start_combat(enemy: Enemy) -> void:
 	PlayerData.toggle_is_in_combat()
 	current_enemy = enemy
 	
+	scene_transition.set_rect_color(true)
 	scene_transition.play_transitions()
 	await get_tree().create_timer(0.5).timeout
 	

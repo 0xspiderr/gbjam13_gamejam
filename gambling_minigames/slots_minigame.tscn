@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxgfacmnppn7h"]
+[gd_scene load_steps=12 format=3 uid="uid://cxgfacmnppn7h"]
 
 [ext_resource type="Script" uid="uid://5h8qseebioe2" path="res://gambling_minigames/slots_minigame.gd" id="1_gubm0"]
 [ext_resource type="PackedScene" uid="uid://cnskh7rh06en0" path="res://gambling_minigames/slots.tscn" id="2_0jwqi"]
 [ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_nf43e"]
 [ext_resource type="Texture2D" uid="uid://d23r6v5iuq10j" path="res://gambling_assets/slot_machine_placeholder.png" id="3_nf43e"]
 [ext_resource type="PackedScene" uid="uid://b14pmmqyhed3f" path="res://gambling_minigames/slot.tscn" id="4_do5dl"]
+[ext_resource type="AudioStream" uid="uid://cr0xvseab1ygj" path="res://sounds/sfx/FlipCard.ogg" id="6_0jwqi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vvi6l"]
 outline_size = 3
@@ -151,6 +152,9 @@ offset_bottom = 12.0
 text = "LOWER"
 label_settings = SubResource("LabelSettings_mrrow")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0jwqi")
 
 [connection signal="state_changed" from="SlotsEngine" to="." method="_on_state_changed"]
 [connection signal="pressed" from="Footer/Play" to="." method="_on_play_pressed"]

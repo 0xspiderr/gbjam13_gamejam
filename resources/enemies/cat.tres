@@ -1,0 +1,123 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=19 format=3 uid="uid://dpjusi5v3dfvw"]
+
+[ext_resource type="Script" uid="uid://d1vw4kshx1q10" path="res://resources/enemies/enemy_stats.gd" id="1_4hmj2"]
+[ext_resource type="Texture2D" uid="uid://jpcx2305f6c1" path="res://assets/recolors/mobs_combat/cat-boss-combat-idle.png" id="1_j7l2u"]
+[ext_resource type="Texture2D" uid="uid://sh66axd6keq6" path="res://assets/recolors/combat_sprites/black-cat-idle-combat.png" id="2_2bvm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erhek"]
+atlas = ExtResource("1_j7l2u")
+region = Rect2(0, 0, 57, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puahh"]
+atlas = ExtResource("1_j7l2u")
+region = Rect2(57, 0, 57, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihjlf"]
+atlas = ExtResource("1_j7l2u")
+region = Rect2(114, 0, 57, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krdxx"]
+atlas = ExtResource("1_j7l2u")
+region = Rect2(171, 0, 57, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vb0e"]
+atlas = ExtResource("1_j7l2u")
+region = Rect2(228, 0, 57, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0pr3"]
+atlas = ExtResource("1_j7l2u")
+region = Rect2(285, 0, 57, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2bvm0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erhek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puahh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihjlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krdxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vb0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0pr3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7l2u"]
+atlas = ExtResource("2_2bvm0")
+region = Rect2(0, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekcp6"]
+atlas = ExtResource("2_2bvm0")
+region = Rect2(12, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wljqk"]
+atlas = ExtResource("2_2bvm0")
+region = Rect2(24, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm845"]
+atlas = ExtResource("2_2bvm0")
+region = Rect2(36, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p08vf"]
+atlas = ExtResource("2_2bvm0")
+region = Rect2(48, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ho5h"]
+atlas = ExtResource("2_2bvm0")
+region = Rect2(60, 0, 12, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klyll"]
+atlas = ExtResource("2_2bvm0")
+region = Rect2(72, 0, 12, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_erhek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7l2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekcp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wljqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm845")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p08vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ho5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klyll")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_4hmj2")
+name = "Cat"
+speed = 30
+chase_speed = 35
+max_health = 50
+damage = 40
+sprite_frames = SubResource("SpriteFrames_erhek")
+combat_sprite_frames = SubResource("SpriteFrames_2bvm0")
+metadata/_custom_type_script = "uid://d1vw4kshx1q10"
