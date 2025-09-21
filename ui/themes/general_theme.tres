@@ -32,5 +32,5 @@ HSlider/styles/grabber_area = ExtResource("3_8c877")
 HSlider/styles/grabber_area_highlight = ExtResource("3_8c877")
 HSlider/styles/slider = ExtResource("4_enwts")
 Label/colors/font_color = Color(0.984314, 0.980392, 0.921569, 1)
-Label/constants/outline_size = 0
+Label/constants/outline_size = 20
 Panel/styles/panel = ExtResource("3_un25b")
