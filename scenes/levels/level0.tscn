@@ -339,7 +339,7 @@ position = Vector2(78, 85)
 interactable_stats = ExtResource("15_yxkm4")
 
 [node name="Player" parent="YSort" instance=ExtResource("1_cperm")]
-position = Vector2(78, 241)
+position = Vector2(77, 131)
 
 [node name="NPCs" type="Node2D" parent="YSort"]
 y_sort_enabled = true

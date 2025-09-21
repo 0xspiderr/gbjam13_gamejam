@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dyi4yred14us4"]
+[gd_scene load_steps=15 format=4 uid="uid://dyi4yred14us4"]
 
 [ext_resource type="PackedScene" uid="uid://cxcv5f6sr7y6l" path="res://scenes/levels/tilemap_layers/combat_tilemap_layer.tscn" id="1_2r1tl"]
 [ext_resource type="PackedScene" uid="uid://cp6enqfwfeyu7" path="res://scenes/enemy/enemy.tscn" id="2_4tcl0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="3_dd0lh"]
 [ext_resource type="Resource" uid="uid://dyakpr6vdjkd5" path="res://resources/enemies/devil.tres" id="5_dywbp"]
 [ext_resource type="Resource" uid="uid://btsx4fvp17suh" path="res://resources/enemies/stair.tres" id="6_1seuy"]
+[ext_resource type="Resource" uid="uid://bdlxwkorwxkdh" path="res://resources/npcs/combat/combat_devil.tres" id="6_8a7m2"]
 [ext_resource type="Resource" uid="uid://bberg6osf7m7q" path="res://resources/npcs/combat/combat_stair.tres" id="9_5ntmo"]
 [ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="10_lgguw"]
 [ext_resource type="Resource" uid="uid://dxsd7aq5p24sq" path="res://resources/enemies/card_mob.tres" id="10_nkeig"]
@@ -61,8 +62,9 @@ stats = ExtResource("11_nfihu")
 _player = NodePath("../../Player")
 
 [node name="Enemy7" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(-161, 297)
+position = Vector2(86, 67)
 stats = ExtResource("5_dywbp")
+npc_stats = ExtResource("6_8a7m2")
 _player = NodePath("../../Player")
 
 [node name="Enemy3" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
@@ -112,4 +114,4 @@ position = Vector2(47, -12)
 interactable_stats = ExtResource("11_lgguw")
 
 [node name="Player" parent="." instance=ExtResource("3_dd0lh")]
-position = Vector2(83, 50)
+position = Vector2(67, 11)
