@@ -5,7 +5,7 @@ extends Node
 @onready var current_scene: Node = $CurrentScene
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var scene_transition: SceneTransition = $SceneTransition
-@onready var stat_ui: Control = $CanvasLayer/StatUI
+@onready var stat_ui: StatUI = $CanvasLayer/StatUI
 
 var current_level: Node2D = null
 var current_enemy: Enemy = null
@@ -194,6 +194,12 @@ func _on_player_death() -> void:
 	stat_ui.Show()
 	
 func _on_enemy_death() -> void:
+	if current_enemy.stats.name == "stair":
+		PlayerData.keys_obtained = 1
+		stat_ui.ShowKey(PlayerData.keys_obtained)
+	elif current_enemy.stats.name == "broken mirror":
+		PlayerData.keys_obtained = 2
+		stat_ui.ShowKey(PlayerData.keys_obtained)
 	canvas_layer.get_child(3).queue_free()
 	current_enemy.queue_free()
 	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)

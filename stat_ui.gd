@@ -1,3 +1,4 @@
+class_name StatUI
 extends Control
 
 @onready var panel: Panel = $Panel

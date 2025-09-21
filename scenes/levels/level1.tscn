@@ -101,6 +101,7 @@ _player = NodePath("../../Player")
 
 [node name="Enemy13" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(811, 523)
+scale = Vector2(1.00879, 1)
 stats = ExtResource("6_1seuy")
 npc_stats = ExtResource("9_5ntmo")
 _player = NodePath("../../Player")
