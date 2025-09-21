@@ -198,7 +198,7 @@ func _roll_dice() -> void:
 	_button_toggle()
 	var text = "You rolled %s & %s" % [first_player_dice_value, second_player_dice_value]
 	if first_player_dice_value == second_player_dice_value:
-		text += " Critical hit!"
+		text += "\nCritical hit!"
 	dialogue_box.draw_text(text)
 	await dialogue_box.text_animation_player.animation_finished
 	var dice_mult = (first_player_dice_value + second_player_dice_value) / 4

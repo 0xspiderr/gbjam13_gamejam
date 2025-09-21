@@ -1,0 +1,49 @@
+extends Control
+
+@onready var panel: Panel = $Panel
+@onready var luck_icon: Sprite2D = $Panel/Luck/Icon
+@onready var luck_text: Label = $Panel/Luck/Text
+@onready var money_text: Label = $Panel/Money/Text
+@onready var money_icon: Sprite2D = $Panel/Money/Icon
+@onready var key_1: Sprite2D = $Key1
+@onready var key_2: Sprite2D = $Key2
+
+@onready var current_theme:String = "overworld"
+
+func ChangeTheme(new_theme, theme_string):
+	current_theme = theme_string
+	panel.theme = new_theme
+	luck_text.theme = new_theme
+	money_text.theme = new_theme
+	match current_theme:
+		"overworld":
+			luck_icon.texture = preload("res://assets/ui_icons/luck_icon.png")
+			money_icon.texture = preload("res://assets/ui_icons/money-icon.png")
+			key_1.texture = load("res://assets/ui_icons/key-icon.png")
+			key_2.texture = load("res://assets/ui_icons/key-icon.png")
+		"combat":
+			luck_icon.texture = preload("res://assets/ui_icons/luck_icon-recolor.png")
+			money_icon.texture = preload("res://assets/ui_icons/money-icon-recolored.png")
+			key_1.texture = load("res://assets/ui_icons/key-icon-recolored.png")
+			key_2.texture = load("res://assets/ui_icons/key-icon-recolored.png")
+
+func UpdateLuck(new):
+	luck_text.text = str(new)
+
+func UpdateMoney(new):
+	money_text.text = str(new)
+
+func Show():
+	self.visible = true
+	UpdateLuck(int(PlayerData.luck))
+	UpdateMoney(PlayerData.money)
+
+func Hide():
+	self.visible = false
+
+func ShowKey(key):
+	match key:
+		1:
+			key_1.visible = true
+		2:
+			key_2.visible = true
