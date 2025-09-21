@@ -1,8 +1,148 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgasbu3xvl0ur"]
+[gd_scene load_steps=14 format=3 uid="uid://bgasbu3xvl0ur"]
 
 [ext_resource type="Script" uid="uid://crlwdtmeh7yud" path="res://ui/menus/main_menu.gd" id="1_5oih7"]
 [ext_resource type="Texture2D" uid="uid://namnbfcnibet" path="res://assets/main_menu_assets/main-menu-bg.png" id="2_qc8qn"]
-[ext_resource type="Theme" uid="uid://bg1cosokbl03" path="res://ui/themes/main_menu_theme.tres" id="3_5ssi0"]
+[ext_resource type="Theme" path="res://ui/themes/main_menu_theme.tres" id="3_5ssi0"]
+[ext_resource type="Texture2D" uid="uid://b3rfplgk8pcfi" path="res://assets/main_menu_assets/title-outline.png" id="3_h223f"]
+[ext_resource type="Texture2D" uid="uid://coh6f6b810ucw" path="res://assets/main_menu_assets/chip-pink.png" id="3_u0fm7"]
+[ext_resource type="Texture2D" uid="uid://dfolox7f274qi" path="res://assets/main_menu_assets/title-x.png" id="5_l3r6a"]
+[ext_resource type="Texture2D" uid="uid://bgch553ye24js" path="res://assets/main_menu_assets/title-spade-ace.png" id="6_vuv8w"]
+[ext_resource type="Texture2D" uid="uid://cskg3o48lhxnk" path="res://assets/main_menu_assets/title-clubs-ace.png" id="7_u0fm7"]
+[ext_resource type="Texture2D" uid="uid://jcic0gia30j3" path="res://assets/main_menu_assets/title-text.png" id="8_tg3eq"]
+[ext_resource type="Texture2D" uid="uid://bxitw2eoslwcm" path="res://assets/main_menu_assets/chip-purple.png" id="10_tg3eq"]
+
+[sub_resource type="Animation" id="Animation_l3r6a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(79, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Title_Text:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Title_X:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(93, 45)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Pink_Chip:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Purple_Chip:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.174533]
+}
+
+[sub_resource type="Animation" id="Animation_h223f"]
+resource_name = "Title_Move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.166667, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(79, 37), Vector2(79, 39), Vector2(79, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Title_Text:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(80, 36), Vector2(80, 39), Vector2(80, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Title_X:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.166667, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(93, 45), Vector2(93, 43)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Pink_Chip:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.166667, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.174533]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Purple_Chip:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.333333, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.174533, 0.349066]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kjlq"]
+_data = {
+&"RESET": SubResource("Animation_l3r6a"),
+&"Title_Move": SubResource("Animation_h223f")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,6 +161,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_qc8qn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Title_Outline")
+libraries = {
+&"": SubResource("AnimationLibrary_1kjlq")
+}
+autoplay = "Title_Move"
+
+[node name="Pink_Chip" type="Sprite2D" parent="."]
+position = Vector2(116, 94)
+texture = ExtResource("3_u0fm7")
+
+[node name="Title_Outline" type="Sprite2D" parent="."]
+position = Vector2(79, 37)
+texture = ExtResource("3_h223f")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -88,15 +243,23 @@ theme_override_colors/font_outline_color = Color(0.0588235, 0.0156863, 0.0588235
 theme_override_font_sizes/font_size = 16
 text = "QUIT"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = 49.0
-offset_right = 37.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Title_X" type="Sprite2D" parent="."]
+position = Vector2(93, 45)
+texture = ExtResource("5_l3r6a")
+
+[node name="Spade_Ace" type="Sprite2D" parent="."]
+position = Vector2(50, 22)
+texture = ExtResource("6_vuv8w")
+
+[node name="Clubs_Ace" type="Sprite2D" parent="."]
+position = Vector2(91, 44)
+texture = ExtResource("7_u0fm7")
+
+[node name="Title_Text" type="Sprite2D" parent="."]
+position = Vector2(80, 36)
+texture = ExtResource("8_tg3eq")
+
+[node name="Purple_Chip" type="Sprite2D" parent="."]
+position = Vector2(44, 131)
+rotation = 0.174533
+texture = ExtResource("10_tg3eq")

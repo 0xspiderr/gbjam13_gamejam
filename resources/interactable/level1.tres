@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=6 format=3 uid="uid://cagmm2q14boj"]
+
+[ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_l8g4y"]
+[ext_resource type="PackedScene" uid="uid://dyi4yred14us4" path="res://scenes/levels/level1.tscn" id="1_n8r3b"]
+[ext_resource type="Texture2D" uid="uid://py883dvxftpg" path="res://assets/tilesets/casino_tileset/door-closed.png" id="2_7pslb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pslb"]
+atlas = ExtResource("2_7pslb")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8g4y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pslb")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_l8g4y")
+name = "Level1"
+sprite_frames = SubResource("SpriteFrames_l8g4y")
+area_size = Vector2(28, 35)
+collision_size = Vector2(24, 24)
+scene_to_change = ExtResource("1_n8r3b")
+metadata/_custom_type_script = "uid://bbnwp50rt7iwt"

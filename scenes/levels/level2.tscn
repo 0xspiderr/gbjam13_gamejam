@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dfuu3m0gnanxv"]
+[gd_scene load_steps=14 format=4 uid="uid://dfuu3m0gnanxv"]
 
 [ext_resource type="PackedScene" uid="uid://cxcv5f6sr7y6l" path="res://scenes/levels/tilemap_layers/combat_tilemap_layer.tscn" id="1_71baw"]
 [ext_resource type="PackedScene" uid="uid://dhwp28rueuyv4" path="res://scenes/levels/tilemap_layers/decorations_tilemap_layer.tscn" id="2_niitk"]
@@ -8,8 +8,10 @@
 [ext_resource type="Resource" uid="uid://dyakpr6vdjkd5" path="res://resources/enemies/devil.tres" id="6_f3b2k"]
 [ext_resource type="Resource" uid="uid://bdlxwkorwxkdh" path="res://resources/npcs/combat/combat_devil.tres" id="7_sqrei"]
 [ext_resource type="Resource" uid="uid://dktxfetfxf8tn" path="res://resources/npcs/combat/combat_broken_mirror.tres" id="9_4eecq"]
+[ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="10_8i1lk"]
 [ext_resource type="Resource" uid="uid://dvvs1eu0rmvuw" path="res://resources/enemies/chip_mob.tres" id="10_b3p8y"]
 [ext_resource type="Resource" uid="uid://jy4y2uxp7we2" path="res://resources/enemies/ghost_mob.tres" id="11_bxuut"]
+[ext_resource type="Resource" uid="uid://dou44kttwatn5" path="res://resources/interactable/level0.tres" id="11_hgky1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ida7w"]
 vertices = PackedVector2Array(1123.68, -20.5078, 1129.65, -13.2891, 1110, -7.46875, 1108, -18.9531, 1108, 62.5234, 1110, 65.25, 1191, 113.688, 1190.82, 153.523, 1188.81, 175.594, 1135.02, 179.227, 1137.9, 147.508, 1150, 96.0703, 1191, 100.063, 1080.67, 116.188, 1150, 64.25, 1074, 144.461, 1074, 116.07, 1223.17, 114.703, 1223.82, 151.578, 1077.55, 67.4219, 462.18, -72, 445.461, -154.773, 476, -151.891, 476, -110.844, 520.141, -72, 520.242, -76, 559, -112.156, 610.828, -76, 574.07, -166.156, 610.047, -121.398, 559, -166.656, 946.281, 113.828, 955.961, 114, 916.672, 114, 267, 23.7109, 277.563, -41.0781, 273.57, 51.6875, 255.711, 198.148, 267, -26.1328, 519.117, 157, 525.719, 234.953, 510.406, 214.656, 508.594, 170.867, 163.578, -42.0781, 169.141, -24.8672, 519.883, 31.1328, 519.938, 25.7031, 573.93, 35.5078, 580.078, 87.7422, 891.539, 76.4219, 918.672, 130, 764.727, 130, 763.727, 94.25, 768.57, 93.3203, -123.523, 92.5703, -21.1797, 107.102, 11.4219, 163.461, 13.3672, 196.711, -101, 193.742, -121.852, 182.281, -156.148, 102.461, 153.797, 352.469, 152.203, 298, 151.203, 247.391, 257.32, 251.398, 299.508, 365.82, 297.563, 399.938, 766.563, 56, 892.508, 56, 29.8594, 13.1875, 27.25, -92.9297, 160.578, -92.0625, 81, 43.2813, 168.117, 46.7188, 101.906, 51.7422, 81, 105.883, 102.906, 159.43, 945.258, 79.4609, 590.742, 89.7578, -17, 301, -17, 271.18, 75, 272.82, 75, 298, 73.2031, 348.508, 192.313, 197.148, 197.703, 25.7188, 329.852, 147.352, 325.969, 188.977, 278, 183.883, 308.141, 126.289, -157, 362.281, -157, 266, -123.156, 266, -123.523, 363.273, 682.258, 253.891, 685.688, 367.328, 431.102, 375.703, 427.18, 332.5, -157.789, 181.273, 72.1875, 400.898, -121.531, 399.078, -59.2969, 301, 425.844, 300.141, 426.844, 237, 448.508, 237, -101, 262.539, -62.25, 260.5, 154.789, 399.063, 307.133, 52.7031, 278, 238.5, 336, 241.492, 336, 298.859, -121.688, 67, -29.2031, 67, 585.719, 157, 430.008, 122.742, 449.523, 216.68, 439.961, 30.1094, 338.438, 327.5, 430.508, 171.891, 422.461, 143.703, 333.25, 362.75)
@@ -64,5 +66,15 @@ stats = ExtResource("4_b4tpv")
 npc_stats = ExtResource("9_4eecq")
 _player = NodePath("../../Player")
 
+[node name="Interactable" type="Node2D" parent="."]
+
+[node name="InteractableComponent" parent="Interactable" instance=ExtResource("10_8i1lk")]
+position = Vector2(1137, 154)
+interactable_stats = ExtResource("11_hgky1")
+
+[node name="InteractableComponent2" parent="Interactable" instance=ExtResource("10_8i1lk")]
+position = Vector2(123, 82)
+interactable_stats = ExtResource("11_hgky1")
+
 [node name="Player" parent="." instance=ExtResource("3_d5djh")]
-position = Vector2(100, 141)
+position = Vector2(96, 124)
