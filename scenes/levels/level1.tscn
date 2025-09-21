@@ -107,5 +107,9 @@ _player = NodePath("../../Player")
 position = Vector2(685, 517)
 interactable_stats = ExtResource("11_lgguw")
 
+[node name="InteractableComponent2" parent="Interactable" instance=ExtResource("10_lgguw")]
+position = Vector2(47, -12)
+interactable_stats = ExtResource("11_lgguw")
+
 [node name="Player" parent="." instance=ExtResource("3_dd0lh")]
-position = Vector2(710, 552)
+position = Vector2(89, 63)
