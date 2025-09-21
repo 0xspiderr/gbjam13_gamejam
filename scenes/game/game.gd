@@ -186,7 +186,7 @@ func _on_player_death() -> void:
 	canvas_layer.get_child(3).queue_free()
 	current_scene.get_child(0).queue_free()
 	current_scene.add_child(LEVEL_0.instantiate())
-	PlayerData.current_health = (PlayerData.max_health + PlayerData.extra_health)
+	PlayerData.current_health =(PlayerData.max_health + PlayerData.extra_health)
 	PlayerData.money=max((PlayerData.money-20),0)
 	PlayerData.is_in_combat = false
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
