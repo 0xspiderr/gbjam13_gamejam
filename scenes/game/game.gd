@@ -155,15 +155,15 @@ func _on_player_death() -> void:
 	current_scene.add_child(LEVEL_0.instantiate())
 	PlayerData.current_health = PlayerData.max_health
 	PlayerData.money=max((PlayerData.money-20),0)
-	print("you die")
-	PlayerData.is_in_combat = false
+	PlayerData.toggle_is_in_combat()
+	SoundManager.change_music_stream(SoundManager.OVERWORLD)
 	
 func _on_enemy_death() -> void:
 	current_enemy.queue_free()
 	canvas_layer.get_child(2).queue_free()
 	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
-	print("enemy die")
-	PlayerData.is_in_combat = false
+	PlayerData.toggle_is_in_combat()
+	SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 	
 
 func _on_end_combat() -> void:
