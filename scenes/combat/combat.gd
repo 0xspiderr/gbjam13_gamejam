@@ -123,15 +123,14 @@ func _button_action() -> void:
 			round = (round + 1) % 2
 		ROLL_DICE:
 			_roll_dice()
-			
+
 func _round_toggle() -> void:
 	match round:
 		ATTACK:
 			_draw_card_attack()
 		DEFENCE:
 			_draw_card_defence()
-	
-			
+
 func _draw_card_attack() -> void:
 	_reset_card_pos()
 	_reset_dice_pos()
@@ -139,9 +138,9 @@ func _draw_card_attack() -> void:
 	if PlayerData.current_health <= 0:
 		player_death.emit()
 	
-	dialogue_box.draw_text("")
+	dialogue_box.draw_text("",10,false)
 	await dialogue_box.text_animation_player.animation_finished
-	combat_box.draw_text("ATTACK")
+	combat_box.draw_text("ATTACK",10,false)
 	await combat_box.text_animation_player.animation_finished
 	SoundManager.randomize_pitch_scale(draw_card_sound)
 	draw_card_sound.play()
@@ -154,7 +153,7 @@ func _draw_card_attack() -> void:
 		_button_toggle()
 		
 	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
-	dialogue_box.draw_text(text)
+	dialogue_box.draw_text(text,3)
 	await dialogue_box.text_animation_player.animation_finished
 	
 	_can_interact = true
@@ -166,9 +165,9 @@ func _draw_card_defence() -> void:
 	if enemy_health <= 0:
 		enemy_death.emit()
 		
-	dialogue_box.draw_text("")
+	dialogue_box.draw_text("",10,false)
 	await dialogue_box.text_animation_player.animation_finished
-	combat_box.draw_text("DEFENCE")
+	combat_box.draw_text("DEFENCE",10,false)
 	await combat_box.text_animation_player.animation_finished
 	
 	SoundManager.randomize_pitch_scale(draw_card_sound)
@@ -182,7 +181,7 @@ func _draw_card_defence() -> void:
 		_enemy_deal_damage()
 	
 	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
-	dialogue_box.draw_text(text)
+	dialogue_box.draw_text(text,3)
 	await dialogue_box.text_animation_player.animation_finished
 	
 	_can_interact = true
@@ -208,12 +207,11 @@ func _roll_dice() -> void:
 	else:
 		_player_deal_damage(1 * dice_mult)
 	_can_interact = true
-	
-	
+
 func _player_deal_damage(mult) -> void:
 	enemy_health -= (PlayerData.damage + PlayerData.extra_damage) * mult
 	enemy_health_bar.value = enemy_health
-	
+
 func _enemy_deal_damage() -> void:
 	PlayerData.current_health -= enemy_stats.damage
 	player_health.value = PlayerData.current_health
