@@ -5,7 +5,7 @@ extends Node
 @onready var current_scene: Node = $CurrentScene
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var scene_transition: SceneTransition = $SceneTransition
-@onready var stat_ui: Control = $CanvasLayer/StatUI
+@onready var stat_ui: StatUI = $CanvasLayer/StatUI
 
 
 var current_interactable: InteractableComponent = null
@@ -203,19 +203,24 @@ func _on_player_death() -> void:
 	canvas_layer.get_child(3).queue_free()
 	current_scene.get_child(0).queue_free()
 	current_scene.add_child(LEVEL_0.instantiate())
-	PlayerData.current_health = (PlayerData.max_health + PlayerData.extra_health)
+	PlayerData.current_health =(PlayerData.max_health + PlayerData.extra_health)
 	PlayerData.money=max((PlayerData.money-20),0)
-	print("you die")
 	PlayerData.is_in_combat = false
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
 	stat_ui.ChangeTheme(GENERAL_THEME, "overworld")
 	stat_ui.Show()
 	
 func _on_enemy_death() -> void:
+	if current_enemy.stats.name == "stair":
+		PlayerData.keys_obtained = 1
+		stat_ui.ShowKey(PlayerData.keys_obtained)
+	elif current_enemy.stats.name == "broken mirror":
+		PlayerData.keys_obtained = 2
+		stat_ui.ShowKey(PlayerData.keys_obtained)
 	canvas_layer.get_child(3).queue_free()
 	current_enemy.queue_free()
 	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
-	print("enemy die")
+	PlayerData.current_health = min(PlayerData.current_health + 20, PlayerData.max_health)
 	SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 	PlayerData.is_in_combat = false
 	stat_ui.Show()
