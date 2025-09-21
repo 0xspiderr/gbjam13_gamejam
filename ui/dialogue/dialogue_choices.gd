@@ -9,6 +9,11 @@ signal open_shop()
 var choices: Array
 @export var buttons: Array[Button]
 var current_button: int = 0
+var combat_theme: Theme = preload("uid://808qkkp6tqlj")
+var overworld_theme: Theme = preload("res://ui/themes/general_theme.tres")
+@onready var talk_btn: Button = $MarginContainer/VBoxContainer/TalkBtn
+@onready var shop_btn: Button = $MarginContainer/VBoxContainer/ShopBtn
+@onready var exit_btn: Button = $MarginContainer/VBoxContainer/ExitBtn
 
 
 func _input(event: InputEvent) -> void:
@@ -60,8 +65,6 @@ func _change_scene(choice: int) -> void:
 			open_shop.emit()
 		2:
 			reset_data()
-	
-	print(choice)
 
 
 func reset_data() -> void:
@@ -69,3 +72,14 @@ func reset_data() -> void:
 	hide_all_buttons()
 	hide()
 	PlayerData.is_selecting_choice = false
+
+
+func set_buttons_theme(is_in_combat: bool) -> void:
+	if is_in_combat:
+		talk_btn.theme = combat_theme
+		shop_btn.theme = combat_theme
+		exit_btn.theme = combat_theme
+	else:
+		talk_btn.theme = overworld_theme
+		shop_btn.theme = overworld_theme
+		exit_btn.theme = overworld_theme

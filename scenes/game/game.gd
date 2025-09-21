@@ -45,6 +45,10 @@ func _input(event: InputEvent) -> void:
 			_change_level_scene(interactable_scene_change)
 		
 		if PlayerData.can_talk and is_instance_valid(current_npc):
+			if current_npc.name == "Wife":
+				dialogue_choices.set_buttons_theme(true)
+			else:
+				dialogue_choices.set_buttons_theme(false)
 			dialogue_choices.choices = current_npc.npc_stats.dialogue_options
 			dialogue_choices.show_choice_buttons()
 			dialogue_choices.show()
@@ -61,7 +65,11 @@ func _input(event: InputEvent) -> void:
 
 func _on_start_dialogue() -> void:
 	PlayerData.is_talking = true
-	dialogue_ui.set_to_theme(false)
+	if current_npc.name == "Wife":
+		dialogue_ui.set_to_theme(true)
+	else:
+		dialogue_ui.set_to_theme(false)
+	
 	dialogue_ui.npc_name.text = current_npc.name
 	dialogue_ui.dialogues.assign(current_npc.npc_stats.dialogues)
 	dialogue_ui.npc_sprites.sprite_frames = current_npc.npc_stats.portraits
@@ -158,6 +166,7 @@ func _on_player_death() -> void:
 	PlayerData.money=max((PlayerData.money-20),0)
 	print("you die")
 	PlayerData.is_in_combat = false
+	SoundManager.change_music_stream(SoundManager.OVERWORLD)
 	
 func _on_enemy_death() -> void:
 	current_enemy.queue_free()
