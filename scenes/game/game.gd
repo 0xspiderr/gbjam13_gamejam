@@ -5,6 +5,7 @@ extends Node
 @onready var current_scene: Node = $CurrentScene
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var scene_transition: SceneTransition = $SceneTransition
+@onready var stat_ui: Control = $CanvasLayer/StatUI
 
 var current_level: Node2D = null
 var current_enemy: Enemy = null
@@ -16,7 +17,8 @@ const COMBAT_TSCN: PackedScene = preload("uid://cnseaei7cyk0j")
 @onready var dialogue_choices: DialogueChoices = %DialogueChoices
 const SHOP_SCENE = preload("res://scenes/shop/shop_scene.tscn")
 const LEVEL_0 = preload("res://scenes/levels/level0.tscn")
-
+const GENERAL_THEME = preload("res://ui/themes/general_theme.tres")
+const COMBAT_THEME = preload("res://ui/themes/health_n_name_combat_ui.tres")
 
 #region BUILTIN METHODS
 func _ready() -> void:
@@ -31,6 +33,9 @@ func _ready() -> void:
 	EventBus.exited_dialogue_area.connect(_on_exited_dialogue_area)
 	EventBus.entered_interactable_area.connect(_on_entered_interactable_area)
 	EventBus.exited_interactable_area.connect(_on_exited_interactable_area)
+	
+	stat_ui.UpdateLuck(int(PlayerData.luck))
+	stat_ui.UpdateMoney(PlayerData.money)
 
 
 func _input(event: InputEvent) -> void:
@@ -60,10 +65,13 @@ func _input(event: InputEvent) -> void:
 		if not scene.name.begins_with("Level"):
 			current_scene.get_child(0).queue_free()
 			current_scene.add_child(current_level)
+			stat_ui.UpdateLuck(int(PlayerData.luck))
+			stat_ui.UpdateMoney(PlayerData.money)
 #endregion
 
 
 func _on_start_dialogue() -> void:
+	stat_ui.Hide()  # hide ui while in dialogue
 	PlayerData.is_talking = true
 	if current_npc.name == "Wife":
 		dialogue_ui.set_to_theme(true)
@@ -78,11 +86,18 @@ func _on_start_dialogue() -> void:
 
 
 func _on_open_shop() -> void:
+	stat_ui.Hide()
 	PlayerData.is_shopping = true
 	var instance = SHOP_SCENE.instantiate()
 	canvas_layer.add_child(instance)
+	instance.find_child("Shop").shop_closed.connect(_on_close_shop)
 	SoundManager.music_stream_player.stop()
 
+func _on_close_shop():
+	stat_ui.Show()
+	PlayerData.is_shopping = false
+	SoundManager.music_stream_player.stream = SoundManager.OVERWORLD
+	SoundManager.music_stream_player.play()
 
 func _get_current_level() -> void:
 	if current_scene.get_child_count():
@@ -98,9 +113,11 @@ func _change_level_scene(scene: PackedScene) -> void:
 			instance = scene.instantiate()
 		
 		if scene == null:
+			stat_ui.ChangeTheme(GENERAL_THEME, "overworld")
 			SoundManager.change_music_stream(SoundManager.OVERWORLD)
 			scene_transition.set_rect_color(false)
 		elif instance.name.begins_with("Level"):
+			stat_ui.ChangeTheme(COMBAT_THEME, "combat")
 			SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 			scene_transition.set_rect_color(true)
 		
@@ -156,17 +173,21 @@ func _on_dialogue_finished() -> void:
 		canvas_layer.add_child(combat_scene, true)
 		combat_scene.player_death.connect(_on_player_death)
 		combat_scene.enemy_death.connect(_on_enemy_death)
+	stat_ui.Show()
 
 
 func _on_player_death() -> void:
 	canvas_layer.get_child(2).queue_free()
 	current_scene.get_child(0).queue_free()
 	current_scene.add_child(LEVEL_0.instantiate())
-	PlayerData.current_health = PlayerData.max_health
+	PlayerData.current_health = (PlayerData.max_health + PlayerData.extra_health)
 	PlayerData.money=max((PlayerData.money-20),0)
 	print("you die")
 	PlayerData.is_in_combat = false
 	SoundManager.change_music_stream(SoundManager.OVERWORLD)
+	stat_ui.ChangeTheme(GENERAL_THEME, "overworld")
+	stat_ui.UpdateLuck(int(PlayerData.luck))
+	stat_ui.UpdateMoney(PlayerData.money)
 	
 func _on_enemy_death() -> void:
 	current_enemy.queue_free()
@@ -175,7 +196,6 @@ func _on_enemy_death() -> void:
 	print("enemy die")
 	SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 	PlayerData.is_in_combat = false
-	
 
 func _on_end_combat() -> void:
 	PlayerData.toggle_is_in_combat()
@@ -192,6 +212,8 @@ func _on_end_combat() -> void:
 	# temporary solution until combat is implemented
 	if current_level.name.begins_with("Level"):
 		SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
+	stat_ui.UpdateLuck(int(PlayerData.luck))
+	stat_ui.UpdateMoney(PlayerData.money)
 #endregion
 
 
