@@ -73,6 +73,7 @@ func _on_open_shop() -> void:
 	PlayerData.is_shopping = true
 	var instance = SHOP_SCENE.instantiate()
 	canvas_layer.add_child(instance)
+	SoundManager.music_stream_player.stop()
 
 
 func _get_current_level() -> void:
