@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://b01w8f8tywrn"]
+
+[ext_resource type="Texture2D" uid="uid://cv680qrb7fqth" path="res://assets/tilesets/final_map/final-map.png" id="1_o8c3j"]
+[ext_resource type="Texture2D" uid="uid://d4ak380wmyfaw" path="res://assets/tilesets/final_map/bars-final-map.png" id="2_44gv1"]
+[ext_resource type="PackedScene" uid="uid://cp6enqfwfeyu7" path="res://scenes/enemy/enemy.tscn" id="3_fmg3e"]
+[ext_resource type="Resource" uid="uid://dpjusi5v3dfvw" path="res://resources/enemies/cat.tres" id="4_ftfob"]
+[ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="5_fkk1g"]
+[ext_resource type="Resource" uid="uid://bunk3vkixm6qf" path="res://resources/npcs/combat/combat_cat.tres" id="5_frjko"]
+[ext_resource type="PackedScene" uid="uid://mlu3i7nhaelg" path="res://scenes/npcs/npc.tscn" id="7_f7rt6"]
+[ext_resource type="Resource" uid="uid://1lrduiupmjwj" path="res://resources/npcs/wife.tres" id="8_8w0pe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5jb5"]
+size = Vector2(23, 151)
+
+[node name="Level3" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -9.0
+offset_top = -5.0
+offset_right = 171.0
+offset_bottom = 155.0
+color = Color(0.172549, 0, 0.0862745, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(80, 72)
+texture = ExtResource("1_o8c3j")
+
+[node name="Wife" parent="." instance=ExtResource("7_f7rt6")]
+position = Vector2(89, 42)
+npc_stats = ExtResource("8_8w0pe")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(77, 43)
+texture = ExtResource("2_44gv1")
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_fmg3e")]
+position = Vector2(77, 82)
+stats = ExtResource("4_ftfob")
+npc_stats = ExtResource("5_frjko")
+_player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("5_fkk1g")]
+position = Vector2(99, 74)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4, 66)
+shape = SubResource("RectangleShape2D_f5jb5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(152, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, 66)
+shape = SubResource("RectangleShape2D_f5jb5")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(152, 0)
+rotation = 1.57013
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(4.95579, 66.0033)
+shape = SubResource("RectangleShape2D_f5jb5")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(152, 127)
+rotation = 1.57013
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-0.0442042, 66)
+shape = SubResource("RectangleShape2D_f5jb5")

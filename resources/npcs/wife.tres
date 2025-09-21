@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="NpcStats" load_steps=14 format=3 uid="uid://1lrduiupmjwj"]
+
+[ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="1_jimdc"]
+[ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="2_ia1dc"]
+[ext_resource type="Texture2D" uid="uid://bunyeqwdx6l03" path="res://assets/portraits/coin-wife-angry.png" id="2_no20u"]
+[ext_resource type="Texture2D" uid="uid://f67cgmiwli8w" path="res://assets/portraits/coin-wife-neutral.png" id="2_vyaux"]
+[ext_resource type="Texture2D" uid="uid://dq4g7vb3ov6r4" path="res://assets/sprites/characters/coin-wife-idle.png" id="5_no20u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0spy7"]
+atlas = ExtResource("2_no20u")
+region = Rect2(0, 0, 34, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no20u"]
+atlas = ExtResource("2_vyaux")
+region = Rect2(0, 0, 34, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0spy7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0spy7")
+}],
+"loop": true,
+"name": &"annoyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no20u")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bavbb"]
+atlas = ExtResource("5_no20u")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcltb"]
+atlas = ExtResource("5_no20u")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v88i"]
+atlas = ExtResource("5_no20u")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7bi7"]
+atlas = ExtResource("5_no20u")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xs65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bavbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcltb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v88i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7bi7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_ia1dc")
+name = "wife"
+sprite_frames = SubResource("SpriteFrames_3xs65")
+portraits = SubResource("SpriteFrames_0spy7")
+dialogues = Array[ExtResource("1_jimdc")]([])
+dialogue_options = Array[int]([])
+metadata/_custom_type_script = "uid://c6dabu5biw7gj"
