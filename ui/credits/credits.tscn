@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=3 uid="uid://cood1lhiileoh"]
+
+[ext_resource type="Script" uid="uid://crcpl2jfttiym" path="res://ui/credits/credits.gd" id="1_ydyd3"]
+
+[sub_resource type="Animation" id="Animation_t5rx0"]
+resource_name = "Credits_Rolling"
+length = 19.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HFlowContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 18.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 144), Vector2(0, -917)]
+}
+
+[sub_resource type="Animation" id="Animation_nm7lk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HFlowContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 144)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c1t8d"]
+_data = {
+&"Credits_Rolling": SubResource("Animation_t5rx0"),
+&"RESET": SubResource("Animation_nm7lk")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ydyd3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0156863, 0.0588235, 1)
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 144.0
+offset_bottom = 1053.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+last_wrap_alignment = 2
+
+[node name="Label" type="Label" parent="HFlowContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "These are our credits lol
+
+The team:
+
+The Maestro aka. 0xspiderr : Lead Programmer
+Im going insane aka DDaerb : Pixel Artist (help)
+Totally went bankrupt aka LumbagoSkeleton : Did a bit of everything, play tester, sound designer and writer
+Shady dealer aka. Anollex  Programmer
+Luck's nemesis aka. YeetOfD00m : Programmer
+
+Sound and music:
+
+We don't know what happened there but LumbagoSkeleton carried us hard
+
+Quality Assurance:
+
+0xspiderr and LumbagoSkeleton thank you for your service, both found 13 bugs on a friday.
+
+Writer:
+
+LumbagoSkeleton was the only one with the funny bone.
+
+Special Thanks:
+
+To you, for playing this game! :) You bet on this game despite the odds.
+
+
+
+
+No pixels were harmed in the making of this game.
+
+
+
+
+
+
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c1t8d")
+}
+autoplay = "Credits_Rolling"
