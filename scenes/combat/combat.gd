@@ -285,12 +285,12 @@ func _draw_card_anim(card_1_value: int, card_2_value: int) -> void:
 	card_2.vframes = 4
 	
 	if card_1_value == 13:
-		card_1.frame = 14
+		card_1.frame = 13
 	else:
 		card_1.frame = card_1_value - 1
 	
 	if card_2_value == 13:
-		card_2.frame = 14
+		card_2.frame = 13
 	else:
 		card_2.frame = card_2_value - 1
 	
