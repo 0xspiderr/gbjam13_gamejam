@@ -359,7 +359,7 @@ position = Vector2(191, 56)
 npc_stats = ExtResource("7_1nvli")
 
 [node name="Npc2" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(218, 138)
+position = Vector2(200, 132)
 npc_stats = ExtResource("8_vals0")
 
 [node name="Npc3" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
@@ -375,7 +375,7 @@ position = Vector2(-99, 56)
 npc_stats = ExtResource("11_d3ub6")
 
 [node name="Npc6" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
-position = Vector2(187, 129)
+position = Vector2(214, 124)
 npc_stats = ExtResource("12_7s2gi")
 
 [node name="Interactable" type="Node2D" parent="YSort"]
