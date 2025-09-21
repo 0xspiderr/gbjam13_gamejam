@@ -44,7 +44,7 @@ func _input(event: InputEvent) -> void:
 			
 			change_scene_indexes.pop_front()
 			default_panels.texture = game_panels_array.pop_front()
-			
+		
 		
 		if dialogue_index == 12:
 			dialogue_ui.npc_name.show()
