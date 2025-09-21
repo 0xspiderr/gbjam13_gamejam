@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=10 format=3 uid="uid://bdlxwkorwxkdh"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=19 format=3 uid="uid://bdlxwkorwxkdh"]
 
 [ext_resource type="AudioStream" uid="uid://bdys7qr1qnm4n" path="res://sounds/dialogue/Dialogue1.ogg" id="1_20qdr"]
 [ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="1_rgdpk"]
@@ -8,9 +8,77 @@
 
 [sub_resource type="Resource" id="Resource_rbtbj"]
 script = ExtResource("1_rgdpk")
+speaker = "player"
+emotion = "neutral"
+line = "Whats going on"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_20qdr"]
+script = ExtResource("1_rgdpk")
+speaker = "player"
+emotion = "surprised"
+line = "Are you the devil?"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_deorx"]
+script = ExtResource("1_rgdpk")
 speaker = "npc"
 emotion = "annoyed"
-line = "i will kill you! xd"
+line = "You want an autograph
+  or something?"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_nmqq8"]
+script = ExtResource("1_rgdpk")
+speaker = "npc"
+emotion = "neutral"
+line = "Oh wait you re that guy"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_es1ye"]
+script = ExtResource("1_rgdpk")
+speaker = "player"
+emotion = "annoyed"
+line = "Why does everyone 
+  know who i am"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_p6bbj"]
+script = ExtResource("1_rgdpk")
+speaker = "npc"
+emotion = "annoyed"
+line = "it was on the news
+  buddy"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_8ug46"]
+script = ExtResource("1_rgdpk")
+speaker = "player"
+emotion = "annoyed"
+line = "why do you watch
+  even watch the news"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_epu1w"]
+script = ExtResource("1_rgdpk")
+speaker = "player"
+emotion = "neutral"
+line = "You re literally the devil"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_rqjud"]
+script = ExtResource("1_rgdpk")
+speaker = "npc"
+emotion = "neutral"
+line = "well that was kinda
+ mean"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_o43gn"]
+script = ExtResource("1_rgdpk")
+speaker = "Player"
+emotion = "neutral"
+line = "Sorry..."
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbtbj"]
@@ -44,7 +112,7 @@ animations = [{
 script = ExtResource("2_i6mvq")
 name = "devil"
 portraits = SubResource("SpriteFrames_es1ye")
-dialogues = Array[ExtResource("1_rgdpk")]([SubResource("Resource_rbtbj")])
+dialogues = Array[ExtResource("1_rgdpk")]([SubResource("Resource_rbtbj"), SubResource("Resource_20qdr"), SubResource("Resource_deorx"), SubResource("Resource_nmqq8"), SubResource("Resource_es1ye"), SubResource("Resource_p6bbj"), SubResource("Resource_8ug46"), SubResource("Resource_epu1w"), SubResource("Resource_rqjud"), SubResource("Resource_o43gn")])
 dialogue_stream = ExtResource("1_20qdr")
 dialogue_options = Array[int]([])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"

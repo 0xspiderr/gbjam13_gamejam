@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dyi4yred14us4"]
+[gd_scene load_steps=15 format=4 uid="uid://dyi4yred14us4"]
 
 [ext_resource type="PackedScene" uid="uid://cxcv5f6sr7y6l" path="res://scenes/levels/tilemap_layers/combat_tilemap_layer.tscn" id="1_2r1tl"]
 [ext_resource type="PackedScene" uid="uid://cp6enqfwfeyu7" path="res://scenes/enemy/enemy.tscn" id="2_4tcl0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="3_dd0lh"]
 [ext_resource type="Resource" uid="uid://dyakpr6vdjkd5" path="res://resources/enemies/devil.tres" id="5_dywbp"]
 [ext_resource type="Resource" uid="uid://btsx4fvp17suh" path="res://resources/enemies/stair.tres" id="6_1seuy"]
+[ext_resource type="Resource" uid="uid://bdlxwkorwxkdh" path="res://resources/npcs/combat/combat_devil.tres" id="6_8a7m2"]
 [ext_resource type="Resource" uid="uid://bberg6osf7m7q" path="res://resources/npcs/combat/combat_stair.tres" id="9_5ntmo"]
 [ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="10_lgguw"]
 [ext_resource type="Resource" uid="uid://beip2fg1lsyu" path="res://resources/interactable/level_door0Return.tres" id="10_nfihu"]
@@ -60,9 +61,15 @@ position = Vector2(151, 268)
 stats = ExtResource("11_nfihu")
 _player = NodePath("../../Player")
 
+[node name="Enemy14" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
+position = Vector2(-108, 305)
+stats = ExtResource("11_nfihu")
+_player = NodePath("../../Player")
+
 [node name="Enemy7" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(-161, 297)
+position = Vector2(81, 62)
 stats = ExtResource("5_dywbp")
+npc_stats = ExtResource("6_8a7m2")
 _player = NodePath("../../Player")
 
 [node name="Enemy3" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
@@ -71,13 +78,13 @@ stats = ExtResource("13_ps2vj")
 _player = NodePath("../../Player")
 
 [node name="Enemy4" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
-position = Vector2(322, 98)
+position = Vector2(301, 96)
 stats = ExtResource("10_nkeig")
 _player = NodePath("../../Player")
 
 [node name="Enemy9" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(770, 384)
-stats = ExtResource("10_nkeig")
+stats = ExtResource("13_ps2vj")
 _player = NodePath("../../Player")
 
 [node name="Enemy10" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
@@ -87,7 +94,7 @@ _player = NodePath("../../Player")
 
 [node name="Enemy11" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(656, 239)
-stats = ExtResource("13_ps2vj")
+stats = ExtResource("10_nkeig")
 _player = NodePath("../../Player")
 
 [node name="Enemy13" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
@@ -98,7 +105,7 @@ _player = NodePath("../../Player")
 
 [node name="Enemy12" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("2_4tcl0")]
 position = Vector2(767, 565)
-stats = ExtResource("10_nkeig")
+stats = ExtResource("11_nfihu")
 _player = NodePath("../../Player")
 
 [node name="LevelDoor" parent="Enemies" instance=ExtResource("10_lgguw")]
