@@ -1,28 +1,27 @@
-[gd_scene load_steps=29 format=4 uid="uid://c6onavsfv4e3e"]
+[gd_scene load_steps=28 format=4 uid="uid://cx5lyi3aqmvhm"]
 
-[ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="1_cperm"]
-[ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_5kr0j"]
-[ext_resource type="Texture2D" uid="uid://d15rlcvvxg4yi" path="res://assets/tilesets/casino_tileset/tileset.png" id="3_hghvf"]
-[ext_resource type="Texture2D" uid="uid://b5ynhu5a7jae6" path="res://assets/tilesets/animated_obj/cash-booth.png" id="3_ry65h"]
-[ext_resource type="PackedScene" uid="uid://mlu3i7nhaelg" path="res://scenes/npcs/npc.tscn" id="6_d0grl"]
-[ext_resource type="Resource" uid="uid://dgowfxk0qivoe" path="res://resources/npcs/npc_1.tres" id="7_1nvli"]
-[ext_resource type="Resource" uid="uid://cd4wgr2wxoeh3" path="res://resources/npcs/cat_vendor_npc.tres" id="7_fj52k"]
-[ext_resource type="Resource" uid="uid://bcp4wrkntvx7" path="res://resources/npcs/npc_2.tres" id="8_vals0"]
-[ext_resource type="Resource" uid="uid://j18y6xpluomp" path="res://resources/npcs/npc_3.tres" id="9_oem7y"]
-[ext_resource type="Resource" uid="uid://cbno3bkxmwinw" path="res://resources/npcs/npc_4.tres" id="10_a76di"]
-[ext_resource type="Resource" uid="uid://b5mg6bqktofai" path="res://resources/npcs/npc_5.tres" id="11_d3ub6"]
-[ext_resource type="Resource" uid="uid://eufpje6pfnc7" path="res://resources/npcs/npc_6.tres" id="12_7s2gi"]
-[ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="14_m6lg1"]
-[ext_resource type="Resource" uid="uid://c277plawxcyl3" path="res://resources/interactable/blackjack_table.tres" id="15_3asx1"]
-[ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_m6lg1"]
-[ext_resource type="Resource" uid="uid://b7rdupdwsrdly" path="res://resources/interactable/blackcat_table.tres" id="15_yxkm4"]
-[ext_resource type="Resource" uid="uid://6vuixnenofhl" path="res://resources/interactable/pocanele.tres" id="16_3ebcg"]
-[ext_resource type="Resource" uid="uid://hp3p45pn55fn" path="res://resources/interactable/level_door2.tres" id="18_luu1i"]
-[ext_resource type="Resource" uid="uid://cm4d3126vbscu" path="res://resources/interactable/level_door.tres" id="18_po5je"]
-[ext_resource type="Texture2D" uid="uid://bmwxnil5v6m3v" path="res://assets/tilesets/doors/entrance_door_2_tiles.png" id="19_3ebcg"]
+[ext_resource type="Texture2D" uid="uid://d15rlcvvxg4yi" path="res://assets/tilesets/casino_tileset/tileset.png" id="1_0fmo4"]
+[ext_resource type="Texture2D" uid="uid://bnkinl3gpn5xl" path="res://assets/tilesets/animated_obj/pocanele.png" id="2_aru4k"]
+[ext_resource type="Texture2D" uid="uid://b5ynhu5a7jae6" path="res://assets/tilesets/animated_obj/cash-booth.png" id="3_sush5"]
+[ext_resource type="PackedScene" uid="uid://boe3gvqcntc5i" path="res://components/interactable_component/interactable_component.tscn" id="4_f2k4m"]
+[ext_resource type="Resource" uid="uid://b7rdupdwsrdly" path="res://resources/interactable/blackcat_table.tres" id="5_ytj2x"]
+[ext_resource type="PackedScene" uid="uid://byvrh5g6p20lk" path="res://scenes/player/player.tscn" id="6_6llmc"]
+[ext_resource type="PackedScene" uid="uid://mlu3i7nhaelg" path="res://scenes/npcs/npc.tscn" id="7_lyexv"]
+[ext_resource type="Resource" uid="uid://cd4wgr2wxoeh3" path="res://resources/npcs/cat_vendor_npc.tres" id="8_4m17p"]
+[ext_resource type="Resource" uid="uid://dgowfxk0qivoe" path="res://resources/npcs/npc_1.tres" id="9_wwwe0"]
+[ext_resource type="Resource" uid="uid://bcp4wrkntvx7" path="res://resources/npcs/npc_2.tres" id="10_8pbd2"]
+[ext_resource type="Resource" uid="uid://j18y6xpluomp" path="res://resources/npcs/npc_3.tres" id="11_kbv2x"]
+[ext_resource type="Resource" uid="uid://cbno3bkxmwinw" path="res://resources/npcs/npc_4.tres" id="12_nt25q"]
+[ext_resource type="Resource" uid="uid://b5mg6bqktofai" path="res://resources/npcs/npc_5.tres" id="13_r5jyc"]
+[ext_resource type="Resource" uid="uid://eufpje6pfnc7" path="res://resources/npcs/npc_6.tres" id="14_y10ho"]
+[ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_kjxx7"]
+[ext_resource type="Resource" uid="uid://c277plawxcyl3" path="res://resources/interactable/blackjack_table.tres" id="16_1pgsg"]
+[ext_resource type="Resource" uid="uid://6vuixnenofhl" path="res://resources/interactable/pocanele.tres" id="17_8y18m"]
+[ext_resource type="Resource" uid="uid://cm4d3126vbscu" path="res://resources/interactable/level_door.tres" id="18_7q6i6"]
+[ext_resource type="Texture2D" uid="uid://bmwxnil5v6m3v" path="res://assets/tilesets/doors/entrance_door_2_tiles.png" id="19_duty7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
-texture = ExtResource("3_hghvf")
+texture = ExtResource("1_0fmo4")
 texture_region_size = Vector2i(12, 12)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
@@ -188,7 +187,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_5kr0j")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vals0"]
-texture = ExtResource("3_hghvf")
+texture = ExtResource("1_0fmo4")
 texture_region_size = Vector2i(12, 12)
 0:8/0 = 0
 1:8/0 = 0
@@ -214,7 +213,7 @@ tile_size = Vector2i(12, 12)
 sources/0 = SubResource("TileSetAtlasSource_vals0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ry65h"]
-texture = ExtResource("2_5kr0j")
+texture = ExtResource("2_aru4k")
 texture_region_size = Vector2i(12, 24)
 0:0/animation_columns = 5
 0:0/animation_speed = 1.2
@@ -240,7 +239,7 @@ texture_region_size = Vector2i(12, 24)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d0grl"]
-texture = ExtResource("3_ry65h")
+texture = ExtResource("3_sush5")
 texture_region_size = Vector2i(48, 36)
 0:0/animation_columns = 2
 0:0/animation_speed = 1.5
@@ -252,7 +251,7 @@ texture_region_size = Vector2i(48, 36)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 0, 24, 0, 24, 18, -24, 18)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nvli"]
-texture = ExtResource("3_hghvf")
+texture = ExtResource("1_0fmo4")
 texture_region_size = Vector2i(12, 12)
 10:0/size_in_atlas = Vector2i(3, 2)
 10:0/0 = 0
@@ -333,130 +332,130 @@ tile_set = SubResource("TileSet_d0grl")
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="BlackcatTable" parent="YSort" instance=ExtResource("14_m6lg1")]
+[node name="BlackcatTable" parent="YSort" instance=ExtResource("4_f2k4m")]
 y_sort_enabled = true
 position = Vector2(78, 85)
-interactable_stats = ExtResource("15_yxkm4")
+interactable_stats = ExtResource("5_ytj2x")
 
-[node name="Player" parent="YSort" instance=ExtResource("1_cperm")]
-position = Vector2(78, 241)
+[node name="Player" parent="YSort" instance=ExtResource("6_6llmc")]
+position = Vector2(-31, 123)
 
 [node name="NPCs" type="Node2D" parent="YSort"]
 y_sort_enabled = true
 
-[node name="CatVendorNPC" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
+[node name="CatVendorNPC" parent="YSort/NPCs" instance=ExtResource("7_lyexv")]
 position = Vector2(78, 83)
 slide_on_ceiling = false
-npc_stats = ExtResource("7_fj52k")
+npc_stats = ExtResource("8_4m17p")
 
-[node name="Npc1" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc1" parent="YSort/NPCs" instance=ExtResource("7_lyexv")]
 position = Vector2(191, 56)
-npc_stats = ExtResource("7_1nvli")
+npc_stats = ExtResource("9_wwwe0")
 
-[node name="Npc2" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc2" parent="YSort/NPCs" instance=ExtResource("7_lyexv")]
 position = Vector2(218, 138)
-npc_stats = ExtResource("8_vals0")
+npc_stats = ExtResource("10_8pbd2")
 
-[node name="Npc3" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc3" parent="YSort/NPCs" instance=ExtResource("7_lyexv")]
 position = Vector2(-77, 51)
-npc_stats = ExtResource("9_oem7y")
+npc_stats = ExtResource("11_kbv2x")
 
-[node name="Npc4" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc4" parent="YSort/NPCs" instance=ExtResource("7_lyexv")]
 position = Vector2(211, 63)
-npc_stats = ExtResource("10_a76di")
+npc_stats = ExtResource("12_nt25q")
 
-[node name="Npc5" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc5" parent="YSort/NPCs" instance=ExtResource("7_lyexv")]
 position = Vector2(-99, 56)
-npc_stats = ExtResource("11_d3ub6")
+npc_stats = ExtResource("13_r5jyc")
 
-[node name="Npc6" parent="YSort/NPCs" instance=ExtResource("6_d0grl")]
+[node name="Npc6" parent="YSort/NPCs" instance=ExtResource("7_lyexv")]
 position = Vector2(187, 129)
-npc_stats = ExtResource("12_7s2gi")
+npc_stats = ExtResource("14_y10ho")
 
 [node name="Interactable" type="Node2D" parent="YSort"]
 y_sort_enabled = true
 position = Vector2(12, 1)
 
-[node name="RouletteTable" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="RouletteTable" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(-42, 197)
-interactable_stats = ExtResource("15_m6lg1")
+interactable_stats = ExtResource("15_kjxx7")
 
-[node name="RouletteTable2" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="RouletteTable2" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(-42, 54)
-interactable_stats = ExtResource("15_m6lg1")
+interactable_stats = ExtResource("15_kjxx7")
 
-[node name="BlackjackTable" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="BlackjackTable" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(150, 212)
-interactable_stats = ExtResource("15_3asx1")
+interactable_stats = ExtResource("16_1pgsg")
 
-[node name="BlackjackTable2" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="BlackjackTable2" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(198, 212)
-interactable_stats = ExtResource("15_3asx1")
+interactable_stats = ExtResource("16_1pgsg")
 
-[node name="BlackjackTable3" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="BlackjackTable3" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(198, 177)
-interactable_stats = ExtResource("15_3asx1")
+interactable_stats = ExtResource("16_1pgsg")
 
-[node name="BlackjackTable4" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="BlackjackTable4" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(150, 177)
-interactable_stats = ExtResource("15_3asx1")
+interactable_stats = ExtResource("16_1pgsg")
 
-[node name="Pocanele1" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele1" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(234, 42)
 collision_layer = 0
 collision_mask = 0
-interactable_stats = ExtResource("16_3ebcg")
+interactable_stats = ExtResource("17_8y18m")
 
-[node name="Pocanele5" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele5" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(234, 79)
 collision_layer = 0
 collision_mask = 0
-interactable_stats = ExtResource("16_3ebcg")
+interactable_stats = ExtResource("17_8y18m")
 
-[node name="Pocanele6" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele6" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(282, 79)
 collision_layer = 0
 collision_mask = 0
-interactable_stats = ExtResource("16_3ebcg")
+interactable_stats = ExtResource("17_8y18m")
 
-[node name="Pocanele2" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele2" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(258, 42)
 collision_layer = 0
 collision_mask = 0
-interactable_stats = ExtResource("16_3ebcg")
+interactable_stats = ExtResource("17_8y18m")
 
-[node name="Pocanele7" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele7" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(258, 79)
 collision_layer = 0
 collision_mask = 0
-interactable_stats = ExtResource("16_3ebcg")
+interactable_stats = ExtResource("17_8y18m")
 
-[node name="Pocanele8" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele8" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(306, 79)
 collision_layer = 0
 collision_mask = 0
-interactable_stats = ExtResource("16_3ebcg")
+interactable_stats = ExtResource("17_8y18m")
 
-[node name="Pocanele3" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele3" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(282, 42)
 collision_layer = 0
 collision_mask = 0
-interactable_stats = ExtResource("16_3ebcg")
+interactable_stats = ExtResource("17_8y18m")
 
-[node name="Pocanele4" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="Pocanele4" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(306, 42)
 collision_layer = 0
 collision_mask = 0
-interactable_stats = ExtResource("16_3ebcg")
+interactable_stats = ExtResource("17_8y18m")
 
-[node name="LevelDoor" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="LevelDoor" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(-139, 11)
-interactable_stats = ExtResource("18_luu1i")
+interactable_stats = ExtResource("18_7q6i6")
 
-[node name="LevelDoor2" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
+[node name="LevelDoor2" parent="YSort/Interactable" instance=ExtResource("4_f2k4m")]
 position = Vector2(185, 11)
-interactable_stats = ExtResource("18_po5je")
+interactable_stats = ExtResource("18_7q6i6")
 
 [node name="EntranceDoor" type="Sprite2D" parent="."]
 position = Vector2(78, 260)
-texture = ExtResource("19_3ebcg")
+texture = ExtResource("19_duty7")
