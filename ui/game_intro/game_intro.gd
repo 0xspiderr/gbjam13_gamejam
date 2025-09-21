@@ -51,7 +51,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			dialogue_ui.npc_name.hide()
 		
-		if dialogue_index == 27:
+		if dialogue_index == 24:
 			PlayerData.is_talking = false
 			get_tree().change_scene_to_packed(GAME)
 		
