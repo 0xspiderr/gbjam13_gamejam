@@ -17,9 +17,9 @@
 [ext_resource type="Resource" uid="uid://caeoc386ptk0m" path="res://resources/interactable/roulette_table.tres" id="15_m6lg1"]
 [ext_resource type="Resource" uid="uid://b7rdupdwsrdly" path="res://resources/interactable/blackcat_table.tres" id="15_yxkm4"]
 [ext_resource type="Resource" uid="uid://6vuixnenofhl" path="res://resources/interactable/pocanele.tres" id="16_3ebcg"]
-[ext_resource type="Resource" uid="uid://hp3p45pn55fn" path="res://resources/interactable/level_door2.tres" id="18_luu1i"]
-[ext_resource type="Resource" uid="uid://cm4d3126vbscu" path="res://resources/interactable/level_door.tres" id="18_po5je"]
+[ext_resource type="Resource" uid="uid://cagmm2q14boj" path="res://resources/interactable/level1.tres" id="18_3ebcg"]
 [ext_resource type="Texture2D" uid="uid://bmwxnil5v6m3v" path="res://assets/tilesets/doors/entrance_door_2_tiles.png" id="19_3ebcg"]
+[ext_resource type="Resource" uid="uid://dctt224id0g20" path="res://resources/interactable/level2.tres" id="19_luu1i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kr0j"]
 texture = ExtResource("3_hghvf")
@@ -451,11 +451,11 @@ interactable_stats = ExtResource("16_3ebcg")
 
 [node name="LevelDoor" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(-139, 11)
-interactable_stats = ExtResource("18_luu1i")
+interactable_stats = ExtResource("18_3ebcg")
 
 [node name="LevelDoor2" parent="YSort/Interactable" instance=ExtResource("14_m6lg1")]
 position = Vector2(185, 11)
-interactable_stats = ExtResource("18_po5je")
+interactable_stats = ExtResource("19_luu1i")
 
 [node name="EntranceDoor" type="Sprite2D" parent="."]
 position = Vector2(78, 260)

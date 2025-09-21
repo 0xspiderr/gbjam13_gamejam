@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="InteractableStats" load_steps=5 format=3 uid="uid://dou44kttwatn5"]
+
+[ext_resource type="Script" uid="uid://bbnwp50rt7iwt" path="res://resources/interactable/interactable_stats.gd" id="1_hnbyl"]
+[ext_resource type="Texture2D" uid="uid://co3n2lqhy5fv1" path="res://assets/tilesets/doors/door-closed-combat.png" id="2_n2bng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2bng"]
+atlas = ExtResource("2_n2bng")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kff5p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2bng")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_hnbyl")
+name = "Level0"
+sprite_frames = SubResource("SpriteFrames_kff5p")
+area_size = Vector2(28, 35)
+collision_size = Vector2(24, 24)
+metadata/_custom_type_script = "uid://bbnwp50rt7iwt"
