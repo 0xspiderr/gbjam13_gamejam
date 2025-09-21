@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=14 format=3 uid="uid://1lrduiupmjwj"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=16 format=3 uid="uid://1lrduiupmjwj"]
 
+[ext_resource type="AudioStream" uid="uid://bdys7qr1qnm4n" path="res://sounds/dialogue/Dialogue1.ogg" id="1_0spy7"]
 [ext_resource type="Script" uid="uid://csmi4c4d5vnwo" path="res://resources/dialogue/dialogue.gd" id="1_jimdc"]
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="2_ia1dc"]
 [ext_resource type="Texture2D" uid="uid://bunyeqwdx6l03" path="res://assets/portraits/coin-wife-angry.png" id="2_no20u"]
 [ext_resource type="Texture2D" uid="uid://f67cgmiwli8w" path="res://assets/portraits/coin-wife-neutral.png" id="2_vyaux"]
 [ext_resource type="Texture2D" uid="uid://dq4g7vb3ov6r4" path="res://assets/sprites/characters/coin-wife-idle.png" id="5_no20u"]
+
+[sub_resource type="Resource" id="Resource_bavbb"]
+script = ExtResource("1_jimdc")
+speaker = "npc"
+emotion = "neutral"
+line = "asdads"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0spy7"]
 atlas = ExtResource("2_no20u")
@@ -74,6 +82,7 @@ script = ExtResource("2_ia1dc")
 name = "wife"
 sprite_frames = SubResource("SpriteFrames_3xs65")
 portraits = SubResource("SpriteFrames_0spy7")
-dialogues = Array[ExtResource("1_jimdc")]([])
-dialogue_options = Array[int]([])
+dialogues = Array[ExtResource("1_jimdc")]([SubResource("Resource_bavbb")])
+dialogue_stream = ExtResource("1_0spy7")
+dialogue_options = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
