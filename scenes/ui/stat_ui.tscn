@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://duj2yhejqwaqh"]
 
-[ext_resource type="Script" uid="uid://c6dlwqagiujdb" path="res://stat_ui.gd" id="1_v6flk"]
+[ext_resource type="Script" uid="uid://c6dlwqagiujdb" path="res://scenes/ui/stat_ui.gd" id="1_v6flk"]
 [ext_resource type="Theme" uid="uid://detj406ixpum0" path="res://ui/themes/general_theme.tres" id="2_v6flk"]
 [ext_resource type="Texture2D" uid="uid://d4f5ff4bo04us" path="res://assets/ui_icons/luck_icon.png" id="3_h32m3"]
 [ext_resource type="Texture2D" uid="uid://bjvyh8ul8phcn" path="res://assets/ui_icons/money-icon.png" id="4_d721n"]
