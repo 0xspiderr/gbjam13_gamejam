@@ -7,24 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://c1c1df6vaowmj" path="res://gambling_minigames/roulette.tscn" id="2_se6ef"]
 [ext_resource type="Texture2D" uid="uid://blulfdwya1ibv" path="res://assets/backdrops/backdrop.png" id="2_svqt3"]
 [ext_resource type="Script" uid="uid://c4llsulbpgil0" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
-[ext_resource type="Texture2D" uid="uid://bahqx0tuyj8bm" path="res://gambling_assets/button.png" id="5_klsr3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_klsr3"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_se6ef"]
 font_size = 20
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_37lws"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_owxbp"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_se6ef"]
 radius = 2.10596
@@ -35,7 +34,11 @@ size = Vector2(15, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_awuun"]
 font_size = 20
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_svqt3"]
+outline_size = 3
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_huas3"]
 outline_size = 3
@@ -230,27 +233,42 @@ label_settings = SubResource("LabelSettings_awuun")
 horizontal_alignment = 1
 
 [node name="Black" type="Button" parent="BetOn"]
-self_modulate = Color(0.0588235, 0.0156863, 0.0588235, 1)
+clip_contents = true
+custom_minimum_size = Vector2(1, 1)
+offset_left = -3.0
 offset_top = 8.0
-offset_right = 24.0
-offset_bottom = 32.0
+offset_right = 27.0
+offset_bottom = 31.0
 mouse_filter = 2
 button_mask = 0
-icon = ExtResource("5_klsr3")
-flat = true
 icon_alignment = 1
 
+[node name="Label" type="Label" parent="BetOn/Black"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 28.0
+offset_bottom = 14.0
+text = "BLACK"
+label_settings = SubResource("LabelSettings_svqt3")
+
 [node name="Pink" type="Button" parent="BetOn"]
-self_modulate = Color(1, 0.54902, 0.729412, 1)
-offset_left = 22.0
+offset_left = 28.0
 offset_top = 8.0
-offset_right = 46.0
+offset_right = 58.0
 offset_bottom = 32.0
 mouse_filter = 2
 button_mask = 0
-icon = ExtResource("5_klsr3")
-flat = true
 icon_alignment = 1
+
+[node name="Label" type="Label" parent="BetOn/Pink"]
+offset_left = 2.405
+offset_top = 1.115
+offset_right = 28.405
+offset_bottom = 14.115
+text = "PINK"
+label_settings = SubResource("LabelSettings_svqt3")
+horizontal_alignment = 1
 
 [node name="BetPanel" type="Node2D" parent="."]
 position = Vector2(90, 40)

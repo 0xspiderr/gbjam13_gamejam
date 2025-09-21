@@ -8,6 +8,7 @@ name = "Dice"
 cost = 240
 stats_to_mod = Dictionary[String, int]({
 "attack": 2,
-"luck": 2
+"luck": 2,
+"speed": 0
 })
 icon_frame = 3

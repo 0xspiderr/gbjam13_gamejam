@@ -25,8 +25,9 @@ func Init(base:Variant):
 	statMods = item.stats_to_mod
 	var y = 4
 	for mod in statMods.keys():
-		AddStatMod(mod,y)
-		y += 13
+		if statMods.get(mod) > 0:
+			AddStatMod(mod,y)
+			y += 13
 	buttons.get_child(0).grab_focus()
 
 func _process(delta: float) -> void:

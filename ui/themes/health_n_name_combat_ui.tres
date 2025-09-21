@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://fgswd6htjv58"]
 
-[ext_resource type="StyleBox" uid="uid://c5ycdn0bw22tc" path="res://ui/themes/stylebox_textures/heart_health_bar.tres" id="1_6yl6v"]
+[ext_resource type="StyleBox" path="res://ui/themes/stylebox_textures/heart_health_bar.tres" id="1_6yl6v"]
 [ext_resource type="StyleBox" uid="uid://3ssh5mmi5crk" path="res://ui/themes/stylebox_textures/health_panel.tres" id="1_fo057"]
-[ext_resource type="StyleBox" uid="uid://3ffs4luai0mx" path="res://ui/themes/stylebox_textures/heart_fill.tres" id="2_fo057"]
+[ext_resource type="StyleBox" path="res://ui/themes/stylebox_textures/heart_fill.tres" id="2_fo057"]
 
 [resource]
 Label/colors/font_color = Color(0.172549, 0, 0.0862745, 1)

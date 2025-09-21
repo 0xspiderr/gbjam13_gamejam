@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvk4uvnid3jaa"
+path="res://.godot/imported/yippee_sound (1).ogg-14b3db24039cbbabbe9b02647960f48b.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/sfx/yippee_sound (1).ogg"
+dest_files=["res://.godot/imported/yippee_sound (1).ogg-14b3db24039cbbabbe9b02647960f48b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
