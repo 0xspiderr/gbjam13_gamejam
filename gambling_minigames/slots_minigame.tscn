@@ -9,23 +9,23 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_vvi6l"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jwqi"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_do5dl"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_egpui"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mrrow"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [node name="SlotsMinigame" type="Node2D"]
 script = ExtResource("1_gubm0")
@@ -62,12 +62,6 @@ offset_right = 160.0
 offset_bottom = 23.0
 text = "Slots"
 label_settings = SubResource("LabelSettings_vvi6l")
-horizontal_alignment = 1
-
-[node name="GameStatus" type="Label" parent="."]
-offset_top = 80.0
-offset_right = 160.0
-offset_bottom = 103.0
 horizontal_alignment = 1
 
 [node name="BetPanel" type="Node2D" parent="."]

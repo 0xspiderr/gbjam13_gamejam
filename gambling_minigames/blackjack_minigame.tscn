@@ -7,23 +7,23 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_81nil"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7vd6g"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8vw1g"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xfhs"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ttp6a"]
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4o5vn"]
 outline_size = 3
@@ -36,7 +36,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_joqlj"]
 line_spacing = 0.0
 outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [node name="BlackJackMinigame" type="Node2D"]
 script = ExtResource("1_7vd6g")

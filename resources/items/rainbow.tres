@@ -7,6 +7,8 @@ script = ExtResource("1_m3hml")
 name = "Rainbow"
 cost = 180
 stats_to_mod = Dictionary[String, int]({
-"luck": 5
+"attack": 0,
+"luck": 5,
+"speed": 0
 })
 icon_frame = 6

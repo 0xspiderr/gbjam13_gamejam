@@ -101,13 +101,13 @@ func _on_open_shop() -> void:
 	var instance = SHOP_SCENE.instantiate()
 	canvas_layer.add_child(instance)
 	instance.find_child("Shop").shop_closed.connect(_on_close_shop)
-	SoundManager.music_stream_player.stop()
+	#SoundManager.music_stream_player.stop()
 
 func _on_close_shop():
 	stat_ui.Show()
 	PlayerData.is_shopping = false
-	SoundManager.music_stream_player.stream = SoundManager.OVERWORLD
-	SoundManager.music_stream_player.play()
+	#SoundManager.music_stream_player.stream = SoundManager.OVERWORLD
+	#SoundManager.music_stream_player.play()
 
 func _get_current_level() -> void:
 	if current_scene.get_child_count():

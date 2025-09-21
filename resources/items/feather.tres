@@ -7,6 +7,7 @@ script = ExtResource("1_t1jvx")
 name = "Feather"
 cost = 170
 stats_to_mod = Dictionary[String, int]({
+"attack": 0,
 "luck": 3,
 "speed": 30
 })
