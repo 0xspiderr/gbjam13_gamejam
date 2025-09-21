@@ -169,9 +169,15 @@ func _draw_card_defence() -> void:
 	if enemy_health <= 0:
 		combat_box.draw_text("",100,false)
 		await combat_box.text_animation_player.animation_finished
-		dialogue_box.draw_text("You feel your luck get better \nyou feel fate smile uppon you (+1 Heart)",2)
+		dialogue_box.draw_text("You feel your\nluck get better",2)
 		await dialogue_box.text_animation_player.animation_finished
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(3).timeout
+		dialogue_box.draw_text(" you feel fate \nsmile uppon you",2)
+		await dialogue_box.text_animation_player.animation_finished
+		await get_tree().create_timer(3).timeout
+		dialogue_box.draw_text("(+1 Heart)",2)
+		await dialogue_box.text_animation_player.animation_finished
+		await get_tree().create_timer(3).timeout
 		enemy_death.emit()
 		
 	dialogue_box.draw_text("",100,false)
