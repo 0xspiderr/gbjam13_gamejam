@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "smug"
-line = "Im talkin’
+line = "Im talkin
 999999999999999999999% "
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
@@ -147,7 +147,7 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "annoyed"
-line = "this can't be"
+line = "this cant be"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_fh151"]

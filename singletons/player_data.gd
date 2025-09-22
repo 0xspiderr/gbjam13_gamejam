@@ -2,7 +2,7 @@ extends Node
 
 
 var max_health: int = 100
-var current_health: int = 40
+var current_health: int = 100
 var extra_health:int = 0
 var speed:float = 100.0
 var extra_speed:float = 0.0

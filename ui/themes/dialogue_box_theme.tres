@@ -8,7 +8,7 @@
 default_font = ExtResource("2_4uyo1")
 Button/colors/font_color = Color(0.984314, 0.980392, 0.921569, 1)
 Button/colors/font_hover_color = Color(0.984314, 0.980392, 0.921569, 1)
-Button/colors/font_outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
+Button/colors/font_outline_color = Color(0.0588235, 0.0156863, 0.0588235, 0)
 Button/colors/font_pressed_color = Color(0.984314, 0.980392, 0.921569, 1)
 Button/constants/icon_max_width = 0
 Button/constants/line_spacing = 0
