@@ -88,7 +88,7 @@ func _on_start_dialogue() -> void:
 	else:
 		dialogue_ui.set_to_theme(false)
 	
-	dialogue_ui.npc_name.text = current_npc.name
+	dialogue_ui.npc_name.text = current_npc.npc_stats.name
 	dialogue_ui.dialogues.assign(current_npc.npc_stats.dialogues)
 	dialogue_ui.npc_sprites.sprite_frames = current_npc.npc_stats.portraits
 	dialogue_ui.dialogue_box.audio_stream_player.stream = current_npc.npc_stats.dialogue_stream
@@ -97,6 +97,7 @@ func _on_start_dialogue() -> void:
 
 func _on_open_shop() -> void:
 	stat_ui.Hide()
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	PlayerData.is_shopping = true
 	var instance = SHOP_SCENE.instantiate()
 	canvas_layer.add_child(instance)

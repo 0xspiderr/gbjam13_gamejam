@@ -85,12 +85,14 @@ func AddPopup(item):
 	popup.Init(item)
 
 func _on_prev_pressed() -> void:
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	if currentPage > 0:
 		currentPage -= 1
 		ClearItems()
 		ShowItems(currentPage * 3)
 
 func _on_next_pressed() -> void:
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	if currentPage < ((item_list.size() / 3) + (0 if item_list.size() % 3 == 0 else 1) -1):
 		currentPage += 1
 		ClearItems()

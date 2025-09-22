@@ -137,6 +137,7 @@ func _draw_card_attack() -> void:
 	if PlayerData.current_health <= 0:
 		combat_box.draw_text("",100,false)
 		await combat_box.text_animation_player.animation_finished
+		SoundManager.play_new_sfx(SoundManager.WOMP_WOMP)
 		dialogue_box.draw_text("Your luck ranout",2)
 		await dialogue_box.text_animation_player.animation_finished
 		await get_tree().create_timer(2).timeout
@@ -169,6 +170,7 @@ func _draw_card_defence() -> void:
 	if enemy_health <= 0:
 		combat_box.draw_text("",100,false)
 		await combat_box.text_animation_player.animation_finished
+		SoundManager.play_new_sfx(SoundManager.YIPPEE)
 		dialogue_box.draw_text("You feel your\nluck get better",2)
 		await dialogue_box.text_animation_player.animation_finished
 		await get_tree().create_timer(2).timeout
@@ -194,6 +196,7 @@ func _draw_card_defence() -> void:
 	_draw_card_anim(player_card_value, enemy_card_value)
 	if player_card_value < enemy_card_value:
 		_enemy_deal_damage()
+		SoundManager.play_new_sfx(SoundManager.HIT)
 	
 	var text := "You drew %s\nenemy drew %s" % [player_card_value, enemy_card_value]
 	dialogue_box.draw_text(text,3)
@@ -207,7 +210,7 @@ func _roll_dice() -> void:
 	roll_dice_sound.play()
 	
 	var first_player_dice_value: int = randi_range(1+floori(PlayerData.luck / 5), 6)
-	var second_player_dice_value: int = randi_range(1, 6)
+	var second_player_dice_value: int = randi_range(1+floori(PlayerData.luck / 5), 6)
 	
 	_play_dice_anim(first_player_dice_value, second_player_dice_value)
 	_button_toggle()
@@ -220,8 +223,10 @@ func _roll_dice() -> void:
 	print(dice_mult)
 	if first_player_dice_value == second_player_dice_value:
 		_player_deal_damage(2 * min(dice_mult, 1))
+		SoundManager.play_new_sfx(SoundManager.CRITICAL_HIT)
 	else:
 		_player_deal_damage(1 * min(dice_mult, 1))
+		SoundManager.play_new_sfx(SoundManager.HIT)
 	_can_interact = true
 
 func _player_deal_damage(mult) -> void:

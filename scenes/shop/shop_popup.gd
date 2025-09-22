@@ -45,14 +45,17 @@ func AddStatMod(mod,y):
 
 func _on_yes_pressed() -> void: # buy item
 	if PlayerData.money >= item_scene.itemStats.cost:
+		SoundManager.play_new_sfx(SoundManager.YIPPEE)
 		PlayerData.money -= item_scene.itemStats.cost
 		item_scene.Equip()
 		get_parent().popupOpen = false
 		self.queue_free()
 	else:
+		SoundManager.play_new_sfx(SoundManager.WOMP_WOMP)
 		buy_for_cost.text = "Not enough coins!"
 
 
 func _on_no_pressed() -> void: # do not buy
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	get_parent().popupOpen = false
 	self.queue_free()

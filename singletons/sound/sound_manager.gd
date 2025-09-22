@@ -17,6 +17,11 @@ extends Node
 @onready var DIALOGUE_1 = preload("res://sounds/dialogue/Dialogue1.ogg")
 @onready var DIALOGUE_2 = preload("res://sounds/dialogue/Dialogue2.ogg")
 @onready var DIALOGUE_3 = preload("res://sounds/dialogue/Dialogue3.ogg")
+@onready var HIT = preload("res://sounds/sfx/HitSound1.ogg")
+@onready var CRITICAL_HIT = preload("res://sounds/sfx/HitSound2.ogg")
+@onready var YIPPEE = preload("res://sounds/sfx/yippee_sound (1).ogg")
+@onready var WOMP_WOMP = preload("res://sounds/sfx/BrokenMirrorSoundEffect.ogg")
+@onready var CLICK = preload("res://sounds/sfx/click.mp3")
 #endregion
 
 
@@ -29,6 +34,9 @@ func change_music_stream(music) -> void:
 	music_stream_player.stream = stream
 	music_stream_player.play()
 
+func play_new_sfx(sound) -> void:
+	sfx_stream_player.stream = sound
+	sfx_stream_player.play()
 
 func randomize_pitch_scale(audio_stream: AudioStreamPlayer) -> void:
 	randomize()

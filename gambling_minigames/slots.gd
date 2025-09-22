@@ -32,7 +32,6 @@ func ResetSlots(array):
 	winMultiplier = null
 
 func RollSlot():
-	audio_stream_player.play()
 	if slotsRefreshArray[currSlotIndex] > 0: # cosmetic roll
 		var value = randi_range(1,7)
 		while value == slotsArray[currSlotIndex].value:
@@ -60,8 +59,13 @@ func CheckSlots():
 					winMultiplier = 0 # change from null
 				winMultiplier += slotsArray[ind1].value
 	if winMultiplier != null: # at least 1 combo (yes even the dumbass broken mirror)
+		if winMultiplier == 0: #broken mirror
+			SoundManager.play_new_sfx(SoundManager.WOMP_WOMP)
+		else:
+			SoundManager.play_new_sfx(SoundManager.YIPPEE)
 		UpdateState(2)
 	else:
+		SoundManager.play_new_sfx(SoundManager.WOMP_WOMP)
 		UpdateState(3)
 
 

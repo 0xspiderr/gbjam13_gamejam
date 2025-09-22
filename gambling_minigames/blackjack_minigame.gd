@@ -56,20 +56,20 @@ func _process(delta: float) -> void:
 
 
 func _on_raise_pressed() -> void:
-	audio_stream_player.play()
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	
 	if moneyToBet < 100:
 		UpdateBet(moneyToBet + 5)
 
 func _on_lower_pressed() -> void:
-	audio_stream_player.play()
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	
 	if moneyToBet > 5:
 		UpdateBet(moneyToBet - 5)
 
 
 func _on_play_pressed() -> void:
-	audio_stream_player.play()
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	
 	if moneyToBet <= totalMoney:
 		UpdateTotal(totalMoney - moneyToBet)
@@ -85,7 +85,7 @@ func _on_play_pressed() -> void:
 			blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80)
 
 func _on_try_again_pressed() -> void:
-	audio_stream_player.play()
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	
 	tryAgain.disabled = true
 	midGame.visible = false
@@ -95,12 +95,13 @@ func _on_try_again_pressed() -> void:
 	SetFocus(0)
 
 
-func _on_hit_pressed() -> void:
+func _on_hit_pressed() -> void: 
+	# already plays flip card - click sound is unnecessary
 	if blackjackEngine.playerCardList.size() < blackjackEngine.maxHandSize:
 		blackjackEngine.DealCard(32 * blackjackEngine.playerCardList.size() + 17, 80) 
 
 func _on_stand_pressed() -> void:
-	audio_stream_player.play()
+	SoundManager.play_new_sfx(SoundManager.CLICK)
 	blackjackEngine.UpdateState(2) # skip to dealer
 
 func _on_cooldown_timer_timeout() -> void:
@@ -120,8 +121,8 @@ func _on_state_changed() -> void:
 		2:
 			gameStatus.text = "DEALER'S TURN"
 			var playButtons = midGame.find_child("PlayButtons")
-			playButtons.find_child("Hit").disabled = false
-			playButtons.find_child("Stand").disabled = false
+			playButtons.find_child("Hit").disabled = true
+			playButtons.find_child("Stand").disabled = true
 			cooldownTimer.start()
 		3:
 			gameStatus.text = "WIN"
@@ -131,6 +132,7 @@ func _on_state_changed() -> void:
 			playButtons.find_child("Hit").disabled = true
 			playButtons.find_child("Stand").disabled = true
 			tryAgain.disabled = false
+			SoundManager.play_new_sfx(SoundManager.YIPPEE)
 		4:
 			gameStatus.text = "DEALER WIN"
 			tryAgain.disabled = false
@@ -138,6 +140,7 @@ func _on_state_changed() -> void:
 			playButtons.find_child("Hit").disabled = true
 			playButtons.find_child("Stand").disabled = true
 			tryAgain.disabled = false
+			SoundManager.play_new_sfx(SoundManager.WOMP_WOMP)
 		5:
 			gameStatus.text = "BUST"
 			tryAgain.disabled = false
@@ -145,6 +148,7 @@ func _on_state_changed() -> void:
 			playButtons.find_child("Hit").disabled = true
 			playButtons.find_child("Stand").disabled = true
 			tryAgain.disabled = false
+			SoundManager.play_new_sfx(SoundManager.WOMP_WOMP)
 		6:
 			gameStatus.text = "DEALER BUST"
 			UpdateTotal(totalMoney + 5 * moneyToBet)
@@ -153,3 +157,4 @@ func _on_state_changed() -> void:
 			playButtons.find_child("Hit").disabled = true
 			playButtons.find_child("Stand").disabled = true
 			tryAgain.disabled = false
+			SoundManager.play_new_sfx(SoundManager.YIPPEE)

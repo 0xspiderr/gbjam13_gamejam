@@ -11,4 +11,4 @@ stats_to_mod = Dictionary[String, int]({
 "luck": 7,
 "speed": 0
 })
-icon_frame = 0
+icon_frame = 7
