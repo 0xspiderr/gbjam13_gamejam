@@ -83,7 +83,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_8d0qg")
-name = "Npc 4"
+name = "Gale"
 sprite_frames = SubResource("SpriteFrames_ex3wa")
 portraits = SubResource("SpriteFrames_2tu07")
 dialogues = Array[ExtResource("2_2tu07")]([SubResource("Resource_gmimq"), SubResource("Resource_dxqkk"), SubResource("Resource_ex3wa")])

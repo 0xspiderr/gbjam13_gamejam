@@ -170,7 +170,7 @@ animations = [{
 
 [resource]
 script = ExtResource("2_6nn6k")
-name = "Cat"
+name = "Black Cat"
 portraits = SubResource("SpriteFrames_gv82b")
 dialogues = Array[ExtResource("1_fcb2t")]([SubResource("Resource_6d4ds"), SubResource("Resource_32gmt"), SubResource("Resource_ul58w"), SubResource("Resource_gv82b"), SubResource("Resource_jx441"), SubResource("Resource_p6fbi"), SubResource("Resource_yi01j"), SubResource("Resource_roqkg"), SubResource("Resource_d8pto"), SubResource("Resource_b1ghk"), SubResource("Resource_5p62e"), SubResource("Resource_k7cij"), SubResource("Resource_yqbc6"), SubResource("Resource_cpw0j"), SubResource("Resource_cahvv"), SubResource("Resource_uq7vu"), SubResource("Resource_mo21p"), SubResource("Resource_twcpr")])
 dialogue_stream = ExtResource("1_6d4ds")
