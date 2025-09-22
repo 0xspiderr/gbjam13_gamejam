@@ -15,11 +15,8 @@ func Init(roulette_wheel, roulette_arrow):
 	arrow = roulette_arrow
 	arrow.Init(wheel)
 
-func ToggleColor():
-	if color == 0:
-		color = 1
-	else:
-		color = 0
+func ToggleColor(col):
+	color = col
 	emit_signal("toggle_color")
 
 func ReturnToggleColor():

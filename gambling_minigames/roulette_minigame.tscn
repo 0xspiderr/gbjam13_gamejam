@@ -33,7 +33,7 @@ size = Vector2(15, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_awuun"]
 font_size = 20
-outline_size = 3
+outline_size = 5
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_svqt3"]
@@ -134,13 +134,13 @@ texture = ExtResource("1_ca0yt")
 [node name="CollisionPoints" type="Node2D" parent="Roulette"]
 
 [node name="Slice" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_pink"]]
-position = Vector2(16, -2)
+position = Vector2(15.4333, -3.175)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice"]
 shape = SubResource("CircleShape2D_se6ef")
 
 [node name="Slice2" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_black"]]
-position = Vector2(13, -10)
+position = Vector2(12.1, -9.84167)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice2"]
 shape = SubResource("CircleShape2D_se6ef")
@@ -194,13 +194,13 @@ position = Vector2(3, 16)
 shape = SubResource("CircleShape2D_se6ef")
 
 [node name="Slice11" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_pink"]]
-position = Vector2(12, 12)
+position = Vector2(11.2667, 11.825)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice11"]
 shape = SubResource("CircleShape2D_se6ef")
 
 [node name="Slice12" type="Area2D" parent="Roulette/CollisionPoints" groups=["roulette_slice_black"]]
-position = Vector2(16, 4)
+position = Vector2(16.2667, 4.325)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roulette/CollisionPoints/Slice12"]
 shape = SubResource("CircleShape2D_se6ef")
@@ -225,12 +225,20 @@ position = Vector2(5, 110)
 
 [node name="Text" type="Label" parent="BetOn"]
 offset_left = 2.0
-offset_top = -11.0
-offset_right = 39.0
-offset_bottom = 6.0
+offset_top = -25.0
+offset_right = 45.0
+offset_bottom = -8.0
 text = "Bet on:"
 label_settings = SubResource("LabelSettings_awuun")
 horizontal_alignment = 1
+
+[node name="CurrentColor" type="Label" parent="BetOn"]
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 59.0
+offset_bottom = 3.0
+text = " color: pink"
+label_settings = SubResource("LabelSettings_svqt3")
 
 [node name="Black" type="Button" parent="BetOn"]
 clip_contents = true
@@ -262,6 +270,7 @@ button_mask = 0
 icon_alignment = 1
 
 [node name="Label" type="Label" parent="BetOn/Pink"]
+layout_mode = 0
 offset_left = 2.405
 offset_top = 1.115
 offset_right = 28.405

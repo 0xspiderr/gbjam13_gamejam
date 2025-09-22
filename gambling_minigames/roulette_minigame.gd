@@ -10,6 +10,7 @@ var blackButton
 var pinkButton
 var rouletteEngine
 var gameStatus
+var currentColor
 var buttonList
 var currentButton:int
 
@@ -33,10 +34,18 @@ func _ready() -> void:
 	gameStatus = $Status
 	buttonList = [blackButton, pinkButton, playButton, betAdjust.find_child("Raise"), betAdjust.find_child("Lower")]
 	currentButton = 0
-	blackButton.disabled = true
+	currentColor = $BetOn/CurrentColor
+	UpdateColorText(0)
 	UpdateBet(5)
 	UpdateTotal(PlayerData.money)
 	rouletteEngine.Init($Roulette, $Arrow)
+
+func UpdateColorText(col):
+	match col:
+		0:
+			currentColor.text = "Color: black"
+		1:
+			currentColor.text = "Color: pink"
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("left"):
@@ -104,17 +113,23 @@ func _on_state_changed() -> void:
 func _on_black_pressed() -> void:
 	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
 	SoundManager.sfx_stream_player.play()
-	rouletteEngine.ToggleColor()
+	rouletteEngine.ToggleColor(0)
 	pinkButton.disabled = false
 	blackButton.disabled = true
+	blackButton.button_pressed = true
+	pinkButton.button_pressed = false
+	UpdateColorText(0)
 
 
 func _on_pink_pressed() -> void:
 	SoundManager.sfx_stream_player.stream = SoundManager.FLIP_CARD
 	SoundManager.sfx_stream_player.play()
-	rouletteEngine.ToggleColor()
+	rouletteEngine.ToggleColor(1)
 	pinkButton.disabled = true
 	blackButton.disabled = false
+	pinkButton.button_pressed = true
+	blackButton.button_pressed = false
+	UpdateColorText(1)
 
 
 func _on_sfx_cooldown_timeout() -> void:
