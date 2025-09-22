@@ -122,4 +122,4 @@ position = Vector2(47, -12)
 interactable_stats = ExtResource("11_lgguw")
 
 [node name="Player" parent="." instance=ExtResource("3_dd0lh")]
-position = Vector2(788, 535)
+position = Vector2(76, 86)

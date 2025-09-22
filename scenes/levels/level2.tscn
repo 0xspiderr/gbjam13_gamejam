@@ -69,7 +69,7 @@ stats = ExtResource("7_hgky1")
 _player = NodePath("../../Player")
 
 [node name="Enemy13" parent="Enemies" node_paths=PackedStringArray("_player") instance=ExtResource("3_hgky1")]
-position = Vector2(491, 533)
+position = Vector2(485, 539)
 stats = ExtResource("11_bxuut")
 _player = NodePath("../../Player")
 

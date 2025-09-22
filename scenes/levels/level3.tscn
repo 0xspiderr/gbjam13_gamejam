@@ -40,7 +40,7 @@ npc_stats = ExtResource("5_frjko")
 _player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("5_fkk1g")]
-position = Vector2(99, 74)
+position = Vector2(78, 100)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
