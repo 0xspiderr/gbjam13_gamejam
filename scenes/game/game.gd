@@ -148,7 +148,7 @@ func _change_level_scene(scene: PackedScene) -> void:
 #region COMBAT SIGNALS
 func _on_start_combat(enemy: Enemy) -> void:
 	stat_ui.Hide()
-	PlayerData.toggle_is_in_combat()
+	PlayerData.is_in_combat = true
 	current_enemy = enemy
 
 	scene_transition.set_rect_color(true)
@@ -206,7 +206,7 @@ func _on_dialogue_finished() -> void:
 
 
 func _on_player_death() -> void:
-	canvas_layer.get_child(3).queue_free()
+	canvas_layer.get_child(4).queue_free()
 	current_scene.get_child(0).queue_free()
 	current_scene.add_child(LEVEL_0.instantiate())
 	PlayerData.current_health =(PlayerData.max_health + PlayerData.extra_health)
@@ -217,29 +217,27 @@ func _on_player_death() -> void:
 	stat_ui.Show()
 	
 func _on_enemy_death() -> void:
-	if not is_instance_valid(current_enemy):
-		return
-	
 	if current_enemy.stats.name == "stair":
 		PlayerData.keys_obtained = 1
 		stat_ui.ShowKey(PlayerData.keys_obtained)
 	elif current_enemy.stats.name == "broken mirror":
 		PlayerData.keys_obtained = 2
 		stat_ui.ShowKey(PlayerData.keys_obtained)
-	canvas_layer.get_child(3).queue_free()
-	current_enemy = null
+	canvas_layer.get_child(4).queue_free()
+	current_enemy.queue_free()
 	PlayerData.money=PlayerData.money+randi_range(10,50)+floori(randi_range(0,10)*PlayerData.luck)
 	PlayerData.current_health = min(PlayerData.current_health + 20, PlayerData.max_health)
 	SoundManager.change_music_stream(SoundManager.COMBAT_LEVEL)
 	PlayerData.is_in_combat = false
 	stat_ui.Show()
 
+
 func _on_end_combat() -> void:
-	PlayerData.is_in_combat = false
+	PlayerData.toggle_is_in_combat()
 	# after the combat has ended make the current level visible again
 	current_level.visible = true
 	# free the enemy when ending combat
-	current_enemy = null
+	current_enemy.queue_free()
 	
 	# remove the combat scene
 	for child in canvas_layer.get_children():
@@ -279,11 +277,11 @@ func _check_can_enter_level() -> bool:
 			PlayerData.is_talking = true
 			if needed_keys == 1:
 				panel.show()
-				dialogue_box.draw_text("I need the first key\n to enter")
+				dialogue_box.draw_text("I need a key\n to enter")
 				await get_tree().create_timer(1.5).timeout
 			elif needed_keys == 2:
 				panel.show()
-				dialogue_box.draw_text("I need the second key\n to enter")
+				dialogue_box.draw_text("I need two keys\n to enter")
 				await get_tree().create_timer(1.5).timeout
 			
 			PlayerData.can_interact = false
