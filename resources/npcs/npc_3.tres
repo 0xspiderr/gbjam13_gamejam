@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NpcStats" load_steps=16 format=3 uid="uid://j18y6xpluomp"]
+[gd_resource type="Resource" script_class="NpcStats" load_steps=19 format=3 uid="uid://j18y6xpluomp"]
 
 [ext_resource type="AudioStream" uid="uid://3y53u4e8k6l3" path="res://sounds/dialogue/Dialogue3.ogg" id="1_fokrg"]
 [ext_resource type="Script" uid="uid://c6dabu5biw7gj" path="res://resources/npcs/npc_stats.gd" id="1_ooidi"]
@@ -25,7 +25,31 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("2_y1bve")
 speaker = "npc"
 emotion = "neutral"
-line = "He won with a hand of 26 "
+line = "One time he won at blackjack
+with a hand of 26 "
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_ujwub"]
+script = ExtResource("2_y1bve")
+speaker = "npc"
+emotion = "annoyed"
+line = "And this other time he just
+played an uno +4 card"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_y5g8g"]
+script = ExtResource("2_y1bve")
+speaker = "npc"
+emotion = "annoyed"
+line = "and apparently it let him 
+win instantly!"
+metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
+
+[sub_resource type="Resource" id="Resource_xoxme"]
+script = ExtResource("2_y1bve")
+speaker = "npc"
+emotion = "annoyed"
+line = "Who even does that?!!"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2e6br"]
@@ -84,7 +108,7 @@ script = ExtResource("1_ooidi")
 name = "Sam"
 sprite_frames = SubResource("SpriteFrames_2e6br")
 portraits = SubResource("SpriteFrames_y1bve")
-dialogues = Array[ExtResource("2_y1bve")]([SubResource("Resource_mvpnq"), SubResource("Resource_83c7i"), SubResource("Resource_2e6br")])
+dialogues = Array[ExtResource("2_y1bve")]([SubResource("Resource_mvpnq"), SubResource("Resource_83c7i"), SubResource("Resource_2e6br"), SubResource("Resource_ujwub"), SubResource("Resource_y5g8g"), SubResource("Resource_xoxme")])
 dialogue_stream = ExtResource("1_fokrg")
 dialogue_options = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
