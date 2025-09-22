@@ -38,7 +38,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "DISCLAIMER:
-This game in no way endorses gambling. Any resemblance to real gambling is coincidental. This game is satire, please don't gamble or bet your wife - find safer hobbies like competitive napping. "
+This game in no way endorses gambling. Any resemblance to real gambling is coincidental. This game is satire, please dont gamble or bet your wife - find safer hobbies like competitive napping. "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

@@ -13,6 +13,9 @@ config_version=5
 config/name="GBJAM13_gamejam"
 run/main_scene="uid://dpiulyvu5tl24"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
