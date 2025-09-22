@@ -81,14 +81,14 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "neutral"
-line = "… no chips left, huh?"
+line = "No chips left, huh?"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_tue3k"]
 script = ExtResource("1_rufyd")
 speaker = "player"
 emotion = "annoyed"
-line = "@%$^ it! Ill bet my last coin!"
+line = "$%$^ it! Ill bet my last coin!"
 metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 
 [sub_resource type="Resource" id="Resource_rufyd"]
@@ -198,6 +198,6 @@ metadata/_custom_type_script = "uid://csmi4c4d5vnwo"
 [resource]
 script = ExtResource("2_2iluc")
 name = "someone"
-dialogues = Array[ExtResource("1_rufyd")]([SubResource("Resource_2iluc"), SubResource("Resource_fvs4a"), SubResource("Resource_hdpe7"), SubResource("Resource_agx3g"), SubResource("Resource_ugoqm"), SubResource("Resource_aokus"), SubResource("Resource_mrd8b"), SubResource("Resource_h6lml"), SubResource("Resource_ugycm"), SubResource("Resource_kdevd"), SubResource("Resource_22wwr"), SubResource("Resource_tue3k"), SubResource("Resource_rufyd"), SubResource("Resource_68nnt"), SubResource("Resource_hrcmh"), SubResource("Resource_v6cdq"), SubResource("Resource_whw56"), SubResource("Resource_wswb1"), SubResource("Resource_cmn2c"), SubResource("Resource_j6om6"), SubResource("Resource_j454a"), SubResource("Resource_fh151"), SubResource("Resource_wu83v"), SubResource("Resource_cu52n"), SubResource("Resource_i30kg"), SubResource("Resource_21mdq")])
+dialogues = Array[ExtResource("1_rufyd")]([SubResource("Resource_2iluc"), SubResource("Resource_fvs4a"), SubResource("Resource_hdpe7"), SubResource("Resource_agx3g"), SubResource("Resource_ugoqm"), SubResource("Resource_aokus"), SubResource("Resource_mrd8b"), SubResource("Resource_h6lml"), SubResource("Resource_ugycm"), SubResource("Resource_kdevd"), SubResource("Resource_22wwr"), SubResource("Resource_tue3k"), SubResource("Resource_rufyd"), SubResource("Resource_68nnt"), SubResource("Resource_hrcmh"), SubResource("Resource_v6cdq"), SubResource("Resource_whw56"), SubResource("Resource_wswb1"), SubResource("Resource_cmn2c"), SubResource("Resource_j6om6"), SubResource("Resource_j454a"), SubResource("Resource_fh151"), SubResource("Resource_wu83v"), SubResource("Resource_cu52n"), SubResource("Resource_i30kg"), SubResource("Resource_21mdq"), null])
 dialogue_options = Array[int]([])
 metadata/_custom_type_script = "uid://c6dabu5biw7gj"
