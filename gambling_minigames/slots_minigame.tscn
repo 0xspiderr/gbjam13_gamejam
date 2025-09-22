@@ -12,18 +12,22 @@ outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0jwqi"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_do5dl"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_egpui"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mrrow"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 

@@ -6,14 +6,17 @@
 [ext_resource type="AudioStream" uid="uid://cr0xvseab1ygj" path="res://sounds/sfx/FlipCard.ogg" id="4_pdxap"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81nil"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7vd6g"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8vw1g"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
@@ -26,15 +29,18 @@ outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4o5vn"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_v1g0t"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_joqlj"]
 line_spacing = 0.0
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 

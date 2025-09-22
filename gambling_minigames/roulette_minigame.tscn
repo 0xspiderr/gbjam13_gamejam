@@ -9,19 +9,23 @@
 [ext_resource type="Script" uid="uid://c4llsulbpgil0" path="res://gambling_minigames/roulette_arrow.gd" id="5_hb88k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_klsr3"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_se6ef"]
 font_size = 20
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_37lws"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_owxbp"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
@@ -33,14 +37,17 @@ size = Vector2(15, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_awuun"]
 font_size = 20
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 5
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_svqt3"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0.0588235, 0.0156863, 0.0588235, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_huas3"]
+font_color = Color(0.984314, 0.980392, 0.921569, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
