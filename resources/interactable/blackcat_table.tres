@@ -45,4 +45,5 @@ name = "BlackcatTable"
 sprite_frames = SubResource("SpriteFrames_ff0cq")
 area_size = Vector2(20, 20)
 collision_size = Vector2(40, 20)
+needs_keys = 0
 metadata/_custom_type_script = "uid://bbnwp50rt7iwt"
